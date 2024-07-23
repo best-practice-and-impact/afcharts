@@ -1,4 +1,4 @@
-url: https://scotgovanalysis.github.io/sgplot
+url: https://scotgovanalysis.github.io/afcharts
 
 template:
   bootstrap: 5
@@ -17,15 +17,15 @@ authors:
     <a href='https://github.com/alice-hannah'>\
     <i class='fab fa-github' aria-hidden='true'></i>\
     <span class='visually-hidden'>Alice Hannah GitHub profile></span></a>"
-  Scottish Government:
-    html: "Scottish Government&nbsp;&nbsp;\
-    <a href='mailto:statistics.enquiries@gov.scot'>\
+  Government Analysis Function:
+    html: "Government Analysis Function&nbsp;&nbsp;\
+    <a href='mailto:Analysis.Function@ons.gov.uk'>\
     <i class='fas fa-envelope' aria-hidden='true'></i>\
-    <span class='visually-hidden'>Email Scottish Government></span></a>\
+    <span class='visually-hidden'>Email Analysis Functiont></span></a>\
     &nbsp;&nbsp;\
-    <a href='https://github.com/scotgovanalysis'>\
+    <a href='https://github.com/best-practice-and-impact'>\
     <i class='fab fa-github' aria-hidden='true'></i>\
-    <span class='visually-hidden'>Scottish Government GitHub profile></span>\
+    <span class='visually-hidden'>Analysis Function GitHub profile></span>\
     </a>"
   sidebar:
     roles: [cre, aut]
@@ -55,11 +55,11 @@ reference:
 
 - title: Set defaults
   contents:
-  - use_sgplot
+  - use_afcharts
 
 - title: Style
   contents:
-  - theme_sg
+  - theme_af
 
 - title: Colours
   contents:
@@ -67,7 +67,6 @@ reference:
 
 - title: Colour values
   contents:
-  - starts_with("sg_colour")
   - starts_with("af_colour")
 
 - title: Helpers

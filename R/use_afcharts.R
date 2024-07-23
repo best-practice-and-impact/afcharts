@@ -1,11 +1,11 @@
-#' @title Use sgplot defaults.
+#' @title Use afcharts defaults.
 #'
-#' @description Set sgplot theme, colour palette and geom aesthetic
-#' defaults for ggplot2 charts.
+#' @description Set afcharts theme, colour palette and geom aesthetic defaults
+#'   for ggplot2 charts.
 #'
-#' @param default_colour Default colour/fill for geoms. Default value is
-#' 'blue' from \code{sgplot::sg_colour_values}.
-#' @param ... Arguments passed to \code{sgplot::theme_sg()}.
+#' @param default_colour Default colour/fill for geoms. Default value is 'blue'
+#'   from `af_colour_values`.
+#' @param ... Arguments passed to `theme_af()`.
 #'
 #' @examples
 #' library(ggplot2)
@@ -15,7 +15,7 @@
 #' ggplot(d, aes(x = model)) + geom_bar()
 #' ggplot(d, aes(x = model, fill = class)) + geom_bar()
 #'
-#' use_sgplot()
+#' use_afcharts()
 #'
 #' ggplot(d, aes(x = model)) + geom_bar()
 #' ggplot(d, aes(x = model, fill = class, colour = class)) + geom_bar()
@@ -23,22 +23,22 @@
 #' @export
 
 
-use_sgplot <- function(default_colour = sgplot::sg_colour_values["dark-blue"],
+use_afcharts <- function(default_colour = af_colour_values["dark-blue"],
                        ...) {
 
-  # Use sgplot theme ----
+  # Use afcharts theme ----
 
-  ggplot2::theme_set(theme_sg(...))
+  ggplot2::theme_set(theme_af(...))
 
-  cli::cli_alert_info("Default ggplot2 theme set to `theme_sg`.")
+  cli::cli_alert_info("Default ggplot2 theme set to `theme_af`.")
 
 
-  # Use sgplot colour palette ----
+  # Use use_afcharts colour palette ----
 
-  options(ggplot2.continuous.fill = scale_fill_continuous_sg,
-          ggplot2.continuous.colour = scale_colour_continuous_sg,
-          ggplot2.discrete.fill = scale_fill_discrete_sg,
-          ggplot2.discrete.colour = scale_colour_discrete_sg)
+  options(ggplot2.continuous.fill = scale_fill_continuous_af,
+          ggplot2.continuous.colour = scale_colour_continuous_af,
+          ggplot2.discrete.fill = scale_fill_discrete_af,
+          ggplot2.discrete.colour = scale_colour_discrete_af)
 
   cli::cli_alert_info("Default colours set.")
 
@@ -46,9 +46,9 @@ use_sgplot <- function(default_colour = sgplot::sg_colour_values["dark-blue"],
   # Set default geom characteristics ----
 
   # Get default base sizes used in theme
-  default <- formals(theme_sg)
+  default <- formals(theme_af)
 
-  # Replace default values with those passed to use_sgplot
+  # Replace default values with those passed to use_afcharts
   for (i in length(list(...))) {
     default <- replace(default, i, list(...)[i])
   }

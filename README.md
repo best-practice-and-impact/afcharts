@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# sgplot <img src="man/figures/logo.svg" alt="sgplot logo" align="right" height="150"/>
+# afcharts <img src="man/figures/logo.svg" alt="afcharts logo" align="right" height="150"/>
 
 <!-- badges: start -->
 
@@ -12,55 +12,28 @@ status](https://github.com/ScotGovAnalysis/sgplot/workflows/R-CMD-check/badge.sv
 
 <!-- badges: end -->
 
-sgplot is an R package for creating accessible plots in the Scottish
+afcharts is an R package for creating accessible plots in the UK
 Government. Currently, functions are available for styling ggplot2
 plots.
 
 The package has been developed using the [Government Analysis Function
 Data Visualisation
-guidance](https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-charts/)
-and uses accessible colour palettes from the [Scottish Government Design
-System](https://designsystem.gov.scot/guidance/charts/data-visualisation-colour-palettes).
-sgplot should be used in conjunction with these guidance documents.
+guidance](https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-charts/).
+afcharts should be used in conjunction with these guidance documents.
 
 More information about the package and its functions can be found on the
-[sgplot website](https://ScotGovAnalysis.github.io/sgplot). In
+[afcharts website](https://ScotGovAnalysis.github.io/sgplot). In
 particular, the
 [cookbook](https://ScotGovAnalysis.github.io/sgplot/articles/cookbook.html)
-contains lots of examples. Slides are also available for an internal
-[presentation given to statisticians and
-analysts](https://alice-hannah.github.io/presentations-and-blogs/2023-06-19_sgplot/slides.html).
+contains lots of examples.
 
 ## Installation
 
-If you are working within the Scottish Government network, you can
-install sgplot in the same way as with other R packages. The easiest way
-to do this is by using the
-[pkginstaller](https://github.com/ScotGovAnalysis/pkginstaller/tree/main)
-add-in. Further guidance is available on
-[eRDM](https://erdm.scotland.gov.uk:8443/documents/A42404229/details).
-
-Alternatively, sgplot can be installed directly from GitHub. Note that
-this method requires the remotes package and may not work from within
-the Scottish Government network.
+afcharts can be installed directly from GitHub.
 
 ``` r
 remotes::install_github(
-  "ScotGovAnalysis/sgplot",
-  upgrade = "never",
-  build_vignettes = TRUE
-)
-```
-
-Finally, sgplot can also be installed by downloading the [zip of the
-repository](https://github.com/ScotGovAnalysis/sgplot/archive/main.zip)
-and running the following code, replacing the section marked `<>`
-(including the arrows themselves) with the location of the downloaded
-zip:
-
-``` r
-remotes::install_local(
-  "<FILEPATH OF ZIPPED FILE>/sgplot-main.zip",
+  "best-practice-and-impact/afcharts",
   upgrade = "never",
   build_vignettes = TRUE
 )
@@ -68,10 +41,10 @@ remotes::install_local(
 
 ## Getting Started
 
-Once installed, sgplot can be loaded using the `library()` function:
+Once installed, afcharts can be loaded using the `library()` function:
 
 ``` r
-library(sgplot)
+library(afcharts)
 ```
 
 Help files for each function in the package can be found on the
@@ -80,15 +53,15 @@ the package website. Alternatively, type `?function_name` into the
 RStudio console. For example:
 
 ``` r
-?theme_sg()
+?theme_af()
 ```
 
-### Use sgplot as default
+### Use afcharts as default
 
-The easiest way to use sgplot is by adding `use_sgplot()` to the
+The easiest way to use afcharts is by adding `use_afcharts()` to the
 beginning of your R script, Rmarkdown document or Shiny app code. This
-function will set a number of defaults to ggplot2 geoms, use sgplot
-colour palettes and use `theme_sg()`.
+function will set a number of defaults to ggplot2 geoms, use afcharts
+colour palettes and use `theme_af()`.
 
 #### Example 1: Plot with one colour using ggplot2 defaults
 
@@ -96,6 +69,7 @@ colour palettes and use `theme_sg()`.
 library(ggplot2)
 library(dplyr)
 library(gapminder)
+library(afcharts)
 
 gapminder |> 
   filter(year == 2007 & continent == "Europe") |>
@@ -114,10 +88,10 @@ gapminder |>
 
 <img src="man/figures/README-ex1-1.svg" alt="A bar chart with grey background, white grid lines and dark grey bars."  />
 
-#### Example 2: Plot with one colour using sgplot defaults
+#### Example 2: Plot with one colour using afcharts defaults
 
 ``` r
-sgplot::use_sgplot()
+afcharts::use_afcharts()
 
 gapminder |> 
   filter(year == 2007 & continent == "Europe") |>
@@ -140,9 +114,7 @@ gapminder |>
 and captions have been embedded in these example charts for
 demonstration purposes. However, for accessibility reasons, it is
 usually preferable to provide titles in the body of the page rather than
-embedded within the image of the plot. More information is available in
-the [accessibility
-article](https://ScotGovAnalysis.github.io/sgplot/articles/accessibility.html#other-accessibility-considerations).
+embedded within the image of the plot.
 
 ## Licence
 

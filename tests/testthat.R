@@ -1,4 +1,4 @@
 library(testthat)
-library(sgplot)
+library(afcharts)
 
-test_check("sgplot")
+test_check("afcharts")
