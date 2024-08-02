@@ -4,9 +4,9 @@
 \name{afcharts-package}
 \alias{afcharts}
 \alias{afcharts-package}
-\title{afcharts: Graphic Styles and Colours for UK Government Analysis Function}
+\title{afcharts: Graphic Styles and Colours for Government Analysis Function}
 \description{
-Standard ggplot theme and colour palettes for use in UK Government.
+Standard ggplot theme and colour palettes for use by the Government Analysis Function.
 }
 \seealso{
 Useful links:

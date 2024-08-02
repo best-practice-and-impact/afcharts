@@ -12,9 +12,9 @@ status](https://github.com/best-practice-and-impact/afcharts/workflows/R-CMD-che
 
 <!-- badges: end -->
 
-afcharts is an R package for creating accessible plots in the UK
-Government. Currently, functions are available for styling ggplot2
-plots.
+afcharts is an R package for creating accessible plots by the Government
+Analysis Function. Currently, functions are available for styling
+ggplot2 plots.
 
 The package has been developed using the [Government Analysis Function
 Data Visualisation

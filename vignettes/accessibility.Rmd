@@ -49,7 +49,7 @@ By applying `theme_af` to ggplot2 plots, the following best practice is followed
 
 * Line thickness is relative to font size.
 
-afcharts provides colour palettes as set out by the [Analysis Function Colour Guidance](https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-colours-in-charts/). 
+afcharts provides colour palettes as set out by the [Government Analysis Function Colour Guidance](https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-colours-in-charts/). 
 These palettes have been developed to meet the [Web Content Accessibility Guidelines 2.1 for graphical objects](https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html) and can be applied to charts by using one of the four colour/fill functions:
 
 * `scale_colour_discrete_af()`
@@ -62,7 +62,7 @@ More information on afcharts colours can be found at `vignette("colours")`.
 
 ## Other accessibility considerations
 
-Using afcharts does not guarantee accessibility. The Analysis Function [chart guidance](https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-charts) contains detailed information on other considerations that should be made. 
+Using afcharts does not guarantee accessibility. The Government Analysis Function [chart guidance](https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-charts) contains detailed information on other considerations that should be made. 
 Not all of these are repeated here, but we think the following are a good place to start:
 
 * Consider what type of chart is best to convey your message. Keep it as simple as possible.

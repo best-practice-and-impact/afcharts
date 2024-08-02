@@ -1,12 +1,12 @@
 Package: afcharts
-Title: Graphic Styles and Colours for UK Government Analysis Function
+Title: Graphic Styles and Colours for Government Analysis Function
 Version: 0.0.0.9000
 Authors@R: c(
     person("Government Analysis Function", , , "Analysis.Function@ons.gov.uk", role = c("cph", "fnd")),
     person("Alice", "Hannah", , "alice.hannah@gov.scot", role = c("aut")),
     person("Olivia", "Box Power", , "Olivia.BoxPower@dhsc.gov.uk", role = "cre")
   )
-Description: Standard ggplot theme and colour palettes for use in UK Government.
+Description: Standard ggplot theme and colour palettes for use by the Government Analysis Function.
 License: MIT + file LICENSE
 URL: 
   https://github.com/best-practice-and-impact/afcharts

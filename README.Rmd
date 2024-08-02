@@ -32,7 +32,7 @@ ex2_alt <- paste("A bar chart with white background,",
 
 <!-- badges: end -->
 
-afcharts is an R package for creating accessible plots in the UK Government. Currently, functions are available for styling ggplot2 plots.
+afcharts is an R package for creating accessible plots by the Government Analysis Function. Currently, functions are available for styling ggplot2 plots.
 
 The package has been developed using the [Government Analysis Function Data Visualisation guidance](https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-charts/).
 afcharts should be used in conjunction with these guidance documents.

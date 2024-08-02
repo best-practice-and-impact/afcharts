@@ -14,7 +14,7 @@ If you’ve found a bug, please file an issue that illustrates the bug with a mi
 
 ### Pull request process
 
-* If you work in the UK Analysis Function, request write access to the repository by contacting the [package maintainers](https://best-practice-and-impact.github.io/afcharts/authors.html#authors). If you are external, fork the repository.
+* If you work in the Government Analysis Function, request write access to the repository by contacting the [package maintainers](https://best-practice-and-impact.github.io/afcharts/authors.html#authors). If you are external, fork the repository.
 
 * Clone the repository onto your computer and crate a Git branch for your changes.
 
