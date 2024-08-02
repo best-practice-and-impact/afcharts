@@ -13,7 +13,6 @@ More information on the colours used in afcharts can be found at `vignette("colo
 
 The full list of available palettes can be found by running `afcharts::af_colour_palettes`.
 
-To use an Analysis Function palette, set `palette_type = "af"` when using any of the `scale_` [colour functions](https://best-practice-and-impact.github.io/afcharts/reference/index.html#colours). 
 For example, to use the Analysis Function `main2` palette:
 
 ```{r af-palette, fig.height = 5}
