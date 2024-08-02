@@ -114,7 +114,9 @@ gapminder |>
 and captions have been embedded in these example charts for
 demonstration purposes. However, for accessibility reasons, it is
 usually preferable to provide titles in the body of the page rather than
-embedded within the image of the plot.
+embedded within the image of the plot. More information is available in
+the [accessibility
+article](https://best-practice-and-impact.github.io/afcharts/articles/accessibility.html#other-accessibility-considerations).
 
 ## Licence
 
