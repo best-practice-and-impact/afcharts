@@ -17,6 +17,14 @@ authors:
     <a href='https://github.com/alice-hannah'>\
     <i class='fab fa-github' aria-hidden='true'></i>\
     <span class='visually-hidden'>Alice Hannah GitHub profile></span></a>"
+  Olivia Box Power:
+    html: "Olivia Box Power&nbsp;&nbsp;\
+    <a href='mailto:olivia.boxpower@dhsc.gov.uk'>\
+    <i class='fas fa-envelope' aria-hidden='true'></i>\
+    <span class='visually-hidden'>Email Olivia Box Power></span></a>&nbsp;&nbsp;\
+    <a href='https://github.com/Olivia-Box-Power'>\
+    <i class='fab fa-github' aria-hidden='true'></i>\
+    <span class='visually-hidden'>Olivia Box Power GitHub profile></span></a>"
   Government Analysis Function:
     html: "Government Analysis Function&nbsp;&nbsp;\
     <a href='mailto:Analysis.Function@ons.gov.uk'>\
