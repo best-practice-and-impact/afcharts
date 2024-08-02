@@ -11,18 +11,22 @@ Standard ggplot theme and colour palettes for use in UK Government.
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://github.com/best-practice-and-impact/afcharts}
+  \item \url{https://github.com/best-practice-and-impact/afcharts https://best-practice-and-impact.github.io/afcharts}
   \item Report bugs at \url{https://github.com/best-practice-and-impact/afcharts/issues}
 }
 
 }
 \author{
-\strong{Maintainer}: Alice Hannah \email{alice.hannah@gov.scot}
+\strong{Maintainer}: Olivia Box Power \email{Olivia.BoxPower@dhsc.gov.uk}
+
+Authors:
+\itemize{
+  \item Alice Hannah \email{alice.hannah@gov.scot}
+}
 
 Other contributors:
 \itemize{
   \item Government Analysis Function \email{Analysis.Function@ons.gov.uk} [copyright holder, funder]
-  \item Olivia Box Power \email{Olivia.BoxPower@dhsc.gov.uk} [contributor]
 }
 
 }
