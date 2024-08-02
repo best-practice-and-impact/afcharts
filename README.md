@@ -6,7 +6,7 @@
 <!-- badges: start -->
 
 [![GitHub release (latest by
-date)](https://img.shields.io/github/v/release/ScotGovAnalysis/sgplot)](https://github.com/best-practice-and-impact/afcharts/releases/latest)
+date)](https://img.shields.io/github/v/release/best-practice-and-impact/afcharts)](https://github.com/best-practice-and-impact/afcharts/releases/latest)
 [![R build
 status](https://github.com/best-practice-and-impact/afcharts/workflows/R-CMD-check/badge.svg)](https://github.com/best-practice-and-impact/afcharts/actions)
 
