@@ -118,6 +118,12 @@ embedded within the image of the plot. More information is available in
 the [accessibility
 article](https://best-practice-and-impact.github.io/afcharts/articles/accessibility.html#other-accessibility-considerations).
 
+## Acknowledgments
+
+The afcharts package is based on the
+[sgplot](https://scotgovanalysis.github.io/sgplot/index.html) package,
+written by Alice Hannah.
+
 ## Licence
 
 Unless stated otherwise, the codebase is released under [the MIT
