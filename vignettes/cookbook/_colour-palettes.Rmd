@@ -24,7 +24,7 @@ gapminder |>
   ggplot(aes(x = year, y = lifeExp, colour = country)) +
   geom_line(linewidth = 1) +
   theme_af(legend = "bottom") +
-  scale_colour_discrete_af("main2", palette_type = "af") +
+  scale_colour_discrete_af("main2") +
   scale_y_continuous(limits = c(0, 82),
                      breaks = seq(0, 80, 20),
                      expand = c(0, 0)) +
