@@ -4,7 +4,7 @@ afcharts provides colour palettes as set out by the [Analysis Function suggested
 These palettes have been developed to meet the [Web Content Accessibility Guidelines 2.1 for graphical objects](https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html).
 
 
-The [main palette](https://scotgovanalysis.github.io/sgplot/articles/colours.html#main-palette) is the default for discrete colour/fill functions, and the [sequential palette](https://scotgovanalysis.github.io/sgplot/articles/colours.html#sequential-palette) for continuous colour/fill functions.
+The [main palette](https://best-practice-and-impact.github.io/afcharts/articles/colours.html#main-palette) is the default for discrete colour/fill functions, and the [sequential palette](https://best-practice-and-impact.github.io/afcharts/articles/colours.html#sequential-palette) for continuous colour/fill functions.
 
 More information on the colours used in afcharts can be found at `vignette("colours")`.
 
@@ -13,7 +13,7 @@ More information on the colours used in afcharts can be found at `vignette("colo
 
 The full list of available palettes can be found by running `afcharts::af_colour_palettes`.
 
-To use an Analysis Function palette, set `palette_type = "af"` when using any of the `scale_` [colour functions](https://scotgovanalysis.github.io/sgplot/reference/index.html#colours). 
+To use an Analysis Function palette, set `palette_type = "af"` when using any of the `scale_` [colour functions](https://best-practice-and-impact.github.io/afcharts/reference/index.html#colours). 
 For example, to use the Analysis Function `main2` palette:
 
 ```{r af-palette, fig.height = 5}
@@ -95,4 +95,4 @@ gapminder |>
 
 #### Adding a new colour palette to afcharts
 
-If you use a different palette regularly and feel it would be useful for this to be added to afcharts, please make a suggestion as per the [contributing guidance](https://scotgovanalysis.github.io/sgplot/CONTRIBUTING.html).
+If you use a different palette regularly and feel it would be useful for this to be added to afcharts, please make a suggestion as per the [contributing guidance](https://best-practice-and-impact.github.io/afcharts/CONTRIBUTING.html).

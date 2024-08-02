@@ -6,9 +6,9 @@
 <!-- badges: start -->
 
 [![GitHub release (latest by
-date)](https://img.shields.io/github/v/release/ScotGovAnalysis/sgplot)](https://github.com/ScotGovAnalysis/sgplot/releases/latest)
+date)](https://img.shields.io/github/v/release/ScotGovAnalysis/sgplot)](https://github.com/best-practice-and-impact/afcharts/releases/latest)
 [![R build
-status](https://github.com/ScotGovAnalysis/sgplot/workflows/R-CMD-check/badge.svg)](https://github.com/ScotGovAnalysis/sgplot/actions)
+status](https://github.com/best-practice-and-impact/afcharts/workflows/R-CMD-check/badge.svg)](https://github.com/best-practice-and-impact/afcharts/actions)
 
 <!-- badges: end -->
 
@@ -22,9 +22,9 @@ guidance](https://analysisfunction.civilservice.gov.uk/policy-store/data-visuali
 afcharts should be used in conjunction with these guidance documents.
 
 More information about the package and its functions can be found on the
-[afcharts website](https://ScotGovAnalysis.github.io/sgplot). In
-particular, the
-[cookbook](https://ScotGovAnalysis.github.io/sgplot/articles/cookbook.html)
+[afcharts website](https://best-practice-and-impact.github.io/afcharts).
+In particular, the
+[cookbook](https://best-practice-and-impact.github.io/afcharts/articles/cookbook.html)
 contains lots of examples.
 
 ## Installation
@@ -48,9 +48,9 @@ library(afcharts)
 ```
 
 Help files for each function in the package can be found on the
-[References](https://ScotGovAnalysis.github.io/sgplot/reference) page of
-the package website. Alternatively, type `?function_name` into the
-RStudio console. For example:
+[References](https://best-practice-and-impact.github.io/afcharts/reference)
+page of the package website. Alternatively, type `?function_name` into
+the RStudio console. For example:
 
 ``` r
 ?theme_af()

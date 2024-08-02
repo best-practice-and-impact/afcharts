@@ -37,8 +37,8 @@ afcharts is an R package for creating accessible plots in the UK Government. Cur
 The package has been developed using the [Government Analysis Function Data Visualisation guidance](https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-charts/).
 afcharts should be used in conjunction with these guidance documents.
 
-More information about the package and its functions can be found on the [afcharts website](https://ScotGovAnalysis.github.io/sgplot). 
-In particular, the [cookbook](https://ScotGovAnalysis.github.io/sgplot/articles/cookbook.html) contains lots of examples. 
+More information about the package and its functions can be found on the [afcharts website](https://best-practice-and-impact.github.io/afcharts). 
+In particular, the [cookbook](https://best-practice-and-impact.github.io/afcharts/articles/cookbook.html) contains lots of examples. 
 
 
 ## Installation
@@ -62,7 +62,7 @@ Once installed, afcharts can be loaded using the `library()` function:
 library(afcharts)
 ```
 
-Help files for each function in the package can be found on the [References](https://ScotGovAnalysis.github.io/sgplot/reference) page of the package website. Alternatively, type `?function_name` into the RStudio console. For example:
+Help files for each function in the package can be found on the [References](https://best-practice-and-impact.github.io/afcharts/reference) page of the package website. Alternatively, type `?function_name` into the RStudio console. For example:
 
 ``` r
 ?theme_af()

@@ -1,6 +1,6 @@
 ## Other customisations
 
-`theme_af()` has arguments to control the legend position and appearance of grid lines, axis lines and axis ticks. More information on accepted values can be found in the [help file](https://scotgovanalysis.github.io/sgplot/reference/theme_sg.html).
+`theme_af()` has arguments to control the legend position and appearance of grid lines, axis lines and axis ticks. More information on accepted values can be found in the [help file](https://best-practice-and-impact.github.io/afcharts/reference/theme_sg.html).
 
 ### Sorting a bar chart
 

@@ -51,7 +51,7 @@ The following are a few key things to consider when using colour in data visuali
 
 ## Analysis Function colour palettes
 
-The Analysis Function guidance also contains [suggested colour palettes](https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-colours-in-charts/#section-4). These are provided in afcharts. To use an Analysis Function palette, set `palette_type = "af"` when using any of the `scale_` [colour functions](https://scotgovanalysis.github.io/sgplot/reference/index.html#colours).
+The Analysis Function guidance also contains [suggested colour palettes](https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-colours-in-charts/#section-4). These are provided in afcharts. To use an Analysis Function palette, set `palette_type = "af"` when using any of the `scale_` [colour functions](https://best-practice-and-impact.github.io/afcharts/reference/index.html#colours).
 
 
 ### Main palette
@@ -117,8 +117,8 @@ There may be instances where you'd like to use a different colour palette.
 If so, this should be carefully considered to ensure it meets accessibility requirements. 
 The Analysis Function guidance outlines [appropriate steps for choosing your own accessibile colour palette](https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-colours-in-charts/#section-9) and should be used.
 
-An example of how to use an alternative colour palette is provided in the [cookbook](https://scotgovanalysis.github.io/sgplot/articles/cookbook.html#using-your-own-colour-palette).
-However, if you use a different palette regularly and feel it would be useful for this to be added to afcharts, please make a suggestion as per the [contributing guidance](https://scotgovanalysis.github.io/sgplot/CONTRIBUTING.html).
+An example of how to use an alternative colour palette is provided in the [cookbook](https://best-practice-and-impact.github.io/afcharts/articles/cookbook.html#using-your-own-colour-palette).
+However, if you use a different palette regularly and feel it would be useful for this to be added to afcharts, please make a suggestion as per the [contributing guidance](https://best-practice-and-impact.github.io/afcharts/CONTRIBUTING.html).
 
 
 ## Viewing Palettes in R
@@ -137,4 +137,4 @@ afcharts::af_colour_palettes$main
 
 ```
 
-Examples of how to apply these palettes to ggplot2 charts are available in both the [cookbook](https://scotgovanalysis.github.io/sgplot/articles/cookbook.html) and the reference files for `scale_` [colour functions](https://scotgovanalysis.github.io/sgplot/reference/index.html#colours).
+Examples of how to apply these palettes to ggplot2 charts are available in both the [cookbook](https://best-practice-and-impact.github.io/afcharts/articles/cookbook.html) and the reference files for `scale_` [colour functions](https://best-practice-and-impact.github.io/afcharts/reference/index.html#colours).

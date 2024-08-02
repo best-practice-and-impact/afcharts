@@ -23,7 +23,7 @@ This cookbook provides examples of the code used to produce various chart types 
 If there is a chart type or task which you think would be useful to include here, please [submit a suggestion](https://github.com/best-practice-and-impact/afcharts/issues/new?&labels=documentation&title=Cookbook+suggestion).
 
 **use_afcharts** <br>
-The examples in this cookbook use the afcharts theme and colour functions explicitly, however it may be easier to make use of the `use_afcharts()` function if your charts all require a similar style. More information on `use_afcharts` can be found on the [homepage](https://scotgovanalysis.github.io/sgplot/#use-afcharts-as-default).
+The examples in this cookbook use the afcharts theme and colour functions explicitly, however it may be easier to make use of the `use_afcharts()` function if your charts all require a similar style. More information on `use_afcharts` can be found on the [homepage](https://best-practice-and-impact.github.io/afcharts/#use-afcharts-as-default).
 
 **Note on use of titles, subtitles and captions** <br>
 Titles, subtitles and captions have been embedded in the charts in this cookbook for demonstration purposes. However, for accessibility reasons, it is usually preferable to provide titles in the body of the page rather than embedded within the image of the plot.
