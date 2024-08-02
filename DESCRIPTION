@@ -3,7 +3,7 @@ Title: Graphic Styles and Colours for UK Government Analysis Function
 Version: 0.0.0.9000
 Authors@R: c(
     person("Government Analysis Function", , , "Analysis.Function@ons.gov.uk", role = c("cph", "fnd")),
-    person("Alice", "Hannah", , "alice.hannah@gov.scot", role = c("aut", "cre")),
+    person("Alice", "Hannah", , "alice.hannah@gov.scot", role = c("aut")),
     person("Olivia", "Box Power", , "Olivia.BoxPower@dhsc.gov.uk", role = "cre")
   )
 Description: Standard ggplot theme and colour palettes for use in UK Government.
