@@ -1,9 +1,9 @@
-#' @title Create \code{gt} table of colour palette
+#' @title Create `gt` table of colour palette
 #'
 #' @param pal Named vector of colour palette;
-#' e.g. \code{sgplot::sg_colour_palettes[["main"]]}
+#' e.g. `afcharts::af_colour_palettes[["main"]]`
 #'
-#' @return An object of class \code{gt_tbl}.
+#' @return An object of class `gt_tbl`.
 #'
 #' @noRd
 

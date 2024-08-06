@@ -25,16 +25,16 @@ table_note <- paste(
 )
 ```
 
-sgplot provides colour palettes as set out by the [Scottish Government Design System](https://designsystem.gov.scot/guidance/charts/data-visualisation-colour-palettes). 
+afcharts provides colour palettes as set out by the [Government Analysis Function](https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-colours-in-charts/). 
 
-These palettes have been developed to meet the [Web Content Accessibility Guidelines 2.1 for graphical objects](https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html). The colours in the [main palette for categorical data](#main-palette) all have at least a 3:1 colour contrast ratio with white (#ffffff) and off-white (#f8f8f8) backgrounds, as well as with adjacent colours in the palette. 
+These palettes have been developed to meet the [Web Content Accessibility Guidelines 2.1 for graphical objects](https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html). The colours in the [main palette for categorical data](#main-palette) all have at least a 3:1 colour contrast ratio with white (#ffffff), as well as with adjacent colours in the palette. 
 
 
 ## Things to consider when using colour
 
-Using sgplot colour palettes does not guarantee that your charts will be accessible. 
-Both the [Scottish Government ](https://designsystem.gov.scot/guidance/charts/data-visualisation-colour-palettes) and the [Analysis Function](https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-colours-in-charts/) have published guidance on other steps you should take to ensure the accessible use of colour.
-sgplot should be used in conjunction with the advice given in these guidance documents.
+Using afcharts colour palettes does not guarantee that your charts will be accessible. 
+The [Government Analysis Function](https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-colours-in-charts/) has published guidance on other steps you should take to ensure the accessible use of colour.
+afcharts should be used in conjunction with the advice given in these guidance documents.
 
 The following are a few key things to consider when using colour in data visualisations:
 
@@ -49,60 +49,9 @@ The following are a few key things to consider when using colour in data visuali
 *   Use colour palettes in the order presented to ensure adjacent colours have sufficient contrast with each other
 
 
-## Scottish Government colour palettes
+## Government Analysis Function colour palettes
 
-The Scottish Government colour palettes are used by default in sgplot.
-
-### Main palette
-
-The `main` palette should be used with categorical data.
-
-`r table_note`
-
-```{r}
-sgplot:::colour_table(sgplot::sg_colour_palettes$main)
-```
-
-You should try to use an absolute maximum of four colours in a chart. If you feel you need more than four, think about how you could redesign your chart to avoid this. If you absolutely must use more than four colours, the `main-extended` palette can be used.
-
-`r table_note`
-
-```{r}
-sgplot:::colour_table(sgplot::sg_colour_palettes$`main-extended`)
-```
-
-
-### Sequential palette
-
-The `sequential` colour palette should be used for data where the order has some meaning.
-
-`r table_note`
-
-```{r}
-sgplot:::colour_table(sgplot::sg_colour_palettes$sequential)
-```
-
-As this palette is restricted to tints of one colour, there are issues with colour contrast.
-Neither `dark-blue` or `light-blue` have sufficient colour contrast with `mid-blue`. 
-Follow the [advice for using the sequential palette](https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-colours-in-charts/#section-6) in the Analysis Function colour guidance when using this palette.
-
-
-### Focus palette
-
-The `focus` palette should be used to highlight specific elements of a plot.
-
-`r table_note`
-
-```{r}
-sgplot:::colour_table(sgplot::sg_colour_palettes$focus)
-```
-
-The `grey` in this palette does not meet the required colour contrast with an off-white background (#f8f8f8), therefore charts using this palette should only use a white background (#ffffff).
-
-
-## Analysis Function colour palettes
-
-The Analysis Function guidance also contains [suggested colour palettes](https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-colours-in-charts/#section-4). These are also provided in sgplot, however the Scottish Government palettes are used by default. To use an Analysis Function palette, set `palette_type = "af"` when using any of the `scale_` [colour functions](https://scotgovanalysis.github.io/sgplot/reference/index.html#colours).
+The Government Analysis Function guidance also contains [suggested colour palettes](https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-colours-in-charts/#section-4). These are provided in afcharts. To use an Analysis Function palette, set `palette_type = "af"` when using any of the `scale_` [colour functions](https://best-practice-and-impact.github.io/afcharts/reference/index.html#colours).
 
 
 ### Main palette
@@ -112,7 +61,7 @@ The `main` palette should be used with categorical data.
 `r table_note`
 
 ```{r}
-sgplot:::colour_table(sgplot::af_colour_palettes$main)
+afcharts:::colour_table(afcharts::af_colour_palettes$main)
 ```
 
 The `main2` palette should be used if only two colours are required as the dark blue and orange colours have the best colour contrast with each other. 
@@ -121,7 +70,7 @@ If only two colours are required and another palette from the `main` family is u
 `r table_note`
 
 ```{r}
-sgplot:::colour_table(sgplot::af_colour_palettes$main2)
+afcharts:::colour_table(afcharts::af_colour_palettes$main2)
 ```
 
 The `main6` palette is available if an extended palette is required.
@@ -129,7 +78,7 @@ The `main6` palette is available if an extended palette is required.
 `r table_note`
 
 ```{r}
-sgplot:::colour_table(sgplot::af_colour_palettes$main6)
+afcharts:::colour_table(afcharts::af_colour_palettes$main6)
 ```
 
 
@@ -140,11 +89,11 @@ The `sequential` colour palette should be used for data where the order has some
 `r table_note`
 
 ```{r}
-sgplot:::colour_table(sgplot::af_colour_palettes$sequential)
+afcharts:::colour_table(afcharts::af_colour_palettes$sequential)
 ```
 
 As this palette is restricted to tints of one colour, there are issues with colour contrast.
-Follow the [advice for using the sequential palette](https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-colours-in-charts/#section-6) in the Analysis Function colour guidance when using this palette.
+Follow the [advice for using the sequential palette](https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-colours-in-charts/#section-6) in the Government Analysis Function colour guidance when using this palette.
 
 
 ### Focus palette
@@ -154,23 +103,22 @@ The `focus` palette should be used to highlight specific elements of a plot.
 `r table_note`
 
 ```{r}
-sgplot:::colour_table(sgplot::af_colour_palettes$focus)
+afcharts:::colour_table(afcharts::af_colour_palettes$focus)
 ```
 
 The light grey colour in this palette does not have sufficient colour contrast against a white background and therefore this palette should only be used when it is essential to communicate your message. 
-Follow the [advice for using the focus palette](https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-colours-in-charts/#section-7) in the Analysis Function colour guidance when using this palette.
+Follow the [advice for using the focus palette](https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-colours-in-charts/#section-7) in the Government Analysis Function colour guidance when using this palette.
 
-The [Scottish Government focus palette](#focus-chart-palette) does not have this issue, so you may wish to use this instead.
 
 
 ## Using your own colour palette
 
 There may be instances where you'd like to use a different colour palette. 
 If so, this should be carefully considered to ensure it meets accessibility requirements. 
-The Analysis Function guidance outlines [appropriate steps for choosing your own accessibile colour palette](https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-colours-in-charts/#section-9) and should be used.
+The Government Analysis Function guidance outlines [appropriate steps for choosing your own accessibile colour palette](https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-colours-in-charts/#section-9) and should be used.
 
-An example of how to use an alternative colour palette is provided in the [cookbook](https://scotgovanalysis.github.io/sgplot/articles/cookbook.html#using-your-own-colour-palette).
-However, if you use a different palette regularly and feel it would be useful for this to be added to sgplot, please make a suggestion as per the [contributing guidance](https://scotgovanalysis.github.io/sgplot/CONTRIBUTING.html).
+An example of how to use an alternative colour palette is provided in the [cookbook](https://best-practice-and-impact.github.io/afcharts/articles/cookbook.html#using-your-own-colour-palette).
+However, if you use a different palette regularly and feel it would be useful for this to be added to afcharts, please make a suggestion as per the [contributing guidance](https://best-practice-and-impact.github.io/afcharts/CONTRIBUTING.html).
 
 
 ## Viewing Palettes in R
@@ -179,16 +127,14 @@ Names and hex codes for available colours and palettes can be viewed by running 
 
 ```{r view-colours, eval = FALSE, echo = TRUE}
 # View names and hex codes for all colours
-sgplot::sg_colour_values
+afcharts::af_colour_values
 
 # View names and hex codes for all colour palettes
-sgplot::sg_colour_palettes
+afcharts::af_colour_palettes
 
 # View names and hex codes for `main` colour palette
-sgplot::sg_colour_palettes$main
+afcharts::af_colour_palettes$main
 
-# For Analysis Function palettes, use the af_ prefix
-sgplot::af_colour_palettes
 ```
 
-Examples of how to apply these palettes to ggplot2 charts are available in both the [cookbook](https://scotgovanalysis.github.io/sgplot/articles/cookbook.html) and the reference files for `scale_` [colour functions](https://scotgovanalysis.github.io/sgplot/reference/index.html#colours).
+Examples of how to apply these palettes to ggplot2 charts are available in both the [cookbook](https://best-practice-and-impact.github.io/afcharts/articles/cookbook.html) and the reference files for `scale_` [colour functions](https://best-practice-and-impact.github.io/afcharts/reference/index.html#colours).

@@ -1,15 +1,15 @@
-#' @title Scottish Government theme for ggplot2 charts.
+#' @title Analysis Function theme for ggplot2 charts.
 #'
-#' @description ggplot2 theme for Scottish Government plots.
+#' @description ggplot2 theme for Analysis Function plots.
 #'
 #' @param base_size base font size, given in pts.
 #' @param base_line_size base size for line elements.
 #' @param base_rect_size base size for rect elements.
 #' @param grid,axis,ticks 'x', 'y', 'xy' or 'none' to determine for which axes
-#' the attribute should be drawn. Grid defaults to 'y', axis to 'x', and
-#' ticks to 'xy'.
+#'   the attribute should be drawn. Grid defaults to 'y', axis to 'x', and ticks
+#'   to 'xy'.
 #' @param legend 'right', 'left', 'top', 'bottom', or 'none' to determine the
-#' position of the legend. Defaults to 'right'.
+#'   position of the legend. Defaults to 'right'.
 #'
 #' @examples
 #' library(ggplot2)
@@ -17,12 +17,12 @@
 #' p <- ggplot(mpg, aes(x = class)) + geom_bar()
 #'
 #' p
-#' p + theme_sg()
+#' p + theme_af()
 #'
 #' @export
 
 
-theme_sg <- function(base_size = 12,
+theme_af <- function(base_size = 12,
                      base_line_size = base_size / 24,
                      base_rect_size = base_size / 24,
                      grid = c("y", "x", "xy", "none"),
@@ -39,7 +39,7 @@ theme_sg <- function(base_size = 12,
   light_grey <- "#d9d9d9"
 
   # Use built in sans font
-  sgplot_font <- "sans"
+  afcharts_font <- "sans"
 
   # The half-line (base_size / 2) sets up the basic vertical
   # rhythm of the theme. Most margins will be set to this value.
@@ -84,7 +84,7 @@ theme_sg <- function(base_size = 12,
       linetype = 1
     ),
     text = ggplot2::element_text(
-      family = sgplot_font,
+      family = afcharts_font,
       face = "plain",
       colour = "black",
       size = base_size,

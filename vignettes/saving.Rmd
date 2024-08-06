@@ -76,7 +76,7 @@ For charts in an R Markdown document, file format, dimensions and other settings
 
 * **Format**: Set `dev = "svg"`, otherwise the default format of `png` will be used.
 
-* **Dimensions**: Set `fig.height` and `fig.width`. For HTML outputs, the default figure dimensions are often suitable, however when knitting to Microsoft Word, the default dimensions often result in a small image and so it is best to specify these in the R Markdown code chunk. Note that R Markdown requires figure dimensions in inches. If you'd rather use millimetres, use the `mm_to_inch` helper function from sgplot. 
+* **Dimensions**: Set `fig.height` and `fig.width`. For HTML outputs, the default figure dimensions are often suitable, however when knitting to Microsoft Word, the default dimensions often result in a small image and so it is best to specify these in the R Markdown code chunk. Note that R Markdown requires figure dimensions in inches. If you'd rather use millimetres, use the `mm_to_inch` helper function from afcharts. 
 
 * **Alt Text**: For HTML outputs, use `fig.alt`, and for Microsoft Word outputs, `fig.cap`. Note that by default, the value given to `fig.cap` will be shown under the chart. If you'd rather turn this off, you can control this in the R Markdown YAML header:
 
@@ -119,7 +119,7 @@ knitr::opts_chunk$set(
 ```
 ````
 
-Note that sgplot must be loaded before setting global options, otherwise you will need to specify the package when calling `mm_to_inch`; e.g. `sgplot::mm_to_inch()`.
+Note that afcharts must be loaded before setting global options, otherwise you will need to specify the package when calling `mm_to_inch`; e.g. `afcharts::mm_to_inch()`.
 
 There may be cases where you'd like all charts to be in SVG format, but with different dimensions. In this case you can set `dev = "svg"` in the global options and `fig.width` and `fig.height` for each code chunk separately.
 

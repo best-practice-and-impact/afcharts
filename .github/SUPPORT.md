@@ -1,27 +1,25 @@
-# Getting help with sgplot
+# Getting help with afcharts
 
-Thanks for using sgplot!
+Thanks for using afcharts!
 
 ## Try these first
 
-* If you want to find out more about any of sgplot's functions; help files can be found on the [References](https://ScotGovAnalysis.github.io/sgplot/reference) page of the package website. Alternatively, type `?function_name` into the RStudio console. For example:
+* If you want to find out more about any of afcharts's functions; help files can be found on the [References](https://best-practice-and-impact.github.io/afcharts/reference) page of the package website. Alternatively, type `?function_name` into the RStudio console. For example:
 
    ``` r
-   ?theme_sg()
+   ?theme_af()
    ```
 
-* If you need help with `ggplot2`, it might be helpful to look at the [sgplot cookbook](https://ScotGovAnalysis.github.io/sgplot/articles/cookbook.html) which contains lots of example code to create various types of chart. The [ggplot2 website](https://ggplot2.tidyverse.org/index.html) may also be helpful.
+* If you need help with `ggplot2`, it might be helpful to look at the [afcharts cookbook](https://best-practice-and-impact.github.io/afcharts/articles/cookbook.html) which contains lots of example code to create various types of chart. The [ggplot2 website](https://ggplot2.tidyverse.org/index.html) may also be helpful.
 
 
 ## Where to ask for help
-
-* If it's a question: Ask the Scottish Government [R Yammer community](https://web.yammer.com/main/groups/eyJfdHlwZSI6Ikdyb3VwIiwiaWQiOiI2MzQ4MzE2NjczIn0).
   
-*   If it's a bug: [file an issue](https://github.com/ScotGovAnalysis/sgplot/issues/new) on GitHub.  
+*   If it's a bug: [file an issue](https://github.com/best-practice-and-impact/afcharts/issues/new) on GitHub.  
   
-*   If you're not sure or aren't comfortable with either of these options, contact the [package maintainers](https://ScotGovAnalysis.github.io/sgplot/authors.html#authors).
+*   If you're not sure or aren't comfortable with either of these options, contact the [package maintainers](https://best-practice-and-impact.github.io/afcharts/authors.html#authors).
 
-Before opening a new issue, be sure to [search issues and pull requests](https://github.com/ScotGovAnalysis/sgplot/issues) to make sure the bug hasn't been reported and/or already fixed in the development version. 
+Before opening a new issue, be sure to [search issues and pull requests](https://github.com/best-practice-and-impact/afcharts/issues) to make sure the bug hasn't been reported and/or already fixed in the development version. 
 By default, the search will be pre-populated with `is:issue is:open`. 
 You can [edit the qualifiers](https://help.github.com/articles/searching-issues-and-pull-requests/)  (e.g. `is:pr`, `is:closed`) as needed. 
 For example, you'd simply remove `is:open` to search **all** issues in the repo, open or closed.

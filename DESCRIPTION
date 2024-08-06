@@ -1,16 +1,17 @@
-Package: sgplot
-Title: Graphic Styles and Colours for Scottish Government Plots
-Version: 0.2.2.9000
+Package: afcharts
+Title: Graphic Styles and Colours for Government Analysis Function
+Version: 0.0.0.9000
 Authors@R: c(
-    person("Scottish Government", , , "statistics.enquiries@gov.scot", role = c("cph", "fnd")),
-    person("Alice", "Hannah", , "alice.hannah@gov.scot", c("aut", "cre"))
+    person("Government Analysis Function", , , "Analysis.Function@ons.gov.uk", role = c("cph", "fnd")),
+    person("Alice", "Hannah", , "alice.hannah@gov.scot", role = c("aut")),
+    person("Olivia", "Box Power", , "Olivia.BoxPower@dhsc.gov.uk", role = "cre")
   )
-Description: Standard ggplot theme and colour palettes for use in Scottish Government.
+Description: Standard ggplot theme and colour palettes for use by the Government Analysis Function.
 License: MIT + file LICENSE
 URL: 
-  https://github.com/ScotGovAnalysis/sgplot, 
-  https://ScotGovAnalysis.github.io/sgplot
-BugReports: https://github.com/ScotGovAnalysis/sgplot/issues
+  https://github.com/best-practice-and-impact/afcharts
+  https://best-practice-and-impact.github.io/afcharts
+BugReports: https://github.com/best-practice-and-impact/afcharts/issues
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.3.1
@@ -35,3 +36,4 @@ Suggests:
   plotly,
   gt
 VignetteBuilder: knitr
+Roxygen: list(markdown = TRUE)

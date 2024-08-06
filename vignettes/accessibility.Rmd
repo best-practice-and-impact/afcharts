@@ -30,12 +30,12 @@ The [Government Analysis Function](https://analysisfunction.civilservice.gov.uk/
 * [Colours Guidance](https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-colours-in-charts/)
 * [Data Visualisation e-Learning](https://analysisfunction.civilservice.gov.uk/support/communicating-analysis/introduction-to-data-visualisation-e-learning/) (in particular the [Accessibility and Colour](https://analysisfunction.civilservice.gov.uk/support/communicating-analysis/introduction-to-data-visualisation-e-learning/data-visualisation-e-learning-module-3-accessibility-and-colour-palettes/) module)
 
-sgplot has been developed following advice in the above guidance, however, using sgplot does not guarantee accessibility. sgplot should therefore be used in conjunction with this guidance.
+afcharts has been developed following advice in the above guidance, however, using afcharts does not guarantee accessibility. afcharts should therefore be used in conjunction with this guidance.
 
 
-## Accessibility of charts using sgplot
+## Accessibility of charts using afcharts
 
-By applying `theme_sg` to ggplot2 plots, the following best practice is followed:
+By applying `theme_af` to ggplot2 plots, the following best practice is followed:
 
 * Plot background is white.
 
@@ -49,20 +49,20 @@ By applying `theme_sg` to ggplot2 plots, the following best practice is followed
 
 * Line thickness is relative to font size.
 
-sgplot provides colour palettes as set out by the [Scottish Government Design System](https://designsystem.gov.scot/guidance/charts/data-visualisation-colour-palettes). 
+afcharts provides colour palettes as set out by the [Government Analysis Function Colour Guidance](https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-colours-in-charts/). 
 These palettes have been developed to meet the [Web Content Accessibility Guidelines 2.1 for graphical objects](https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html) and can be applied to charts by using one of the four colour/fill functions:
 
-* `scale_colour_discrete_sg()`
-* `scale_fill_discrete_sg()`
-* `scale_colour_continuous_sg()`
-* `scale_fill_continuous_sg()`
+* `scale_colour_discrete_af()`
+* `scale_fill_discrete_af()`
+* `scale_colour_continuous_af()`
+* `scale_fill_continuous_af()`
 
-More information on sgplot colours can be found at `vignette("colours")`.
+More information on afcharts colours can be found at `vignette("colours")`.
 
 
 ## Other accessibility considerations
 
-Using sgplot does not guarantee accessibility. The Analysis Function [chart guidance](https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-charts) contains detailed information on other considerations that should be made. 
+Using afcharts does not guarantee accessibility. The Government Analysis Function [chart guidance](https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-charts) contains detailed information on other considerations that should be made. 
 Not all of these are repeated here, but we think the following are a good place to start:
 
 * Consider what type of chart is best to convey your message. Keep it as simple as possible.

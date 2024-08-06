@@ -3,13 +3,13 @@
 ### Line chart with one line
 
 ```{r line-charts-1}
-#| fig.alt = "A line chart using sgplot theme and dark blue colour."
+#| fig.alt = "A line chart using afcharts theme and dark blue colour."
 
 gapminder |>
   filter(country == "United Kingdom") |>
   ggplot(aes(x = year, y = lifeExp)) +
-  geom_line(linewidth = 1, colour = sg_colour_values["dark-blue"]) +
-  theme_sg() +
+  geom_line(linewidth = 1, colour = af_colour_values["dark-blue"]) +
+  theme_af() +
   scale_y_continuous(limits = c(0, 82),
                      breaks = seq(0, 80, 20),
                      expand = c(0, 0)) +
@@ -26,14 +26,14 @@ gapminder |>
 ### Line chart with multiple lines
 
 ```{r line-charts-2, fig.height = 5}
-#| fig.alt = "A multiple line chart using sgplot theme and main colour palette."
+#| fig.alt = "A multiple line chart using afcharts theme and main colour palette."
 
 gapminder |>
   filter(country %in% c("United Kingdom", "China")) |>
   ggplot(aes(x = year, y = lifeExp, colour = country)) +
   geom_line(linewidth = 1) +
-  theme_sg(legend = "bottom") +
-  scale_colour_discrete_sg() +
+  theme_af(legend = "bottom") +
+  scale_colour_discrete_af() +
   scale_y_continuous(limits = c(0, 82),
                      breaks = seq(0, 80, 20),
                      expand = c(0, 0)) +
@@ -61,11 +61,11 @@ bar_data <-
 ```
 
 ```{r bar-chart-1}
-#| fig.alt = "A bar chart using sgplot theme and dark blue colour."
+#| fig.alt = "A bar chart using afcharts theme and dark blue colour."
 
 ggplot(bar_data, aes(x = reorder(country, -lifeExp), y = lifeExp)) +
-  geom_col(fill = sg_colour_values["dark-blue"]) +
-  theme_sg() +
+  geom_col(fill = af_colour_values["dark-blue"]) +
+  theme_af() +
   scale_y_continuous(expand = c(0, 0)) +
   labs(
     x = NULL,
@@ -76,14 +76,14 @@ ggplot(bar_data, aes(x = reorder(country, -lifeExp), y = lifeExp)) +
   )
 ```
 
-A bar chart can sometimes look better with horizontal bars. This can also be a good option if your bar labels are long and difficult to display horizontally on the x axis. To produce a horizontal bar chart, swap the variables defined for x and y in `aes()` and make a few tweaks to `theme_sg()`; draw grid lines for the x axis only by setting the `grid` argument, and draw an axis line for the y axis only by setting the `axis` argument.
+A bar chart can sometimes look better with horizontal bars. This can also be a good option if your bar labels are long and difficult to display horizontally on the x axis. To produce a horizontal bar chart, swap the variables defined for x and y in `aes()` and make a few tweaks to `theme_af()`; draw grid lines for the x axis only by setting the `grid` argument, and draw an axis line for the y axis only by setting the `axis` argument.
 
 ```{r bar-chart-2}
-#| fig.alt = "A horizontal bar chart using sgplot theme and dark blue colour."
+#| fig.alt = "A horizontal bar chart using afcharts theme and dark blue colour."
 
 ggplot(bar_data, aes(x = lifeExp, y = reorder(country, lifeExp))) +
-  geom_col(fill = sg_colour_values["dark-blue"]) +
-  theme_sg(grid = "x", axis = "y") +
+  geom_col(fill = af_colour_values["dark-blue"]) +
+  theme_af(grid = "x", axis = "y") +
   scale_x_continuous(expand = c(0, 0)) +
   labs(
     x = NULL,
@@ -97,10 +97,10 @@ ggplot(bar_data, aes(x = lifeExp, y = reorder(country, lifeExp))) +
 
 ### Grouped bar chart
 
-To create a grouped bar chart, set `stat = "identity"` and `position = "dodge"` in the call to `geom_bar()`. Also assign a variable to `fill` within `aes()` to determine what variable is used to create bars within groups. The `legend` argument in `theme_sg()` can be used to set the position of the legend.
+To create a grouped bar chart, set `stat = "identity"` and `position = "dodge"` in the call to `geom_bar()`. Also assign a variable to `fill` within `aes()` to determine what variable is used to create bars within groups. The `legend` argument in `theme_af()` can be used to set the position of the legend.
 
 ```{r grouped-bar-chart, fig.height = 5.5}
-#| fig.alt = "A grouped bar chart using sgplot theme and colours from main palette"
+#| fig.alt = "A grouped bar chart using afcharts theme and colours from main palette"
 
 grouped_bar_data <-
   gapminder |>
@@ -111,8 +111,8 @@ ggplot(grouped_bar_data,
        aes(x = country, y = lifeExp, fill = as.factor(year))) +
   geom_bar(stat = "identity", position = "dodge") +
   scale_y_continuous(expand = c(0, 0)) +
-  theme_sg(legend = "bottom") +
-  scale_fill_discrete_sg() +
+  theme_af(legend = "bottom") +
+  scale_fill_discrete_af() +
   labs(
     x = "Country",
     y = NULL,
@@ -130,7 +130,7 @@ To create a stacked bar chart, set `stat = "identity` and `position = "fill"` in
 Caution should be taken when producing stacked bar charts. They can quickly become difficult to interpret if plotting non part-to-whole data, and/or if plotting more than two categories per stack. First and last categories in the stack will always be easier to compare across bars than those in the middle. Think carefully about the story you are trying to tell with your chart.
 
 ```{r stacked-bar-chart, fig.height = 5.5}
-#| fig.alt = "A stacked bar chart using sgplot theme and colours from main palette"
+#| fig.alt = "A stacked bar chart using afcharts theme and colours from main palette"
 
 stacked_bar_data <-
   gapminder |>
@@ -144,10 +144,10 @@ stacked_bar_data <-
 ggplot(stacked_bar_data,
        aes(x = continent, y = n_countries, fill = lifeExpGrouped)) +
   geom_bar(stat = "identity", position = "fill") +
-  theme_sg(legend = "bottom") +
+  theme_af(legend = "bottom") +
   scale_y_continuous(expand = c(0, 0), labels = scales::percent) +
   coord_cartesian(clip = "off") +
-  scale_fill_discrete_sg() +
+  scale_fill_discrete_af() +
   labs(
     x = NULL,
     y = NULL,
@@ -162,15 +162,15 @@ ggplot(stacked_bar_data,
 ## Histograms
 
 ```{r histogram}
-#| fig.alt = "A histogram with sgplot theme and dark blue colour."
+#| fig.alt = "A histogram with afcharts theme and dark blue colour."
 
 gapminder |>
   filter(year == 2007) |>
   ggplot(aes(x = lifeExp)) +
   geom_histogram(binwidth = 5,
                  colour = "white",
-                 fill = sg_colour_values["dark-blue"]) +
-  theme_sg() +
+                 fill = af_colour_values["dark-blue"]) +
+  theme_af() +
   scale_y_continuous(expand = c(0, 0)) +
   labs(
     x = NULL,
@@ -185,13 +185,13 @@ gapminder |>
 ## Scatterplots
 
 ```{r scatterplot, fig.height = 5}
-#| fig.alt = "A scatterplot using sgplot theme and dark blue colour."
+#| fig.alt = "A scatterplot using afcharts theme and dark blue colour."
 
 gapminder |>
   filter(year == 2007) |>
   ggplot(aes(x = gdpPercap, y = lifeExp, size = pop)) +
-  geom_point(colour = sg_colour_values["dark-blue"]) +
-  theme_sg(axis = "none", grid = "xy") +
+  geom_point(colour = af_colour_values["dark-blue"]) +
+  theme_af(axis = "none", grid = "xy") +
   scale_x_continuous(
     labels = function(x) scales::dollar(x, prefix = "£")
   ) +
@@ -212,7 +212,7 @@ gapminder |>
 ## Small multiples
 
 ```{r small-multiples, fig.height = 5.5}
-#| fig.alt = "A small multiples area chart using sgplot theme and main colour palette."
+#| fig.alt = "A small multiples area chart using afcharts theme and main colour palette."
 
 gapminder |>
   filter(continent != "Oceania") |>
@@ -220,8 +220,8 @@ gapminder |>
   summarise(pop = sum(as.numeric(pop)), .groups = "drop") |>
   ggplot(aes(x = year, y = pop, fill = continent)) +
   geom_area() +
-  theme_sg(axis = "none", ticks = "none", legend = "none") +
-  scale_fill_discrete_sg() +
+  theme_af(axis = "none", ticks = "none", legend = "none") +
+  scale_fill_discrete_af() +
   facet_wrap(~ continent, ncol = 2) +
   scale_y_continuous(breaks = c(0, 2e9, 4e9),
                      labels = c(0, "2bn", "4bn")) +
@@ -240,16 +240,16 @@ gapminder |>
 ## Pie charts
 
 ```{r pie-chart}
-#| fig.alt = "A pie chart using sgplot theme and main palette."
+#| fig.alt = "A pie chart using afcharts theme and main palette."
 
 stacked_bar_data |>
   filter(continent == "Europe") |>
   ggplot(aes(x = "", y = n_countries, fill = lifeExpGrouped)) +
   geom_col(colour = "white", position = "fill") +
   coord_polar(theta = "y") +
-  theme_sg(grid = "none", axis = "none", ticks = "none") +
+  theme_af(grid = "none", axis = "none", ticks = "none") +
   theme(axis.text = element_blank()) +
-  scale_fill_discrete_sg() +
+  scale_fill_discrete_af() +
   labs(
     x = NULL,
     y = NULL,
@@ -273,9 +273,9 @@ bar_data |>
         fill = country == "Sweden")
   ) +
   geom_col() +
-  theme_sg(legend = "none") +
+  theme_af(legend = "none") +
   scale_y_continuous(expand = c(0, 0)) +
-  scale_fill_discrete_sg("focus", reverse = TRUE) +
+  scale_fill_discrete_af("focus", reverse = TRUE) +
   labs(
     x = NULL,
     y = NULL,
@@ -290,12 +290,12 @@ bar_data |>
 
 To make a `ggplot2` chart interactive, use `ggplotly()` from the `plotly` package. Note however that `ggplotly()` has a number of 'quirks', including the following:
 
-* sgplot uses the 'sans' font family, however `plotly` does not recognise this font. To work around this you should add a further call to `theme` to set the font family for text to `""`. 
+* afcharts uses the 'sans' font family, however `plotly` does not recognise this font. To work around this you should add a further call to `theme` to set the font family for text to `""`. 
 
 * Subtitles and captions are not supported in `ggplotly()`. As stated elsewhere in this guidance, titles and subtitles should ideally be included in the body of text surrounding a chart rather than embedded in the chart itself, and so this is hopefully not a big issue. This example therefore has no title, subtitle or caption.
 
 ```{r interactive-charts}
-#| fig.alt = "An interactive bar chart using sgplot theme and dark blue colour. A tooltip appears when hovering over each bar."
+#| fig.alt = "An interactive bar chart using afcharts theme and dark blue colour. A tooltip appears when hovering over each bar."
 
 p <-
   bar_data |>
@@ -305,8 +305,8 @@ p <-
     "Life Expectancy: ", round(lifeExp, 1)
   )) |>
   ggplot(aes(x = reorder(country, -lifeExp), y = lifeExp, text = tooltip)) +
-  geom_col(fill = sg_colour_values["dark-blue"]) +
-  theme_sg(ticks = "x") +
+  geom_col(fill = af_colour_values["dark-blue"]) +
+  theme_af(ticks = "x") +
   theme(text = element_text(family = "")) +
   scale_y_continuous(expand = c(0, 0)) +
   labs(
@@ -321,4 +321,4 @@ plotly::ggplotly(p, tooltip = "text") |>
   )
 ```
 
-sgplot currently only works with `ggplot2` charts, however there are plans to [develop the package further to support interactive Highcharts](https://github.com/scotgovanalysis/sgplot/issues/5) produced using the [`highcharter`](https://jkunst.com/highcharter) package.
+afcharts currently only works with `ggplot2` charts, however there are plans to develop the package further to support interactive Highcharts produced using the [`highcharter`](https://jkunst.com/highcharter) package.

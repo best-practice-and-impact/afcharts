@@ -1,6 +1,6 @@
 ## Annotations
 
-Labelling your chart is often preferable to using a legend, as often this relies on a user matching the legend to the data using colour alone. The legend can be removed from a chart by setting `legend = "none"` in `theme_sg()`.
+Labelling your chart is often preferable to using a legend, as often this relies on a user matching the legend to the data using colour alone. The legend can be removed from a chart by setting `legend = "none"` in `theme_af()`.
 
 The easiest way to add an annotation is to manually define the co-ordinates of the required position.
 
@@ -10,24 +10,24 @@ ann_data <- gapminder |>
 ```
 
 ```{r annotations-1}
-#| fig.alt = "A multiple line chart with colour co-ordinated line labels using sgplot theme and main palette."
+#| fig.alt = "A multiple line chart with colour co-ordinated line labels using afcharts theme and main palette."
 
 ann_data |>
   ggplot(aes(x = year, y = lifeExp, colour = country)) +
   geom_line(linewidth = 1) +
-  theme_sg(legend = "none") +
-  scale_colour_discrete_sg() +
+  theme_af(legend = "none") +
+  scale_colour_discrete_af() +
   scale_y_continuous(limits = c(0, 82),
                      breaks = seq(0, 80, 20),
                      expand = c(0, 0)) +
   scale_x_continuous(limits = c(1952, 2017),
                      breaks = seq(1952, 2017, 5)) +
   annotate(geom = "label", x = 2008, y = 73, label = "China",
-           colour = sg_colour_values[1],
+           colour = af_colour_values[1],
            label.size = NA,
            hjust = 0, vjust = 0.5) +
   annotate(geom = "label", x = 2008, y = 79.4, label = "United Kingdom",
-           colour = sg_colour_values[2],
+           colour = af_colour_values[2],
            label.size = NA,
            hjust = 0, vjust = 0.5) +
   labs(
@@ -47,7 +47,7 @@ Note that in the previous examples, `annotate()` also requires a geom (`label` o
 
 
 ```{r annotations-2}
-#| fig.alt = "A multiple line chart with colour co-ordinated line labels using sgplot theme and main2 palette."
+#| fig.alt = "A multiple line chart with colour co-ordinated line labels using afcharts theme and main2 palette."
 
 ann_labs <- ann_data |>
   group_by(country) |>
@@ -58,8 +58,8 @@ ann_labs <- ann_data |>
 ann_data |>
   ggplot(aes(x = year, y = lifeExp, colour = country)) +
   geom_line(linewidth = 1) +
-  theme_sg(legend = "none") +
-  scale_colour_discrete_sg() +
+  theme_af(legend = "none") +
+  scale_colour_discrete_af() +
   scale_y_continuous(limits = c(0, 82),
                      breaks = seq(0, 80, 20),
                      expand = c(0, 0)) +
@@ -86,10 +86,10 @@ Annotations may also be used to add value labels to a bar chart. Note that `geom
 #| fig.alt = "A bar chart with white text labels at the end of each bar."
 
 ggplot(bar_data, aes(x = reorder(country, -lifeExp), y = lifeExp)) +
-  geom_col(fill = sg_colour_values["dark-blue"]) +
+  geom_col(fill = af_colour_values["dark-blue"]) +
   geom_text(aes(label = round(lifeExp, 1)),
             nudge_y = -5, colour = "white") +
-  theme_sg() +
+  theme_af() +
   scale_y_continuous(expand = c(0, 0)) +
   labs(
     x = NULL,
