@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="afcharts_sticker" xmlns="http://www.w3.org/2000/svg" width="124.44pt" height="144.00pt" viewBox="0 0 124.44 144.00">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #3d3d3d;
+        stroke-linejoin: round;
+        stroke-width: 2.56px;
+      }
+
+      .cls-2 {
+        fill: #ff6900;
+      }
+
+      .cls-2, .cls-3, .cls-4 {
+        stroke-width: 0px;
+      }
+
+      .cls-3 {
+        fill: #fff;
+      }
+
+      .cls-4 {
+        fill: #003c57;
+      }
+    </style>
+  </defs>
+  <polygon id="bg" class="cls-4" points="1.15 36.74 1.15 107.26 62.22 142.52 123.29 107.26 123.29 36.74 62.22 1.48 1.15 36.74"/>
+  <g id="logo">
+    <rect class="cls-3" x="68.82" y="31.58" width="37.52" height="9.24"/>
+    <rect class="cls-3" x="68.82" y="44.78" width="37.54" height="9.15"/>
+    <rect class="cls-3" x="68.82" y="57.93" width="9.61" height="9.15"/>
+    <polygon class="cls-2" points="2.45 106.55 9.12 110.46 12.41 105.39 38.68 64.98 76.94 121.9 82.22 129.75 95.33 121.9 38.68 31.48 12.41 69.36 2.45 83.73 2.45 106.55"/>
+  </g>
+  <polygon id="border" class="cls-1" points="1.15 36.74 1.15 107.26 62.22 142.52 123.29 107.26 123.29 36.74 62.22 1.48 1.15 36.74"/>
+</svg>
