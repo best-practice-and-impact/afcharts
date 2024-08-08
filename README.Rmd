@@ -24,7 +24,7 @@ ex2_alt <- paste("A bar chart with white background,",
 
 ```
 
-# afcharts <img src="man/figures/logo.svg" alt="afcharts logo" align="right" height="150"/>
+# afcharts <img src="man/figures/afcharts_logo.svg" alt="afcharts logo" align="right" height="150"/>
 
 <!-- badges: start -->
 
@@ -34,12 +34,9 @@ ex2_alt <- paste("A bar chart with white background,",
 
 afcharts is an R package for creating accessible plots by the Government Analysis Function. Currently, functions are available for styling ggplot2 plots.
 
-The package has been developed using the [Government Analysis Function Data Visualisation guidance](https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-charts/).
-afcharts should be used in conjunction with these guidance documents.
+The package has been developed using the [Government Analysis Function Data Visualisation guidance](https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-charts/). afcharts should be used in conjunction with these guidance documents.
 
-More information about the package and its functions can be found on the [afcharts website](https://best-practice-and-impact.github.io/afcharts). 
-In particular, the [cookbook](https://best-practice-and-impact.github.io/afcharts/articles/cookbook.html) contains lots of examples. 
-
+More information about the package and its functions can be found on the [afcharts website](https://best-practice-and-impact.github.io/afcharts). In particular, the [cookbook](https://best-practice-and-impact.github.io/afcharts/articles/cookbook.html) contains lots of examples.
 
 ## Installation
 
@@ -52,7 +49,6 @@ remotes::install_github(
   build_vignettes = TRUE
 )
 ```
-
 
 ## Getting Started
 
@@ -68,10 +64,9 @@ Help files for each function in the package can be found on the [References](htt
 ?theme_af()
 ```
 
-
 ### Use afcharts as default
 
-The easiest way to use afcharts is by adding `use_afcharts()` to the beginning of your R script, Rmarkdown document or Shiny app code. This function will set a number of defaults to ggplot2 geoms, use afcharts colour palettes and use `theme_af()`. 
+The easiest way to use afcharts is by adding `use_afcharts()` to the beginning of your R script, Rmarkdown document or Shiny app code. This function will set a number of defaults to ggplot2 geoms, use afcharts colour palettes and use `theme_af()`.
 
 #### Example 1: Plot with one colour using ggplot2 defaults
 
@@ -116,18 +111,14 @@ gapminder |>
   )
 ```
 
-**Note on use of titles, subtitles and captions** <br>
-Titles, subtitles and captions have been embedded in these example charts for demonstration purposes. However, for accessibility reasons, it is usually preferable to provide titles in the body of the page rather than embedded within the image of the plot. More information is available in the [accessibility article](https://best-practice-and-impact.github.io/afcharts/articles/accessibility.html#other-accessibility-considerations).
-
+**Note on use of titles, subtitles and captions** <br> Titles, subtitles and captions have been embedded in these example charts for demonstration purposes. However, for accessibility reasons, it is usually preferable to provide titles in the body of the page rather than embedded within the image of the plot. More information is available in the [accessibility article](https://best-practice-and-impact.github.io/afcharts/articles/accessibility.html#other-accessibility-considerations).
 
 ## Acknowledgments
 
 The afcharts package is based on the [sgplot](https://scotgovanalysis.github.io/sgplot/index.html) package, written by Alice Hannah.
 
-
 ## Licence
 
 Unless stated otherwise, the codebase is released under [the MIT License](LICENSE). This covers both the codebase and any sample code in the documentation.
 
-The documentation is [© Crown copyright](http://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/) and available under the terms
-of the [Open Government 3.0](http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/) licence.
+The documentation is [© Crown copyright](http://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/) and available under the terms of the [Open Government 3.0](http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/) licence.
