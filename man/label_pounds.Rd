@@ -4,11 +4,38 @@
 \alias{label_pounds}
 \title{Label pounds sterling}
 \usage{
-label_pounds(...)
+label_pounds()
 }
-\arguments{
-\item{...}{}
+\value{
+labelling function
 }
 \description{
-Label pounds sterling
+Label an axis or legend in pounds sterling.
+}
+\examples{
+library(ggplot2)
+
+scales::demo_continuous(c(0, 1), breaks = seq(0, 1, 0.1),  labels = label_pounds())
+scales::demo_continuous(c(0, 5000), breaks = seq(0, 5000, 1000), labels = label_pounds())
+scales::demo_log10(c(1, 1e12), breaks = scales::log_breaks(5, 1e3), labels = label_pounds())
+
+set.seed(123)
+
+price_data <- data.frame(
+ date = seq(as.Date("2024-05-12"), as.Date("2024-08-12"), by = 1),
+ price = runif(93, 0, 1000)
+)
+
+use_afcharts()
+
+p <- ggplot(price_data, aes(x = date, y = price)) +
+ geom_line() +
+ scale_y_continuous(
+ labels = label_pounds(),
+  expand = c(0, 0),
+  breaks = seq(0, 1000, 100)
+ ) +
+ coord_cartesian(ylim = c(0, 1000))
+
+p
 }
