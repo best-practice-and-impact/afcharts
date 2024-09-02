@@ -72,9 +72,15 @@ save_govuk <- function(filename,
 
   device <- match.arg(device)
 
-  width <- 960
-  height <- 640
-  units <- "px"
+  if (device == "svg"){
+    width <- 712.5 / 72
+    height <- 474 / 72
+    units <- "in"
+  } else {
+    width <- 960
+    height <- 640
+    units <- "px"
+  }
 
   ggplot2::ggsave(
     filename = filename,
