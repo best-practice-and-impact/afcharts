@@ -24,7 +24,7 @@ ex2_alt <- paste("A bar chart with white background,",
 
 ```
 
-# afcharts <img src="man/figures/afcharts_logo.svg" alt="afcharts logo" align="right" height="150"/>
+# afcharts <img src="man/figures/afcharts_hexsticker.svg" alt="afcharts logo" align="right" height="150"/>
 
 <!-- badges: start -->
 
