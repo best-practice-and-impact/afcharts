@@ -46,9 +46,15 @@ mm_to_inch <- function(x) {
 #' p <- ggplot(price_data, aes(x = date, y = price)) +
 #'  geom_line() +
 #'  scale_y_continuous(
-#'  labels = label_pounds(),
+#'   labels = label_pounds(),
 #'   expand = c(0, 0),
-#'   breaks = seq(0, 1000, 100)
+#'   breaks = seq(0, 1000, 100),
+#'   name = "Price (£)"
+#'  ) +
+#'  scale_x_date(
+#'   date_breaks = "1 month",
+#'   date_labels = "%B %Y",
+#'   name = ""
 #'  ) +
 #'  coord_cartesian(ylim = c(0, 1000))
 #'
