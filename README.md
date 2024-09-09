@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# afcharts <img src="man/figures/afcharts_hexsticker.svg" alt="afcharts logo" align="right" height="150"/>
+# afcharts <img src="man/figures/logo.svg" alt="afcharts logo" align="right" height="150"/>
 
 <!-- badges: start -->
 
