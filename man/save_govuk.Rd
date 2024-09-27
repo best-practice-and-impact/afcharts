@@ -33,7 +33,10 @@ library(ggplot2)
 library(dplyr)
 library(gapminder)
 
-use_afcharts()
+# Images on GOVUK are shrunk. We therefore recommend using font size 20 pt
+# when exporting charts for GOVUK, which will appear as approximately 12 pt on
+# the website.
+use_afcharts(base_size = 20)
 
 grouped_bar_data <-
   gapminder |>

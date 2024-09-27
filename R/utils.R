@@ -39,7 +39,10 @@ mm_to_inch <- function(x) {
 #' library(dplyr)
 #' library(gapminder)
 #'
-#' use_afcharts()
+#' # Images on GOVUK are shrunk. We therefore recommend using font size 20 pt
+#' # when exporting charts for GOVUK, which will appear as approximately 12 pt on
+#' # the website.
+#' use_afcharts(base_size = 20)
 #'
 #' grouped_bar_data <-
 #'   gapminder |>
@@ -73,8 +76,8 @@ save_govuk <- function(filename,
   device <- match.arg(device)
 
   if (device == "svg"){
-    width <- 712.5 / 72
-    height <- 474 / 72
+    width <- 960 / 72
+    height <- 640 / 72
     units <- "in"
   } else {
     width <- 960
