@@ -22,7 +22,7 @@
 #' @export
 
 
-theme_af <- function(base_size = 12,
+theme_af <- function(base_size = 14,
                      base_line_size = base_size / 24,
                      base_rect_size = base_size / 24,
                      grid = c("y", "x", "xy", "none"),
@@ -152,7 +152,7 @@ theme_af <- function(base_size = 12,
     legend.margin = ggplot2::margin(half_line, half_line, half_line, half_line),
     legend.key = ggplot2::element_rect(fill = NA, colour = NA),
     legend.key.size = ggplot2::unit(1.2, "lines"), # CHECK
-    legend.text = ggplot2::element_text(size = ggplot2::rel(0.8)),
+    legend.text = ggplot2::element_text(size = ggplot2::rel(1)),
     legend.text.align = NULL,
     legend.title = ggplot2::element_text(hjust = 0),
     legend.title.align = NULL,
@@ -201,7 +201,7 @@ theme_af <- function(base_size = 12,
       margin = ggplot2::margin(b = half_line * 2)
     ),
     plot.caption = ggplot2::element_text(
-      size = ggplot2::rel(0.8),
+      size = ggplot2::rel(1),
       hjust = 0, vjust = 1,
       margin = ggplot2::margin(t = half_line)
     ),
