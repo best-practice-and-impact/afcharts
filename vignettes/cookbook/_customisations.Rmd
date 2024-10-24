@@ -67,7 +67,7 @@ last_plot() +
 
 Note that further calls to `scale_x/y_continuous` will overwrite previous calls, hence why `expand = c(0, 0)` has been included again in this example.
 
-Adaptive axis limits and break for `scale_x/y_continuous()` can be defined using the `pretty` function. This defines breaks that are equally spaced ‘round’ values which cover the range of the data and limits that are the next 'round' value just exceeding the range of the data (sourced from [StackOverflow](https://stackoverflow.com/a/78946985/11374827))
+Adaptive axis limits and break for `scale_x/y_continuous()` can be defined using the `pretty` function. This defines breaks that are equally spaced ‘round’ values which cover the range of the data and limits that are the next 'round' value just exceeding the range of the data.
 
 ```{r axis-limits-breaks-labels-fct}
 #| fig.alt = "A bar chart with 'round' breaks and limits using the pretty() function."
