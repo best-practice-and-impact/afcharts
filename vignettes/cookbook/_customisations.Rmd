@@ -75,7 +75,7 @@ Adaptive axis limits and break for `scale_x/y_continuous()` can be defined using
 limits_pretty <- function(x, ...) range(pretty(x, ...))
 
 last_plot() +
-  scale_x_continuous(expand = c(0, 0),
+  scale_x_continuous(expand = expansion(mult = c(0, .1)),
                      breaks = pretty, 
                      limits = limits_pretty)
 
