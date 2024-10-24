@@ -51,9 +51,11 @@ The equivalent adjustment can be made for the y axis using `scale_y_continuous`.
 
 ### Changing axis limits, breaks and labels
 
-Axis limits, breaks and labels for continuous variables can be controlled using `scale_x/y_continuous()`. For discrete variables, labels can be changes using `scale_x/y_discrete()` or alternatively by recoding the variable in the data before creating a chart.
+Axis limits, breaks and labels for continuous variables can be controlled using `scale_x/y_continuous()`. For discrete variables, labels can be changed using `scale_x/y_discrete()` or alternatively by recoding the variable in the data before creating a chart.
 
-```{r axis-limits-breaks-labels}
+Limits, breaks and lables can be defined with custom values.
+
+```{r axis-limits-breaks-labels-custom}
 #| fig.alt = "A bar chart with fewer x axis breaks and edited labels."
 
 last_plot() +
@@ -64,6 +66,22 @@ last_plot() +
 ```
 
 Note that further calls to `scale_x/y_continuous` will overwrite previous calls, hence why `expand = c(0, 0)` has been included again in this example.
+
+Adaptive axis limits and break for `scale_x/y_continuous()` can be defined using the `pretty` function. This defines breaks that are equally spaced ‘round’ values which cover the range of the data and limits that are the next 'round' value just exceeding the range of the data.
+
+```{r axis-limits-breaks-labels-fct}
+#| fig.alt = "A bar chart with 'round' breaks and limits using the pretty() function."
+
+limits_pretty <- function(x, ...) range(pretty(x, ...))
+
+last_plot() +
+  scale_x_continuous(expand = c(0, 0),
+                     breaks = pretty, 
+                     limits = limits_pretty)
+
+```
+
+
 
 
 ### Formatting labels
