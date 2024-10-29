@@ -80,6 +80,7 @@ reference:
 - title: Helpers
   contents:
   - mm_to_inch
+  - save_govuk
 
 figures:
   dev: "svg"
