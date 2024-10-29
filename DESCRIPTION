@@ -21,19 +21,21 @@ Imports:
     ggplot2,
     scales,
     cli,
-    rlang
+    rlang,
+    dplyr
 Suggests: 
-  dplyr,
-  knitr,
-  rmarkdown,
-  tibble,
-  tidyr,
-  glue,
-  purrr,
-  gapminder,
-  stringr,
-  testthat (>= 2.1.0),
-  plotly,
-  gt
+    knitr,
+    rmarkdown,
+    tibble,
+    tidyr,
+    glue,
+    purrr,
+    gapminder,
+    stringr,
+    testthat (>= 2.1.0),
+    plotly,
+    gt,
+    svglite (>= 2.1.2),
+    ragg (>= 1.2.6)
 VignetteBuilder: knitr
 Roxygen: list(markdown = TRUE)

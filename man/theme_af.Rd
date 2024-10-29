@@ -5,7 +5,7 @@
 \title{Analysis Function theme for ggplot2 charts.}
 \usage{
 theme_af(
-  base_size = 12,
+  base_size = 14,
   base_line_size = base_size/24,
   base_rect_size = base_size/24,
   grid = c("y", "x", "xy", "none"),
