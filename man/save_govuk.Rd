@@ -18,7 +18,7 @@ save_govuk(
 \item{plot}{The plot to save}
 
 \item{device}{File type to produce (svg, png or jpg). svg is preferred as
-it scales well without pixellating}
+it scales well without pixelating}
 
 \item{path}{Directory to save the plot in}
 

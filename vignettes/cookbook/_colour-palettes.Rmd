@@ -43,7 +43,7 @@ gapminder |>
 
 There may be instances where you'd like to use a colour palette that is not available in afcharts. 
 If so, this should be carefully considered to ensure it meets accessibility requirements. 
-The Government Analysis Function guidance outlines [appropriate steps for choosing your own accessibile colour palette](https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-colours-in-charts/#section-9) and should be used.
+The Government Analysis Function guidance outlines [appropriate steps for choosing your own accessible colour palette](https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-colours-in-charts/#section-9) and should be used.
 
 ```{r different-colour-palette-1}
 #| fig.alt = "A line chart using afcharts theme and first colour from custom palette."

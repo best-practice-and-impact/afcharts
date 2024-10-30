@@ -28,7 +28,7 @@ mm_to_inch <- function(x) {
 #' @param filename File name
 #' @param plot The plot to save
 #' @param device File type to produce (svg, png or jpg). svg is preferred as
-#'   it scales well without pixellating
+#'   it scales well without pixelating
 #' @param path Directory to save the plot in
 #' @param ... Other params passed to ggplot::ggsave
 #'

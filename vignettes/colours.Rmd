@@ -115,7 +115,7 @@ Follow the [advice for using the focus palette](https://analysisfunction.civilse
 
 There may be instances where you'd like to use a different colour palette. 
 If so, this should be carefully considered to ensure it meets accessibility requirements. 
-The Government Analysis Function guidance outlines [appropriate steps for choosing your own accessibile colour palette](https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-colours-in-charts/#section-9) and should be used.
+The Government Analysis Function guidance outlines [appropriate steps for choosing your own accessible colour palette](https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-colours-in-charts/#section-9) and should be used.
 
 An example of how to use an alternative colour palette is provided in the [cookbook](https://best-practice-and-impact.github.io/afcharts/articles/cookbook.html#using-your-own-colour-palette).
 However, if you use a different palette regularly and feel it would be useful for this to be added to afcharts, please make a suggestion as per the [contributing guidance](https://best-practice-and-impact.github.io/afcharts/CONTRIBUTING.html).

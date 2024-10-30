@@ -1,12 +1,12 @@
 Package: afcharts
 Title: Produce Charts Following UK Government Analysis Function Guidance
-Version: 0.1.0
+Version: 0.2.0
 Authors@R: c(
     person("Government Analysis Function", , , "Analysis.Function@ons.gov.uk", role = c("cph", "fnd")),
     person("Alice", "Hannah", , "alice.hannah@gov.scot", role = c("aut")),
     person("Olivia", "Box Power", , "Olivia.BoxPower@dhsc.gov.uk", role = c("cre", "ctb"))
   )
-Description: Colour palettes and a'ggplot2' theme to follow the UK Government
+Description: Colour palettes and a 'ggplot2' theme to follow the UK Government
     Analysis Function best practice guidance for producing data visualisations,
     available at
     <https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-charts/>.
