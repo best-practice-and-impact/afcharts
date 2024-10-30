@@ -29,6 +29,7 @@ Imports:
     rlang,
     dplyr
 Suggests: 
+    ggtext,
     knitr,
     rmarkdown,
     tibble,
