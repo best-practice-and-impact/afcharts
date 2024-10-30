@@ -7,6 +7,9 @@
 #'   from `af_colour_values`.
 #' @param ... Arguments passed to `theme_af()`.
 #'
+#' @returns NULL. Function is used for side effects of setting ggplot2 plot
+#'   theme, colour palette and geom aesthetic defaults.
+#'
 #' @examples
 #' library(ggplot2)
 #'
@@ -111,5 +114,6 @@ use_afcharts <- function(default_colour = af_colour_values["dark-blue"],
 
   cli::cli_alert_info("Default geom aesthetics set.")
 
+  NULL
 
 }

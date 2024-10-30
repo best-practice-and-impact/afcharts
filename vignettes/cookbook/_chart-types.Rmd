@@ -321,4 +321,4 @@ plotly::ggplotly(p, tooltip = "text") |>
   )
 ```
 
-afcharts currently only works with `ggplot2` charts, however there are plans to develop the package further to support interactive Highcharts produced using the [`highcharter`](https://jkunst.com/highcharter) package.
+afcharts currently only works with `ggplot2` charts, however there are plans to develop the package further to support interactive Highcharts produced using the [`highcharter`](https://jkunst.com/highcharter/) package.

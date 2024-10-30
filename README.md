@@ -22,12 +22,23 @@ guidance](https://analysisfunction.civilservice.gov.uk/policy-store/data-visuali
 afcharts should be used in conjunction with these guidance documents.
 
 More information about the package and its functions can be found on the
-[afcharts website](https://best-practice-and-impact.github.io/afcharts).
-In particular, the
+[afcharts
+website](https://best-practice-and-impact.github.io/afcharts/). In
+particular, the
 [cookbook](https://best-practice-and-impact.github.io/afcharts/articles/cookbook.html)
 contains lots of examples.
 
 ## Installation
+
+### Install from CRAN
+
+Install the latest release version of afcharts directly from CRAN:
+
+``` r
+install.packages("afcharts")
+```
+
+### Install from GitHub
 
 afcharts can be installed directly from GitHub.
 
@@ -48,7 +59,7 @@ library(afcharts)
 ```
 
 Help files for each function in the package can be found on the
-[References](https://best-practice-and-impact.github.io/afcharts/reference)
+[References](https://best-practice-and-impact.github.io/afcharts/reference/)
 page of the package website. Alternatively, type `?function_name` into
 the RStudio console. For example:
 
@@ -92,6 +103,7 @@ gapminder |>
 
 ``` r
 afcharts::use_afcharts()
+#> NULL
 
 gapminder |> 
   filter(year == 2007 & continent == "Europe") |>
@@ -131,7 +143,7 @@ License](LICENSE). This covers both the codebase and any sample code in
 the documentation.
 
 The documentation is [© Crown
-copyright](http://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/)
+copyright](https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/)
 and available under the terms of the [Open Government
-3.0](http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/)
+3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/)
 licence.

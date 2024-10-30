@@ -23,6 +23,9 @@ reversed.}
 
 \item{...}{Additional arguments passed to scale type.}
 }
+\value{
+ggplot2 discrete fill scale
+}
 \description{
 Discrete colour fill scales for Analysis Function plots
 }

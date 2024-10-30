@@ -10,6 +10,8 @@
 #' @param guide A name or function used to create guide. Default is "colourbar".
 #' @param ... Additional arguments passed to scale type.
 #'
+#' @returns ggplot2 continuous colour scale
+#'
 #' @examples
 #' library(ggplot2)
 #'

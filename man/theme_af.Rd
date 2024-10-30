@@ -28,6 +28,9 @@ to 'xy'.}
 \item{legend}{'right', 'left', 'top', 'bottom', or 'none' to determine the
 position of the legend. Defaults to 'right'.}
 }
+\value{
+ggplot2 plot theme
+}
 \description{
 ggplot2 theme for Analysis Function plots.
 }

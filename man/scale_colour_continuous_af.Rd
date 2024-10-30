@@ -29,6 +29,9 @@ reversed.}
 
 \item{...}{Additional arguments passed to scale type.}
 }
+\value{
+ggplot2 continuous colour scale
+}
 \description{
 Continuous colour scales for Analysis Function plots
 }

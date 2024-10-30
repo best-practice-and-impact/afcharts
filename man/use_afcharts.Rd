@@ -12,6 +12,10 @@ from \code{af_colour_values}.}
 
 \item{...}{Arguments passed to \code{theme_af()}.}
 }
+\value{
+NULL. Function is used for side effects of setting ggplot2 plot
+theme, colour palette and geom aesthetic defaults.
+}
 \description{
 Set afcharts theme, colour palette and geom aesthetic defaults
 for ggplot2 charts.

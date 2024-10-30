@@ -2,7 +2,7 @@
 #'
 #' @param x Numeric value in millimetres
 #'
-#' @return A numerical value in inches
+#' @returns A numerical value in inches
 #'
 #' @examples mm_to_inch(100)
 #'
@@ -31,6 +31,8 @@ mm_to_inch <- function(x) {
 #'   it scales well without pixellating
 #' @param path Directory to save the plot in
 #' @param ... Other params passed to ggplot::ggsave
+#'
+#' @returns Character vector giving path to saved file
 #'
 #' @export
 #'

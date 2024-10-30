@@ -4,20 +4,21 @@
 \name{afcharts-package}
 \alias{afcharts}
 \alias{afcharts-package}
-\title{afcharts: Graphic Styles and Colours for Government Analysis Function}
+\title{afcharts: Produce Charts Following UK Government Analysis Function Guidance}
 \description{
-Standard ggplot theme and colour palettes for use by the Government Analysis Function.
+Colour palettes and a'ggplot2' theme to follow the UK Government Analysis Function best practice guidance for producing data visualisations, available at \url{https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-charts/}. Includes continuous and discrete colour and fill scales, as well as a 'ggplot2' theme.
 }
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://github.com/best-practice-and-impact/afcharts https://best-practice-and-impact.github.io/afcharts}
+  \item \url{https://github.com/best-practice-and-impact/afcharts}
+  \item \url{https://best-practice-and-impact.github.io/afcharts/}
   \item Report bugs at \url{https://github.com/best-practice-and-impact/afcharts/issues}
 }
 
 }
 \author{
-\strong{Maintainer}: Olivia Box Power \email{Olivia.BoxPower@dhsc.gov.uk}
+\strong{Maintainer}: Olivia Box Power \email{Olivia.BoxPower@dhsc.gov.uk} [contributor]
 
 Authors:
 \itemize{

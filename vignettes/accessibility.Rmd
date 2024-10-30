@@ -62,7 +62,7 @@ More information on afcharts colours can be found at `vignette("colours")`.
 
 ## Other accessibility considerations
 
-Using afcharts does not guarantee accessibility. The Government Analysis Function [chart guidance](https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-charts) contains detailed information on other considerations that should be made. 
+Using afcharts does not guarantee accessibility. The Government Analysis Function [chart guidance](https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-charts/) contains detailed information on other considerations that should be made. 
 Not all of these are repeated here, but we think the following are a good place to start:
 
 * Consider what type of chart is best to convey your message. Keep it as simple as possible.

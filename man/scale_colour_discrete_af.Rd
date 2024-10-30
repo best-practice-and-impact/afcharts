@@ -23,6 +23,9 @@ reversed.}
 
 \item{...}{Additional arguments passed to scale type.}
 }
+\value{
+ggplot2 discrete colour scale
+}
 \description{
 Discrete colour scales for Analysis Function plots
 }

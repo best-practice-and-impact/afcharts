@@ -1,3 +1,3 @@
-# afcharts (development version)
+# afcharts v0.1.0
 
-First release of package based on [sgplot](https://scotgovanalysis.github.io/sgplot).
+First release of package based on [sgplot](https://scotgovanalysis.github.io/sgplot/).

@@ -11,6 +11,8 @@
 #' @param legend 'right', 'left', 'top', 'bottom', or 'none' to determine the
 #'   position of the legend. Defaults to 'right'.
 #'
+#' @returns ggplot2 plot theme
+#'
 #' @examples
 #' library(ggplot2)
 #'

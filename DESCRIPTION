@@ -1,16 +1,21 @@
 Package: afcharts
-Title: Graphic Styles and Colours for Government Analysis Function
+Title: Produce Charts Following UK Government Analysis Function Guidance
 Version: 0.0.0.9000
 Authors@R: c(
     person("Government Analysis Function", , , "Analysis.Function@ons.gov.uk", role = c("cph", "fnd")),
     person("Alice", "Hannah", , "alice.hannah@gov.scot", role = c("aut")),
-    person("Olivia", "Box Power", , "Olivia.BoxPower@dhsc.gov.uk", role = "cre")
+    person("Olivia", "Box Power", , "Olivia.BoxPower@dhsc.gov.uk", role = c("cre", "ctb"))
   )
-Description: Standard ggplot theme and colour palettes for use by the Government Analysis Function.
+Description: Colour palettes and a'ggplot2' theme to follow the UK Government
+    Analysis Function best practice guidance for producing data visualisations,
+    available at
+    <https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-charts/>.
+    Includes continuous and discrete colour and fill scales, as well as a
+    'ggplot2' theme.
 License: MIT + file LICENSE
 URL: 
-  https://github.com/best-practice-and-impact/afcharts
-  https://best-practice-and-impact.github.io/afcharts
+  https://github.com/best-practice-and-impact/afcharts,
+  https://best-practice-and-impact.github.io/afcharts/
 BugReports: https://github.com/best-practice-and-impact/afcharts/issues
 Encoding: UTF-8
 LazyData: true
@@ -30,12 +35,12 @@ Suggests:
     tidyr,
     glue,
     purrr,
-    gapminder,
     stringr,
     testthat (>= 2.1.0),
     plotly,
     gt,
     svglite (>= 2.1.2),
-    ragg (>= 1.2.6)
+    ragg (>= 1.2.6),
+    gapminder
 VignetteBuilder: knitr
 Roxygen: list(markdown = TRUE)

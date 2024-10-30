@@ -24,6 +24,9 @@ it scales well without pixellating}
 
 \item{...}{Other params passed to ggplot::ggsave}
 }
+\value{
+Character vector giving path to saved file
+}
 \description{
 This is a wrapper around \code{\link[ggplot2:ggsave]{ggplot2::ggsave()}} with plot dimensions set for
 publishing on GOVUK.

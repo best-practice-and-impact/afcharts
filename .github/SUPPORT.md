@@ -4,7 +4,7 @@ Thanks for using afcharts!
 
 ## Try these first
 
-* If you want to find out more about any of afcharts's functions; help files can be found on the [References](https://best-practice-and-impact.github.io/afcharts/reference) page of the package website. Alternatively, type `?function_name` into the RStudio console. For example:
+* If you want to find out more about any of afcharts's functions; help files can be found on the [References](https://best-practice-and-impact.github.io/afcharts/reference/) page of the package website. Alternatively, type `?function_name` into the RStudio console. For example:
 
    ``` r
    ?theme_af()

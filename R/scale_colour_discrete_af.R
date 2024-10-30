@@ -8,6 +8,8 @@
 #'   reversed.
 #' @param ... Additional arguments passed to scale type.
 #'
+#' @returns ggplot2 discrete colour scale
+#'
 #' @examples
 #' library(ggplot2)
 #' library(dplyr)
