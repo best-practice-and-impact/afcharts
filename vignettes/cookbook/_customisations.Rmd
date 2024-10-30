@@ -213,10 +213,10 @@ ggplot(bar_data, aes(x = reorder(country, -lifeExp), y = lifeExp)) +
   )
 ```
 
-You may also consider using markdown or HTML formatted text within your charts. This
-can be readily achieved with `ggtext::element_markdown()`. Please refer to guidance
-from your department in considering the accessibility of custom formatting, such as when
-using colours.
+You may also consider using markdown or HTML formatted text within your charts.
+This can be readily achieved with `ggtext::element_markdown()`. Please refer to
+Analysis Function guidance in considering the accessibility of custom
+formatting, such as when using colours.
 
 ```{r html-formatting}
 #| fig.alt = "A line chart using the afcharts theme with coloured text in the subtitle corresponding to the line colours."

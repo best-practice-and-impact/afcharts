@@ -22,9 +22,9 @@ Imports:
     scales,
     cli,
     rlang,
-    ggtext
     dplyr
 Suggests: 
+    ggtext,
     knitr,
     rmarkdown,
     tibble,
