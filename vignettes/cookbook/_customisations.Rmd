@@ -212,3 +212,48 @@ ggplot(bar_data, aes(x = reorder(country, -lifeExp), y = lifeExp)) +
     caption = "Source: Gapminder"
   )
 ```
+
+You may also consider using markdown or HTML formatted text within your charts.
+This can be readily achieved with `ggtext::element_markdown()`. Please refer to
+Analysis Function guidance in considering the accessibility of custom
+formatting, such as when using colours.
+
+```{r html-formatting}
+#| fig.alt = "A line chart using the afcharts theme with coloured text in the subtitle corresponding to the line colours."
+
+ann_data <- gapminder |>
+  filter(country %in% c("United Kingdom", "China"))
+
+ann_labs <- ann_data |>
+  group_by(country) |>
+  mutate(min_year = min(year)) |>
+  filter(year == max(year)) |>
+  ungroup()
+
+ann_data |>
+  ggplot(aes(x = year, y = lifeExp, colour = country)) +
+  geom_line(linewidth = 1) +
+  theme_af(legend = "none") +
+  scale_colour_discrete_af() +
+  scale_y_continuous(limits = c(0, 82),
+                     breaks = seq(0, 80, 20),
+                     expand = c(0, 0)) +
+  scale_x_continuous(limits = c(1952, 2017),
+                     breaks = seq(1952, 2017, 5)) +
+  geom_label(data = ann_labs,
+             aes(x = year, y = lifeExp, label = country, colour = country),
+             hjust = 0,
+             vjust = 0.5,
+             nudge_x = 0.5,
+             label.size = NA) +
+  labs(
+    x = "Year",
+    y = NULL,
+    title = "Living Longer",
+    subtitle = "Life Expectancy in the
+    <span style='color:darkorange;'>United Kingdom</span> and
+    <span style='color:navy;'>China</span> 1952-2007",
+    caption = "Source: Gapminder"
+  ) +
+  theme(plot.subtitle = element_markdown())
+```
