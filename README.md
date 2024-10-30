@@ -9,7 +9,7 @@
 date)](https://img.shields.io/github/v/release/best-practice-and-impact/afcharts)](https://github.com/best-practice-and-impact/afcharts/releases/latest)
 [![R build
 status](https://github.com/best-practice-and-impact/afcharts/workflows/R-CMD-check/badge.svg)](https://github.com/best-practice-and-impact/afcharts/actions)
-
+[![R-CMD-check](https://github.com/best-practice-and-impact/afcharts/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/best-practice-and-impact/afcharts/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 afcharts is an R package for creating accessible plots by the Government
