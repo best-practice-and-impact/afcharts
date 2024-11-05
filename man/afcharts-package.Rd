@@ -22,13 +22,13 @@ Useful links:
 
 Authors:
 \itemize{
-  \item Government Analysis Function \email{Analysis.Function@ons.gov.uk}
   \item Alice Hannah \email{alice.hannah@gov.scot}
 }
 
 Other contributors:
 \itemize{
   \item Crown Copyright [copyright holder]
+  \item Government Analysis Function \email{Analysis.Function@ons.gov.uk} [funder]
 }
 
 }

@@ -1,4 +1,4 @@
-## Resubmission (v 0.3.0)
+## Resubmission (v 0.4.0)
 This is a resubmission. In this version I have:
 
 * Updated the package description to make the copyright holder clearer.
