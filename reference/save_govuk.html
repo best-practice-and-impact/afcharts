@@ -9,7 +9,7 @@ publishing on GOVUK."><meta property="og:image" content="https://best-practice-a
 
     <a class="navbar-brand me-2" href="../index.html">afcharts</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Unreleased version">0.0.0.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.4.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,7 +37,7 @@ publishing on GOVUK."><meta property="og:image" content="https://best-practice-a
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.svg" class="logo" alt=""><h1>Save a plot at the correct dimensions for publishing on GOVUK</h1>
-      <small class="dont-index">Source: <a href="https://github.com/best-practice-and-impact/afcharts/blob/main/R/utils.R" class="external-link"><code>R/utils.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/best-practice-and-impact/afcharts/blob/v0.4.0/R/utils.R" class="external-link"><code>R/utils.R</code></a></small>
       <div class="d-none name"><code>save_govuk.Rd</code></div>
     </div>
 
@@ -71,7 +71,7 @@ publishing on GOVUK.</p>
 
 <dt id="arg-device">device<a class="anchor" aria-label="anchor" href="#arg-device"></a></dt>
 <dd><p>File type to produce (svg, png or jpg). svg is preferred as
-it scales well without pixellating</p></dd>
+it scales well without pixelating</p></dd>
 
 
 <dt id="arg-path">path<a class="anchor" aria-label="anchor" href="#arg-path"></a></dt>
@@ -82,6 +82,10 @@ it scales well without pixellating</p></dd>
 <dd><p>Other params passed to ggplot::ggsave</p></dd>
 
 </dl></div>
+    <div class="section level2">
+    <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
+    <p>Character vector giving path to saved file</p>
+    </div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
@@ -104,6 +108,7 @@ it scales well without pixellating</p></dd>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Default ggplot2 theme set to `theme_af`.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Default colours set.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Default geom aesthetics set.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> NULL</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">grouped_bar_data</span> <span class="op">&lt;-</span></span></span>
 <span class="r-in"><span>  <span class="va">gapminder</span> <span class="op">|&gt;</span></span></span>
@@ -136,7 +141,7 @@ it scales well without pixellating</p></dd>
 
 
     <footer><div class="pkgdown-footer-left">
-  <p>Developed by the Government Analysis Function  <a href="mailto:Analysis.Function@ons.gov.uk"><i class="fas fa-envelope" aria-hidden="true"></i><span class="visually-hidden">Email Analysis Functiont&gt;</span></a>  <a href="https://github.com/best-practice-and-impact" class="external-link"><i class="fab fa-github" aria-hidden="true"></i><span class="visually-hidden">Analysis Function GitHub profile&gt;</span></a>.</p>
+  <p>Developed by the Crown Copyright.</p>
 </div>
 
 <div class="pkgdown-footer-right">
