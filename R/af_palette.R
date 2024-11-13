@@ -19,7 +19,7 @@ af_palette <- function(palette = "main",
 
   palette_list <- switch(
     palette_type,
-    af = af_colour_palettes
+    af = afcharts::af_colour_palettes
   )
 
   # Check valid palette name
