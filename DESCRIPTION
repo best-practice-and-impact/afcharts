@@ -43,6 +43,7 @@ Suggests:
     gt,
     svglite (>= 2.1.2),
     ragg (>= 1.2.6),
-    gapminder
+    gapminder,
+    diffviewer
 VignetteBuilder: knitr
 Roxygen: list(markdown = TRUE)
