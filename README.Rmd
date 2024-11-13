@@ -57,8 +57,7 @@ afcharts can be installed directly from GitHub.
 remotes::install_github(
   "best-practice-and-impact/afcharts",
   upgrade = "never",
-  build_vignettes = TRUE,
-  dependencies = TRUE
+  build_vignettes = TRUE
 )
 ```
 
