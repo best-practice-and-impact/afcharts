@@ -32,7 +32,7 @@ scale_fill_continuous_af <- function(palette = "sequential",
 
   palette_list <- switch(
     palette_type,
-    af = af_colour_palettes
+    af = afcharts::af_colour_palettes
   )
 
   # Error if palette doesn't exist

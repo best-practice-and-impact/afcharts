@@ -4,7 +4,7 @@
 \alias{use_afcharts}
 \title{Use afcharts defaults.}
 \usage{
-use_afcharts(default_colour = af_colour_values["dark-blue"], ...)
+use_afcharts(default_colour = afcharts::af_colour_values["dark-blue"], ...)
 }
 \arguments{
 \item{default_colour}{Default colour/fill for geoms. Default value is 'blue'
