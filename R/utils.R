@@ -77,7 +77,7 @@ save_govuk <- function(filename,
 
   device <- match.arg(device)
 
-  if (device == "svg"){
+  if (device == "svg") {
     width <- 960 / 72
     height <- 640 / 72
     units <- "in"
