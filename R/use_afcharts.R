@@ -117,6 +117,6 @@ use_afcharts <- function(default_colour = afcharts::af_colour_values["dark-blue"
 
   cli::cli_alert_info("Default geom aesthetics set.")
 
-  NULL
+  invisible(NULL)
 
 }
