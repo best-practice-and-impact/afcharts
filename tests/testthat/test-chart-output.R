@@ -12,7 +12,7 @@ save_svg <- function(plot, file, title = ""){
 }
 
 expect_match_plot <- function(...) {
-  expect_doppelganger(writer = save_svg, ...)
+  vdiffr::expect_doppelganger(writer = save_svg, ...)
 }
 
 
