@@ -1,5 +1,6 @@
 library(testthat)
 library(afcharts)
 library(ggplot2)
+library(dplyr)
 library(vdiffr)
 test_check("afcharts")
