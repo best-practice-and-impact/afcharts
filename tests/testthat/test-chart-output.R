@@ -1,3 +1,6 @@
+# Restart R session before rerunning these tests as otherwise use_afcharts will
+# remain active and effect the earlier charts.
+
 # Wrapper functions for testing ------------------------------------------------
 
 save_svg <- function(plot, file, title = ""){
