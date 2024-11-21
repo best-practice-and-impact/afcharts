@@ -134,7 +134,6 @@ afcharts::af_colour_palettes
 
 # View names and hex codes for `main` colour palette
 afcharts::af_colour_palettes$main
-
 ```
 
 Examples of how to apply these palettes to ggplot2 charts are available in both the [cookbook](https://best-practice-and-impact.github.io/afcharts/articles/cookbook.html) and the reference files for `scale_` [colour functions](https://best-practice-and-impact.github.io/afcharts/reference/index.html#colours).

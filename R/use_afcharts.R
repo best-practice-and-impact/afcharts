@@ -27,7 +27,7 @@
 
 
 use_afcharts <- function(default_colour = af_colour_values["dark-blue"],
-                       ...) {
+                         ...) {
 
   # Use afcharts theme ----
 
