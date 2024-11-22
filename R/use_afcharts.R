@@ -26,8 +26,9 @@
 #' @export
 
 
-use_afcharts <- function(default_colour = afcharts::af_colour_values["dark-blue"],
-                         ...) {
+use_afcharts <- function(
+    default_colour = afcharts::af_colour_values["dark-blue"],
+    ...) {
 
   # Use afcharts theme ----
 
@@ -53,7 +54,7 @@ use_afcharts <- function(default_colour = afcharts::af_colour_values["dark-blue"
 
   # Update default values with those passed to use_afcharts
   new_values <- c(...)
-  for (i in 1:length(new_values)) {
+  for (i in seq_along(new_values)) {
     default <- replace(default,
                        which(names(default) == names(new_values)[i]),
                        new_values[i])
