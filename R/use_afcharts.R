@@ -26,7 +26,7 @@
 #' @export
 
 
-use_afcharts <- function(default_colour = af_colour_values["dark-blue"],
+use_afcharts <- function(default_colour = afcharts::af_colour_values["dark-blue"],
                          ...) {
 
   # Use afcharts theme ----
@@ -51,9 +51,12 @@ use_afcharts <- function(default_colour = af_colour_values["dark-blue"],
   # Get default base sizes used in theme
   default <- formals(theme_af)
 
-  # Replace default values with those passed to use_afcharts
-  for (i in length(list(...))) {
-    default <- replace(default, i, list(...)[i])
+  # Update default values with those passed to use_afcharts
+  new_values <- c(...)
+  for (i in 1:length(new_values)) {
+    default <- replace(default,
+                       which(names(default) == names(new_values)[i]),
+                       new_values[i])
   }
 
   # Evaluate base_size values for use in geom defaults
@@ -114,6 +117,6 @@ use_afcharts <- function(default_colour = af_colour_values["dark-blue"],
 
   cli::cli_alert_info("Default geom aesthetics set.")
 
-  NULL
+  invisible(NULL)
 
 }
