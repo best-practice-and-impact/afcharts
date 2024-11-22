@@ -30,9 +30,12 @@ test_that("Error if too many colours requested", {
 })
 
 test_that("Use `main2` if two colours required.", {
-  expect_warning(af_palette("main", palette_type = "af")(2))
+  expect_message(
+    af_palette("main", palette_type = "af")(2),
+    "Using `main2` palette as only two colours are required."
+  )
   expect_equal(
-    suppressWarnings(af_palette("main", palette_type = "af")(2)),
+    suppressMessages(af_palette("main", palette_type = "af")(2)),
     unname(af_colour_palettes$main2)
   )
 })
