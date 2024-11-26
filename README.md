@@ -1,3 +1,8 @@
+---
+editor_options: 
+  markdown: 
+    wrap: 72
+---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
@@ -10,6 +15,7 @@ date)](https://img.shields.io/github/v/release/best-practice-and-impact/afcharts
 [![R build
 status](https://github.com/best-practice-and-impact/afcharts/workflows/R-CMD-check/badge.svg)](https://github.com/best-practice-and-impact/afcharts/actions)
 [![R-CMD-check](https://github.com/best-practice-and-impact/afcharts/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/best-practice-and-impact/afcharts/actions/workflows/R-CMD-check.yaml)
+
 <!-- badges: end -->
 
 afcharts is an R package for creating accessible plots by the Government
@@ -84,44 +90,67 @@ library(gapminder)
 library(afcharts)
 
 gapminder |> 
-  filter(year == 2007 & continent == "Europe") |>
-  slice_max(order_by = lifeExp, n = 5) |>
-  ggplot() +
-  geom_col(aes(x = reorder(country, -lifeExp), y = lifeExp)) +
+  filter(year == 2007 & continent == "Americas") |>
+  slice_max(order_by = pop, n = 5) |>
+  ggplot(aes(x = reorder(country, -pop), y = pop/(10^6))) +
+  geom_col() +
   scale_y_continuous(expand = c(0, 0)) +
   labs(
     x = NULL,
     y = NULL,
-    title = "Iceland has the highest life expectancy in Europe",
-    subtitle = "Life expectancy in European countries, 2007",
+    title = "The U.S.A. is the most populous country in the Americas",
+    subtitle = "Population of countries in the Americas (millions), 2007",
     caption = "Source: Gapminder"
-  )
+    )
 ```
 
-<img src="man/figures/README-ex1-1.svg" alt="A bar chart with grey background, white grid lines and dark grey bars."  />
+<img src="man/figures/README-ex1-1.svg" alt="A bar chart with grey background, white grid lines and dark grey bars."/>
 
 #### Example 2: Plot with one colour using afcharts defaults
 
 ``` r
 afcharts::use_afcharts()
 #> NULL
-
 gapminder |> 
-  filter(year == 2007 & continent == "Europe") |>
-  slice_max(order_by = lifeExp, n = 5) |>
-  ggplot() +
-  geom_col(aes(x = reorder(country, -lifeExp), y = lifeExp)) +
+  filter(year == 2007 & continent == "Americas") |>
+  slice_max(order_by = pop, n = 5) |>
+  ggplot(aes(x = reorder(country, -pop), y = pop/(10^6))) +
+  geom_col(fill = af_colour_values["dark-blue"]) +
   scale_y_continuous(expand = c(0, 0)) +
   labs(
     x = NULL,
     y = NULL,
-    title = "Iceland has the highest life expectancy in Europe",
-    subtitle = "Life expectancy in European countries, 2007",
+    title = "The U.S.A. is the most populous country in\nthe Americas",
+    subtitle = "Population of countries in the Americas (millions), 2007",
     caption = "Source: Gapminder"
+    )
+```
+
+<img src="man/figures/README-ex2-1.svg" alt="A bar chart with white background, light grey horizontal grid lines dark blue bars."/>
+
+#### Example 3: Plot with focus colours using afcharts
+
+``` r
+pop_bar_data |>
+  ggplot(
+    aes(x = reorder(country, -pop), y = pop/(10^6),
+        fill = country == "Brazil")
+  ) +
+  geom_col() +
+  theme_af(legend = "none") +
+  scale_y_continuous(expand = c(0, 0)) +
+  scale_fill_discrete_af("focus", reverse = TRUE) +
+  labs(
+    x = NULL,
+    y = NULL,
+    title = "Brazil has the second highest population in\nthe Americas",
+    subtitle = "Population of countries in the Americas (millions), 2007",
+    caption = "Source: Gapminder"
+  )
   )
 ```
 
-<img src="man/figures/README-ex2-1.svg" alt="A bar chart with white background, light grey horizontal grid lines dark blue bars."  />
+<img src="man/figures/README-ex3-1.svg" alt="A bar chart with the bar for Brazil highlighted in dark blue and other bars in grey."/>
 
 **Note on use of titles, subtitles and captions** <br> Titles, subtitles
 and captions have been embedded in these example charts for

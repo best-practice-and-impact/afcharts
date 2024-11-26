@@ -7,7 +7,6 @@
 
 gapminder |>
   filter(country == "United Kingdom") |>
-  ggplot(aes(x = year, y = lifeExp)) +
   geom_line(linewidth = 1, colour = af_colour_values["dark-blue"]) +
   theme_af() +
   scale_y_continuous(limits = c(0, 82),
@@ -54,26 +53,25 @@ An example with line labels and no legend can be found in the [Adding annotation
 ## Bar charts
 
 ```{r bar-data}
-bar_data <-
-  gapminder |>
-  filter(year == 2007 & continent == "Europe") |>
-  slice_max(order_by = lifeExp, n = 5)
+pop_bar_data <- gapminder |> 
+                filter(year == 2007 & continent == "Americas") |>
+                slice_max(order_by = pop, n = 5)
 ```
 
 ```{r bar-chart-1}
 #| fig.alt = "A bar chart using afcharts theme and dark blue colour."
 
-ggplot(bar_data, aes(x = reorder(country, -lifeExp), y = lifeExp)) +
+ggplot(pop_bar_data, aes(x = reorder(country, -pop), y = pop/(10^6))) +
   geom_col(fill = af_colour_values["dark-blue"]) +
   theme_af() +
   scale_y_continuous(expand = c(0, 0)) +
   labs(
     x = NULL,
     y = NULL,
-    title = "Iceland has the highest life expectancy in Europe",
-    subtitle = "Life expectancy in European countries, 2007",
+    title = "The U.S.A. is the most populous country in\nthe Americas",
+    subtitle = "Population of countries in the Americas (millions), 2007",
     caption = "Source: Gapminder"
-  )
+    )
 ```
 
 A bar chart can sometimes look better with horizontal bars. This can also be a good option if your bar labels are long and difficult to display horizontally on the x axis. To produce a horizontal bar chart, swap the variables defined for x and y in `aes()` and make a few tweaks to `theme_af()`; draw grid lines for the x axis only by setting the `grid` argument, and draw an axis line for the y axis only by setting the `axis` argument.
@@ -81,17 +79,17 @@ A bar chart can sometimes look better with horizontal bars. This can also be a g
 ```{r bar-chart-2}
 #| fig.alt = "A horizontal bar chart using afcharts theme and dark blue colour."
 
-ggplot(bar_data, aes(x = lifeExp, y = reorder(country, lifeExp))) +
+ggplot(pop_bar_data, aes(x = pop/(10^6), y = reorder(country, -pop))) +
   geom_col(fill = af_colour_values["dark-blue"]) +
   theme_af(grid = "x", axis = "y") +
   scale_x_continuous(expand = c(0, 0)) +
   labs(
     x = NULL,
     y = NULL,
-    title = "Iceland has the highest life expectancy in Europe",
-    subtitle = "Life expectancy in European countries, 2007",
+    title = "The U.S.A. is the most populous country in\nthe Americas",
+    subtitle = "Population of countries in the Americas (millions), 2007",
     caption = "Source: Gapminder"
-  )
+    )
 ```
 
 
@@ -265,12 +263,12 @@ stacked_bar_data |>
 ## Focus charts
 
 ```{r focus-chart}
-#| fig.alt = "A bar chart with the bar for Sweden highlighted in dark blue and other bars in grey."
+#| fig.alt = "A bar chart with the bar for Brazil highlighted in dark blue and other bars in grey."
 
-bar_data |>
+pop_bar_data |>
   ggplot(
-    aes(x = reorder(country, -lifeExp), y = lifeExp,
-        fill = country == "Sweden")
+    aes(x = reorder(country, -pop), y = pop/(10^6),
+        fill = country == "Brazil")
   ) +
   geom_col() +
   theme_af(legend = "none") +
@@ -279,8 +277,8 @@ bar_data |>
   labs(
     x = NULL,
     y = NULL,
-    title = "Sweden has the fourth highest life expectancy in Europe",
-    subtitle = "Life expectancy in European countries, 2007",
+    title = "Brazil has the second highest population in\nthe Americas",
+    subtitle = "Population of countries in the Americas (millions), 2007",
     caption = "Source: Gapminder"
   )
 ```
@@ -294,11 +292,18 @@ To make a `ggplot2` chart interactive, use `ggplotly()` from the `plotly` packag
 
 * Subtitles and captions are not supported in `ggplotly()`. As stated elsewhere in this guidance, titles and subtitles should ideally be included in the body of text surrounding a chart rather than embedded in the chart itself, and so this is hopefully not a big issue. This example therefore has no title, subtitle or caption.
 
+```{r life-exp-bar-data}
+life_exp_bar_data <-
+  gapminder |>
+  filter(year == 2007 & continent == "Europe") |>
+  slice_max(order_by = lifeExp, n = 5)
+```
+
 ```{r interactive-charts}
 #| fig.alt = "An interactive bar chart using afcharts theme and dark blue colour. A tooltip appears when hovering over each bar."
 
 p <-
-  bar_data |>
+  life_exp_bar_data |>
   # Format text for tooltips
   mutate(tooltip = paste0(
     "Country: ", country, "\n",

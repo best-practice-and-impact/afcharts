@@ -9,7 +9,7 @@ To control the order of bars in a chart, wrap the variable you want to arrange w
 ```{r sorting}
 #| fig.alt = "A bar chart using afcharts theme and dark blue colour with bars sorted in decreasing order by life expectancy."
 
-bar_data |>
+life_exp_bar_data |>
   ggplot(aes(x = lifeExp, y = reorder(country, lifeExp))) +
   geom_col(fill = af_colour_values["dark-blue"]) +
   theme_af(axis = "y", grid = "x")
@@ -156,7 +156,7 @@ If text is too long, it may be cut off or distort the dimensions of the chart.
 #| fig.alt = "A bar chart with end of main title text not visible and long y axis title skewing the dimensions of the chart."
 
 plot <-
-  ggplot(bar_data, aes(x = reorder(country, -lifeExp), y = lifeExp)) +
+  ggplot(life_exp_bar_data, aes(x = reorder(country, -lifeExp), y = lifeExp)) +
   geom_col(fill = af_colour_values["dark-blue"]) +
   theme_af() +
   scale_y_continuous(expand = c(0, 0)) +
@@ -198,7 +198,7 @@ If you find you need to adjust theme elements for your chart, this can be done u
 ```{r adjust-theme}
 #| fig.alt = "A bar chart using afcharts theme and dark blue colour, with axis lines and ticks coloured black."
 
-ggplot(bar_data, aes(x = reorder(country, -lifeExp), y = lifeExp)) +
+ggplot(life_exp_bar_data, aes(x = reorder(country, -lifeExp), y = lifeExp)) +
   geom_col(fill = af_colour_values["dark-blue"]) +
   theme_af(axis = "xy") +
   theme(axis.line = element_line(colour = "black"),
