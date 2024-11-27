@@ -29,7 +29,9 @@ last_plot() +
   labs(
     x = NULL,
     y = NULL,
-    title = "Iceland has the highest life expectancy in Europe",
+    title = stringr::str_wrap(
+      paste("Iceland has the highest life expectancy in Europe"),
+      width = 40),
     subtitle = "Life expectancy in European countries, 2007",
     caption = "Source: Gapminder"
   )
@@ -185,7 +187,7 @@ plot +
     title = stringr::str_wrap(
       paste("Iceland has the highest life expectancy in Europe",
             "followed closely by Switzerland"),
-      width = 50
+      width = 40
     )
   )
 ```
