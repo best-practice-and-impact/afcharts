@@ -88,13 +88,16 @@ gapminder |>
   slice_max(order_by = pop, n = 5) |>
   ggplot() +
   geom_col(aes(x = reorder(country, -pop), y = pop/(10^6))) +
-  scale_y_continuous(expand = c(0, 0)) +
+  scale_y_continuous(expand = c(0, 0),
+                     limits = c(0, 350),
+                     breaks = c(seq(0, 350, 50)),
+                     labels = c(seq(0, 300, 50), "350 million")) +
   scale_fill_discrete_af("focus", reverse = TRUE) +
   labs(
     x = NULL,
     y = NULL,
     title = "The U.S.A. is the most populous country in\nthe Americas",
-    subtitle = "Population of countries in the Americas (millions), 2007",
+    subtitle = "Population of countries in the Americas, 2007",
     caption = "Source: Gapminder"
     )
 ```
@@ -112,12 +115,15 @@ gapminder |>
   slice_max(order_by = pop, n = 5) |>
   ggplot(aes(x = reorder(country, -pop), y = pop/(10^6))) +
   geom_col(fill = af_colour_values["dark-blue"]) +
-  scale_y_continuous(expand = c(0, 0)) +
+  scale_y_continuous(expand = c(0, 0),
+                     limits = c(0, 350),
+                     breaks = c(seq(0, 350, 50)),
+                     labels = c(seq(0, 300, 50), "350 million")) +
   labs(
     x = NULL,
     y = NULL,
     title = "The U.S.A. is the most populous country in\nthe Americas",
-    subtitle = "Population of countries in the Americas (millions), 2007",
+    subtitle = "Population of countries in the Americas, 2007",
     caption = "Source: Gapminder"
   )
 ```
