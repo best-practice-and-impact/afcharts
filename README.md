@@ -75,7 +75,7 @@ beginning of your R script, Rmarkdown document or Shiny app code. This
 function will set a number of defaults to ggplot2 geoms, use afcharts
 colour palettes and use `theme_af()`.
 
-#### Example 1: Plot with one colour using ggplot2 defaults
+#### Example 1: Bar chart with one colour using ggplot2 defaults
 
 ``` r
 library(ggplot2)
@@ -84,44 +84,75 @@ library(gapminder)
 library(afcharts)
 
 gapminder |> 
-  filter(year == 2007 & continent == "Europe") |>
-  slice_max(order_by = lifeExp, n = 5) |>
+  filter(year == 2007 & continent == "Americas") |>
+  slice_max(order_by = pop, n = 5) |>
   ggplot() +
-  geom_col(aes(x = reorder(country, -lifeExp), y = lifeExp)) +
+  geom_col(aes(x = reorder(country, -pop), y = pop/(10^6))) +
   scale_y_continuous(expand = c(0, 0)) +
+  scale_fill_discrete_af("focus", reverse = TRUE) +
   labs(
     x = NULL,
     y = NULL,
-    title = "Iceland has the highest life expectancy in Europe",
-    subtitle = "Life expectancy in European countries, 2007",
+    title = "The U.S.A. is the most populous country in\nthe Americas",
+    subtitle = "Population of countries in the Americas (millions), 2007",
     caption = "Source: Gapminder"
-  )
+    )
 ```
 
 <img src="man/figures/README-ex1-1.svg" alt="A bar chart with grey background, white grid lines and dark grey bars."  />
 
-#### Example 2: Plot with one colour using afcharts defaults
+#### Example 2: Bar chart of one colour using afcharts defaults
 
 ``` r
 afcharts::use_afcharts()
 #> NULL
 
 gapminder |> 
-  filter(year == 2007 & continent == "Europe") |>
-  slice_max(order_by = lifeExp, n = 5) |>
-  ggplot() +
-  geom_col(aes(x = reorder(country, -lifeExp), y = lifeExp)) +
+  filter(year == 2007 & continent == "Americas") |>
+  slice_max(order_by = pop, n = 5) |>
+  ggplot(aes(x = reorder(country, -pop), y = pop/(10^6))) +
+  geom_col(fill = af_colour_values["dark-blue"]) +
   scale_y_continuous(expand = c(0, 0)) +
   labs(
     x = NULL,
     y = NULL,
-    title = "Iceland has the highest life expectancy in Europe",
-    subtitle = "Life expectancy in European countries, 2007",
+    title = "The U.S.A. is the most populous country in\nthe Americas",
+    subtitle = "Population of countries in the Americas (millions), 2007",
     caption = "Source: Gapminder"
   )
 ```
 
-<img src="man/figures/README-ex2-1.svg" alt="A bar chart with white background, light grey horizontal grid lines dark blue bars."  />
+<img src="man/figures/README-ex2-1.svg" alt="A bar chart with white background, light grey horizontal grid lines, and dark blue bars."  />
+
+#### Example 3: Multiple colour line chart with afcharts formatting
+
+``` r
+afcharts::use_afcharts()
+#> NULL
+
+gapminder |>
+  filter(country %in% c("United Kingdom", "China")) |>
+  ggplot(aes(x = year, y = lifeExp, colour = country)) +
+  geom_line(linewidth = 1) +
+  theme_af(legend = "bottom") +
+  scale_colour_discrete_af() +
+  scale_y_continuous(limits = c(0, 82),
+                     breaks = seq(0, 80, 20),
+                     expand = c(0, 0)) +
+  scale_x_continuous(breaks = seq(1952, 2007, 5)) +
+  labs(
+    x = "Year",
+    y = NULL,
+    title = "Living Longer",
+    subtitle = "Life Expectancy in the United Kingdom and China 1952-2007",
+    caption = "Source: Gapminder",
+    colour = NULL
+  )
+```
+
+<img src="man/figures/README-ex3-1.svg" alt="A line chart with white background,
+                 light grey horizontal grid lines, an orange line, and a dark blue
+                 line."  />
 
 **Note on use of titles, subtitles and captions** <br> Titles, subtitles
 and captions have been embedded in these example charts for
