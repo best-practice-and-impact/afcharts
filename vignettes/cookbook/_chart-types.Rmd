@@ -65,14 +65,17 @@ pop_bar_data <- gapminder |>
 ggplot(pop_bar_data, aes(x = reorder(country, -pop), y = pop/(10^6))) +
   geom_col(fill = af_colour_values["dark-blue"]) +
   theme_af() +
-  scale_y_continuous(expand = c(0, 0)) +
+  scale_y_continuous(expand = c(0, 0),
+                     limits = c(0, 350),
+                     breaks = c(seq(0, 350, 50)),
+                     labels = c(seq(0, 300, 50), "350 million")) +
   labs(
     x = NULL,
     y = NULL,
-    title = "The U.S.A. is the most populous country in\nthe Americas",
-    subtitle = "Population of countries in the Americas (millions), 2007",
+    title = stringr::str_wrap("The U.S.A. is the most populous country in the Americas", 40),
+    subtitle = "Population of countries in the Americas, 2007",
     caption = "Source: Gapminder"
-    )
+  )
 ```
 
 A bar chart can sometimes look better with horizontal bars. This can also be a good option if your bar labels are long and difficult to display horizontally on the x axis. To produce a horizontal bar chart, swap the variables defined for x and y in `aes()` and make a few tweaks to `theme_af()`; draw grid lines for the x axis only by setting the `grid` argument, and draw an axis line for the y axis only by setting the `axis` argument.
@@ -83,12 +86,15 @@ A bar chart can sometimes look better with horizontal bars. This can also be a g
 ggplot(pop_bar_data, aes(x = pop/(10^6), y = reorder(country, -pop))) +
   geom_col(fill = af_colour_values["dark-blue"]) +
   theme_af(grid = "x", axis = "y") +
-  scale_x_continuous(expand = c(0, 0)) +
+  scale_x_continuous(expand = c(0, 0),
+                     limits = c(0, 350),
+                     breaks = c(seq(0, 350, 50)),
+                     labels = c(seq(0, 300, 50), "350 million")) +
   labs(
     x = NULL,
     y = NULL,
-    title = "The U.S.A. is the most populous country in\nthe Americas",
-    subtitle = "Population of countries in the Americas (millions), 2007",
+    title = stringr::str_wrap("The U.S.A. is the most populous country in the Americas", 40),
+    subtitle = "Population of countries in the Americas, 2007",
     caption = "Source: Gapminder"
     )
 ```
@@ -109,7 +115,10 @@ grouped_bar_data <-
 ggplot(grouped_bar_data,
        aes(x = country, y = lifeExp, fill = as.factor(year))) +
   geom_bar(stat = "identity", position = "dodge") +
-  scale_y_continuous(expand = c(0, 0)) +
+  scale_y_continuous(expand = c(0, 0),
+                     limits = c(0, 100),
+                     breaks = c(seq(0, 100, 20)),
+                     labels = c(seq(0, 100, 20))) +
   theme_af(legend = "bottom") +
   scale_fill_discrete_af() +
   labs(
@@ -170,7 +179,10 @@ gapminder |>
                  colour = "white",
                  fill = af_colour_values["dark-blue"]) +
   theme_af() +
-  scale_y_continuous(expand = c(0, 0)) +
+  scale_y_continuous(expand = c(0, 0),
+                     limits = c(0, 35),
+                     breaks = c(seq(0, 35, 5)),
+                     labels = c(seq(0, 35, 5))) +
   labs(
     x = NULL,
     y = "Number of \ncountries",
@@ -273,12 +285,15 @@ pop_bar_data |>
   ) +
   geom_col() +
   theme_af(legend = "none") +
-  scale_y_continuous(expand = c(0, 0)) +
+  scale_y_continuous(expand = c(0, 0),
+                     limits = c(0, 350),
+                     breaks = c(seq(0, 350, 50)),
+                     labels = c(seq(0, 300, 50), "350 million")) +
   scale_fill_discrete_af("focus", reverse = TRUE) +
   labs(
     x = NULL,
     y = NULL,
-    title = "Brazil has the second highest population in\nthe Americas",
+    title = stringr::str_wrap("Brazil has the second highest population in the Americas", 40),
     subtitle = "Population of countries in the Americas (millions), 2007",
     caption = "Source: Gapminder"
   )
@@ -314,7 +329,10 @@ p <-
   geom_col(fill = af_colour_values["dark-blue"]) +
   theme_af(ticks = "x") +
   theme(text = element_text(family = "")) +
-  scale_y_continuous(expand = c(0, 0)) +
+  scale_y_continuous(expand = c(0, 0),
+                     limits = c(0, 100),
+                     breaks = c(seq(0, 100, 20)),
+                     labels = c(seq(0, 100, 20))) +
   labs(
     x = NULL,
     y = NULL

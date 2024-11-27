@@ -205,7 +205,10 @@ ggplot(life_exp_bar_data, aes(x = reorder(country, -lifeExp), y = lifeExp)) +
   theme_af(axis = "xy") +
   theme(axis.line = element_line(colour = "black"),
         axis.ticks = element_line(colour = "black")) +
-  scale_y_continuous(expand = c(0, 0)) +
+  scale_y_continuous(expand = c(0, 0),
+                     limits = c(0, 100),
+                     breaks = c(seq(0, 100, 20)),
+                     labels = c(seq(0, 100, 20))) +
   labs(
     x = NULL,
     y = NULL,
