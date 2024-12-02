@@ -14,7 +14,10 @@ test_that("theme_af works with non default options", {
 
   d <- subset(ggplot2::mpg, manufacturer == "ford")
 
-  plot <- ggplot2::ggplot(d, ggplot2::aes(x = model, fill = class, colour = class)) +
+  plot <- ggplot2::ggplot(
+    d,
+    ggplot2::aes(x = model, fill = class, colour = class)
+  ) +
     ggplot2::geom_bar() +
     theme_af(
       grid = "x",
