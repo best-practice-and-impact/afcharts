@@ -29,7 +29,6 @@ scale_fill_discrete_af <- function(palette = "main",
   palette_type <- match.arg(palette_type)
 
   ggplot2::discrete_scale("fill",
-    paste0(palette_type, "_", palette),
     palette = af_palette(palette, reverse, palette_type = palette_type),
     ...
   )
