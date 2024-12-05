@@ -62,18 +62,19 @@ pop_bar_data <- gapminder |>
 ```{r bar-chart-1}
 #| fig.alt = "A bar chart using afcharts theme and dark blue colour."
 
-ggplot(pop_bar_data, aes(x = reorder(country, -pop), y = pop/(10^6))) +
+ggplot(pop_bar_data, aes(x = reorder(country, -pop), y = pop)) +
   geom_col(fill = af_colour_values["dark-blue"]) +
   theme_af() +
-  scale_y_continuous(expand = c(0, 0),
-                     limits = c(0, 350),
-                     breaks = c(seq(0, 350, 50)),
-                     labels = scales::label_number(suffix = " millions")) +
+  scale_y_continuous(
+    expand = c(0, 0),
+    limits = c(0, 450E6),
+    labels = scales::label_number(scale = 1E-6)
+  ) +
   labs(
     x = NULL,
     y = NULL,
     title = stringr::str_wrap("The U.S.A. is the most populous country in the Americas", 40),
-    subtitle = "Population of countries in the Americas, 2007",
+    subtitle = "Population of countries in the Americas (millions), 2007",
     caption = "Source: Gapminder"
   )
 ```
