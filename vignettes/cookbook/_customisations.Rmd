@@ -9,7 +9,7 @@ To control the order of bars in a chart, wrap the variable you want to arrange w
 ```{r sorting}
 #| fig.alt = "A bar chart using afcharts theme and dark blue colour with bars sorted in decreasing order by life expectancy."
 
-bar_data |>
+life_exp_bar_data |>
   ggplot(aes(x = lifeExp, y = reorder(country, lifeExp))) +
   geom_col(fill = af_colour_values["dark-blue"]) +
   theme_af(axis = "y", grid = "x")
@@ -29,7 +29,9 @@ last_plot() +
   labs(
     x = NULL,
     y = NULL,
-    title = "Iceland has the highest life expectancy in Europe",
+    title = stringr::str_wrap(
+      paste("Iceland has the highest life expectancy in Europe"),
+      width = 40),
     subtitle = "Life expectancy in European countries, 2007",
     caption = "Source: Gapminder"
   )
@@ -156,7 +158,7 @@ If text is too long, it may be cut off or distort the dimensions of the chart.
 #| fig.alt = "A bar chart with end of main title text not visible and long y axis title skewing the dimensions of the chart."
 
 plot <-
-  ggplot(bar_data, aes(x = reorder(country, -lifeExp), y = lifeExp)) +
+  ggplot(life_exp_bar_data, aes(x = reorder(country, -lifeExp), y = lifeExp)) +
   geom_col(fill = af_colour_values["dark-blue"]) +
   theme_af() +
   scale_y_continuous(expand = c(0, 0)) +
@@ -185,7 +187,7 @@ plot +
     title = stringr::str_wrap(
       paste("Iceland has the highest life expectancy in Europe",
             "followed closely by Switzerland"),
-      width = 50
+      width = 40
     )
   )
 ```
@@ -198,12 +200,15 @@ If you find you need to adjust theme elements for your chart, this can be done u
 ```{r adjust-theme}
 #| fig.alt = "A bar chart using afcharts theme and dark blue colour, with axis lines and ticks coloured black."
 
-ggplot(bar_data, aes(x = reorder(country, -lifeExp), y = lifeExp)) +
+ggplot(life_exp_bar_data, aes(x = reorder(country, -lifeExp), y = lifeExp)) +
   geom_col(fill = af_colour_values["dark-blue"]) +
   theme_af(axis = "xy") +
   theme(axis.line = element_line(colour = "black"),
         axis.ticks = element_line(colour = "black")) +
-  scale_y_continuous(expand = c(0, 0)) +
+  scale_y_continuous(expand = c(0, 0),
+                     limits = c(0, 100),
+                     breaks = c(seq(0, 100, 20)),
+                     labels = c(seq(0, 100, 20))) +
   labs(
     x = NULL,
     y = NULL,
