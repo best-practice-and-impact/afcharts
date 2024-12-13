@@ -17,9 +17,11 @@ ann_data |>
   geom_line(linewidth = 1) +
   theme_af(legend = "none") +
   scale_colour_discrete_af() +
-  scale_y_continuous(limits = c(0, 82),
-                     breaks = seq(0, 80, 20),
-                     expand = c(0, 0)) +
+  scale_y_continuous(
+    limits = c(0, 82),
+    breaks = seq(0, 80, 20),
+    expand = c(0, 0)
+  ) +
   scale_x_continuous(limits = c(1952, 2017),
                      breaks = seq(1952, 2017, 5)) +
   annotate(geom = "label", x = 2008, y = 73, label = "China",
@@ -89,10 +91,12 @@ ggplot(life_exp_bar_data, aes(x = reorder(country, -lifeExp), y = lifeExp)) +
   geom_text(aes(label = round(lifeExp, 1)),
             nudge_y = -5, colour = "white") +
   theme_af() +
-  scale_y_continuous(expand = c(0, 0),
-                     limits = c(0, 100),
-                     breaks = c(seq(0, 100, 20)),
-                     labels = c(seq(0, 100, 20))) +
+  scale_y_continuous(
+    expand = c(0, 0),
+    limits = c(0, 100),
+    breaks = c(seq(0, 100, 20)),
+    labels = c(seq(0, 100, 20))
+  ) +
   labs(
     x = NULL,
     y = NULL,
