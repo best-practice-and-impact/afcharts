@@ -87,17 +87,18 @@ gapminder |>
   filter(year == 2007 & continent == "Americas") |>
   slice_max(order_by = pop, n = 5) |>
   ggplot() +
-  geom_col(aes(x = reorder(country, -pop), y = pop/(10^6))) +
-  scale_y_continuous(expand = c(0, 0),
-                     limits = c(0, 350),
-                     breaks = c(seq(0, 350, 50)),
-                     labels = c(seq(0, 300, 50), "350 million")) +
+  geom_col(aes(x = reorder(country, -pop), y = pop)) +
+  scale_y_continuous(
+    labels = scales::label_number(scale = 1E-6),
+    limits = c(0, 350E6),
+    expand = expansion(mult = c(0, 0.1))
+  ) +
   scale_fill_discrete_af("focus", reverse = TRUE) +
   labs(
     x = NULL,
     y = NULL,
     title = "The U.S.A. is the most populous country in\nthe Americas",
-    subtitle = "Population of countries in the Americas, 2007",
+    subtitle = "Population of countries in the Americas (millions), 2007",
     caption = "Source: Gapminder"
     )
 ```
@@ -113,17 +114,18 @@ afcharts::use_afcharts()
 gapminder |> 
   filter(year == 2007 & continent == "Americas") |>
   slice_max(order_by = pop, n = 5) |>
-  ggplot(aes(x = reorder(country, -pop), y = pop/(10^6))) +
+  ggplot(aes(x = reorder(country, -pop), y = pop)) +
   geom_col(fill = af_colour_values["dark-blue"]) +
-  scale_y_continuous(expand = c(0, 0),
-                     limits = c(0, 350),
-                     breaks = c(seq(0, 350, 50)),
-                     labels = c(seq(0, 300, 50), "350 million")) +
+  scale_y_continuous(
+    labels = scales::label_number(scale = 1E-6),
+    limits = c(0, 350E6),
+    expand = c(0, 0),expansion(mult = c(0, 0.1))
+  ) +
   labs(
     x = NULL,
     y = NULL,
     title = "The U.S.A. is the most populous country in\nthe Americas",
-    subtitle = "Population of countries in the Americas, 2007",
+    subtitle = "Population of countries in the Americas (millions), 2007",
     caption = "Source: Gapminder"
   )
 ```
@@ -140,11 +142,11 @@ gapminder |>
   filter(country %in% c("United Kingdom", "China")) |>
   ggplot(aes(x = year, y = lifeExp, colour = country)) +
   geom_line(linewidth = 1) +
-  theme_af(legend = "bottom") +
-  scale_colour_discrete_af() +
-  scale_y_continuous(limits = c(0, 82),
-                     breaks = seq(0, 80, 20),
-                     expand = c(0, 0)) +
+  scale_y_continuous(
+    breaks = seq(0, 80, 20),
+    limits = c(0, 82),
+    expand = expansion(mult = c(0, 0.1))
+  ) +
   scale_x_continuous(breaks = seq(1952, 2007, 5)) +
   labs(
     x = "Year",

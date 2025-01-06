@@ -13,7 +13,7 @@ gapminder |>
   scale_y_continuous(
     limits = c(0, 82),
     breaks = seq(0, 80, 20),
-    expand = c(0, 0)
+    expand = expansion(mult = c(0, 0.1))
   ) +
   scale_x_continuous(breaks = seq(1952, 2007, 5)) +
   labs(
@@ -39,7 +39,7 @@ gapminder |>
   scale_y_continuous(
     limits = c(0, 82),
     breaks = seq(0, 80, 20),
-    expand = c(0, 0)
+    expand = expansion(mult = c(0, 0.1))
   ) +
   scale_x_continuous(breaks = seq(1952, 2007, 5)) +
   labs(
@@ -59,8 +59,8 @@ An example with line labels and no legend can be found in the [Adding annotation
 
 ```{r bar-data}
 pop_bar_data <- gapminder |> 
-                filter(year == 2007 & continent == "Americas") |>
-                slice_max(order_by = pop, n = 5)
+  filter(year == 2007 & continent == "Americas") |>
+  slice_max(order_by = pop, n = 5)
 ```
 
 ```{r bar-chart-1}
@@ -70,9 +70,9 @@ ggplot(pop_bar_data, aes(x = reorder(country, -pop), y = pop)) +
   geom_col(fill = af_colour_values["dark-blue"]) +
   theme_af() +
   scale_y_continuous(
-    expand = c(0, 0),
     limits = c(0, 350E6),
-    labels = scales::label_number(scale = 1E-6)
+    labels = scales::label_number(scale = 1E-6),
+    expand = expansion(mult = c(0, 0.1)),
   ) +
   labs(
     x = NULL,
@@ -92,9 +92,9 @@ ggplot(pop_bar_data, aes(x = pop, y = reorder(country, pop))) +
   geom_col(fill = af_colour_values["dark-blue"]) +
   theme_af(grid = "x", axis = "y") +
   scale_x_continuous(
-    expand = c(0, 0),
     limits = c(0, 350E6),
-    labels = scales::label_number(scale = 1E-6)
+    labels = scales::label_number(scale = 1E-6),
+    expand = expansion(mult = c(0, 0.1))
   ) +
   labs(
     x = NULL,
@@ -129,10 +129,10 @@ ggplot(
 ) +
   geom_bar(stat = "identity", position = "dodge") +
   scale_y_continuous(
-    expand = c(0, 0),
     limits = c(0, 100),
     breaks = c(seq(0, 100, 20)),
-    labels = c(seq(0, 100, 20))
+    labels = c(seq(0, 100, 20)),
+    expand = expansion(mult = c(0, 0.1))
   ) +
   theme_af(legend = "bottom") +
   scale_fill_discrete_af() +
@@ -174,7 +174,10 @@ ggplot(
 ) +
   geom_bar(stat = "identity", position = "fill") +
   theme_af(legend = "bottom") +
-  scale_y_continuous(expand = c(0, 0), labels = scales::percent) +
+  scale_y_continuous(
+    labels = scales::percent,
+    expand = expansion(mult = c(0, 0.1))
+  ) +
   coord_cartesian(clip = "off") +
   scale_fill_discrete_af() +
   labs(
@@ -203,10 +206,9 @@ gapminder |>
   ) +
   theme_af() +
   scale_y_continuous(
-    expand = c(0, 0),
     limits = c(0, 35),
     breaks = c(seq(0, 35, 5)),
-    labels = c(seq(0, 35, 5))
+    expand = expansion(mult = c(0, 0.1))
   ) +
   labs(
     x = NULL,
@@ -225,15 +227,13 @@ gapminder |>
 
 gapminder |>
   filter(year == 2007) |>
-  ggplot(aes(x = gdpPercap, y = lifeExp, size = pop)) +
+  ggplot(aes(x = gdpPercap, y = lifeExp)) +
   geom_point(colour = af_colour_values["dark-blue"]) +
   theme_af(axis = "none", grid = "xy") +
-  scale_x_continuous(labels = function(x) scales::dollar(x, prefix = "£")) +
-  scale_size_continuous(labels = scales::comma) +
+  scale_x_continuous(labels = scales::label_comma()) +
   labs(
-    x = "GDP",
+    x = "GDP (US$, inflation-adjusted)",
     y = "Life\nExpectancy",
-    size = "Population",
     title = stringr::str_wrap(
       "The relationship between GDP and Life Expectancy is complex",
       40
@@ -309,9 +309,9 @@ pop_bar_data |>
   geom_col() +
   theme_af(legend = "none") +
   scale_y_continuous(
-    expand = c(0, 0),
     limits = c(0, 350E6),
-    labels = scales::label_number(scale = 1E-6)
+    labels = scales::label_number(scale = 1E-6),
+    expand = expansion(mult = c(0, 0.1))
   ) +
   scale_fill_discrete_af("focus", reverse = TRUE) +
   labs(
@@ -344,22 +344,21 @@ p <-
   mutate(
     tooltip = paste0(
       "Country: ", country, "\n",
-      "Life Expectancy: ", round(lifeExp, 1)
+      "Population (millions): ", round(pop / 10 ^ 6 , 1)
     )
   ) |>
-  ggplot(aes(x = reorder(country, -lifeExp), y = lifeExp, text = tooltip)) +
+  ggplot(aes(x = reorder(country, -pop), y = pop, text = tooltip)) +
   geom_col(fill = af_colour_values["dark-blue"]) +
   theme_af(ticks = "x") +
   theme(text = element_text(family = "")) +
   scale_y_continuous(
-    expand = c(0, 0),
-    limits = c(0, 100),
-    breaks = c(seq(0, 100, 20)),
-    labels = c(seq(0, 100, 20))
+    limits = c(0, 350E6),
+    labels = scales::label_number(scale = 1E-6),
+    expand = expansion(mult = c(0, 0.1))
   ) +
   labs(
     x = NULL,
-    y = NULL
+    y = "Population (millions)"
   )
 
 plotly::ggplotly(p, tooltip = "text") |>

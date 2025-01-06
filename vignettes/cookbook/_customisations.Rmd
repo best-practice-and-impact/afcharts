@@ -4,12 +4,12 @@
 
 ### Sorting a bar chart
 
-To control the order of bars in a chart, wrap the variable you want to arrange with `reorder()` and specify what variable you want to sort by. The following example sorts bars in ascending order of life expectancy. To sort in descending order, you would change this to `reorder(country, desc(lifeExp))`.
+To control the order of bars in a chart, wrap the variable you want to arrange with `reorder()` and specify what variable you want to sort by. The following example sorts bars in ascending order of population. To sort in descending order, you would change this to `reorder(country, desc(pop))`.
 
 ```{r sorting}
 #| fig.alt = "A bar chart using afcharts theme and dark blue colour with bars sorted in decreasing order by life expectancy."
 
-pop_bar_data |>
+population_chart <- pop_bar_data |>
   ggplot(aes(x = pop, y = reorder(country, pop))) +
   geom_col(fill = af_colour_values["dark-blue"]) +
   theme_af(axis = "y", grid = "x")
@@ -25,7 +25,7 @@ Chart titles such as the main title, subtitle, caption, axis titles and legend t
 ```{r chart-titles}
 #| fig.alt = "A bar chart with title, subtitle and caption. Axis titles have been removed."
 
-last_plot() +
+population_chart +
   labs(
     x = NULL,
     y = NULL,
@@ -33,7 +33,7 @@ last_plot() +
       paste("The U.S.A. has the highest population in the Americas"),
       width = 40
     ),
-    subtitle = "Population of countries of the Americas, 2007",
+    subtitle = "Population of countries of the Americas (millions), 2007",
     caption = "Source: Gapminder"
   )
 ```
@@ -46,7 +46,8 @@ By default, a bar chart will have a gap between the bottom of the bars and the a
 ```{r expand}
 #| fig.alt = "A bar chart with no space between bottom of bars and x axis."
 
-last_plot() + scale_x_continuous(expand = c(0, 0))
+population_chart +
+  scale_x_continuous(expand = expansion(mult = c(0, 0.1)))
 ```
 
 The equivalent adjustment can be made for the y axis using `scale_y_continuous`.
@@ -61,27 +62,34 @@ Limits, breaks and labels can be defined with custom values.
 ```{r axis-limits-breaks-labels-custom}
 #| fig.alt = "A bar chart with fewer x axis breaks and edited labels."
 
-last_plot() +
+population_chart +
   scale_x_continuous(
-    expand = c(0, 0),
-    limits = c(0, 350E6),
-    labels = scales::label_number(scale = 1E-6))
+    breaks = seq(0, 400E6, 100E6),
+    labels = seq(0, 400, 100),
+    limits = c(0, 420E6),
+    expand = expansion(mult = c(0, 0.1))
+  ) +
+  labs(
+    x = "Population (millions)"
+  )
 ```
 
-Note that further calls to `scale_x/y_continuous` will overwrite previous calls, hence why `expand = c(0, 0)` has been included again in this example.
-
-Adaptive axis limits and break for `scale_x/y_continuous()` can be defined using the `pretty` function. This defines breaks that are equally spaced ‘round’ values which cover the range of the data and limits that are the next 'round' value just exceeding the range of the data.
+Adaptive axis limits and break for `scale_x/y_continuous()` can be defined using the `pretty` function. This defines breaks that are equally spaced ‘round’ values which cover the range of the data and limits that are the next 'round' value just exceeding the range of the data. Setting the limits with a custom `limits_pretty` function ensures the highest gridline value is above the maximum value of the data.
 
 ```{r axis-limits-breaks-labels-fct}
 #| fig.alt = "A bar chart with 'round' breaks and limits using the pretty() function."
 
-limits_pretty <- function(x, ...) range(pretty(x, ...))
+limits_pretty <- function(x) range(pretty(x))
 
-last_plot() +
+population_chart +
   scale_x_continuous(
-    expand = expansion(mult = c(0, .1)),
-    breaks = pretty, 
-    limits = limits_pretty
+    breaks = \(x) pretty(x),
+    labels = label_number(scale = 1E-6),
+    limits = limits_pretty,
+    expand = expansion(mult = c(0, 0.2))
+  ) +
+  labs(
+    x = "Population (millions)"
   )
 
 ```
@@ -100,7 +108,10 @@ stacked_bar_data |>
   ggplot(aes(x = continent, y = n_countries, fill = lifeExpGrouped)) +
   geom_bar(stat = "identity", position = "fill") +
   theme_af(legend = "bottom") +
-  scale_y_continuous(expand = c(0, 0), labels = scales::percent) +
+  scale_y_continuous(
+    expand = expansion(mult = c(0, 0.1)),
+    labels = scales::percent
+  ) +
   scale_fill_discrete_af() +
   labs(
     x = NULL,
@@ -146,7 +157,7 @@ gapminder |>
   scale_y_continuous(
     limits = c(0, 82),
     breaks = seq(0, 80, 20),
-    expand = c(0, 0)
+    expand = expansion(mult = c(0, 0.1))
   ) +
   scale_x_continuous(breaks = seq(1952, 2007, 5)) +
   labs(
@@ -170,7 +181,7 @@ plot <-
   ggplot(pop_bar_data, aes(x = reorder(country, -pop), y = pop)) +
   geom_col(fill = af_colour_values["dark-blue"]) +
   theme_af() +
-  scale_y_continuous(expand = c(0, 0)) +
+  scale_y_continuous(expand = expansion(mult = c(0, 0.1))) +
   labs(
     x = NULL,
     subtitle = "Population of countries in the Americas (millions), 2007",
@@ -212,10 +223,12 @@ If you find you need to adjust theme elements for your chart, this can be done u
 ggplot(pop_bar_data, aes(x = reorder(country, -pop), y = pop)) +
   geom_col(fill = af_colour_values["dark-blue"]) +
   theme_af(axis = "xy") +
-  theme(axis.line = element_line(colour = "black"),
-        axis.ticks = element_line(colour = "black")) +
+  theme(
+    axis.line = element_line(colour = "black"),
+    axis.ticks = element_line(colour = "black")
+  ) +
   scale_y_continuous(
-    expand = c(0, 0),
+    expand = expansion(mult = c(0, 0.1)),
     limits = c(0, 350E6),
     labels = scales::label_number(scale = 1E-6)
   ) +
@@ -253,7 +266,7 @@ ann_data |>
   scale_y_continuous(
     limits = c(0, 82),
     breaks = seq(0, 80, 20),
-    expand = c(0, 0)
+    expand = expansion(mult = c(0, 0.1))
   ) +
   scale_x_continuous(
     limits = c(1952, 2017),
@@ -261,7 +274,7 @@ ann_data |>
   ) +
   geom_label(
     data = ann_labs,
-    aes(x = year, y = lifeExp, label = country, colour = country),
+    aes(x = year, y = lifeExp, label = country),
     hjust = 0,
     vjust = 0.5,
     nudge_x = 0.5,
