@@ -71,7 +71,7 @@ ggplot(pop_bar_data, aes(x = reorder(country, -pop), y = pop)) +
   theme_af() +
   scale_y_continuous(
     expand = c(0, 0),
-    limits = c(0, 450E6),
+    limits = c(0, 350E6),
     labels = scales::label_number(scale = 1E-6)
   ) +
   labs(
@@ -93,7 +93,7 @@ ggplot(pop_bar_data, aes(x = pop, y = reorder(country, pop))) +
   theme_af(grid = "x", axis = "y") +
   scale_x_continuous(
     expand = c(0, 0),
-    limits = c(0, 450E6),
+    limits = c(0, 350E6),
     labels = scales::label_number(scale = 1E-6)
   ) +
   labs(
@@ -297,7 +297,7 @@ pop_bar_data |>
   theme_af(legend = "none") +
   scale_y_continuous(
     expand = c(0, 0),
-    limits = c(0, 450E6),
+    limits = c(0, 350E6),
     labels = scales::label_number(scale = 1E-6)
   ) +
   scale_fill_discrete_af("focus", reverse = TRUE) +
@@ -319,18 +319,11 @@ To make a `ggplot2` chart interactive, use `ggplotly()` from the `plotly` packag
 
 * Subtitles and captions are not supported in `ggplotly()`. As stated elsewhere in this guidance, titles and subtitles should ideally be included in the body of text surrounding a chart rather than embedded in the chart itself, and so this is hopefully not a big issue. This example therefore has no title, subtitle or caption.
 
-```{r life-exp-bar-data}
-life_exp_bar_data <-
-  gapminder |>
-  filter(year == 2007 & continent == "Europe") |>
-  slice_max(order_by = lifeExp, n = 5)
-```
-
 ```{r interactive-charts}
 #| fig.alt = "An interactive bar chart using afcharts theme and dark blue colour. A tooltip appears when hovering over each bar."
 
 p <-
-  life_exp_bar_data |>
+  pop_bar_data |>
   # Format text for tooltips
   mutate(tooltip = paste0(
     "Country: ", country, "\n",
