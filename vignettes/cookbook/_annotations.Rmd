@@ -22,16 +22,29 @@ ann_data |>
     breaks = seq(0, 80, 20),
     expand = c(0, 0)
   ) +
-  scale_x_continuous(limits = c(1952, 2017),
-                     breaks = seq(1952, 2017, 5)) +
-  annotate(geom = "label", x = 2008, y = 73, label = "China",
-           colour = af_colour_values[1],
-           label.size = NA,
-           hjust = 0, vjust = 0.5) +
-  annotate(geom = "label", x = 2008, y = 79.4, label = "United Kingdom",
-           colour = af_colour_values[2],
-           label.size = NA,
-           hjust = 0, vjust = 0.5) +
+  scale_x_continuous(
+    limits = c(1952, 2017),
+    breaks = seq(1952, 2017, 5)
+  ) +
+  annotate(
+    geom = "label",
+    x = 2008, y = 73,
+    label = "China",
+    colour = af_colour_values[1],
+    label.size = NA,
+    hjust = 0,
+    vjust = 0.5
+  ) +
+  annotate(
+    geom = "label",
+    x = 2008,
+    y = 79.4,
+    label = "United Kingdom",
+    colour = af_colour_values[2],
+    label.size = NA,
+    hjust = 0,
+    vjust = 0.5
+  ) +
   labs(
     x = "Year",
     y = NULL,
@@ -62,17 +75,23 @@ ann_data |>
   geom_line(linewidth = 1) +
   theme_af(legend = "none") +
   scale_colour_discrete_af() +
-  scale_y_continuous(limits = c(0, 82),
-                     breaks = seq(0, 80, 20),
-                     expand = c(0, 0)) +
-  scale_x_continuous(limits = c(1952, 2017),
-                     breaks = seq(1952, 2017, 5)) +
-  geom_label(data = ann_labs,
-             aes(x = year, y = lifeExp, label = country, colour = country),
-             hjust = 0,
-             vjust = 0.5,
-             nudge_x = 0.5,
-             label.size = NA) +
+  scale_y_continuous(
+    limits = c(0, 82),
+    breaks = seq(0, 80, 20),
+    expand = c(0, 0)
+  ) +
+  scale_x_continuous(
+    limits = c(1952, 2017),
+    breaks = seq(1952, 2017, 5)
+  ) +
+  geom_label(
+    data = ann_labs,
+    aes(x = year, y = lifeExp, label = country, colour = country),
+    hjust = 0,
+    vjust = 0.5,
+    nudge_x = 0.5,
+    label.size = NA
+  ) +
   labs(
     x = "Year",
     y = NULL,
@@ -88,8 +107,7 @@ Annotations may also be used to add value labels to a bar chart. Note that `geom
 #| fig.alt = "A bar chart with white text labels at the end of each bar."
 ggplot(pop_bar_data, aes(x = reorder(country, -pop), y = pop)) +
   geom_col(fill = af_colour_values["dark-blue"]) +
-  geom_text(aes(label = round(pop/1E6, 1),),
-            vjust = 1.2, colour = "white") +
+  geom_text(aes(label = round(pop/1E6, 1),), vjust = 1.2, colour = "white") +
   theme_af() +
   scale_y_continuous(
     expand = c(0, 0),
@@ -98,7 +116,10 @@ ggplot(pop_bar_data, aes(x = reorder(country, -pop), y = pop)) +
   labs(
     x = NULL,
     y = NULL,
-    title = stringr::str_wrap("The U.S.A. is the most populous country in the Americas", 40),
+    title = stringr::str_wrap(
+      "The U.S.A. is the most populous country in the Americas",
+      40
+    ),
     subtitle = "Population of countries in the Americas (millions), 2007",
     caption = "Source: Gapminder"
   )

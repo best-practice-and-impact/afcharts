@@ -31,7 +31,8 @@ last_plot() +
     y = NULL,
     title = stringr::str_wrap(
       paste("The U.S.A. has the highest population in the Americas"),
-      width = 40),
+      width = 40
+    ),
     subtitle = "Population of countries of the Americas, 2007",
     caption = "Source: Gapminder"
   )
@@ -77,9 +78,11 @@ Adaptive axis limits and break for `scale_x/y_continuous()` can be defined using
 limits_pretty <- function(x, ...) range(pretty(x, ...))
 
 last_plot() +
-  scale_x_continuous(expand = expansion(mult = c(0, .1)),
-                     breaks = pretty, 
-                     limits = limits_pretty)
+  scale_x_continuous(
+    expand = expansion(mult = c(0, .1)),
+    breaks = pretty, 
+    limits = limits_pretty
+  )
 
 ```
 
@@ -132,13 +135,19 @@ gapminder |>
   filter(country == "United Kingdom") |>
   ggplot(aes(x = year, y = lifeExp)) +
   geom_line(linewidth = 1, colour = af_colour_values[1]) +
-  geom_hline(yintercept = 75, colour = af_colour_values[2],
-             linewidth = 1, linetype = "dashed") +
+  geom_hline(
+    yintercept = 75,
+    colour = af_colour_values[2],
+    linewidth = 1,
+    linetype = "dashed"
+  ) +
   annotate(geom = "text", x = 2007, y = 70, label = "Age 70") +
   theme_af() +
-  scale_y_continuous(limits = c(0, 82),
-                     breaks = seq(0, 80, 20),
-                     expand = c(0, 0)) +
+  scale_y_continuous(
+    limits = c(0, 82),
+    breaks = seq(0, 80, 20),
+    expand = c(0, 0)
+  ) +
   scale_x_continuous(breaks = seq(1952, 2007, 5)) +
   labs(
     x = "Year",
@@ -241,17 +250,23 @@ ann_data |>
   geom_line(linewidth = 1) +
   theme_af(legend = "none") +
   scale_colour_discrete_af() +
-  scale_y_continuous(limits = c(0, 82),
-                     breaks = seq(0, 80, 20),
-                     expand = c(0, 0)) +
-  scale_x_continuous(limits = c(1952, 2017),
-                     breaks = seq(1952, 2017, 5)) +
-  geom_label(data = ann_labs,
-             aes(x = year, y = lifeExp, label = country, colour = country),
-             hjust = 0,
-             vjust = 0.5,
-             nudge_x = 0.5,
-             label.size = NA) +
+  scale_y_continuous(
+    limits = c(0, 82),
+    breaks = seq(0, 80, 20),
+    expand = c(0, 0)
+  ) +
+  scale_x_continuous(
+    limits = c(1952, 2017),
+    breaks = seq(1952, 2017, 5)
+  ) +
+  geom_label(
+    data = ann_labs,
+    aes(x = year, y = lifeExp, label = country, colour = country),
+    hjust = 0,
+    vjust = 0.5,
+    nudge_x = 0.5,
+    label.size = NA
+  ) +
   labs(
     x = "Year",
     y = NULL,

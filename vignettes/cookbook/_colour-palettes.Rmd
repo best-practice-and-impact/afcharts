@@ -24,9 +24,11 @@ gapminder |>
   geom_line(linewidth = 1) +
   theme_af(legend = "bottom") +
   scale_colour_discrete_af("main2") +
-  scale_y_continuous(limits = c(0, 82),
-                     breaks = seq(0, 80, 20),
-                     expand = c(0, 0)) +
+  scale_y_continuous(
+    limits = c(0, 82),
+    breaks = seq(0, 80, 20),
+    expand = c(0, 0)
+  ) +
   scale_x_continuous(breaks = seq(1952, 2007, 5)) +
   labs(
     x = "Year",
@@ -55,9 +57,11 @@ gapminder |>
   ggplot(aes(x = year, y = lifeExp)) +
   geom_line(linewidth = 1, colour = my_palette[1]) +
   theme_af() +
-  scale_y_continuous(limits = c(0, 82),
-                     breaks = seq(0, 80, 20),
-                     expand = c(0, 0)) +
+  scale_y_continuous(
+    limits = c(0, 82),
+    breaks = seq(0, 80, 20),
+    expand = c(0, 0)
+  ) +
   scale_x_continuous(breaks = seq(1952, 2007, 5)) +
   labs(
     x = "Year",
@@ -77,9 +81,11 @@ gapminder |>
   geom_line(linewidth = 1) +
   theme_af(legend = "bottom") +
   scale_colour_manual(values = my_palette) +
-  scale_y_continuous(limits = c(0, 82),
-                     breaks = seq(0, 80, 20),
-                     expand = c(0, 0)) +
+  scale_y_continuous(
+    limits = c(0, 82),
+    breaks = seq(0, 80, 20),
+    expand = c(0, 0)
+  ) +
   scale_x_continuous(breaks = seq(1952, 2007, 5)) +
   labs(
     x = "Year",

@@ -99,7 +99,10 @@ ggplot(pop_bar_data, aes(x = pop, y = reorder(country, pop))) +
   labs(
     x = NULL,
     y = NULL,
-    title = stringr::str_wrap("The U.S.A. is the most populous country in the Americas", 40),
+    title = stringr::str_wrap(
+      "The U.S.A. is the most populous country in the Americas",
+      40
+    ),
     subtitle = "Population of countries in the Americas (millions), 2007",
     caption = "Source: Gapminder"
     )
@@ -115,11 +118,15 @@ To create a grouped bar chart, set `stat = "identity"` and `position = "dodge"` 
 
 grouped_bar_data <-
   gapminder |>
-  filter(year %in% c(1967, 2007) &
-           country %in% c("United Kingdom", "Ireland", "France", "Belgium"))
+  filter(
+    year %in% c(1967, 2007) &
+      country %in% c("United Kingdom", "Ireland", "France", "Belgium")
+  )
 
-ggplot(grouped_bar_data,
-       aes(x = country, y = lifeExp, fill = as.factor(year))) +
+ggplot(
+  grouped_bar_data,
+  aes(x = country, y = lifeExp, fill = as.factor(year))
+) +
   geom_bar(stat = "identity", position = "dodge") +
   scale_y_continuous(
     expand = c(0, 0),
@@ -151,14 +158,20 @@ Caution should be taken when producing stacked bar charts. They can quickly beco
 stacked_bar_data <-
   gapminder |>
   filter(year == 2007) |>
-  mutate(lifeExpGrouped = cut(lifeExp,
-                              breaks = c(0, 75, Inf),
-                              labels = c("Under 75", "75+"))) |>
+  mutate(
+    lifeExpGrouped = cut(
+      lifeExp,
+      breaks = c(0, 75, Inf),
+      labels = c("Under 75", "75+")
+    )
+  ) |>
   group_by(continent, lifeExpGrouped) |>
   summarise(n_countries = n(), .groups = "drop")
 
-ggplot(stacked_bar_data,
-       aes(x = continent, y = n_countries, fill = lifeExpGrouped)) +
+ggplot(
+  stacked_bar_data,
+  aes(x = continent, y = n_countries, fill = lifeExpGrouped)
+) +
   geom_bar(stat = "identity", position = "fill") +
   theme_af(legend = "bottom") +
   scale_y_continuous(expand = c(0, 0), labels = scales::percent) +
@@ -183,9 +196,11 @@ ggplot(stacked_bar_data,
 gapminder |>
   filter(year == 2007) |>
   ggplot(aes(x = lifeExp)) +
-  geom_histogram(binwidth = 5,
-                 colour = "white",
-                 fill = af_colour_values["dark-blue"]) +
+  geom_histogram(
+    binwidth = 5,
+    colour = "white",
+    fill = af_colour_values["dark-blue"]
+  ) +
   theme_af() +
   scale_y_continuous(
     expand = c(0, 0),
@@ -213,16 +228,15 @@ gapminder |>
   ggplot(aes(x = gdpPercap, y = lifeExp, size = pop)) +
   geom_point(colour = af_colour_values["dark-blue"]) +
   theme_af(axis = "none", grid = "xy") +
-  scale_x_continuous(
-    labels = function(x) scales::dollar(x, prefix = "£")
-  ) +
+  scale_x_continuous(labels = function(x) scales::dollar(x, prefix = "£")) +
   scale_size_continuous(labels = scales::comma) +
   labs(
     x = "GDP",
     y = "Life\nExpectancy",
     size = "Population",
     title = stringr::str_wrap(
-      "The relationship between GDP and Life Expectancy is complex", 40
+      "The relationship between GDP and Life Expectancy is complex",
+      40
     ),
     subtitle = "GDP and Life Expectancy for all countires, 2007",
     caption = "Source: Gapminder"
@@ -244,8 +258,10 @@ gapminder |>
   theme_af(axis = "none", ticks = "none", legend = "none") +
   scale_fill_discrete_af() +
   facet_wrap(~ continent, ncol = 2) +
-  scale_y_continuous(breaks = c(0, 2e9, 4e9),
-                     labels = c(0, "2bn", "4bn")) +
+  scale_y_continuous(
+    breaks = c(0, 2e9, 4e9),
+    labels = c(0, "2bn", "4bn")
+  ) +
   coord_cartesian(clip = "off") +
   theme(axis.text.x = element_blank()) +
   labs(
@@ -289,10 +305,7 @@ stacked_bar_data |>
 #| fig.alt = "A bar chart with the bar for Brazil highlighted in dark blue and other bars in grey."
 
 pop_bar_data |>
-  ggplot(
-    aes(x = reorder(country, -pop), y = pop,
-        fill = country == "Brazil")
-  ) +
+  ggplot(aes(x = reorder(country, -pop), y = pop, fill = country == "Brazil")) +
   geom_col() +
   theme_af(legend = "none") +
   scale_y_continuous(
@@ -304,7 +317,10 @@ pop_bar_data |>
   labs(
     x = NULL,
     y = NULL,
-    title = stringr::str_wrap("Brazil has the second highest population in the Americas", 40),
+    title = stringr::str_wrap(
+      "Brazil has the second highest population in the Americas",
+      40
+    ),
     subtitle = "Population of countries in the Americas (millions), 2007",
     caption = "Source: Gapminder"
   )
@@ -325,10 +341,12 @@ To make a `ggplot2` chart interactive, use `ggplotly()` from the `plotly` packag
 p <-
   pop_bar_data |>
   # Format text for tooltips
-  mutate(tooltip = paste0(
-    "Country: ", country, "\n",
-    "Life Expectancy: ", round(lifeExp, 1)
-  )) |>
+  mutate(
+    tooltip = paste0(
+      "Country: ", country, "\n",
+      "Life Expectancy: ", round(lifeExp, 1)
+    )
+  ) |>
   ggplot(aes(x = reorder(country, -lifeExp), y = lifeExp, text = tooltip)) +
   geom_col(fill = af_colour_values["dark-blue"]) +
   theme_af(ticks = "x") +
