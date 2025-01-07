@@ -235,7 +235,10 @@ ggplot(pop_bar_data, aes(x = reorder(country, -pop), y = pop)) +
   labs(
     x = NULL,
     y = NULL,
-    title = stringr::str_wrap("The U.S.A. is the most populous country in the Americas", 40),
+    title = stringr::str_wrap(
+      "The U.S.A. is the most populous country in the Americas",
+      40
+    ),
     subtitle = "Population of countries in the Americas (millions), 2007",
     caption = "Source: Gapminder"
   )

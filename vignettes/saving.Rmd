@@ -58,7 +58,7 @@ When using JPG or PNG formats, we need to consider the DPI (dots per inch). DPI 
 The `ggsave()` function from `ggplot2` can be used to save a standalone image file. To specify the SVG file format, simply ensure your file name ends with `.svg`. The following example uses the recommended dimensions from the previous section.
 
 ```{r standalone-svg, eval = FALSE}
-ggsave(filename = "example-plot.svg", plot = myplot, 
+ggsave(filename = "example-plot.svg", plot = myplot,
        width = 159, height = 100, units = "mm")
 ```
 
@@ -74,7 +74,7 @@ To save images at the correct size for publishing on GOVUK, afcharts provides
 the function `save_govuk`. This function can be used to save a SVG, JPG or PNG image.
 
 ```{r savegovuk, eval = FALSE}
-save_govuk(filename = "example-plot.png" plot = myplot, device = "svg" )
+save_govuk(filename = "example-plot.png", plot = myplot, device = "svg")
 ```
 
 

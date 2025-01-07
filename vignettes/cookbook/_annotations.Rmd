@@ -112,7 +112,7 @@ Annotations may also be used to add value labels to a bar chart. Note that `geom
 ggplot(pop_bar_data, aes(x = reorder(country, -pop), y = pop)) +
   geom_col(fill = af_colour_values["dark-blue"]) +
   geom_text(
-    aes(label = round(pop / 1E6, 1),),
+    aes(label = round(pop / 1E6, 1)),
     vjust = 1.2,
     colour = "white"
   ) +
