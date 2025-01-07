@@ -2,7 +2,7 @@
 
 Labelling your chart is often preferable to using a legend, as often this relies on a user matching the legend to the data using colour alone. The legend can be removed from a chart by setting `legend = "none"` in `theme_af()`.
 
-The easiest way to add an annotation is to manually define the co-ordinates of the required position.
+The easiest way to add an annotation is to manually define the co-ordinates of the required position. Note that black text has been used for the labels, as this ensures sufficient contrast against the white background.
 
 ```{r annotations-data}
 ann_data <- gapminder |>
@@ -10,26 +10,42 @@ ann_data <- gapminder |>
 ```
 
 ```{r annotations-1}
-#| fig.alt = "A multiple line chart with colour co-ordinated line labels using afcharts theme and main palette."
+#| fig.alt = "A multiple line chart with line labels."
 
 ann_data |>
-  ggplot(aes(x = year, y = lifeExp, colour = country)) +
-  geom_line(linewidth = 1) +
+  ggplot(aes(x = year, y = lifeExp)) +
+  geom_line(
+    aes(colour = country),
+    linewidth = 1
+  ) +
   theme_af(legend = "none") +
   scale_colour_discrete_af() +
-  scale_y_continuous(limits = c(0, 82),
-                     breaks = seq(0, 80, 20),
-                     expand = c(0, 0)) +
-  scale_x_continuous(limits = c(1952, 2017),
-                     breaks = seq(1952, 2017, 5)) +
-  annotate(geom = "label", x = 2008, y = 73, label = "China",
-           colour = af_colour_values[1],
-           label.size = NA,
-           hjust = 0, vjust = 0.5) +
-  annotate(geom = "label", x = 2008, y = 79.4, label = "United Kingdom",
-           colour = af_colour_values[2],
-           label.size = NA,
-           hjust = 0, vjust = 0.5) +
+  scale_y_continuous(
+    limits = c(0, 82),
+    breaks = seq(0, 80, 20),
+    expand = expansion(mult = c(0, 0.1))
+  ) +
+  scale_x_continuous(
+    limits = c(1952, 2017),
+    breaks = seq(1952, 2017, 5)
+  ) +
+  annotate(
+    geom = "label",
+    x = 2008, y = 73,
+    label = "China",
+    label.size = NA,
+    hjust = 0,
+    vjust = 0.5
+  ) +
+  annotate(
+    geom = "label",
+    x = 2008,
+    y = 79.4,
+    label = "United Kingdom",
+    label.size = NA,
+    hjust = 0,
+    vjust = 0.5
+  ) +
   labs(
     x = "Year",
     y = NULL,
@@ -47,7 +63,7 @@ Note that in the previous examples, `annotate()` also requires a geom (`label` o
 
 
 ```{r annotations-2}
-#| fig.alt = "A multiple line chart with colour co-ordinated line labels using afcharts theme and main2 palette."
+#| fig.alt = "A multiple line chart with line labels."
 
 ann_labs <- ann_data |>
   group_by(country) |>
@@ -56,21 +72,30 @@ ann_labs <- ann_data |>
   ungroup()
 
 ann_data |>
-  ggplot(aes(x = year, y = lifeExp, colour = country)) +
-  geom_line(linewidth = 1) +
+  ggplot(aes(x = year, y = lifeExp)) +
+  geom_line(
+    aes(colour = country),
+    linewidth = 1
+  ) +
   theme_af(legend = "none") +
   scale_colour_discrete_af() +
-  scale_y_continuous(limits = c(0, 82),
-                     breaks = seq(0, 80, 20),
-                     expand = c(0, 0)) +
-  scale_x_continuous(limits = c(1952, 2017),
-                     breaks = seq(1952, 2017, 5)) +
-  geom_label(data = ann_labs,
-             aes(x = year, y = lifeExp, label = country, colour = country),
-             hjust = 0,
-             vjust = 0.5,
-             nudge_x = 0.5,
-             label.size = NA) +
+  scale_y_continuous(
+    limits = c(0, 82),
+    breaks = seq(0, 80, 20),
+    expand = expansion(mult = c(0, 0.1))
+  ) +
+  scale_x_continuous(
+    limits = c(1952, 2017),
+    breaks = seq(1952, 2017, 5)
+  ) +
+  geom_label(
+    data = ann_labs,
+    aes(x = year, y = lifeExp, label = country),
+    hjust = 0,
+    vjust = 0.5,
+    nudge_x = 0.5,
+    label.size = NA
+  ) +
   labs(
     x = "Year",
     y = NULL,
@@ -84,18 +109,27 @@ Annotations may also be used to add value labels to a bar chart. Note that `geom
 
 ```{r annotations-3}
 #| fig.alt = "A bar chart with white text labels at the end of each bar."
-
-ggplot(bar_data, aes(x = reorder(country, -lifeExp), y = lifeExp)) +
+ggplot(pop_bar_data, aes(x = reorder(country, -pop), y = pop)) +
   geom_col(fill = af_colour_values["dark-blue"]) +
-  geom_text(aes(label = round(lifeExp, 1)),
-            nudge_y = -5, colour = "white") +
+  geom_text(
+    aes(label = round(pop / 1E6, 1),),
+    vjust = 1.2,
+    colour = "white"
+  ) +
   theme_af() +
-  scale_y_continuous(expand = c(0, 0)) +
+  scale_y_continuous(
+    limits = c(0, 350E6),
+    labels = scales::label_number(scale = 1E-6),
+    expand = expansion(mult = c(0, 0.1))
+  ) +
   labs(
     x = NULL,
     y = NULL,
-    title = "Iceland has the highest life expectancy in Europe",
-    subtitle = "Life expectancy in European countries, 2007",
+    title = stringr::str_wrap(
+      "The U.S.A. is the most populous country in the Americas",
+      40
+    ),
+    subtitle = "Population of countries in the Americas (millions), 2007",
     caption = "Source: Gapminder"
   )
 ```

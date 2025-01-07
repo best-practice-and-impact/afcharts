@@ -20,8 +20,10 @@ knitr::opts_chunk$set(
 ex1_alt <- paste("A bar chart with grey background, white grid lines",
                  "and dark grey bars.")
 ex2_alt <- paste("A bar chart with white background,",
-                 "light grey horizontal grid lines dark blue bars.")
-
+                 "light grey horizontal grid lines, and dark blue bars.")
+ex3_alt <- paste("A line chart with white background,
+                 light grey horizontal grid lines, an orange line, and a dark blue
+                 line.")
 ```
 
 # afcharts <img src="man/figures/logo.svg" alt="afcharts logo" align="right" height="150"/>
@@ -79,46 +81,80 @@ Help files for each function in the package can be found on the [References](htt
 
 The easiest way to use afcharts is by adding `use_afcharts()` to the beginning of your R script, Rmarkdown document or Shiny app code. This function will set a number of defaults to ggplot2 geoms, use afcharts colour palettes and use `theme_af()`.
 
-#### Example 1: Plot with one colour using ggplot2 defaults
+#### Example 1: Bar chart with one colour using ggplot2 defaults
 
-```{r ex1, fig.alt = ex1_alt}
+```{r ex1, fig.alt = ex1_alt, fig.width = 10}
 library(ggplot2)
 library(dplyr)
 library(gapminder)
 library(afcharts)
 
 gapminder |> 
-  filter(year == 2007 & continent == "Europe") |>
-  slice_max(order_by = lifeExp, n = 5) |>
+  filter(year == 2007 & continent == "Americas") |>
+  slice_max(order_by = pop, n = 5) |>
   ggplot() +
-  geom_col(aes(x = reorder(country, -lifeExp), y = lifeExp)) +
-  scale_y_continuous(expand = c(0, 0)) +
+  geom_col(aes(x = reorder(country, -pop), y = pop)) +
+  scale_y_continuous(
+    labels = scales::label_number(scale = 1E-6),
+    limits = c(0, 350E6),
+    expand = expansion(mult = c(0, 0.1))
+  ) +
+  scale_fill_discrete_af("focus", reverse = TRUE) +
   labs(
     x = NULL,
     y = NULL,
-    title = "Iceland has the highest life expectancy in Europe",
-    subtitle = "Life expectancy in European countries, 2007",
+    title = "The U.S.A. is the most populous country in\nthe Americas",
+    subtitle = "Population of countries in the Americas (millions), 2007",
+    caption = "Source: Gapminder"
+    )
+```
+
+#### Example 2: Bar chart of one colour using afcharts defaults
+
+```{r ex2, fig.alt = ex2_alt, fig.width = 10}
+afcharts::use_afcharts()
+
+gapminder |> 
+  filter(year == 2007 & continent == "Americas") |>
+  slice_max(order_by = pop, n = 5) |>
+  ggplot(aes(x = reorder(country, -pop), y = pop)) +
+  geom_col(fill = af_colour_values["dark-blue"]) +
+  scale_y_continuous(
+    labels = scales::label_number(scale = 1E-6),
+    limits = c(0, 350E6),
+    expand = c(0, 0),expansion(mult = c(0, 0.1))
+  ) +
+  labs(
+    x = NULL,
+    y = NULL,
+    title = "The U.S.A. is the most populous country in\nthe Americas",
+    subtitle = "Population of countries in the Americas (millions), 2007",
     caption = "Source: Gapminder"
   )
 ```
 
-#### Example 2: Plot with one colour using afcharts defaults
+#### Example 3: Multiple colour line chart with afcharts formatting
 
-```{r ex2, fig.alt = ex2_alt}
+```{r ex3, fig.alt = ex3_alt, fig.width = 10}
 afcharts::use_afcharts()
 
-gapminder |> 
-  filter(year == 2007 & continent == "Europe") |>
-  slice_max(order_by = lifeExp, n = 5) |>
-  ggplot() +
-  geom_col(aes(x = reorder(country, -lifeExp), y = lifeExp)) +
-  scale_y_continuous(expand = c(0, 0)) +
+gapminder |>
+  filter(country %in% c("United Kingdom", "China")) |>
+  ggplot(aes(x = year, y = lifeExp, colour = country)) +
+  geom_line(linewidth = 1) +
+  scale_y_continuous(
+    breaks = seq(0, 80, 20),
+    limits = c(0, 82),
+    expand = expansion(mult = c(0, 0.1))
+  ) +
+  scale_x_continuous(breaks = seq(1952, 2007, 5)) +
   labs(
-    x = NULL,
+    x = "Year",
     y = NULL,
-    title = "Iceland has the highest life expectancy in Europe",
-    subtitle = "Life expectancy in European countries, 2007",
-    caption = "Source: Gapminder"
+    title = "Living Longer",
+    subtitle = "Life Expectancy in the United Kingdom and China 1952-2007",
+    caption = "Source: Gapminder",
+    colour = NULL
   )
 ```
 
