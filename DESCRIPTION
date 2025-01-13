@@ -1,6 +1,6 @@
 Package: afcharts
 Title: Produce Charts Following UK Government Analysis Function Guidance
-Version: 0.4.1
+Version: 0.4.1.9000
 Authors@R: c(
     person("Crown Copyright", , , , role = c("cph")),
     person("Government Analysis Function", , , "Analysis.Function@ons.gov.uk", role = c("fnd")),
