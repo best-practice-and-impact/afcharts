@@ -1,10 +1,10 @@
-# afcharts (development version)
+# afcharts 0.4.1
 
-* Fixed bug which prevented some functions from working if called directly without attaching the package.
+-   Fixed bug which prevented some functions from working if called directly without attaching the package.
 
-* Fixed bug in use_afcharts when passing args to theme_af.
+-   Fixed bug in `use_afcharts` when passing args to `theme_af`.
 
-* Warning about `main2` colour palette being used instead of af palette (when only two colours required) has been replaced with an information message. 
+-   `scale_colour_discrete_af` and `scale_fill_discrete_af` now inform rather than warn when the `main2` colour palette is used instead of `main` if only two colours are required.
 
 # afcharts 0.4.0
 
