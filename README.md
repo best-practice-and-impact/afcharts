@@ -133,7 +133,6 @@ gapminder |>
 
 ``` r
 afcharts::use_afcharts()
-#> NULL
 
 gapminder |>
   filter(country %in% c("United Kingdom", "China")) |>
