@@ -4,54 +4,48 @@
 
 ### Sorting a bar chart
 
-To control the order of bars in a chart, wrap the variable you want to arrange with `reorder()` and specify what variable you want to sort by. The following example sorts bars in ascending order of population. To sort in descending order, you would change this to `reorder(country, desc(pop))`.
+To control the order of bars in a chart, wrap the variable you want to arrange with `reorder()` and specify what variable you want to sort by. The following example sorts bars in ascending order of population from the bottom of the chart up. To sort in descending order, you would change this to `reorder(country, desc(pop))`.
 
-```{r sorting}
-#| fig.alt = "A bar chart using afcharts theme and dark blue colour with bars sorted in decreasing order by life expectancy."
-
+```{r sorted, eval = FALSE}
 population_chart <- pop_bar_data |>
   ggplot(aes(x = pop, y = reorder(country, pop))) +
   geom_col(fill = af_colour_values["dark-blue"]) +
-  theme_af(axis = "y", grid = "x")
-```
-
-Examples in the following sections build on this chart.
-
-
-### Changing chart titles
-
-Chart titles such as the main title, subtitle, caption, axis titles and legend titles, can be controlled using `labs()`. A title can be removed using `NULL`.
-
-```{r chart-titles}
-#| fig.alt = "A bar chart with title, subtitle and caption. Axis titles have been removed."
-
-population_chart +
-  labs(
-    x = NULL,
-    y = NULL,
-    title = stringr::str_wrap(
-      paste("The U.S.A. has the highest population in the Americas"),
-      width = 40
-    ),
-    subtitle = "Population of countries of the Americas (millions), 2007",
-    caption = "Source: Gapminder"
+  theme_af(axis = "y", grid = "x") +
+  labs(x = NULL,
+       y = NULL
   )
+print(population_chart)
 ```
 
+#### The U.S.A. is the most populous country in the Americas
+##### Population of countries in the Americas (millions), 2007
+```{r, echo = FALSE}
+<<sorted>>
+```
+
+This bar chart uses the afcharts theme and shows the population of five countries. The country names are given on the y axis, with the bars extending from left to right, sorted by values decreasing from the top down. All the bars are in dark blue, and there is a small white gap between the bars and the y axis. The x axis values
+are given in exponential notation.
+
+Examples in the following sections iterate on this chart.
 
 ### Reducing space between chart and axis
 
 By default, a bar chart will have a gap between the bottom of the bars and the axis. This can be removed as follows:
 
-```{r expand}
-#| fig.alt = "A bar chart with no space between bottom of bars and x axis."
-
-population_chart +
+```{r expand, eval = FALSE}
+last_plot() +
   scale_x_continuous(expand = expansion(mult = c(0, 0.1)))
 ```
 
-The equivalent adjustment can be made for the y axis using `scale_y_continuous`.
+#### The U.S.A. is the most populous country in the Americas
+##### Population of countries in the Americas (millions), 2007
+```{r, echo = FALSE}
+<<expand>>
+```
 
+This horizontal bar chart uses the afcharts theme. It shows the populations of five countries, with country names given on the y axis. All the bars are in dark blue and against the y axis. The x axis values are given in exponential notation.
+
+The equivalent adjustment can be made for the y axis using `scale_y_continuous()`.
 
 ### Changing axis limits, breaks and labels
 
@@ -59,10 +53,8 @@ Axis limits, breaks and labels for continuous variables can be controlled using 
 
 Limits, breaks and labels can be defined with custom values.
 
-```{r axis-limits-breaks-labels-custom}
-#| fig.alt = "A bar chart with fewer x axis breaks and edited labels."
-
-population_chart +
+```{r axis-limits-breaks-labels-custom, eval = FALSE}
+last_plot() +
   scale_x_continuous(
     breaks = seq(0, 400E6, 100E6),
     labels = seq(0, 400, 100),
@@ -74,14 +66,20 @@ population_chart +
   )
 ```
 
-Adaptive axis limits and break for `scale_x/y_continuous()` can be defined using the `pretty` function. This defines breaks that are equally spaced ‘round’ values which cover the range of the data and limits that are the next 'round' value just exceeding the range of the data. Setting the limits with a custom `limits_pretty` function ensures the highest gridline value is above the maximum value of the data.
+#### The U.S.A. is the most populous country in the Americas
+##### Population of countries in the Americas (millions), 2007
+```{r, echo = FALSE}
+<<axis-limits-breaks-labels-custom>>
+```
 
-```{r axis-limits-breaks-labels-fct}
-#| fig.alt = "A bar chart with 'round' breaks and limits using the pretty() function."
+This horizonal bar chart uses the afcharts theme and shows the populations of five countries. The country names are given on the y axis, and all the bars are in blue. The x axis is labeled every 100 from zero to 420. The x axis label indicates that population is reported in millions.
 
+Adaptive axis limits and break for `scale_x/y_continuous()` can be defined using the `pretty()` function. This defines breaks that are equally spaced ‘round’ values which cover the range of the data and limits that are the next 'round' value just exceeding the range of the data. Setting the limits with a custom `limits_pretty()` function ensures the highest gridline value is above the maximum value of the data.
+
+```{r axis-limits-breaks-labels-fct, eval = FALSE}
 limits_pretty <- function(x) range(pretty(x))
 
-population_chart +
+last_plot() +
   scale_x_continuous(
     breaks = pretty,
     labels = label_number(scale = 1E-6),
@@ -94,16 +92,19 @@ population_chart +
 
 ```
 
+#### The U.S.A. is the most populous country in the Americas
+##### Population of countries in the Americas (millions), 2007
+```{r, echo = FALSE}
+<<axis-limits-breaks-labels-fct>>
+```
 
-
+This horizonal bar chart uses the afcharts theme and shows the populations of five countries. The country names are given on the y axis, and all the bars are in blue. The x axis is labeled every 100 from zero to 400. The x axis label indicates that population is reported in millions.
 
 ### Formatting labels
 
 Formatting axis labels or legend labels is easily handled using the `scales` package. The following example formats y axis labels as percentages, however `scales` can also handle currency and thousands separators.
 
-```{r using-scales, fig.height = 5.5}
-#| fig.alt = "A stacked bar chart with y axis labels formatted as percentages."
-
+```{r using-scales, eval = FALSE}
 stacked_bar_data |>
   ggplot(aes(x = continent, y = n_countries, fill = lifeExpGrouped)) +
   geom_bar(stat = "identity", position = "fill") +
@@ -116,32 +117,39 @@ stacked_bar_data |>
   labs(
     x = NULL,
     y = NULL,
-    fill = "Life Expectancy",
-    title = "How life expectancy varies across continents",
-    subtitle = "Percentage of countries by life expectancy band, 2007",
-    caption = "Source: Gapminder"
+    fill = "Life Expectancy"
   )
 ```
 
+#### How life expectancy varies across continents
+##### Percentage of countries by life expectancy band, 2007
+```{r, fig.height = 5.5, echo = FALSE}
+<<using-scales>>
+```
+
+This stacked bar uses the afcharts theme. The y axis is labelled from 0% to 100% every 25%, with light grey grid lines and tick marks going horizontally from the y axis. The top grid line is thinner than the others.
 
 ### Avoiding axis/grid lines being cut off
 
-Axis lines and grid lines can sometimes appear 'cut off' if they are drawn at the limits of the chart range. You can see in the example in the previous section that the top grid line is slightly narrower than the adjacent tick mark on the y axis. This is because the y axis limit is 100%. As the grid line is centred at 100%, the top half of the line is 'cut off'. This can be corrected as follows:
+Axis lines and grid lines can sometimes appear 'cut off' if they are drawn at the limits of the chart range. In the previous plot, the top grid line is slightly narrower than the adjacent tick mark on the y axis. This is because the y axis limit is 100%. As the grid line is centred at 100%, the top half of the line is 'cut off'. This can be corrected as follows:
 
-```{r clip, fig.height = 5.5}
-#| fig.alt = "A stacked bar chart with top gridline the same width as adjoining tick mark and other grid lines."
-
+```{r clip, eval = FALSE}
 last_plot() + coord_cartesian(clip = "off")
 ```
 
+#### How life expectancy varies across continents
+##### Percentage of countries by life expectancy band, 2007
+```{r, fig.height = 5.5, echo = FALSE}
+<<clip>>
+```
+
+This is a stacked bar chart with the afcharts theme, where the top gridline is the same width as the adjoining tick mark and other grid lines.
 
 ### Adding a line
 
 To add a horizontal or vertical line across the whole plot, use `geom_hline()` or `geom_vline()`. This can be useful to highlight a threshold or average level.
 
-```{r add-a-line}
-#| fig.alt = "A line chart with dashed, orange horizontal line at age 75."
-
+```{r add-a-line, eval = FALSE}
 gapminder |>
   filter(country == "United Kingdom") |>
   ggplot(aes(x = year, y = lifeExp)) +
@@ -162,26 +170,48 @@ gapminder |>
   scale_x_continuous(breaks = seq(1952, 2007, 5)) +
   labs(
     x = "Year",
+    y = NULL
+  )
+```
+#### Living Longer
+##### Life Expectancy in the United Kingdom 1952-2007
+```{r, echo=FALSE}
+<<add-a-line>>
+```
+
+This line graph uses the afcharts theme. There is a solid dark blue line trending upwards, and a dashed teal line horizontal to 75 on the y-axis. There are also pale grey grid lines extending from regular intervals on the y axis.
+
+### Embedding chart titles
+
+As mentioned previously, chart titles, subtitles, and captions should be included as titles or the main body of the text where possible for accessibility purposes. However, these can embedded into the chart image with `labs()` if required. A title can be removed using `NULL`.
+
+```{r chart-titles}
+population_chart +
+  labs(
+    x = NULL,
     y = NULL,
-    title = "Living Longer",
-    subtitle = "Life Expectancy in the United Kingdom 1952-2007",
+    title = stringr::str_wrap(
+      paste("The U.S.A. has the highest population in the Americas"),
+      width = 40
+    ),
+    subtitle = "Population of countries of the Americas (millions), 2007",
     caption = "Source: Gapminder"
   )
 ```
 
+In the chart image, the title gives a data insight and is presented in large bold text at the top. This is followed by smaller text giving a brief description of the data. In the bottom left of the image is a data citation as a caption.
 
 ### Wrapping text
 
 If text is too long, it may be cut off or distort the dimensions of the chart.
 
 ```{r text-wrap-1}
-#| fig.alt = "A bar chart with end of main title text not visible and long y axis title skewing the dimensions of the chart."
-
 plot <-
   ggplot(pop_bar_data, aes(x = reorder(country, -pop), y = pop)) +
   geom_col(fill = af_colour_values["dark-blue"]) +
   theme_af() +
-  scale_y_continuous(expand = expansion(mult = c(0, 0.1))) +
+  scale_y_continuous(labels = label_number(scale = 1E-6),
+                     expand = expansion(mult = c(0, 0.1))) +
   labs(
     x = NULL,
     subtitle = "Population of countries in the Americas (millions), 2007",
@@ -196,11 +226,11 @@ plot +
   )
 ```
 
+In this chart image, the title text is being cut off with only part of the text appearing in the image.
+
 There are two suggested ways to solve this issue; Insert `\n` within a string to force a line break; Use `stringr::str_wrap()` to set a maximum character width of the string. See examples of both of these methods as follows:
 
 ```{r text-wrap-2}
-#| fig.alt = "A bar chart with main title and y axis title text wrapped onto two lines."
-
 plot +
   labs(
     y = "Population\n of country",
@@ -212,14 +242,13 @@ plot +
   )
 ```
 
+In this chart image, the y axis label and graph title text have been wrapped onto two lines so that all the text is visible.
 
 ### Adjusting theme elements
 
 If you find you need to adjust theme elements for your chart, this can be done using `theme()`. Note that this should be done after the call to `theme_af()`, otherwise `theme_af()` may overwrite the specifications you've made.
 
-```{r adjust-theme}
-#| fig.alt = "A bar chart using afcharts theme and dark blue colour, with axis lines and ticks coloured black."
-
+```{r adjust-theme, eval = FALSE}
 ggplot(pop_bar_data, aes(x = reorder(country, -pop), y = pop)) +
   geom_col(fill = af_colour_values["dark-blue"]) +
   theme_af(axis = "xy") +
@@ -234,24 +263,22 @@ ggplot(pop_bar_data, aes(x = reorder(country, -pop), y = pop)) +
   ) +
   labs(
     x = NULL,
-    y = NULL,
-    title = stringr::str_wrap(
-      "The U.S.A. is the most populous country in the Americas",
-      40
-    ),
-    subtitle = "Population of countries in the Americas (millions), 2007",
-    caption = "Source: Gapminder"
+    y = NULL
   )
 ```
 
+#### The U.S.A. is the most populous country in the Americas
+##### Population of countries in the Americas (millions), 2007
+```{r, echo = FALSE}
+<<adjust-theme>>
+```
+
+This bar chart uses the afcharts theme. The bars are dark blue, with axis lines and ticks coloured black as opposed to the default `theme_af` grey.
+
 You may also consider using markdown or HTML formatted text within your charts.
-This can be readily achieved with `ggtext::element_markdown()`. Please refer to
-Analysis Function guidance in considering the accessibility of custom
-formatting, such as when using colours.
+This can be readily achieved with `ggtext::element_markdown()`.
 
 ```{r html-formatting}
-#| fig.alt = "A line chart using the afcharts theme with coloured text in the subtitle corresponding to the line colours."
-
 ann_data <- gapminder |>
   filter(country %in% c("United Kingdom", "China"))
 
@@ -294,3 +321,5 @@ ann_data |>
   ) +
   theme(plot.subtitle = element_markdown())
 ```
+
+In this chart image, the subtitle and label text have been set to correspond to the line colours as a demonstration. Please refer to Analysis Function guidance in considering the accessibility of custom formatting.
