@@ -28,7 +28,8 @@ Imports:
     scales,
     cli,
     rlang,
-    dplyr
+    dplyr,
+    plotly
 Suggests: 
     ggtext,
     knitr,
@@ -39,7 +40,6 @@ Suggests:
     purrr,
     stringr,
     testthat (>= 2.1.0),
-    plotly,
     gt,
     svglite (>= 2.1.2),
     ragg (>= 1.2.6),
