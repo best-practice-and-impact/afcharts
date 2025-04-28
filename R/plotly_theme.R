@@ -1,19 +1,52 @@
-iris <- iris |> dplyr::mutate(Sepal.Length = Sepal.Length * 100)
-
- fig <- plotly::plot_ly(data = iris, x = ~Sepal.Length, y = ~Petal.Length)
-
-fig
-
- fig |>
-  theme_af_plotly()
-
-
+#' Analysis Function theme for plotly charts.
+#'
+#' @description plotly theme for Analysis Function plots.
+#'
+#' @param chart a `plotly` chart object
+#' @param base_size base font size, given in pts.
+#' @param grid, axis, ticks 'x', 'y', 'xy' or 'none' to determine for which axes
+#'   the attribute should be drawn. Grid defaults to 'y', axis to 'x', and ticks
+#'   to 'xy'.
+#' @param legend 'right', 'left', 'top', 'bottom', or 'none' to determine the
+#'   position of the legend. Defaults to 'right'.
+#'
+#' @returns A modified `plotly` chart
+#'
+#' @examples
+#'
+#' library(plotly)
+#'
+#' irisnew <- iris |>
+#'   dplyr::mutate(
+#'     Sepal.Length = Sepal.Length * 100,
+#'     Petal.Length = Petal.Length * 100
+#'   )
+#'
+#' fig <- plot_ly(
+#'   data = irisnew,
+#'   x = ~Sepal.Length,
+#'   y = ~Petal.Length,
+#'   color = ~Species
+#' ) |>
+#'   add_markers() |>
+#'   layout(
+#'     title = list(text = "new title \n second line"),
+#'     legend = list(
+#'       title = list(text='<b>Species</b>')
+#'     )
+#'   )
+#'
+#' fig |>
+#'   theme_af_plotly()
+#'
+#' @export
 theme_af_plotly <-  function(chart,
                              base_size = 14,
                              grid = c("y", "x", "xy", "none"),
                              axis = c("x", "y", "xy", "none"),
                              ticks = c("xy", "x", "y", "none"),
-                             legend = c("right", "left", "top", "bottom", "none")) {
+                             legend = c("right", "left", "top", "bottom",
+                                        "none")) {
 
 
   grid   <- match.arg(grid)
@@ -28,7 +61,8 @@ theme_af_plotly <-  function(chart,
   afcharts_font <- "Arial"
 
   half_line <- base_size / 2
-  base_line_size = base_size / 24
+  base_line_size <- base_size / 24 * 3.7795 # Value in pixels
+  pt_to_pixel <- 96 / 72
 
   # Set grid lines dependent on grid arg
   grid_x     <- if (grid %in% c("x", "xy")) TRUE else FALSE
@@ -45,75 +79,118 @@ theme_af_plotly <-  function(chart,
 
   y_title <- plotly::plotly_build(chart)$x$layout$yaxis$title |> unclass()
   x_title <- plotly::plotly_build(chart)$x$layout$xaxis$title |> unclass()
+  title_text <- plotly::plotly_build(chart)$x$layout$title$text |> unclass()
+  title_text_lines <- stringr::str_count(title_text, pattern = "\n")
+
+
+  # set legend layout
+
+  legend_layout <- switch(
+    legend,
+    "right" = list(
+      orientation = "v",
+      xref = "paper",
+      xanchor = "left",
+      x = 1.02,
+      yref = "paper",
+      yanchor = "middle",
+      y = 0.5
+    ),
+    "left" = list(
+      orientation = "v",
+      xref = "paper",
+      xanchor = "right",
+      x = -0.02,
+      yref = "paper",
+      yanchor = "middle",
+      y = 0.5
+    ),
+    "bottom" = list(
+      orientation = "h",
+      xref = "paper",
+      xanchor = "center",
+      x = 0.5,
+      yref = "paper",
+      yanchor = "top",
+      y = -0.1
+    ),
+    "top" = list(
+      orientation = "h",
+      xref = "paper",
+      xanchor = "center",
+      x = 0.5,
+      yref = "paper",
+      yanchor = "bottom",
+      y = 1.1
+    )
+  )
 
   chart |>
     plotly::layout(
       font = list(
         color = "black",
-        size = base_size * ( 96 / 72),
+        size = base_size * pt_to_pixel,
         family = afcharts_font
       ),
 
-      # margin = list(
-      #   l = 80,
-      #   b = 80,
-      #   r = 80,
-      #   t = 0
-      # ),
-
-      # # title
-      # title = list(
-      #   text = "This is the title",
-      #   font = list(
-      #     size = 1.6 * base_size
-      #   ),
-      #   xref = "paper",
-      #   yref = "container",
-      #   xanchor = "left",
-      #   yanchor = "top",
-      #   x = 0,
-      #   y = 1,
-      #   automargin = TRUE,
-      #   pad = list(b = ((half_line * 2) + base_size) * (72 / 96))
-      # ),
+      margin = list(
+        b = 200,
+        t = 200
+      ),
 
 
-      # x axis
+      # title ------------------------------------------------------------------
+      title = list(
+        text = title_text,
+        font = list(
+          size = 1.6 * base_size * pt_to_pixel
+        ),
+        xref = "paper",
+        yref = "paper",
+        xanchor = "left",
+        yanchor = "bottom",
+        x = 0,
+        y = 1,
+        pad = list(b = ((half_line * 2) + base_size) * pt_to_pixel)
+      ),
+
+
+      # x axis -----------------------------------------------------------------
 
       xaxis = list(
-
         fixedrange = TRUE,
-
+        automargin = FALSE,
         # title
         title = list(
           text = x_title,
           font = list(
             color = "black",
-            size = base_size * (96 / 72),
+            size = base_size * pt_to_pixel,
             family = afcharts_font
           )
         ),
 
-
         # axis
         showline = axis_x,
         linecolor = light_grey,
-        linewidth = base_line_size * 3.7795,
+        linewidth = base_line_size,
 
         # ticks
         ticks = ticks_x,
         tickcolor = light_grey,
-        ticklen = half_line / 2 * (96 / 72),
-        tickwidth = base_line_size * 3.7795,
+        ticklen = half_line / 2 * pt_to_pixel,
+        tickwidth = base_line_size,
         tickangle = 0,
 
         # grid
         showgrid = grid_x,
-        gridwidth = base_line_size * 3.7795,
+        gridwidth = base_line_size,
         gridcolor = light_grey
       ),
 
-      # y axis
+
+      # y axis -----------------------------------------------------------------
+
       annotations = list(
         xref = "paper",
         xanchor = "left",
@@ -124,7 +201,7 @@ theme_af_plotly <-  function(chart,
         text = y_title,
         showarrow = FALSE,
         font = list(
-          size = base_size * ( 96 / 72)
+          size = base_size * pt_to_pixel
         )
       ),
 
@@ -139,31 +216,41 @@ theme_af_plotly <-  function(chart,
         # axis
         showline = axis_y,
         linecolor = light_grey,
-        linewidth = base_line_size * 3.7795,
+        linewidth = base_line_size,
 
         # ticks
         ticks = ticks_y,
         tickcolor = light_grey,
-        ticklen = half_line / 2 * (96 / 72),
-        tickwidth = base_line_size * 3.7795,
+        ticklen = half_line / 2 * pt_to_pixel,
+        tickwidth = base_line_size,
         tickangle = 0,
 
         # grid
         showgrid = grid_y,
-        gridwidth = base_line_size * 3.7795,
+        gridwidth = base_line_size,
         gridcolor = light_grey
       ),
 
-      #hoverlabel
+
+      # Legend -----------------------------------------------------------------
+
+      legend = legend_layout,
+
+
+      # Hoverlabel -------------------------------------------------------------
+
       hoverlabel = list(
         bgcolor = "white",
         font = list(
           color = "black",
-          size = base_size * (96 / 72),
+          size = base_size * pt_to_pixel,
           family = afcharts_font
         )
       )
     ) |>
+
+
+    # Buttons ------------------------------------------------------------------
     plotly::config(
       displayModeBar = FALSE,
       scrollZoom = FALSE,
@@ -171,15 +258,3 @@ theme_af_plotly <-  function(chart,
     )
 
 }
-
-
-
- fig |>
-  theme_af_plotly()
-
- library(ggplot2)
- ggplot(data = iris, aes(x = Sepal.Length, y = Petal.Length)) +
-   geom_point() +
-   theme_af() +
-   labs(title = "This is the title")
-
