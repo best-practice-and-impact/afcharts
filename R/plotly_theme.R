@@ -16,21 +16,15 @@
 #'
 #' library(plotly)
 #'
-#' irisnew <- iris |>
-#'   dplyr::mutate(
-#'     Sepal.Length = Sepal.Length * 100,
-#'     Petal.Length = Petal.Length * 100
-#'   )
-#'
 #' fig <- plot_ly(
-#'   data = irisnew,
+#'   data = iris,
 #'   x = ~Sepal.Length,
 #'   y = ~Petal.Length,
 #'   color = ~Species
 #' ) |>
 #'   add_markers() |>
 #'   layout(
-#'     title = list(text = "new title \n second line"),
+#'     title = list(text = "Sepal length is positively correlated with petal length"),
 #'     legend = list(
 #'       title = list(text='<b>Species</b>')
 #'     )
@@ -76,15 +70,12 @@ theme_af_plotly <-  function(chart,
   ticks_x    <- if (ticks %in% c("x", "xy")) "outside" else ""
   ticks_y    <- if (ticks %in% c("y", "xy")) "outside" else ""
 
-
+  # Get titles from chart
   y_title <- plotly::plotly_build(chart)$x$layout$yaxis$title |> unclass()
   x_title <- plotly::plotly_build(chart)$x$layout$xaxis$title |> unclass()
   title_text <- plotly::plotly_build(chart)$x$layout$title$text |> unclass()
-  title_text_lines <- stringr::str_count(title_text, pattern = "\n")
-
 
   # set legend layout
-
   legend_layout <- switch(
     legend,
     "right" = list(
@@ -100,7 +91,7 @@ theme_af_plotly <-  function(chart,
       orientation = "v",
       xref = "paper",
       xanchor = "right",
-      x = -0.02,
+      x = -0.1,
       yref = "paper",
       yanchor = "middle",
       y = 0.5
@@ -112,7 +103,7 @@ theme_af_plotly <-  function(chart,
       x = 0.5,
       yref = "paper",
       yanchor = "top",
-      y = -0.1
+      y = -0.25
     ),
     "top" = list(
       orientation = "h",
@@ -125,8 +116,10 @@ theme_af_plotly <-  function(chart,
     )
   )
 
+  # Set chart layout -----------------------------------------------------------
   chart |>
     plotly::layout(
+
       font = list(
         color = "black",
         size = base_size * pt_to_pixel,
@@ -150,16 +143,14 @@ theme_af_plotly <-  function(chart,
         xanchor = "left",
         yanchor = "bottom",
         x = 0,
-        y = 1,
-        pad = list(b = ((half_line * 2) + base_size) * pt_to_pixel)
+        y = 1.01
       ),
 
 
       # x axis -----------------------------------------------------------------
 
       xaxis = list(
-        fixedrange = TRUE,
-        automargin = FALSE,
+
         # title
         title = list(
           text = x_title,
@@ -206,7 +197,6 @@ theme_af_plotly <-  function(chart,
       ),
 
       yaxis = list(
-        fixedrange = TRUE,
 
         # title
         title = list(

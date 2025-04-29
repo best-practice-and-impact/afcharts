@@ -35,15 +35,19 @@ plotly theme for Analysis Function plots.
 
 library(plotly)
 
-irisnew <- iris |>
-  dplyr::mutate(
-    Sepal.Length = Sepal.Length * 100,
-    Petal.Length = Petal.Length * 100
-  )
-
-fig <- plot_ly(data = irisnew, x = ~Sepal.Length, y = ~Petal.Length) |>
+fig <- plot_ly(
+  data = iris,
+  x = ~Sepal.Length,
+  y = ~Petal.Length,
+  color = ~Species
+) |>
   add_markers() |>
-  layout(title = list(text = "new title \n second line"))
+  layout(
+    title = list(text = "Sepal length is positively correlated with petal length"),
+    legend = list(
+      title = list(text='<b>Species</b>')
+    )
+  )
 
 fig |>
   theme_af_plotly()
