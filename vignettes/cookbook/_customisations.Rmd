@@ -13,7 +13,7 @@ population_chart <- pop_bar_data |>
   theme_af(axis = "y", grid = "x") +
   labs(x = NULL,
        y = NULL
-  )
+       )
 print(population_chart)
 ```
 
@@ -171,7 +171,7 @@ gapminder |>
   labs(
     x = "Year",
     y = NULL
-  )
+    )
 ```
 #### Living Longer
 ##### Life Expectancy in the United Kingdom 1952-2007
