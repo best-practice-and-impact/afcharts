@@ -13,7 +13,7 @@ population_chart <- pop_bar_data |>
   theme_af(axis = "y", grid = "x") +
   labs(x = NULL,
        y = NULL
-       )
+    )
 print(population_chart)
 ```
 
@@ -171,7 +171,7 @@ gapminder |>
   labs(
     x = "Year",
     y = NULL
-    )
+  )
 ```
 #### Living Longer
 ##### Life Expectancy in the United Kingdom 1952-2007
@@ -323,3 +323,4 @@ ann_data |>
 ```
 
 In this chart image, the subtitle and label text have been set to correspond to the line colours as a demonstration. Please refer to Analysis Function guidance in considering the accessibility of custom formatting.
+

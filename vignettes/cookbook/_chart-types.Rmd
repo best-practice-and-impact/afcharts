@@ -15,7 +15,7 @@ gapminder |>
   labs(
     x = "Year",
     y = NULL
-    )
+  )
 ```
 
 #### Living Longer
