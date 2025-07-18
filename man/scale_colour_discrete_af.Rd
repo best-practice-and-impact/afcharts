@@ -5,7 +5,7 @@
 \title{Discrete colour scales for Analysis Function plots}
 \usage{
 scale_colour_discrete_af(
-  palette = "main",
+  palette = "main6",
   palette_type = c("af"),
   reverse = FALSE,
   ...
@@ -13,7 +13,7 @@ scale_colour_discrete_af(
 }
 \arguments{
 \item{palette}{Name of palette to use; e.g. "main", "sequential", "focus."
-Default value is "main".}
+Default value is "main6".}
 
 \item{palette_type}{Currently only the Analysis Function palettes are
 supported. Defaults to "af".}

@@ -1,7 +1,7 @@
 #' @title Discrete colour fill scales for Analysis Function plots
 #'
 #' @param palette Name of palette to use; e.g. "main", "sequential", "focus."
-#' Default value is "main."
+#' Default value is "main6".
 #' @param palette_type Currently only the Analysis Function palettes are
 #'   supported. Defaults to "af".
 #' @param reverse Boolean value to indicate whether the palette should be
@@ -21,7 +21,7 @@
 #'
 #' @export
 
-scale_fill_discrete_af <- function(palette = "main",
+scale_fill_discrete_af <- function(palette = "main6",
                                    palette_type = c("af"),
                                    reverse = FALSE,
                                    ...) {

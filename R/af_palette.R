@@ -10,7 +10,7 @@
 #'
 #' @noRd
 
-af_palette <- function(palette = "main",
+af_palette <- function(palette = "main6",
                        reverse = FALSE,
                        colour_names = FALSE,
                        palette_type = c("af")) {
