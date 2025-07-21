@@ -9,9 +9,7 @@ ann_data <- gapminder |>
   filter(country %in% c("United Kingdom", "China"))
 ```
 
-```{r annotations-1}
-#| fig.alt = "A multiple line chart with line labels."
-
+```{r annotations-1, eval = FALSE}
 ann_data |>
   ggplot(aes(x = year, y = lifeExp)) +
   geom_line(
@@ -49,22 +47,25 @@ ann_data |>
   labs(
     x = "Year",
     y = NULL,
-    title = "Living Longer",
-    subtitle = "Life Expectancy in the United Kingdom and China 1952-2007",
-    caption = "Source: Gapminder"
   )
 ```
 
-However, this makes the code difficult to reuse as values are hard coded and not automatically generated from the data. Automating the position of annotations is possible, but more fiddly. 
+### Living Longer
+#### Life Expectancy in the United Kingdom and China 1952-2007
+```{r, echo = FALSE}
+<<annotations-1>>
+```
+
+The line chart uses the afcharts theme, and has one blue and one orange line. These are each labelled with a sans serif font in black at the end of the line.
+
+However, this code is difficult to reuse as the annotation position values are hard coded and not automatically generated from the data. Automating the position of annotations is possible, but more fiddly. 
 
 The following examples use `geom_label()` to use values from the data to position annotations. `geom_label()` draws a rectangle behind the text (white by default) and a border the same colour as the text (`label_size = NA` can be used to remove the border). `geom_text()` is also an option for annotations, but this does not include a background and so can be harder for text to read if it overlaps with other chart elements. These functions also have `nudge` arguments that can be used to displace text to improve the positioning.
 
 Note that in the previous examples, `annotate()` also requires a geom (`label` or `text`). These operate in the same way as `geom_label()` and `geom_text()`, but as discussed, `annotate()` is only able to deal with fixed values.
 
 
-```{r annotations-2}
-#| fig.alt = "A multiple line chart with line labels."
-
+```{r annotations-2, eval = FALSE}
 ann_labs <- ann_data |>
   group_by(country) |>
   mutate(min_year = min(year)) |>
@@ -99,16 +100,21 @@ ann_data |>
   labs(
     x = "Year",
     y = NULL,
-    title = "Living Longer",
-    subtitle = "Life Expectancy in the United Kingdom and China 1952-2007",
-    caption = "Source: Gapminder"
   )
 ```
 
+### Living Longer
+#### Life Expectancy in the United Kingdom and China 1952-2007
+
+```{r, echo = FALSE}
+<<annotations-2>>
+```
+
+The line chart uses the afcharts theme and appears highly similar to the previous plot. It has one blue and one orange line with each labelled with a sans serif font in black at the end of the line.
+
 Annotations may also be used to add value labels to a bar chart. Note that `geom_text()` is used here as a background is not required.
 
-```{r annotations-3}
-#| fig.alt = "A bar chart with white text labels at the end of each bar."
+```{r annotations-3, eval = FALSE}
 ggplot(pop_bar_data, aes(x = reorder(country, -pop), y = pop)) +
   geom_col(fill = af_colour_values["dark-blue"]) +
   geom_text(
@@ -124,14 +130,16 @@ ggplot(pop_bar_data, aes(x = reorder(country, -pop), y = pop)) +
   ) +
   labs(
     x = NULL,
-    y = NULL,
-    title = stringr::str_wrap(
-      "The U.S.A. is the most populous country in the Americas",
-      40
-    ),
-    subtitle = "Population of countries in the Americas (millions), 2007",
-    caption = "Source: Gapminder"
+    y = NULL
   )
 ```
+
+### The U.S.A. is the most populous country in the Americas
+#### Population of countries in the Americas (millions), 2007
+```{r, echo = FALSE}
+<<annotations-3>>
+```
+
+This bar chart uses the afcharts theme. All the bars are dark blue and have white text labels at the top of each bar showing the y axis value.
 
 **Note**: The `annotate()` function should be used to add annotations with manually defined positioning co-ordinates, whereas `geom_label()` and `geom_text()` should be used when using co-ordinates defined in a data frame. Although the reverse may work, text can appear blurry.
