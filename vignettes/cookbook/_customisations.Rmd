@@ -184,13 +184,13 @@ plot <-
   scale_y_continuous(expand = expansion(mult = c(0, 0.1))) +
   labs(
     x = NULL,
-    subtitle = "Population of countries in the Americas (millions), 2007",
+    subtitle = "Population of countries in the Americas, 2007",
     caption = "Source: Gapminder"
   )
 
 plot +
   labs(
-    y = "Population of country",
+    y = "Population in millions",
     title = paste("The U.S.A. is the most populous country in ",
                   "the Americas")
   )
@@ -203,7 +203,7 @@ There are two suggested ways to solve this issue; Insert `\n` within a string to
 
 plot +
   labs(
-    y = "Population\n of country",
+    y = "Population\nin millions",
     title = stringr::str_wrap(
       paste("The U.S.A. is the most populous country in ",
             "the Americas"),
@@ -211,7 +211,19 @@ plot +
     )
   )
 ```
+### y-axis labels or subtitles
 
+Y-axis labels should be horizontal, not vertical. This can sometimes look odd, especially for longer labels. You can shorten the y-axis label or use the plot subtitle as a description of the y-axis and set the y-axis label to NULL.
+
+```{r yaxis-subtitle}
+#| fig.alt = "A bar chart with y axis labelled in the chart subtitle."
+
+last_plot() +
+  labs(
+    y = NULL,
+    subtitle = "Population of countries in the Americas (millions), 2007"
+  )
+```
 
 ### Adjusting theme elements
 
@@ -287,7 +299,7 @@ ann_data |>
     x = "Year",
     y = NULL,
     title = "Living Longer",
-    subtitle = "Life Expectancy in the
+    subtitle = "Life Expectancy in years in the
     <span style='color:darkorange;'>United Kingdom</span> and
     <span style='color:navy;'>China</span> 1952-2007",
     caption = "Source: Gapminder"
