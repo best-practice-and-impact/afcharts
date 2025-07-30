@@ -22,6 +22,9 @@ Examples in the following sections build on this chart.
 
 Chart titles such as the main title, subtitle, caption, axis titles and legend titles, can be controlled using `labs()`. A title can be removed using `NULL`.
 
+The y-axis title should be horizontal, not vertical. This can sometimes look odd, especially for longer labels. You can shorten the y-axis label or use the plot subtitle as a description of the y-axis and set the y-axis label to `NULL`.
+
+
 ```{r chart-titles}
 #| fig.alt = "A bar chart with title, subtitle and caption. Axis titles have been removed."
 
@@ -37,6 +40,7 @@ population_chart +
     caption = "Source: Gapminder"
   )
 ```
+
 
 
 ### Reducing space between chart and axis
@@ -211,19 +215,9 @@ plot +
     )
   )
 ```
-### y-axis labels or subtitles
 
-Y-axis labels should be horizontal, not vertical. This can sometimes look odd, especially for longer labels. You can shorten the y-axis label or use the plot subtitle as a description of the y-axis and set the y-axis label to NULL.
+### y-axis title
 
-```{r yaxis-subtitle}
-#| fig.alt = "A bar chart with y axis labelled in the chart subtitle."
-
-last_plot() +
-  labs(
-    y = NULL,
-    subtitle = "Population of countries in the Americas (millions), 2007"
-  )
-```
 
 ### Adjusting theme elements
 
