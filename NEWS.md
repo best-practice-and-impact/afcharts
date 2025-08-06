@@ -1,4 +1,3 @@
-x
 # afcharts 0.4.1
 
 -   Fixed bug which prevented some functions from working if called directly without attaching the package.
