@@ -2,6 +2,7 @@
 
 `theme_af()` has arguments to control the legend position and appearance of grid lines, axis lines and axis ticks. More information on accepted values can be found in the [help file](https://best-practice-and-impact.github.io/afcharts/reference/theme_af.html).
 
+
 ### Sorting a bar chart
 
 To control the order of bars in a chart, wrap the variable you want to arrange with `reorder()` and specify what variable you want to sort by. The following example sorts bars in ascending order of population from the bottom of the chart up. To sort in descending order, you would change this to `reorder(country, desc(pop))`.
@@ -27,6 +28,7 @@ This bar chart uses the afcharts theme and shows the population of five countrie
 are given in exponential notation.
 
 Examples in the following sections iterate on this chart.
+
 
 ### Reducing space between chart and axis
 
@@ -201,6 +203,54 @@ population_chart +
 
 In the chart image, the title gives a data insight and is presented in large bold text at the top. This is followed by smaller text giving a brief description of the data. In the bottom left of the image is a data citation as a caption.
 
+The y-axis title should be horizontal, not vertical. The position can sometimes look odd, especially for longer titles. You can use the plot subtitle as a description of the y-axis and set the y-axis title to `NULL`.
+
+```{r chart-titles}
+#| fig.alt = "A bar chart with title, y-axis title and caption. The x-axis title has been removed."
+
+ggplot(pop_bar_data, aes(x = reorder(country, -pop), y = pop)) +
+  geom_col(fill = af_colour_values["dark-blue"]) +
+  theme_af() +
+  scale_y_continuous(
+    limits = c(0, 350E6),
+    labels = scales::label_number(scale = 1E-6),
+    expand = expansion(mult = c(0, 0.1)),
+  ) +
+  labs(
+    x = NULL,
+    y = "Population (millions)",
+    title = stringr::str_wrap(
+      "The U.S.A. is the most populous country in the Americas",
+      35
+    ),
+    caption = "Source: Gapminder"
+  )
+```
+
+```{r chart-titles-y-axis}
+#| fig.alt = "A bar chart with title, subtitle and caption. The y axis title has been set using the subtitle."
+
+ggplot(pop_bar_data, aes(x = reorder(country, -pop), y = pop)) +
+  geom_col(fill = af_colour_values["dark-blue"]) +
+  theme_af() +
+  scale_y_continuous(
+    limits = c(0, 350E6),
+    labels = scales::label_number(scale = 1E-6),
+    expand = expansion(mult = c(0, 0.1)),
+  ) +
+  labs(
+    x = NULL,
+    y = NULL,
+    title = stringr::str_wrap(
+      "The U.S.A. is the most populous country in the Americas",
+      40
+    ),
+    subtitle = "Population (millions)",
+    caption = "Source: Gapminder"
+  )
+```
+
+
 ### Wrapping text
 
 If text is too long, it may be cut off or distort the dimensions of the chart.
@@ -214,13 +264,13 @@ plot <-
                      expand = expansion(mult = c(0, 0.1))) +
   labs(
     x = NULL,
-    subtitle = "Population of countries in the Americas (millions), 2007",
+    subtitle = "Population of countries in the Americas, 2007",
     caption = "Source: Gapminder"
   )
 
 plot +
   labs(
-    y = "Population of country",
+    y = "Population in millions",
     title = paste("The U.S.A. is the most populous country in ",
                   "the Americas")
   )
@@ -233,7 +283,7 @@ There are two suggested ways to solve this issue; Insert `\n` within a string to
 ```{r text-wrap-2}
 plot +
   labs(
-    y = "Population\n of country",
+    y = "Population\nin millions",
     title = stringr::str_wrap(
       paste("The U.S.A. is the most populous country in ",
             "the Americas"),
@@ -243,6 +293,7 @@ plot +
 ```
 
 In this chart image, the y axis label and graph title text have been wrapped onto two lines so that all the text is visible.
+
 
 ### Adjusting theme elements
 
@@ -314,7 +365,7 @@ ann_data |>
     x = "Year",
     y = NULL,
     title = "Living Longer",
-    subtitle = "Life Expectancy in the
+    subtitle = "Life Expectancy in years in the
     <span style='color:darkorange;'>United Kingdom</span> and
     <span style='color:navy;'>China</span> 1952-2007",
     caption = "Source: Gapminder"

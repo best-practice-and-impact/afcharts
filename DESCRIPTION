@@ -1,6 +1,6 @@
 Package: afcharts
 Title: Produce Charts Following UK Government Analysis Function Guidance
-Version: 0.4.0.9001
+Version: 0.4.1
 Authors@R: c(
     person("Crown Copyright", , , , role = c("cph")),
     person("Government Analysis Function", , , "Analysis.Function@ons.gov.uk", role = c("fnd")),
@@ -20,7 +20,7 @@ URL:
 BugReports: https://github.com/best-practice-and-impact/afcharts/issues
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.3.1
+RoxygenNote: 7.3.2
 Depends:
   R (>= 3.5)
 Imports:
