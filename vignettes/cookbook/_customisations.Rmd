@@ -205,7 +205,7 @@ In the chart image, the title gives a data insight and is presented in large bol
 
 The y-axis title should be horizontal, not vertical. The position can sometimes look odd, especially for longer titles. You can use the plot subtitle as a description of the y-axis and set the y-axis title to `NULL`.
 
-```{r chart-titles}
+```{r chart-titles-yaxis-1}
 #| fig.alt = "A bar chart with title, y-axis title and caption. The x-axis title has been removed."
 
 ggplot(pop_bar_data, aes(x = reorder(country, -pop), y = pop)) +
@@ -227,7 +227,7 @@ ggplot(pop_bar_data, aes(x = reorder(country, -pop), y = pop)) +
   )
 ```
 
-```{r chart-titles-y-axis}
+```{r chart-titles-y-axi-2}
 #| fig.alt = "A bar chart with title, subtitle and caption. The y axis title has been set using the subtitle."
 
 ggplot(pop_bar_data, aes(x = reorder(country, -pop), y = pop)) +
