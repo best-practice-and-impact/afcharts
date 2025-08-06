@@ -12,9 +12,10 @@ population_chart <- pop_bar_data |>
   ggplot(aes(x = pop, y = reorder(country, pop))) +
   geom_col(fill = af_colour_values["dark-blue"]) +
   theme_af(axis = "y", grid = "x") +
-  labs(x = NULL,
-       y = NULL
-    )
+  labs(
+    x = NULL,
+    y = NULL
+  )
 print(population_chart)
 ```
 
