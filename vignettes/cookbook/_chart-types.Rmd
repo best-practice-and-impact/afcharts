@@ -18,8 +18,8 @@ gapminder |>
   )
 ```
 
-#### Living Longer
-##### Life Expectancy in the United Kingdom 1952-2007
+<div class="chart-title">Living Longer</div>
+<div class="chart-subtitle">Life Expectancy in the United Kingdom 1952-2007</div>
 ```{r echo = FALSE}
 <<line-charts-1>>
 ```
@@ -48,8 +48,8 @@ gapminder |>
   )
 ```
 
-#### Living Longer
-##### Life Expectancy in the United Kingdom and China 1952-2007
+<div class="chart-title">Living Longer</div>
+<div class="chart-subtitle">Life Expectancy in the United Kingdom and China 1952-2007</div>
 ```{r, fig.height = 5, echo = FALSE}
 <<line-charts-2>>
 ```
@@ -81,8 +81,8 @@ ggplot(pop_bar_data, aes(x = reorder(country, -pop), y = pop)) +
   )
 ```
 
-### The U.S.A. is the most populous country in the Americas
-#### Population of countries in the Americas (millions), 2007
+<div class="chart-title">The U.S.A. is the most populous country in the Americas</div>
+<div class="chart-subtitle">Population of countries in the Americas (millions), 2007</div>
 ```{r, echo = FALSE}
 <<bar-charts-1>>
 ```
@@ -106,8 +106,8 @@ ggplot(pop_bar_data, aes(x = pop, y = reorder(country, pop))) +
   )
 ```
 
-### The U.S.A. is the most populous country in the Americas
-#### Population of countries in the Americas (millions), 2007
+<div class="chart-title">The U.S.A. is the most populous country in the Americas</div>
+<div class="chart-subtitle">Population of countries in the Americas (millions), 2007</div>
 
 ``` {r, echo = FALSE}
 <<bar-charts-2>>
@@ -147,8 +147,8 @@ ggplot(
   )
 ```
 
-#### Living longer
-##### Difference in life expectancy, 1967-2007
+<div class="chart-title">Living longer</div>
+<div class="chart-subtitle">Difference in life expectancy, 1967-2007</div>
 
 ```{r, fig.height = 5.5, echo=FALSE}
 <<grouped-bar-chart>>
@@ -195,8 +195,8 @@ ggplot(
   )
 ```
 
-#### How life expectancy varies across continents
-##### Percentage of countries by life expectancy band, 2007
+<div class="chart-title">How life expectancy varies across continents</div>
+<div class="chart-subtitle">Percentage of countries by life expectancy band, 2007</div>
 ```{r, fig.height = 5.5, echo = FALSE}
 <<stacked-bar-chart>>
 ```
@@ -225,8 +225,8 @@ gapminder |>
     y = "Number of \ncountries",
   )
 ```
-### How life expectancy varies
-#### Distribution of life expectancy, 2007
+<div class="chart-title">How life expectancy varies</div>
+<div class="chart-subtitle">Distribution of life expectancy, 2007</div>
 ```{r, echo = FALSE}
 <<histogram>>
 ```
@@ -248,8 +248,8 @@ gapminder |>
   )
 ```
 
-### The relationship between GDP and Life Expectancy is complex
-#### GDP and Life Expectancy for all countries, 2007
+<div class="chart-title">The relationship between GDP and Life Expectancy is complex</div>
+<div class="chart-subtitle">GDP and Life Expectancy for all countries, 2007</div>
 
 ```{r, fig.height = 5, echo = FALSE}
 <<scatterplot>>
@@ -281,8 +281,8 @@ gapminder |>
   )
 ```
 
-### Asia's rapid growth
-#### Population growth by continent, 1952-2007
+<div class="chart-title">Asia's rapid growth</div>
+<div class="chart-subtitle">Population growth by continent, 1952-2007</div>
 
 ```{r, fig.height = 5.5, echo = FALSE}
 <<small-multiples>>
@@ -308,8 +308,8 @@ stacked_bar_data |>
   )
 ```
 
-### How life expectancy varies in Europe
-#### Percentage of countries by life expectancy band, 2007
+<div class="chart-title">How life expectancy varies in Europe</div>
+<div class="chart-subtitle">Percentage of countries by life expectancy band, 2007</div>
 ```{r, echo = FALSE}
 <<pie-chart>>
 ```
@@ -335,8 +335,8 @@ pop_bar_data |>
   )
 ```
 
-### Brazil has the second highest population in the Americas
-#### Population of countries in the Americas (millions), 2007
+<div class="chart-title">Brazil has the second highest population in the Americas</div>
+<div class="chart-subtitle">Population of countries in the Americas (millions), 2007</div>
 
 ``` {r, echo = FALSE}
 <<focus-chart>>
@@ -382,8 +382,8 @@ plotly::ggplotly(p, tooltip = "text") |>
     displaylogo = FALSE
   )
 ```
-### The U.S.A. is the most populous country in the Americas
-#### Population of countries in the Americas (millions), 2007
+<div class="chart-title">The U.S.A. is the most populous country in the Americas</div>
+<div class="chart-subtitle">Population of countries in the Americas (millions), 2007</div>
 
 ```{r, echo = FALSE}
 <<interactive-charts>>

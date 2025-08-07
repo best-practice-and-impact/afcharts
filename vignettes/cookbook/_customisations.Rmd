@@ -19,8 +19,8 @@ population_chart <- pop_bar_data |>
 print(population_chart)
 ```
 
-#### The U.S.A. is the most populous country in the Americas
-##### Population of countries in the Americas (millions), 2007
+<div class="chart-title">The U.S.A. is the most populous country in the Americas</div>
+<div class="chart-subtitle">Population of countries in the Americas (millions), 2007</div>
 ```{r, echo = FALSE}
 <<sorted>>
 ```
@@ -40,8 +40,8 @@ last_plot() +
   scale_x_continuous(expand = expansion(mult = c(0, 0.1)))
 ```
 
-#### The U.S.A. is the most populous country in the Americas
-##### Population of countries in the Americas (millions), 2007
+<div class="chart-title">The U.S.A. is the most populous country in the Americas</div>
+<div class="chart-subtitle">Population of countries in the Americas (millions), 2007</div>
 ```{r, echo = FALSE}
 <<expand>>
 ```
@@ -69,8 +69,8 @@ last_plot() +
   )
 ```
 
-#### The U.S.A. is the most populous country in the Americas
-##### Population of countries in the Americas (millions), 2007
+<div class="chart-title">The U.S.A. is the most populous country in the Americas</div>
+<div class="chart-subtitle">Population of countries in the Americas (millions), 2007</div>
 ```{r, echo = FALSE}
 <<axis-limits-breaks-labels-custom>>
 ```
@@ -95,8 +95,8 @@ last_plot() +
 
 ```
 
-#### The U.S.A. is the most populous country in the Americas
-##### Population of countries in the Americas (millions), 2007
+<div class="chart-title">The U.S.A. is the most populous country in the Americas</div>
+<div class="chart-subtitle">Population of countries in the Americas (millions), 2007</div>
 ```{r, echo = FALSE}
 <<axis-limits-breaks-labels-fct>>
 ```
@@ -124,8 +124,8 @@ stacked_bar_data |>
   )
 ```
 
-#### How life expectancy varies across continents
-##### Percentage of countries by life expectancy band, 2007
+<div class="chart-title">How life expectancy varies across continents</div>
+<div class="chart-subtitle">Percentage of countries by life expectancy band, 2007</div>
 ```{r, fig.height = 5.5, echo = FALSE}
 <<using-scales>>
 ```
@@ -140,8 +140,8 @@ Axis lines and grid lines can sometimes appear 'cut off' if they are drawn at th
 last_plot() + coord_cartesian(clip = "off")
 ```
 
-#### How life expectancy varies across continents
-##### Percentage of countries by life expectancy band, 2007
+<div class="chart-title">How life expectancy varies across continents</div>
+<div class="chart-subtitle">Percentage of countries by life expectancy band, 2007</div>
 ```{r, fig.height = 5.5, echo = FALSE}
 <<clip>>
 ```
@@ -176,8 +176,8 @@ gapminder |>
     y = NULL
   )
 ```
-#### Living Longer
-##### Life Expectancy in the United Kingdom 1952-2007
+<div class="chart-title">Living Longer</div>
+<div class="chart-subtitle">Life Expectancy in the United Kingdom 1952-2007</div>
 ```{r, echo=FALSE}
 <<add-a-line>>
 ```
@@ -319,8 +319,8 @@ ggplot(pop_bar_data, aes(x = reorder(country, -pop), y = pop)) +
   )
 ```
 
-#### The U.S.A. is the most populous country in the Americas
-##### Population of countries in the Americas (millions), 2007
+<div class="chart-title">The U.S.A. is the most populous country in the Americas</div>
+<div class="chart-subtitle">Population of countries in the Americas (millions), 2007</div>
 ```{r, echo = FALSE}
 <<adjust-theme>>
 ```

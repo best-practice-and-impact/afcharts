@@ -50,8 +50,8 @@ ann_data |>
   )
 ```
 
-### Living Longer
-#### Life Expectancy in the United Kingdom and China 1952-2007
+<div class="chart-title">Living Longer</div>
+<div class="chart-subtitle">Life Expectancy in the United Kingdom and China 1952-2007</div>
 ```{r, echo = FALSE}
 <<annotations-1>>
 ```
@@ -103,8 +103,8 @@ ann_data |>
   )
 ```
 
-### Living Longer
-#### Life Expectancy in the United Kingdom and China 1952-2007
+<div class="chart-title">Living Longer</div>
+<div class="chart-subtitle">Life Expectancy in the United Kingdom and China 1952-2007</div>
 
 ```{r, echo = FALSE}
 <<annotations-2>>
@@ -134,8 +134,8 @@ ggplot(pop_bar_data, aes(x = reorder(country, -pop), y = pop)) +
   )
 ```
 
-### The U.S.A. is the most populous country in the Americas
-#### Population of countries in the Americas (millions), 2007
+<div class="chart-title">The U.S.A. is the most populous country in the Americas</div>
+<div class="chart-subtitle">Population of countries in the Americas (millions), 2007</div>
 ```{r, echo = FALSE}
 <<annotations-3>>
 ```

@@ -1,6 +1,8 @@
 ---
 title: "Cookbook"
-output: rmarkdown::html_vignette
+output:
+  rmarkdown::html_vignette:
+    fig_width: 7.2
 vignette: >
   %\VignetteIndexEntry{Cookbook}
   %\VignetteEncoding{UTF-8}
@@ -17,6 +19,18 @@ knitr::opts_chunk$set(
   warning = FALSE
 )
 ```
+
+<style>
+.chart-subtitle {
+  font-size: 14pt;
+}
+
+.chart-title {
+  font-size: 16pt;
+  font-weight: 700;
+}
+</style>
+
 ## Introduction
 
 This cookbook provides examples of the code used to produce various chart types using the afcharts R package. There are also examples to demonstrate how to apply further customisation to afcharts charts.
