@@ -45,6 +45,8 @@ Suggests:
     ragg (>= 1.2.6),
     gapminder,
     diffviewer,
-    vdiffr
-VignetteBuilder: quarto
+    vdiffr,
+    quarto
+VignetteBuilder: 
+    quarto
 Roxygen: list(markdown = TRUE)

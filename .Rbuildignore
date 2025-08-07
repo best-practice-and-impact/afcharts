@@ -13,3 +13,4 @@
 ^cran-comments\.md$
 ^CRAN-SUBMISSION$
 ^revdep$
+^vignettes/*_files$
