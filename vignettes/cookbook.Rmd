@@ -1,6 +1,8 @@
 ---
 title: "Cookbook"
-output: rmarkdown::html_vignette
+output:
+  rmarkdown::html_vignette:
+    fig_width: 7.2
 vignette: >
   %\VignetteIndexEntry{Cookbook}
   %\VignetteEncoding{UTF-8}
@@ -18,16 +20,32 @@ knitr::opts_chunk$set(
 )
 ```
 
-This cookbook provides examples of the code used to produce various chart types using afcharts. There are also examples to demonstrate how to apply further customisation to afcharts charts.
+<style>
+.chart-subtitle {
+  font-size: 14pt;
+}
+
+.chart-title {
+  font-size: 16pt;
+  font-weight: 700;
+}
+</style>
+
+## Introduction
+
+This cookbook provides examples of the code used to produce various chart types using the afcharts R package. There are also examples to demonstrate how to apply further customisation to afcharts charts.
+
+`theme_af` sets a variety of chart properties to meet the Analysis Function accessibility guidance for charts. This includes modifications to legends, chart spacing, the size of text, and the use of a sans serif font. By default, axes and gridlines are light grey and text is black. The `afcharts` package also provides the Analysis Function [accessible colour palettes](https://analysisfunction.civilservice.gov.uk/policy-store/codes-for-accessible-colours/) for data visualisation.
 
 If there is a chart type or task which you think would be useful to include here, please [submit a suggestion](https://github.com/best-practice-and-impact/afcharts/issues/new?&labels=documentation&title=Cookbook+suggestion).
 
-**use_afcharts** <br>
-The examples in this cookbook use the afcharts theme and colour functions explicitly, however it may be easier to make use of the `use_afcharts()` function if your charts all require a similar style. More information on `use_afcharts` can be found on the [homepage](https://best-practice-and-impact.github.io/afcharts/#use-afcharts-as-default).
+### use_afcharts()
+The examples in this cookbook use the afcharts theme and colour functions explicitly, however it may be easier to make use of the `use_afcharts()` function if your charts all require a similar style. More information on `use_afcharts` can be found on the [afcharts homepage](https://best-practice-and-impact.github.io/afcharts/#use-afcharts-as-default).
 
-**Note on use of titles, subtitles and captions** <br>
-Titles, subtitles and captions have been embedded in the charts in this cookbook for demonstration purposes. However, for accessibility reasons, it is usually preferable to provide titles in the body of the page rather than embedded within the image of the plot.
+### Note on use of titles, subtitles and captions
+For accessibility reasons it is usually preferable to [provide titles and alt-text](https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-charts/#section-5) in the body of the page rather than embedded in charts. This has been implemented throughout this cookbook, aside from a limited number of examples demonstrating functionality with embedded text.
 
+### Dependencies
 The following packages are required to produce the example charts in this cookbook:
 
 ```{r load-packages}
@@ -45,18 +63,14 @@ library(gapminder)
 ```{r chart-types, child = "cookbook/_chart-types.Rmd"} 
 ```
 
-
 ```{r annotations, child = "cookbook/_annotations.Rmd"} 
 ```
-
 
 ```{r customisations, child = "cookbook/_customisations.Rmd"} 
 ```
 
-
 ```{r colour-palettes, child = "cookbook/_colour-palettes.Rmd"} 
 ```
-
 
 ```{r acknowledgments, child = "cookbook/_acknowledgments.Rmd"} 
 ```
