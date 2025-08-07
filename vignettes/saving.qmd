@@ -1,10 +1,9 @@
 ---
 title: "Saving charts"
-output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Saving charts}
   %\VignetteEncoding{UTF-8}
-  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEngine{quarto::html}
 editor_options: 
   chunk_output_type: console
 ---

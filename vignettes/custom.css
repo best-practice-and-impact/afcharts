@@ -1,0 +1,9 @@
+figcaption {
+  color: black;
+  font-size: 14pt;
+}
+
+figcaption::first-line  {
+  font-size: 16pt;
+  font-weight: 700;
+}

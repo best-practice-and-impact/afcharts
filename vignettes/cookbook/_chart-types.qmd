@@ -1,6 +1,8 @@
 ## Line charts
 ### Line chart with one line
-```{r line-charts-1, eval = FALSE}
+```{r line-charts-1}
+#| fig-cap: "Living Longer <br> Life Expectancy in the United Kingdom 1952-2007"
+
 gapminder |>
   filter(country == "United Kingdom") |>
   ggplot(aes(x = year, y = lifeExp)) +

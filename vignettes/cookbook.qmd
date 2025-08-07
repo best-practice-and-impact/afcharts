@@ -1,10 +1,14 @@
 ---
 title: "Cookbook"
-output: rmarkdown::html_vignette
+format: 
+  html:
+    fig-align: left
+    fig-cap-location: top
+    css: custom.css
 vignette: >
   %\VignetteIndexEntry{Cookbook}
   %\VignetteEncoding{UTF-8}
-  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEngine{quarto::html}
 editor_options: 
   chunk_output_type: console
 ---
@@ -46,17 +50,17 @@ library(gapminder)
 ```
 
 
-```{r chart-types, child = "cookbook/_chart-types.Rmd"} 
+```{r chart-types, child = "cookbook/_chart-types.qmd"} 
 ```
 
-```{r annotations, child = "cookbook/_annotations.Rmd"} 
+```{r annotations, child = "cookbook/_annotations.qmd"} 
 ```
 
-```{r customisations, child = "cookbook/_customisations.Rmd"} 
+```{r customisations, child = "cookbook/_customisations.qmd"} 
 ```
 
-```{r colour-palettes, child = "cookbook/_colour-palettes.Rmd"} 
+```{r colour-palettes, child = "cookbook/_colour-palettes.qmd"} 
 ```
 
-```{r acknowledgments, child = "cookbook/_acknowledgments.Rmd"} 
+```{r acknowledgments, child = "cookbook/_acknowledgments.qmd"} 
 ```
