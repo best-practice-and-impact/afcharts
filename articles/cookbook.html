@@ -76,22 +76,54 @@
 
     
     
+<style>
+.chart-subtitle {
+  font-size: 14pt;
+}
+
+.chart-title {
+  font-size: 16pt;
+  font-weight: 700;
+}
+</style>
+<div class="section level2">
+<h2 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
+</h2>
 <p>This cookbook provides examples of the code used to produce various
-chart types using afcharts. There are also examples to demonstrate how
-to apply further customisation to afcharts charts.</p>
+chart types using the afcharts R package. There are also examples to
+demonstrate how to apply further customisation to afcharts charts.</p>
+<p><code>theme_af</code> sets a variety of chart properties to meet the
+Analysis Function accessibility guidance for charts. This includes
+modifications to legends, chart spacing, the size of text, and the use
+of a sans serif font. By default, axes and gridlines are light grey and
+text is black. The <code>afcharts</code> package also provides the
+Analysis Function <a href="https://analysisfunction.civilservice.gov.uk/policy-store/codes-for-accessible-colours/" class="external-link">accessible
+colour palettes</a> for data visualisation.</p>
 <p>If there is a chart type or task which you think would be useful to
 include here, please <a href="https://github.com/best-practice-and-impact/afcharts/issues/new?&amp;labels=documentation&amp;title=Cookbook+suggestion" class="external-link">submit
 a suggestion</a>.</p>
-<p><strong>use_afcharts</strong> <br> The examples in this cookbook use
-the afcharts theme and colour functions explicitly, however it may be
-easier to make use of the <code><a href="../reference/use_afcharts.html">use_afcharts()</a></code> function if your
-charts all require a similar style. More information on
-<code>use_afcharts</code> can be found on the <a href="https://best-practice-and-impact.github.io/afcharts/#use-afcharts-as-default">homepage</a>.</p>
-<p><strong>Note on use of titles, subtitles and captions</strong> <br>
-Titles, subtitles and captions have been embedded in the charts in this
-cookbook for demonstration purposes. However, for accessibility reasons,
-it is usually preferable to provide titles in the body of the page
-rather than embedded within the image of the plot.</p>
+<div class="section level3">
+<h3 id="use_afcharts">use_afcharts()<a class="anchor" aria-label="anchor" href="#use_afcharts"></a>
+</h3>
+<p>The examples in this cookbook use the afcharts theme and colour
+functions explicitly, however it may be easier to make use of the
+<code><a href="../reference/use_afcharts.html">use_afcharts()</a></code> function if your charts all require a
+similar style. More information on <code>use_afcharts</code> can be
+found on the <a href="https://best-practice-and-impact.github.io/afcharts/#use-afcharts-as-default">afcharts
+homepage</a>.</p>
+</div>
+<div class="section level3">
+<h3 id="note-on-use-of-titles-subtitles-and-captions">Note on use of titles, subtitles and captions<a class="anchor" aria-label="anchor" href="#note-on-use-of-titles-subtitles-and-captions"></a>
+</h3>
+<p>For accessibility reasons it is usually preferable to <a href="https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-charts/#section-5" class="external-link">provide
+titles and alt-text</a> in the body of the page rather than embedded in
+charts. This has been implemented throughout this cookbook, aside from a
+limited number of examples demonstrating functionality with embedded
+text.</p>
+</div>
+<div class="section level3">
+<h3 id="dependencies">Dependencies<a class="anchor" aria-label="anchor" href="#dependencies"></a>
+</h3>
 <p>The following packages are required to produce the example charts in
 this cookbook:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
@@ -103,6 +135,8 @@ this cookbook:</p>
 <span></span>
 <span><span class="co"># Use gapminder data for cookbook charts</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/jennybc/gapminder" class="external-link">gapminder</a></span><span class="op">)</span></span></code></pre></div>
+</div>
+</div>
 <div class="section level2">
 <h2 id="line-charts">Line charts<a class="anchor" aria-label="anchor" href="#line-charts"></a>
 </h2>
@@ -123,12 +157,18 @@ this cookbook:</p>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">scale_x_continuous</a></span><span class="op">(</span>breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">1952</span>, <span class="fl">2007</span>, <span class="fl">5</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
 <span>    x <span class="op">=</span> <span class="st">"Year"</span>,</span>
-<span>    y <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>    title <span class="op">=</span> <span class="st">"Living Longer"</span>,</span>
-<span>    subtitle <span class="op">=</span> <span class="st">"Life Expectancy in the United Kingdom 1952-2007"</span>,</span>
-<span>    caption <span class="op">=</span> <span class="st">"Source: Gapminder"</span></span>
+<span>    y <span class="op">=</span> <span class="cn">NULL</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="cookbook_files/figure-html/line-charts-1-1.svg" alt="A line chart using afcharts theme and dark blue colour." width="700"></p>
+<div class="chart-title">
+Living Longer
+</div>
+<div class="chart-subtitle">
+Life Expectancy in the United Kingdom 1952-2007
+</div>
+<p><img src="cookbook_files/figure-html/unnamed-chunk-4-1.svg" width="700"></p>
+<p>This line chart uses the afcharts theme. There are pale grey grid
+lines extending from the y axis, and there is a thicker dark blue line
+representing the data.</p>
 </div>
 <div class="section level3">
 <h3 id="line-chart-with-multiple-lines">Line chart with multiple lines<a class="anchor" aria-label="anchor" href="#line-chart-with-multiple-lines"></a>
@@ -149,13 +189,25 @@ this cookbook:</p>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
 <span>    x <span class="op">=</span> <span class="st">"Year"</span>,</span>
 <span>    y <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>    title <span class="op">=</span> <span class="st">"Living Longer"</span>,</span>
-<span>    subtitle <span class="op">=</span> <span class="st">"Life Expectancy in the United Kingdom and China 1952-2007"</span>,</span>
-<span>    caption <span class="op">=</span> <span class="st">"Source: Gapminder"</span>,</span>
 <span>    colour <span class="op">=</span> <span class="cn">NULL</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="cookbook_files/figure-html/line-charts-2-1.svg" alt="A multiple line chart using afcharts theme and main colour palette." width="700"></p>
-<p>An example with line labels and no legend can be found in the <a href="#adding-annotations">Adding annotations</a> section.</p>
+<div class="chart-title">
+Living Longer
+</div>
+<div class="chart-subtitle">
+Life Expectancy in the United Kingdom and China 1952-2007
+</div>
+<p><img src="cookbook_files/figure-html/unnamed-chunk-5-1.svg" width="700"></p>
+<p>This line chart uses the afcharts theme and there are thin pale grey
+lines extending from the y axis. There are two thicker lines showing the
+life expectancy in the UK and China over time. The line colours are from
+the main Analysis Function palette - dark blue for China and orange for
+the UK, denoted by a legend at the bottom of the chart.</p>
+<p>Legends should be avoided unless absolutely necessary, as these
+usually rely on using colour to match labels to data. More information
+can be found in the Analysis Function <a href="https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-charts/#section-11" class="external-link">charts
+guidance</a>. It is best practice to label lines directly, and an
+example of this can be found in the <a href="#annotations">annotations</a> section.</p>
 </div>
 </div>
 <div class="section level2">
@@ -177,17 +229,21 @@ this cookbook:</p>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
 <span>    x <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>    y <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>    title <span class="op">=</span> <span class="fu">stringr</span><span class="fu">::</span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_wrap.html" class="external-link">str_wrap</a></span><span class="op">(</span></span>
-<span>      <span class="st">"The U.S.A. is the most populous country in the Americas"</span>,</span>
-<span>      <span class="fl">40</span></span>
-<span>    <span class="op">)</span>,</span>
-<span>    subtitle <span class="op">=</span> <span class="st">"Population of countries in the Americas (millions), 2007"</span>,</span>
-<span>    caption <span class="op">=</span> <span class="st">"Source: Gapminder"</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="cookbook_files/figure-html/bar-chart-1-1.svg" alt="A bar chart using afcharts theme and dark blue colour." width="700"></p>
-<p>A bar chart can sometimes look better with horizontal bars. This can
-also be a good option if your bar labels are long and difficult to
-display horizontally on the x axis. To produce a horizontal bar chart,
+<div class="chart-title">
+The U.S.A. is the most populous country in the Americas
+</div>
+<div class="chart-subtitle">
+Population of countries in the Americas (millions), 2007
+</div>
+<p><img src="cookbook_files/figure-html/unnamed-chunk-6-1.svg" width="700"></p>
+<p>This bar chart uses the afcharts theme, and shows the populations of
+the five most populous countries in the Americas. Each bar is dark blue
+and labelled by country underneath. All text is black in a sans serif
+font. Pale grey grid lines extend out from the y axis.</p>
+<p>A bar chart can sometimes be easier to interpret with horizontal
+bars. This can also be a good option if your bar labels are long and
+difficult to display on the x axis. To produce a horizontal bar chart,
 swap the variables defined for x and y in <code><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes()</a></code> and make a
 few tweaks to <code><a href="../reference/theme_af.html">theme_af()</a></code>; draw grid lines for the x axis
 only by setting the <code>grid</code> argument, and draw an axis line
@@ -204,14 +260,19 @@ for the y axis only by setting the <code>axis</code> argument.</p>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
 <span>    x <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>    y <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>    title <span class="op">=</span> <span class="fu">stringr</span><span class="fu">::</span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_wrap.html" class="external-link">str_wrap</a></span><span class="op">(</span></span>
-<span>      <span class="st">"The U.S.A. is the most populous country in the Americas"</span>,</span>
-<span>      <span class="fl">40</span></span>
-<span>    <span class="op">)</span>,</span>
-<span>    subtitle <span class="op">=</span> <span class="st">"Population of countries in the Americas (millions), 2007"</span>,</span>
-<span>    caption <span class="op">=</span> <span class="st">"Source: Gapminder"</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="cookbook_files/figure-html/bar-chart-2-1.svg" alt="A horizontal bar chart using afcharts theme and dark blue colour." width="700"></p>
+<div class="chart-title">
+The U.S.A. is the most populous country in the Americas
+</div>
+<div class="chart-subtitle">
+Population of countries in the Americas (millions), 2007
+</div>
+<p><img src="cookbook_files/figure-html/unnamed-chunk-7-1.svg" width="700"></p>
+<p>This bar chart uses the afcharts theme and displays the populations
+of the five most populous countries in the Americas. The country names
+are displayed on the y axis, with the bars extending from left to right.
+Each bar is dark blue, and pale grey grid lines extend up from the x
+axis.</p>
 <div class="section level3">
 <h3 id="grouped-bar-chart">Grouped bar chart<a class="anchor" aria-label="anchor" href="#grouped-bar-chart"></a>
 </h3>
@@ -245,12 +306,20 @@ set the position of the legend.</p>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
 <span>    x <span class="op">=</span> <span class="st">"Country"</span>,</span>
 <span>    y <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>    fill <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>    title <span class="op">=</span> <span class="st">"Living longer"</span>,</span>
-<span>    subtitle <span class="op">=</span> <span class="st">"Difference in life expectancy, 1967-2007"</span>,</span>
-<span>    caption <span class="op">=</span> <span class="st">"Source: Gapminder"</span></span>
+<span>    fill <span class="op">=</span> <span class="cn">NULL</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="cookbook_files/figure-html/grouped-bar-chart-1.svg" alt="A grouped bar chart using afcharts theme and colours from main palette" width="700"></p>
+<div class="chart-title">
+Living longer
+</div>
+<div class="chart-subtitle">
+Difference in life expectancy, 1967-2007
+</div>
+<p><img src="cookbook_files/figure-html/unnamed-chunk-8-1.svg" width="700"></p>
+<p>This grouped bar chart uses the afcharts theme. It shows the life
+expectancy in 1967 and 2007 for four countries, which are displayed on
+the x axis. For each country there are two bars. The bar colours are
+from the main Analysis Function palette - dark blue for 1967 and orange
+for 2007, denoted by a legend at the bottom of the chart.</p>
 </div>
 <div class="section level3">
 <h3 id="stacked-bar-chart">Stacked bar chart<a class="anchor" aria-label="anchor" href="#stacked-bar-chart"></a>
@@ -296,11 +365,21 @@ trying to tell with your chart.</p>
 <span>    x <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>    y <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>    fill <span class="op">=</span> <span class="st">"Life Expectancy"</span>,</span>
-<span>    title <span class="op">=</span> <span class="st">"How life expectancy varies across continents"</span>,</span>
-<span>    subtitle <span class="op">=</span> <span class="st">"Percentage of countries by life expectancy band, 2007"</span>,</span>
-<span>    caption <span class="op">=</span> <span class="st">"Source: Gapminder"</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="cookbook_files/figure-html/stacked-bar-chart-1.svg" alt="A stacked bar chart using afcharts theme and colours from main palette" width="700"></p>
+<div class="chart-title">
+How life expectancy varies across continents
+</div>
+<div class="chart-subtitle">
+Percentage of countries by life expectancy band, 2007
+</div>
+<p><img src="cookbook_files/figure-html/unnamed-chunk-9-1.svg" width="700"></p>
+<p>This stacked bar chart uses the afcharts theme and shows the
+proportions of countries with a life expectancy over and under 75 by
+continent. The continents are listed along the x axis, with the y axis
+labelled between 0% and 100% in breaks of 25%. The colours for the bar
+segments are from the main Analysis Function palette - dark blue for
+under 75 and orange for over 75, denoted by a legend at the bottom of
+the chart. There is whitespace between each bar.</p>
 </div>
 </div>
 <div class="section level2">
@@ -324,11 +403,18 @@ trying to tell with your chart.</p>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
 <span>    x <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>    y <span class="op">=</span> <span class="st">"Number of \ncountries"</span>,</span>
-<span>    title <span class="op">=</span> <span class="st">"How life expectancy varies"</span>,</span>
-<span>    subtitle <span class="op">=</span> <span class="st">"Distribution of life expectancy, 2007"</span>,</span>
-<span>    caption <span class="op">=</span> <span class="st">"Source: Gapminder"</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="cookbook_files/figure-html/histogram-1.svg" alt="A histogram with afcharts theme and dark blue colour." width="700"></p>
+<div class="chart-title">
+How life expectancy varies
+</div>
+<div class="chart-subtitle">
+Distribution of life expectancy, 2007
+</div>
+<p><img src="cookbook_files/figure-html/unnamed-chunk-10-1.svg" width="700"></p>
+<p>This histogram uses the afcharts theme, and shows the distribution of
+life expectancy by number of countries. There are pale grey grid lines
+extending out from the y axis. The bars are dark blue with white space
+between each.</p>
 </div>
 <div class="section level2">
 <h2 id="scatterplots">Scatterplots<a class="anchor" aria-label="anchor" href="#scatterplots"></a>
@@ -343,14 +429,19 @@ trying to tell with your chart.</p>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
 <span>    x <span class="op">=</span> <span class="st">"GDP (US$, inflation-adjusted)"</span>,</span>
 <span>    y <span class="op">=</span> <span class="st">"Life\nExpectancy"</span>,</span>
-<span>    title <span class="op">=</span> <span class="fu">stringr</span><span class="fu">::</span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_wrap.html" class="external-link">str_wrap</a></span><span class="op">(</span></span>
-<span>      <span class="st">"The relationship between GDP and Life Expectancy is complex"</span>,</span>
-<span>      <span class="fl">40</span></span>
-<span>    <span class="op">)</span>,</span>
-<span>    subtitle <span class="op">=</span> <span class="st">"GDP and Life Expectancy for all countires, 2007"</span>,</span>
-<span>    caption <span class="op">=</span> <span class="st">"Source: Gapminder"</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="cookbook_files/figure-html/scatterplot-1.svg" alt="A scatterplot using afcharts theme and dark blue colour." width="700"></p>
+<div class="chart-title">
+The relationship between GDP and Life Expectancy is complex
+</div>
+<div class="chart-subtitle">
+GDP and Life Expectancy for all countries, 2007
+</div>
+<p><img src="cookbook_files/figure-html/unnamed-chunk-11-1.svg" width="700"></p>
+<p>This scatterplot uses the afcharts theme, and shows life expectancy
+against GDP for all countries. Thin pale grey lines extend out from the
+x and y axis labels, forming a grid. The data points are plotted as dark
+blue circles. Both axes are labeled in black using a sans serif
+font.</p>
 </div>
 <div class="section level2">
 <h2 id="small-multiples">Small multiples<a class="anchor" aria-label="anchor" href="#small-multiples"></a>
@@ -374,11 +465,21 @@ trying to tell with your chart.</p>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
 <span>    x <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>    y <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>    title <span class="op">=</span> <span class="st">"Asia's rapid growth"</span>,</span>
-<span>    subtitle <span class="op">=</span> <span class="st">"Population growth by continent, 1952-2007"</span>,</span>
-<span>    caption <span class="op">=</span> <span class="st">"Source: Gapminder"</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="cookbook_files/figure-html/small-multiples-1.svg" alt="A small multiples area chart using afcharts theme and main colour palette." width="700"></p>
+<div class="chart-title">
+Asia’s rapid growth
+</div>
+<div class="chart-subtitle">
+Population growth by continent, 1952-2007
+</div>
+<p><img src="cookbook_files/figure-html/unnamed-chunk-12-1.svg" width="700"></p>
+<p>This chart uses the afcharts theme. It contains four subplots in a
+two by two grid showing how the populations of four continents have
+changed over time. Each subplot is labelled with the continent. The
+subplots have a common y axis, with no values on the x axis to
+facilitate for a simple comparison of the relative values. Each subplot
+is filled with a different colour from the Analysis Function categorical
+colour palette to be distinct from other subplots.</p>
 </div>
 <div class="section level2">
 <h2 id="pie-charts">Pie charts<a class="anchor" aria-label="anchor" href="#pie-charts"></a>
@@ -396,11 +497,20 @@ trying to tell with your chart.</p>
 <span>    x <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>    y <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>    fill <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>    title <span class="op">=</span> <span class="st">"How life expectancy varies in Europe"</span>,</span>
-<span>    subtitle <span class="op">=</span> <span class="st">"Percentage of countries by life expectancy band, 2007"</span>,</span>
-<span>    caption <span class="op">=</span> <span class="st">"Source: Gapminder"</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="cookbook_files/figure-html/pie-chart-1.svg" alt="A pie chart using afcharts theme and main palette." width="700"></p>
+<div class="chart-title">
+How life expectancy varies in Europe
+</div>
+<div class="chart-subtitle">
+Percentage of countries by life expectancy band, 2007
+</div>
+<p><img src="cookbook_files/figure-html/unnamed-chunk-13-1.svg" width="700"></p>
+<p>This pie chart uses the afcharts theme, showing the proportions of
+European countries with a life expectancy under and over 75. The segment
+colours are from the Analysis Function main palette, with the smaller
+under 75 segment in dark blue, and the larger over 75 segment in orange.
+This is indicated by a legend to the right of the pie chart. There is
+whitespace separating the segments from each other.</p>
 </div>
 <div class="section level2">
 <h2 id="focus-charts">Focus charts<a class="anchor" aria-label="anchor" href="#focus-charts"></a>
@@ -419,14 +529,19 @@ trying to tell with your chart.</p>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
 <span>    x <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>    y <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>    title <span class="op">=</span> <span class="fu">stringr</span><span class="fu">::</span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_wrap.html" class="external-link">str_wrap</a></span><span class="op">(</span></span>
-<span>      <span class="st">"Brazil has the second highest population in the Americas"</span>,</span>
-<span>      <span class="fl">40</span></span>
-<span>    <span class="op">)</span>,</span>
-<span>    subtitle <span class="op">=</span> <span class="st">"Population of countries in the Americas (millions), 2007"</span>,</span>
-<span>    caption <span class="op">=</span> <span class="st">"Source: Gapminder"</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="cookbook_files/figure-html/focus-chart-1.svg" alt="A bar chart with the bar for Brazil highlighted in dark blue and other bars in grey." width="700"></p>
+<div class="chart-title">
+Brazil has the second highest population in the Americas
+</div>
+<div class="chart-subtitle">
+Population of countries in the Americas (millions), 2007
+</div>
+<p><img src="cookbook_files/figure-html/unnamed-chunk-14-1.svg" width="700"></p>
+<p>This bar chart uses the afcharts theme, and shows the populations of
+five countries of the Americas in descending order. The country names
+are given on the x axis, with all chart text in black in a sans serif
+font. Four of the bars on the chart are light grey, and the bar for
+Brazil is filled in dark blue to highlight it.</p>
 </div>
 <div class="section level2">
 <h2 id="interactive-charts">Interactive charts<a class="anchor" aria-label="anchor" href="#interactive-charts"></a>
@@ -444,8 +559,7 @@ further call to <code>theme</code> to set the font family for text to
 <code>ggplotly()</code>. As stated elsewhere in this guidance, titles
 and subtitles should ideally be included in the body of text surrounding
 a chart rather than embedded in the chart itself, and so this is
-hopefully not a big issue. This example therefore has no title, subtitle
-or caption.</p></li>
+hopefully not a big issue.</p></li>
 </ul>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">p</span> <span class="op">&lt;-</span></span>
@@ -468,7 +582,7 @@ or caption.</p></li>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
 <span>    x <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>    y <span class="op">=</span> <span class="st">"Population (millions)"</span></span>
+<span>    y <span class="op">=</span> <span class="cn">NULL</span></span>
 <span>  <span class="op">)</span></span>
 <span></span>
 <span><span class="fu">plotly</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/plotly/man/ggplotly.html" class="external-link">ggplotly</a></span><span class="op">(</span><span class="va">p</span>, tooltip <span class="op">=</span> <span class="st">"text"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
@@ -476,11 +590,18 @@ or caption.</p></li>
 <span>    modeBarButtons <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="st">"resetViews"</span><span class="op">)</span><span class="op">)</span>,</span>
 <span>    displaylogo <span class="op">=</span> <span class="cn">FALSE</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
+<div class="chart-title">
+The U.S.A. is the most populous country in the Americas
+</div>
+<div class="chart-subtitle">
+Population of countries in the Americas (millions), 2007
+</div>
 <div class="plotly html-widget html-fill-item" id="htmlwidget-ac96cb3ee4656e2e9ec3" style="width:700px;height:432.632880098888px;"></div>
-<script type="application/json" data-for="htmlwidget-ac96cb3ee4656e2e9ec3">{"x":{"data":[{"orientation":"v","width":[0.89999999999999991,0.90000000000000013,0.90000000000000036,0.90000000000000036,0.90000000000000036],"base":[0,0,0,0,0],"x":[1,2,3,4,5],"y":[301139947,190010647,108700891,44227550,40301927],"text":["Country: United States<br />Population (millions): 301.1","Country: Brazil<br />Population (millions): 190","Country: Mexico<br />Population (millions): 108.7","Country: Colombia<br />Population (millions): 44.2","Country: Argentina<br />Population (millions): 40.3"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(18,67,109,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":31.066955706225116,"r":9.2984640929846432,"b":38.313115938686721,"l":237.11083437110841},"paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":18.596928185969286},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,5.5999999999999996],"tickmode":"array","ticktext":["United States","Brazil","Mexico","Colombia","Argentina"],"tickvals":[1,2,3,4,5],"categoryorder":"array","categoryarray":["United States","Brazil","Mexico","Colombia","Argentina"],"nticks":null,"ticks":"outside","tickcolor":"rgba(217,217,217,1)","ticklen":4.6492320464923216,"tickwidth":0.77487200774872023,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":18.596928185969286},"tickangle":-0,"showline":true,"linecolor":"rgba(217,217,217,1)","linewidth":0.77487200774872023,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":18.596928185969286}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0,385000000],"tickmode":"array","ticktext":["0","100","200","300"],"tickvals":[0,99999999.999999985,199999999.99999997,300000000],"categoryorder":"array","categoryarray":["0","100","200","300"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":4.6492320464923216,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":18.596928185969286},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(217,217,217,1)","gridwidth":0.77487200774872023,"zeroline":false,"anchor":"x","title":{"text":"Population (millions)","font":{"color":"rgba(0,0,0,1)","family":"","size":18.596928185969286}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","layer":"below","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":2.204724409448819,"font":{"color":"rgba(0,0,0,1)","family":"","size":18.596928185969286}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"modeBarButtons":[["resetViews"]],"displaylogo":false},"source":"A","attrs":{"20ca442cd625":{"x":{},"y":{},"text":{},"type":"bar"}},"cur_data":"20ca442cd625","visdat":{"20ca442cd625":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script><p>afcharts currently only works with <code>ggplot2</code> charts,
-however there are plans to develop the package further to support
-interactive Highcharts produced using the <a href="https://jkunst.com/highcharter/" class="external-link"><code>highcharter</code></a>
-package.</p>
+<script type="application/json" data-for="htmlwidget-ac96cb3ee4656e2e9ec3">{"x":{"data":[{"orientation":"v","width":[0.89999999999999991,0.90000000000000013,0.90000000000000036,0.90000000000000036,0.90000000000000036],"base":[0,0,0,0,0],"x":[1,2,3,4,5],"y":[301139947,190010647,108700891,44227550,40301927],"text":["Country: United States<br />Population (millions): 301.1","Country: Brazil<br />Population (millions): 190","Country: Mexico<br />Population (millions): 108.7","Country: Colombia<br />Population (millions): 44.2","Country: Argentina<br />Population (millions): 40.3"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(18,67,109,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":31.066955706225116,"r":9.2984640929846432,"b":38.313115938686721,"l":41.843088418430895},"paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":18.596928185969286},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,5.5999999999999996],"tickmode":"array","ticktext":["United States","Brazil","Mexico","Colombia","Argentina"],"tickvals":[1,2,3,4,5],"categoryorder":"array","categoryarray":["United States","Brazil","Mexico","Colombia","Argentina"],"nticks":null,"ticks":"outside","tickcolor":"rgba(217,217,217,1)","ticklen":4.6492320464923216,"tickwidth":0.77487200774872023,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":18.596928185969286},"tickangle":-0,"showline":true,"linecolor":"rgba(217,217,217,1)","linewidth":0.77487200774872023,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":18.596928185969286}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0,385000000],"tickmode":"array","ticktext":["0","100","200","300"],"tickvals":[0,99999999.999999985,199999999.99999997,300000000],"categoryorder":"array","categoryarray":["0","100","200","300"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":4.6492320464923216,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":18.596928185969286},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(217,217,217,1)","gridwidth":0.77487200774872023,"zeroline":false,"anchor":"x","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":18.596928185969286}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","layer":"below","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":2.204724409448819,"font":{"color":"rgba(0,0,0,1)","family":"","size":18.596928185969286}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"modeBarButtons":[["resetViews"]],"displaylogo":false},"source":"A","attrs":{"20b54fc2f884":{"x":{},"y":{},"text":{},"type":"bar"}},"cur_data":"20b54fc2f884","visdat":{"20b54fc2f884":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script><p>This is an interactive bar chart using the afcharts theme, showing
+the populations of the five most populous countries in the Americas. The
+bars are dark blue. A tooltip appears when hovering over each bar with
+the cursor, which shows a matching dark blue box with the country and
+population displayed in white text.</p>
 </div>
 <div class="section level2">
 <h2 id="annotations">Annotations<a class="anchor" aria-label="anchor" href="#annotations"></a>
@@ -534,14 +655,20 @@ white background.</p>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
 <span>    x <span class="op">=</span> <span class="st">"Year"</span>,</span>
 <span>    y <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>    title <span class="op">=</span> <span class="st">"Living Longer"</span>,</span>
-<span>    subtitle <span class="op">=</span> <span class="st">"Life Expectancy in the United Kingdom and China 1952-2007"</span>,</span>
-<span>    caption <span class="op">=</span> <span class="st">"Source: Gapminder"</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="cookbook_files/figure-html/annotations-1-1.svg" alt="A multiple line chart with line labels." width="700"></p>
-<p>However, this makes the code difficult to reuse as values are hard
-coded and not automatically generated from the data. Automating the
-position of annotations is possible, but more fiddly.</p>
+<div class="chart-title">
+Living Longer
+</div>
+<div class="chart-subtitle">
+Life Expectancy in the United Kingdom and China 1952-2007
+</div>
+<p><img src="cookbook_files/figure-html/unnamed-chunk-43-1.svg" width="700"></p>
+<p>The line chart uses the afcharts theme, and has one blue and one
+orange line. These are each labelled with a sans serif font in black at
+the end of the line.</p>
+<p>However, this code is difficult to reuse as the annotation position
+values are hard coded and not automatically generated from the data.
+Automating the position of annotations is possible, but more fiddly.</p>
 <p>The following examples use <code><a href="https://ggplot2.tidyverse.org/reference/geom_text.html" class="external-link">geom_label()</a></code> to use values
 from the data to position annotations. <code><a href="https://ggplot2.tidyverse.org/reference/geom_text.html" class="external-link">geom_label()</a></code> draws a
 rectangle behind the text (white by default) and a border the same
@@ -591,11 +718,17 @@ only able to deal with fixed values.</p>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
 <span>    x <span class="op">=</span> <span class="st">"Year"</span>,</span>
 <span>    y <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>    title <span class="op">=</span> <span class="st">"Living Longer"</span>,</span>
-<span>    subtitle <span class="op">=</span> <span class="st">"Life Expectancy in the United Kingdom and China 1952-2007"</span>,</span>
-<span>    caption <span class="op">=</span> <span class="st">"Source: Gapminder"</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="cookbook_files/figure-html/annotations-2-1.svg" alt="A multiple line chart with line labels." width="700"></p>
+<div class="chart-title">
+Living Longer
+</div>
+<div class="chart-subtitle">
+Life Expectancy in the United Kingdom and China 1952-2007
+</div>
+<p><img src="cookbook_files/figure-html/unnamed-chunk-44-1.svg" width="700"></p>
+<p>The line chart uses the afcharts theme and appears highly similar to
+the previous plot. It has one blue and one orange line with each
+labelled with a sans serif font in black at the end of the line.</p>
 <p>Annotations may also be used to add value labels to a bar chart. Note
 that <code><a href="https://ggplot2.tidyverse.org/reference/geom_text.html" class="external-link">geom_text()</a></code> is used here as a background is not
 required.</p>
@@ -615,15 +748,18 @@ required.</p>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
 <span>    x <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>    y <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>    title <span class="op">=</span> <span class="fu">stringr</span><span class="fu">::</span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_wrap.html" class="external-link">str_wrap</a></span><span class="op">(</span></span>
-<span>      <span class="st">"The U.S.A. is the most populous country in the Americas"</span>,</span>
-<span>      <span class="fl">40</span></span>
-<span>    <span class="op">)</span>,</span>
-<span>    subtitle <span class="op">=</span> <span class="st">"Population of countries in the Americas (millions), 2007"</span>,</span>
-<span>    caption <span class="op">=</span> <span class="st">"Source: Gapminder"</span></span>
+<span>    y <span class="op">=</span> <span class="cn">NULL</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="cookbook_files/figure-html/annotations-3-1.svg" alt="A bar chart with white text labels at the end of each bar." width="700"></p>
+<div class="chart-title">
+The U.S.A. is the most populous country in the Americas
+</div>
+<div class="chart-subtitle">
+Population of countries in the Americas (millions), 2007
+</div>
+<p><img src="cookbook_files/figure-html/unnamed-chunk-45-1.svg" width="700"></p>
+<p>This bar chart uses the afcharts theme. All the bars are dark blue
+and have white text labels at the top of each bar showing the y axis
+value.</p>
 <p><strong>Note</strong>: The <code><a href="https://ggplot2.tidyverse.org/reference/annotate.html" class="external-link">annotate()</a></code> function should be
 used to add annotations with manually defined positioning co-ordinates,
 whereas <code><a href="https://ggplot2.tidyverse.org/reference/geom_text.html" class="external-link">geom_label()</a></code> and <code><a href="https://ggplot2.tidyverse.org/reference/geom_text.html" class="external-link">geom_text()</a></code> should be
@@ -638,81 +774,59 @@ and appearance of grid lines, axis lines and axis ticks. More
 information on accepted values can be found in the <a href="https://best-practice-and-impact.github.io/afcharts/reference/theme_af.html">help
 file</a>.</p>
 <div class="section level3">
-<h3 id="changing-chart-titles">Changing chart titles<a class="anchor" aria-label="anchor" href="#changing-chart-titles"></a>
-</h3>
-<p>Chart titles such as the main title, subtitle, caption, axis titles
-and legend titles, can be controlled using <code><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs()</a></code>. A title
-can be removed using <code>NULL</code>.</p>
-<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">pop_bar_data</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/reorder.factor.html" class="external-link">reorder</a></span><span class="op">(</span><span class="va">country</span>, <span class="op">-</span><span class="va">pop</span><span class="op">)</span>, y <span class="op">=</span> <span class="va">pop</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html" class="external-link">geom_col</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">af_colour_values</span><span class="op">[</span><span class="st">"dark-blue"</span><span class="op">]</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="../reference/theme_af.html">theme_af</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">scale_y_continuous</a></span><span class="op">(</span></span>
-<span>    limits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">350E6</span><span class="op">)</span>,</span>
-<span>    labels <span class="op">=</span> <span class="fu">scales</span><span class="fu">::</span><span class="fu"><a href="https://scales.r-lib.org/reference/label_number.html" class="external-link">label_number</a></span><span class="op">(</span>scale <span class="op">=</span> <span class="fl">1E-6</span><span class="op">)</span>,</span>
-<span>    expand <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/expansion.html" class="external-link">expansion</a></span><span class="op">(</span>mult <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0.1</span><span class="op">)</span><span class="op">)</span>,</span>
-<span>  <span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
-<span>    x <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>    y <span class="op">=</span> <span class="st">"Population (millions)"</span>,</span>
-<span>    title <span class="op">=</span> <span class="fu">stringr</span><span class="fu">::</span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_wrap.html" class="external-link">str_wrap</a></span><span class="op">(</span></span>
-<span>      <span class="st">"The U.S.A. is the most populous country in the Americas"</span>,</span>
-<span>      <span class="fl">35</span></span>
-<span>    <span class="op">)</span>,</span>
-<span>    caption <span class="op">=</span> <span class="st">"Source: Gapminder"</span></span>
-<span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="cookbook_files/figure-html/chart-titles-1.svg" alt="A bar chart with title, y-axis title and caption. The x-axis title has been removed." width="700"></p>
-<p>The y-axis title should be horizontal, not vertical. The position can
-sometimes look odd, especially for longer titles. You can use the plot
-subtitle as a description of the y-axis and set the y-axis title to
-<code>NULL</code>.</p>
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">pop_bar_data</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/reorder.factor.html" class="external-link">reorder</a></span><span class="op">(</span><span class="va">country</span>, <span class="op">-</span><span class="va">pop</span><span class="op">)</span>, y <span class="op">=</span> <span class="va">pop</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html" class="external-link">geom_col</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">af_colour_values</span><span class="op">[</span><span class="st">"dark-blue"</span><span class="op">]</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="../reference/theme_af.html">theme_af</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">scale_y_continuous</a></span><span class="op">(</span></span>
-<span>    limits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">350E6</span><span class="op">)</span>,</span>
-<span>    labels <span class="op">=</span> <span class="fu">scales</span><span class="fu">::</span><span class="fu"><a href="https://scales.r-lib.org/reference/label_number.html" class="external-link">label_number</a></span><span class="op">(</span>scale <span class="op">=</span> <span class="fl">1E-6</span><span class="op">)</span>,</span>
-<span>    expand <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/expansion.html" class="external-link">expansion</a></span><span class="op">(</span>mult <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0.1</span><span class="op">)</span><span class="op">)</span>,</span>
-<span>  <span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
-<span>    x <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>    y <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>    title <span class="op">=</span> <span class="fu">stringr</span><span class="fu">::</span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_wrap.html" class="external-link">str_wrap</a></span><span class="op">(</span></span>
-<span>      <span class="st">"The U.S.A. is the most populous country in the Americas"</span>,</span>
-<span>      <span class="fl">40</span></span>
-<span>    <span class="op">)</span>,</span>
-<span>    subtitle <span class="op">=</span> <span class="st">"Population (millions)"</span>,</span>
-<span>    caption <span class="op">=</span> <span class="st">"Source: Gapminder"</span></span>
-<span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="cookbook_files/figure-html/chart-titles-y-axis-1.svg" alt="A bar chart with title, subtitle and caption. Axis titles have been removed." width="700"></p>
-</div>
-<div class="section level3">
 <h3 id="sorting-a-bar-chart">Sorting a bar chart<a class="anchor" aria-label="anchor" href="#sorting-a-bar-chart"></a>
 </h3>
 <p>To control the order of bars in a chart, wrap the variable you want
 to arrange with <code><a href="https://rdrr.io/r/stats/reorder.factor.html" class="external-link">reorder()</a></code> and specify what variable you
 want to sort by. The following example sorts bars in ascending order of
-population. To sort in descending order, you would change this to
-<code>reorder(country, desc(pop))</code>.</p>
-<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
+population from the bottom of the chart up. To sort in descending order,
+you would change this to <code>reorder(country, desc(pop))</code>.</p>
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">population_chart</span> <span class="op">&lt;-</span> <span class="va">pop_bar_data</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">pop</span>, y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/reorder.factor.html" class="external-link">reorder</a></span><span class="op">(</span><span class="va">country</span>, <span class="va">pop</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html" class="external-link">geom_col</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">af_colour_values</span><span class="op">[</span><span class="st">"dark-blue"</span><span class="op">]</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="../reference/theme_af.html">theme_af</a></span><span class="op">(</span>axis <span class="op">=</span> <span class="st">"y"</span>, grid <span class="op">=</span> <span class="st">"x"</span><span class="op">)</span></span></code></pre></div>
-<p>Examples in the following sections build on this chart.</p>
+<span>  <span class="fu"><a href="../reference/theme_af.html">theme_af</a></span><span class="op">(</span>axis <span class="op">=</span> <span class="st">"y"</span>, grid <span class="op">=</span> <span class="st">"x"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
+<span>    x <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>    y <span class="op">=</span> <span class="cn">NULL</span></span>
+<span>  <span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">population_chart</span><span class="op">)</span></span></code></pre></div>
+<div class="chart-title">
+The U.S.A. is the most populous country in the Americas
+</div>
+<div class="chart-subtitle">
+Population of countries in the Americas (millions), 2007
+</div>
+<p><img src="cookbook_files/figure-html/unnamed-chunk-55-1.svg" width="700"></p>
+<p>This bar chart uses the afcharts theme and shows the population of
+five countries. The country names are given on the y axis, with the bars
+extending from left to right, sorted by values decreasing from the top
+down. All the bars are in dark blue, and there is a small white gap
+between the bars and the y axis. The x axis values are given in
+exponential notation.</p>
+<p>Examples in the following sections iterate on this chart.</p>
 </div>
 <div class="section level3">
 <h3 id="reducing-space-between-chart-and-axis">Reducing space between chart and axis<a class="anchor" aria-label="anchor" href="#reducing-space-between-chart-and-axis"></a>
 </h3>
 <p>By default, a bar chart will have a gap between the bottom of the
 bars and the axis. This can be removed as follows:</p>
-<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">population_chart</span> <span class="op">+</span></span>
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/last_plot.html" class="external-link">last_plot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">scale_x_continuous</a></span><span class="op">(</span>expand <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/expansion.html" class="external-link">expansion</a></span><span class="op">(</span>mult <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0.1</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<p><img src="cookbook_files/figure-html/expand-1.svg" alt="A bar chart with no space between bottom of bars and x axis." width="700"></p>
+<div class="chart-title">
+The U.S.A. is the most populous country in the Americas
+</div>
+<div class="chart-subtitle">
+Population of countries in the Americas (millions), 2007
+</div>
+<p><img src="cookbook_files/figure-html/unnamed-chunk-56-1.svg" width="700"></p>
+<p>This horizontal bar chart uses the afcharts theme. It shows the
+populations of five countries, with country names given on the y axis.
+All the bars are in dark blue and against the y axis. The x axis values
+are given in exponential notation.</p>
 <p>The equivalent adjustment can be made for the y axis using
-<code>scale_y_continuous</code>.</p>
+<code><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">scale_y_continuous()</a></code>.</p>
 </div>
 <div class="section level3">
 <h3 id="changing-axis-limits-breaks-and-labels">Changing axis limits, breaks and labels<a class="anchor" aria-label="anchor" href="#changing-axis-limits-breaks-and-labels"></a>
@@ -723,8 +837,8 @@ variables, labels can be changed using <code>scale_x/y_discrete()</code>
 or alternatively by recoding the variable in the data before creating a
 chart.</p>
 <p>Limits, breaks and labels can be defined with custom values.</p>
-<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">population_chart</span> <span class="op">+</span></span>
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/last_plot.html" class="external-link">last_plot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">scale_x_continuous</a></span><span class="op">(</span></span>
 <span>    breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">400E6</span>, <span class="fl">100E6</span><span class="op">)</span>,</span>
 <span>    labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">400</span>, <span class="fl">100</span><span class="op">)</span>,</span>
@@ -734,20 +848,33 @@ chart.</p>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
 <span>    x <span class="op">=</span> <span class="st">"Population (millions)"</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="cookbook_files/figure-html/axis-limits-breaks-labels-custom-1.svg" alt="A bar chart with fewer x axis breaks and edited labels." width="700"></p>
+<div class="chart-title">
+The U.S.A. is the most populous country in the Americas
+</div>
+<div class="chart-subtitle">
+Population of countries in the Americas (millions), 2007
+</div>
+<p><img src="cookbook_files/figure-html/unnamed-chunk-57-1.svg" width="700"></p>
+<p>This horizonal bar chart uses the afcharts theme and shows the
+populations of five countries. The country names are given on the y
+axis, and all the bars are in blue. The x axis is labeled every 100 from
+zero to 400. The x axis label indicates that population is reported in
+millions.</p>
 <p>Adaptive axis limits and break for
 <code>scale_x/y_continuous()</code> can be defined using the
-<code>pretty</code> function. This defines breaks that are equally
+<code><a href="https://rdrr.io/r/base/pretty.html" class="external-link">pretty()</a></code> function. This defines breaks that are equally
 spaced ‘round’ values which cover the range of the data and limits that
 are the next ‘round’ value just exceeding the range of the data. Setting
-the limits with a custom <code>limits_pretty</code> function ensures the
-highest gridline value is above the maximum value of the data.</p>
-<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">limits_pretty</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/range.html" class="external-link">range</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/pretty.html" class="external-link">pretty</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span></span>
+the limits manually based on the range of the calculated breaks ensures
+the highest gridline value is above the maximum value of the data.</p>
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span><span class="va">breaks_pretty</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/pretty.html" class="external-link">pretty</a></span><span class="op">(</span><span class="va">pop_bar_data</span><span class="op">$</span><span class="va">pop</span><span class="op">)</span></span>
+<span><span class="va">limits_pretty</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/range.html" class="external-link">range</a></span><span class="op">(</span><span class="va">breaks_pretty</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">population_chart</span> <span class="op">+</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/last_plot.html" class="external-link">last_plot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">scale_x_continuous</a></span><span class="op">(</span></span>
-<span>    breaks <span class="op">=</span> <span class="va">pretty</span>,</span>
+<span>    breaks <span class="op">=</span> <span class="va">breaks_pretty</span>,</span>
 <span>    labels <span class="op">=</span> <span class="fu"><a href="https://scales.r-lib.org/reference/label_number.html" class="external-link">label_number</a></span><span class="op">(</span>scale <span class="op">=</span> <span class="fl">1E-6</span><span class="op">)</span>,</span>
 <span>    limits <span class="op">=</span> <span class="va">limits_pretty</span>,</span>
 <span>    expand <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/expansion.html" class="external-link">expansion</a></span><span class="op">(</span>mult <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0.2</span><span class="op">)</span><span class="op">)</span></span>
@@ -755,7 +882,18 @@ highest gridline value is above the maximum value of the data.</p>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
 <span>    x <span class="op">=</span> <span class="st">"Population (millions)"</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="cookbook_files/figure-html/axis-limits-breaks-labels-fct-1.svg" alt="A bar chart with 'round' breaks and limits using the pretty() function." width="700"></p>
+<div class="chart-title">
+The U.S.A. is the most populous country in the Americas
+</div>
+<div class="chart-subtitle">
+Population of countries in the Americas (millions), 2007
+</div>
+<p><img src="cookbook_files/figure-html/unnamed-chunk-58-1.svg" width="700"></p>
+<p>This horizonal bar chart uses the afcharts theme and shows the
+populations of five countries. The country names are given on the y
+axis, and all the bars are in blue. The x axis is labeled every 50 from
+zero to 350. The x axis label indicates that population is reported in
+millions.</p>
 </div>
 <div class="section level3">
 <h3 id="formatting-labels">Formatting labels<a class="anchor" aria-label="anchor" href="#formatting-labels"></a>
@@ -764,7 +902,7 @@ highest gridline value is above the maximum value of the data.</p>
 <code>scales</code> package. The following example formats y axis labels
 as percentages, however <code>scales</code> can also handle currency and
 thousands separators.</p>
-<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">stacked_bar_data</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">continent</span>, y <span class="op">=</span> <span class="va">n_countries</span>, fill <span class="op">=</span> <span class="va">lifeExpGrouped</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html" class="external-link">geom_bar</a></span><span class="op">(</span>stat <span class="op">=</span> <span class="st">"identity"</span>, position <span class="op">=</span> <span class="st">"fill"</span><span class="op">)</span> <span class="op">+</span></span>
@@ -777,25 +915,40 @@ thousands separators.</p>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
 <span>    x <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>    y <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>    fill <span class="op">=</span> <span class="st">"Life Expectancy"</span>,</span>
-<span>    title <span class="op">=</span> <span class="st">"How life expectancy varies across continents"</span>,</span>
-<span>    subtitle <span class="op">=</span> <span class="st">"Percentage of countries by life expectancy band, 2007"</span>,</span>
-<span>    caption <span class="op">=</span> <span class="st">"Source: Gapminder"</span></span>
+<span>    fill <span class="op">=</span> <span class="st">"Life Expectancy"</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="cookbook_files/figure-html/using-scales-1.svg" alt="A stacked bar chart with y axis labels formatted as percentages." width="700"></p>
+<div class="chart-title">
+How life expectancy varies across continents
+</div>
+<div class="chart-subtitle">
+Percentage of countries by life expectancy band, 2007
+</div>
+<p><img src="cookbook_files/figure-html/unnamed-chunk-59-1.svg" width="700"></p>
+<p>This stacked bar uses the afcharts theme. The y axis is labelled
+every 25 from 0 to 100 percent, with light grey grid lines and tick
+marks going horizontally from the y axis.</p>
 </div>
 <div class="section level3">
 <h3 id="avoiding-axisgrid-lines-being-cut-off">Avoiding axis/grid lines being cut off<a class="anchor" aria-label="anchor" href="#avoiding-axisgrid-lines-being-cut-off"></a>
 </h3>
 <p>Axis lines and grid lines can sometimes appear ‘cut off’ if they are
-drawn at the limits of the chart range. You can see in the example in
-the previous section that the top grid line is slightly narrower than
-the adjacent tick mark on the y axis. This is because the y axis limit
-is 100%. As the grid line is centred at 100%, the top half of the line
-is ‘cut off’. This can be corrected as follows:</p>
-<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
+drawn at the limits of the chart range. In the previous plot, the top
+grid line is slightly narrower than the adjacent tick mark on the y
+axis. This is because the y axis limit is 100%. As the grid line is
+centred at 100%, the top half of the line is ‘cut off’. This can be
+corrected as follows:</p>
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/last_plot.html" class="external-link">last_plot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_cartesian.html" class="external-link">coord_cartesian</a></span><span class="op">(</span>clip <span class="op">=</span> <span class="st">"off"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="cookbook_files/figure-html/clip-1.svg" alt="A stacked bar chart with top gridline the same width as adjoining tick mark and other grid lines." width="700"></p>
+<div class="chart-title">
+How life expectancy varies across continents
+</div>
+<div class="chart-subtitle">
+Percentage of countries by life expectancy band, 2007
+</div>
+<p><img src="cookbook_files/figure-html/unnamed-chunk-60-1.svg" width="700"></p>
+<p>This is a stacked bar chart with the afcharts theme, where the top
+gridline is the same width as the adjoining tick mark and other grid
+lines.</p>
 </div>
 <div class="section level3">
 <h3 id="adding-a-line">Adding a line<a class="anchor" aria-label="anchor" href="#adding-a-line"></a>
@@ -803,7 +956,7 @@ is ‘cut off’. This can be corrected as follows:</p>
 <p>To add a horizontal or vertical line across the whole plot, use
 <code><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html" class="external-link">geom_hline()</a></code> or <code><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html" class="external-link">geom_vline()</a></code>. This can be
 useful to highlight a threshold or average level.</p>
-<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">gapminder</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">country</span> <span class="op">==</span> <span class="st">"United Kingdom"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">year</span>, y <span class="op">=</span> <span class="va">lifeExp</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
@@ -824,24 +977,107 @@ useful to highlight a threshold or average level.</p>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">scale_x_continuous</a></span><span class="op">(</span>breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">1952</span>, <span class="fl">2007</span>, <span class="fl">5</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
 <span>    x <span class="op">=</span> <span class="st">"Year"</span>,</span>
+<span>    y <span class="op">=</span> <span class="cn">NULL</span></span>
+<span>  <span class="op">)</span></span></code></pre></div>
+<div class="chart-title">
+Living Longer
+</div>
+<div class="chart-subtitle">
+Life Expectancy in the United Kingdom 1952-2007
+</div>
+<p><img src="cookbook_files/figure-html/unnamed-chunk-61-1.svg" width="700"></p>
+<p>This line chart uses the afcharts theme. There is a solid dark blue
+line trending upwards, and a dashed teal line horizontal to 75 on the
+y-axis. There are also pale grey grid lines extending from regular
+intervals on the y axis.</p>
+</div>
+<div class="section level3">
+<h3 id="embedding-chart-titles">Embedding chart titles<a class="anchor" aria-label="anchor" href="#embedding-chart-titles"></a>
+</h3>
+<p>As mentioned previously, chart titles, subtitles, and captions should
+be included as titles or the main body of the text where possible for
+accessibility purposes. However, these can embedded into the chart image
+with <code><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs()</a></code> if required. A title can be removed using
+<code>NULL</code>.</p>
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">population_chart</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
+<span>    x <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>    y <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>    title <span class="op">=</span> <span class="st">"Living Longer"</span>,</span>
-<span>    subtitle <span class="op">=</span> <span class="st">"Life Expectancy in the United Kingdom 1952-2007"</span>,</span>
+<span>    title <span class="op">=</span> <span class="fu">stringr</span><span class="fu">::</span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_wrap.html" class="external-link">str_wrap</a></span><span class="op">(</span></span>
+<span>      <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="st">"The U.S.A. has the highest population in the Americas"</span><span class="op">)</span>,</span>
+<span>      width <span class="op">=</span> <span class="fl">40</span></span>
+<span>    <span class="op">)</span>,</span>
+<span>    subtitle <span class="op">=</span> <span class="st">"Population of countries of the Americas (millions), 2007"</span>,</span>
 <span>    caption <span class="op">=</span> <span class="st">"Source: Gapminder"</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="cookbook_files/figure-html/add-a-line-1.svg" alt="A line chart with dashed, orange horizontal line at age 75." width="700"></p>
+<p><img src="cookbook_files/figure-html/chart-titles-1.svg" width="700"></p>
+<p>In the bar chart image, the title gives a data insight and is
+presented in large bold text at the top. This is followed by smaller
+text giving a brief description of the data. In the bottom left of the
+image is a data citation as a caption.</p>
+<p>The y-axis title should be horizontal, not vertical. The position can
+sometimes look odd, especially for longer titles. You can use the plot
+subtitle as a description of the y-axis and set the y-axis title to
+<code>NULL</code>.</p>
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">pop_bar_data</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/reorder.factor.html" class="external-link">reorder</a></span><span class="op">(</span><span class="va">country</span>, <span class="op">-</span><span class="va">pop</span><span class="op">)</span>, y <span class="op">=</span> <span class="va">pop</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html" class="external-link">geom_col</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">af_colour_values</span><span class="op">[</span><span class="st">"dark-blue"</span><span class="op">]</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="../reference/theme_af.html">theme_af</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">scale_y_continuous</a></span><span class="op">(</span></span>
+<span>    limits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">350E6</span><span class="op">)</span>,</span>
+<span>    labels <span class="op">=</span> <span class="fu">scales</span><span class="fu">::</span><span class="fu"><a href="https://scales.r-lib.org/reference/label_number.html" class="external-link">label_number</a></span><span class="op">(</span>scale <span class="op">=</span> <span class="fl">1E-6</span><span class="op">)</span>,</span>
+<span>    expand <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/expansion.html" class="external-link">expansion</a></span><span class="op">(</span>mult <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0.1</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>  <span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
+<span>    x <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>    y <span class="op">=</span> <span class="st">"Population (millions)"</span>,</span>
+<span>    title <span class="op">=</span> <span class="fu">stringr</span><span class="fu">::</span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_wrap.html" class="external-link">str_wrap</a></span><span class="op">(</span></span>
+<span>      <span class="st">"The U.S.A. is the most populous country in the Americas"</span>,</span>
+<span>      <span class="fl">35</span></span>
+<span>    <span class="op">)</span>,</span>
+<span>    caption <span class="op">=</span> <span class="st">"Source: Gapminder"</span></span>
+<span>  <span class="op">)</span></span></code></pre></div>
+<p><img src="cookbook_files/figure-html/chart-titles-yaxis-1-1.svg" width="700"></p>
+<p>In this bar chart image, the y axis title, “Population (millions)”,
+is to the left of the top of the y axis.</p>
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">pop_bar_data</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/reorder.factor.html" class="external-link">reorder</a></span><span class="op">(</span><span class="va">country</span>, <span class="op">-</span><span class="va">pop</span><span class="op">)</span>, y <span class="op">=</span> <span class="va">pop</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html" class="external-link">geom_col</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">af_colour_values</span><span class="op">[</span><span class="st">"dark-blue"</span><span class="op">]</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="../reference/theme_af.html">theme_af</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">scale_y_continuous</a></span><span class="op">(</span></span>
+<span>    limits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">350E6</span><span class="op">)</span>,</span>
+<span>    labels <span class="op">=</span> <span class="fu">scales</span><span class="fu">::</span><span class="fu"><a href="https://scales.r-lib.org/reference/label_number.html" class="external-link">label_number</a></span><span class="op">(</span>scale <span class="op">=</span> <span class="fl">1E-6</span><span class="op">)</span>,</span>
+<span>    expand <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/expansion.html" class="external-link">expansion</a></span><span class="op">(</span>mult <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0.1</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>  <span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
+<span>    x <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>    y <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>    title <span class="op">=</span> <span class="fu">stringr</span><span class="fu">::</span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_wrap.html" class="external-link">str_wrap</a></span><span class="op">(</span></span>
+<span>      <span class="st">"The U.S.A. is the most populous country in the Americas"</span>,</span>
+<span>      <span class="fl">40</span></span>
+<span>    <span class="op">)</span>,</span>
+<span>    subtitle <span class="op">=</span> <span class="st">"Population (millions)"</span>,</span>
+<span>    caption <span class="op">=</span> <span class="st">"Source: Gapminder"</span></span>
+<span>  <span class="op">)</span></span></code></pre></div>
+<p><img src="cookbook_files/figure-html/chart-titles-y-axi-2-1.svg" width="700"></p>
+<p>In this bar chart image, the y axis title, “Population (millions)”,
+is above and to the right of the y axis.</p>
 </div>
 <div class="section level3">
 <h3 id="wrapping-text">Wrapping text<a class="anchor" aria-label="anchor" href="#wrapping-text"></a>
 </h3>
 <p>If text is too long, it may be cut off or distort the dimensions of
 the chart.</p>
-<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">plot</span> <span class="op">&lt;-</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">pop_bar_data</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/reorder.factor.html" class="external-link">reorder</a></span><span class="op">(</span><span class="va">country</span>, <span class="op">-</span><span class="va">pop</span><span class="op">)</span>, y <span class="op">=</span> <span class="va">pop</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html" class="external-link">geom_col</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">af_colour_values</span><span class="op">[</span><span class="st">"dark-blue"</span><span class="op">]</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/theme_af.html">theme_af</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">scale_y_continuous</a></span><span class="op">(</span>expand <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/expansion.html" class="external-link">expansion</a></span><span class="op">(</span>mult <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0.1</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">scale_y_continuous</a></span><span class="op">(</span>labels <span class="op">=</span> <span class="fu"><a href="https://scales.r-lib.org/reference/label_number.html" class="external-link">label_number</a></span><span class="op">(</span>scale <span class="op">=</span> <span class="fl">1E-6</span><span class="op">)</span>,</span>
+<span>                     expand <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/expansion.html" class="external-link">expansion</a></span><span class="op">(</span>mult <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0.1</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
 <span>    x <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>    subtitle <span class="op">=</span> <span class="st">"Population of countries in the Americas, 2007"</span>,</span>
@@ -854,12 +1090,14 @@ the chart.</p>
 <span>    title <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="st">"The U.S.A. is the most populous country in "</span>,</span>
 <span>                  <span class="st">"the Americas"</span><span class="op">)</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="cookbook_files/figure-html/text-wrap-1-1.svg" alt="A bar chart with end of main title text not visible and long y axis title skewing the dimensions of the chart." width="700"></p>
+<p><img src="cookbook_files/figure-html/text-wrap-1-1.svg" width="700"></p>
+<p>In this bar chart image, the title text is being cut off with only
+part of the text appearing in the image.</p>
 <p>There are two suggested ways to solve this issue; Insert
 <code>\n</code> within a string to force a line break; Use
 <code><a href="https://stringr.tidyverse.org/reference/str_wrap.html" class="external-link">stringr::str_wrap()</a></code> to set a maximum character width of the
 string. See examples of both of these methods as follows:</p>
-<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">plot</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
 <span>    y <span class="op">=</span> <span class="st">"Population\nin millions"</span>,</span>
@@ -869,7 +1107,9 @@ string. See examples of both of these methods as follows:</p>
 <span>      width <span class="op">=</span> <span class="fl">40</span></span>
 <span>    <span class="op">)</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="cookbook_files/figure-html/text-wrap-2-1.svg" alt="A bar chart with main title and y axis title text wrapped onto two lines." width="700"></p>
+<p><img src="cookbook_files/figure-html/text-wrap-2-1.svg" width="700"></p>
+<p>In this bar chart image, the y axis label and chart title text have
+been wrapped onto two lines so that all the text is visible.</p>
 </div>
 <div class="section level3">
 <h3 id="adjusting-theme-elements">Adjusting theme elements<a class="anchor" aria-label="anchor" href="#adjusting-theme-elements"></a>
@@ -879,7 +1119,7 @@ can be done using <code><a href="https://ggplot2.tidyverse.org/reference/theme.h
 after the call to <code><a href="../reference/theme_af.html">theme_af()</a></code>, otherwise
 <code><a href="../reference/theme_af.html">theme_af()</a></code> may overwrite the specifications you’ve
 made.</p>
-<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">pop_bar_data</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/reorder.factor.html" class="external-link">reorder</a></span><span class="op">(</span><span class="va">country</span>, <span class="op">-</span><span class="va">pop</span><span class="op">)</span>, y <span class="op">=</span> <span class="va">pop</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html" class="external-link">geom_col</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">af_colour_values</span><span class="op">[</span><span class="st">"dark-blue"</span><span class="op">]</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/theme_af.html">theme_af</a></span><span class="op">(</span>axis <span class="op">=</span> <span class="st">"xy"</span><span class="op">)</span> <span class="op">+</span></span>
@@ -894,21 +1134,22 @@ made.</p>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
 <span>    x <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>    y <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>    title <span class="op">=</span> <span class="fu">stringr</span><span class="fu">::</span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_wrap.html" class="external-link">str_wrap</a></span><span class="op">(</span></span>
-<span>      <span class="st">"The U.S.A. is the most populous country in the Americas"</span>,</span>
-<span>      <span class="fl">40</span></span>
-<span>    <span class="op">)</span>,</span>
-<span>    subtitle <span class="op">=</span> <span class="st">"Population of countries in the Americas (millions), 2007"</span>,</span>
-<span>    caption <span class="op">=</span> <span class="st">"Source: Gapminder"</span></span>
+<span>    y <span class="op">=</span> <span class="cn">NULL</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="cookbook_files/figure-html/adjust-theme-1.svg" alt="A bar chart using afcharts theme and dark blue colour, with axis lines and ticks coloured black." width="700"></p>
+<div class="chart-title">
+The U.S.A. is the most populous country in the Americas
+</div>
+<div class="chart-subtitle">
+Population of countries in the Americas (millions), 2007
+</div>
+<p><img src="cookbook_files/figure-html/unnamed-chunk-62-1.svg" width="700"></p>
+<p>This bar chart uses the afcharts theme. The bars are dark blue, with
+axis lines and ticks coloured black as opposed to the default
+<code>theme_af</code> grey.</p>
 <p>You may also consider using markdown or HTML formatted text within
 your charts. This can be readily achieved with
-<code><a href="https://wilkelab.org/ggtext/reference/element_markdown.html" class="external-link">ggtext::element_markdown()</a></code>. Please refer to Analysis
-Function guidance in considering the accessibility of custom formatting,
-such as when using colours.</p>
-<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
+<code><a href="https://wilkelab.org/ggtext/reference/element_markdown.html" class="external-link">ggtext::element_markdown()</a></code>.</p>
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">ann_data</span> <span class="op">&lt;-</span> <span class="va">gapminder</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">country</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"United Kingdom"</span>, <span class="st">"China"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
@@ -950,7 +1191,11 @@ such as when using colours.</p>
 <span>    caption <span class="op">=</span> <span class="st">"Source: Gapminder"</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span>plot.subtitle <span class="op">=</span> <span class="fu"><a href="https://wilkelab.org/ggtext/reference/element_markdown.html" class="external-link">element_markdown</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<p><img src="cookbook_files/figure-html/html-formatting-1.svg" alt="A line chart using the afcharts theme with coloured text in the subtitle corresponding to the line colours." width="700"></p>
+<p><img src="cookbook_files/figure-html/html-formatting-1.svg" width="700"></p>
+<p>In this line chart image, the word ‘China’ and ‘United Kingdom’ in
+the subtitle and label text have been set to correspond to their line
+colours. Please refer to Analysis Function guidance in considering the
+accessibility of custom formatting.</p>
 </div>
 </div>
 <div class="section level2">
@@ -973,7 +1218,7 @@ palette</a> for continuous colour/fill functions.</p>
 <code><a href="../reference/af_colour_palettes.html">afcharts::af_colour_palettes</a></code>.</p>
 <p>For example, to use the Analysis Function <code>main2</code>
 palette:</p>
-<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">gapminder</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">country</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"United Kingdom"</span>, <span class="st">"China"</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">year</span>, y <span class="op">=</span> <span class="va">lifeExp</span>, colour <span class="op">=</span> <span class="va">country</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
@@ -989,12 +1234,17 @@ palette:</p>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
 <span>    x <span class="op">=</span> <span class="st">"Year"</span>,</span>
 <span>    y <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>    title <span class="op">=</span> <span class="st">"Living Longer"</span>,</span>
-<span>    subtitle <span class="op">=</span> <span class="st">"Life Expectancy in the United Kingdom and China 1952-2007"</span>,</span>
-<span>    caption <span class="op">=</span> <span class="st">"Source: Gapminder"</span>,</span>
 <span>    colour <span class="op">=</span> <span class="cn">NULL</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="cookbook_files/figure-html/af-palette-1.svg" alt="A multiple line chart using afcharts theme and AF main colour palette." width="700"></p>
+<div class="chart-title">
+Living Longer
+</div>
+<div class="chart-subtitle">
+Life Expectancy in the United Kingdom and China 1952-2007
+</div>
+<p><img src="cookbook_files/figure-html/unnamed-chunk-87-1.svg" width="700"></p>
+<p>This line chart uses the afcharts theme and the Analysis Function
+main palette, with one line in dark blue and one in orange.</p>
 </div>
 <div class="section level3">
 <h3 id="using-your-own-colour-palette">Using your own colour palette<a class="anchor" aria-label="anchor" href="#using-your-own-colour-palette"></a>
@@ -1005,7 +1255,7 @@ to ensure it meets accessibility requirements. The Government Analysis
 Function guidance outlines <a href="https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-colours-in-charts/#section-9" class="external-link">appropriate
 steps for choosing your own accessible colour palette</a> and should be
 used.</p>
-<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">my_palette</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"#0F820D"</span>, <span class="st">"#000000"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">gapminder</span> <span class="op">|&gt;</span></span>
@@ -1022,12 +1272,17 @@ used.</p>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
 <span>    x <span class="op">=</span> <span class="st">"Year"</span>,</span>
 <span>    y <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>    title <span class="op">=</span> <span class="st">"Living Longer"</span>,</span>
-<span>    subtitle <span class="op">=</span> <span class="st">"Life Expectancy in the United Kingdom 1952-2007"</span>,</span>
-<span>    caption <span class="op">=</span> <span class="st">"Source: Gapminder"</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="cookbook_files/figure-html/different-colour-palette-1-1.svg" alt="A line chart using afcharts theme and first colour from custom palette." width="700"></p>
-<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
+<div class="chart-title">
+Living Longer
+</div>
+<div class="chart-subtitle">
+Life Expectancy in the United Kingdom 1952-2007
+</div>
+<p><img src="cookbook_files/figure-html/unnamed-chunk-88-1.svg" width="700"></p>
+<p>This line chart uses the afcharts theme with a single green line.</p>
+<p>Alternatively, you may wish to use multiple custom colours:</p>
+<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">gapminder</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">country</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"United Kingdom"</span>, <span class="st">"China"</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">year</span>, y <span class="op">=</span> <span class="va">lifeExp</span>, colour <span class="op">=</span> <span class="va">country</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
@@ -1043,12 +1298,17 @@ used.</p>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
 <span>    x <span class="op">=</span> <span class="st">"Year"</span>,</span>
 <span>    y <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>    title <span class="op">=</span> <span class="st">"Living Longer"</span>,</span>
-<span>    subtitle <span class="op">=</span> <span class="st">"Life Expectancy in the United Kingdom and China 1952-2007"</span>,</span>
-<span>    caption <span class="op">=</span> <span class="st">"Source: Gapminder"</span>,</span>
 <span>    colour <span class="op">=</span> <span class="cn">NULL</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="cookbook_files/figure-html/different-colour-palette-2-1.svg" alt="A multiple line chart using afcharts theme and colours from custom palette." width="700"></p>
+<div class="chart-title">
+Living Longer
+</div>
+<div class="chart-subtitle">
+Life Expectancy in the United Kingdom and China 1952-2007
+</div>
+<p><img src="cookbook_files/figure-html/unnamed-chunk-89-1.svg" width="700"></p>
+<p>This line chart uses the afcharts theme. One line is green and the
+other is black.</p>
 <div class="section level4">
 <h4 id="adding-a-new-colour-palette-to-afcharts">Adding a new colour palette to afcharts<a class="anchor" aria-label="anchor" href="#adding-a-new-colour-palette-to-afcharts"></a>
 </h4>
@@ -1066,6 +1326,7 @@ package, written by Alice Hannah.</p>
 <p>This cookbook and the examples it contains have been inspired by the
 <a href="https://bbc.github.io/rcookbook/" class="external-link">BBC Visual and Data
 Journalism cookbook for R graphics</a> and their <a href="https://github.com/bbc/bbplot" class="external-link">bbplot</a> package.</p>
+<p>The data used throughout the cookbook is from <a href="https://CRAN.R-project.org/package=gapminder" class="external-link">gapminder</a>.</p>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>
