@@ -75,16 +75,18 @@ last_plot() +
 <<axis-limits-breaks-labels-custom>>
 ```
 
-This horizonal bar chart uses the afcharts theme and shows the populations of five countries. The country names are given on the y axis, and all the bars are in blue. The x axis is labeled every 100 from zero to 420. The x axis label indicates that population is reported in millions.
+This horizonal bar chart uses the afcharts theme and shows the populations of five countries. The country names are given on the y axis, and all the bars are in blue. The x axis is labeled every 100 from zero to 400. The x axis label indicates that population is reported in millions.
 
-Adaptive axis limits and break for `scale_x/y_continuous()` can be defined using the `pretty()` function. This defines breaks that are equally spaced ‘round’ values which cover the range of the data and limits that are the next 'round' value just exceeding the range of the data. Setting the limits with a custom `limits_pretty()` function ensures the highest gridline value is above the maximum value of the data.
+Adaptive axis limits and break for `scale_x/y_continuous()` can be defined using the `pretty()` function. This defines breaks that are equally spaced ‘round’ values which cover the range of the data and limits that are the next 'round' value just exceeding the range of the data. Setting the limits manually based on the range of the calculated breaks ensures the highest gridline value is above the maximum value of the data.
 
 ```{r axis-limits-breaks-labels-fct, eval = FALSE}
-limits_pretty <- function(x) range(pretty(x))
+
+breaks_pretty <- pretty(pop_bar_data$pop)
+limits_pretty <- range(breaks_pretty)
 
 last_plot() +
   scale_x_continuous(
-    breaks = pretty,
+    breaks = breaks_pretty,
     labels = label_number(scale = 1E-6),
     limits = limits_pretty,
     expand = expansion(mult = c(0, 0.2))
@@ -101,7 +103,7 @@ last_plot() +
 <<axis-limits-breaks-labels-fct>>
 ```
 
-This horizonal bar chart uses the afcharts theme and shows the populations of five countries. The country names are given on the y axis, and all the bars are in blue. The x axis is labeled every 100 from zero to 400. The x axis label indicates that population is reported in millions.
+This horizonal bar chart uses the afcharts theme and shows the populations of five countries. The country names are given on the y axis, and all the bars are in blue. The x axis is labeled every 50 from zero to 350. The x axis label indicates that population is reported in millions.
 
 ### Formatting labels
 
@@ -130,7 +132,8 @@ stacked_bar_data |>
 <<using-scales>>
 ```
 
-This stacked bar uses the afcharts theme. The y axis is labelled from 0% to 100% every 25%, with light grey grid lines and tick marks going horizontally from the y axis. The top grid line is thinner than the others.
+This stacked bar uses the afcharts theme. The y axis is labelled from every 25 from 0 to 100 percent, with light grey grid lines and tick marks going horizontally from the y axis. 
+
 
 ### Avoiding axis/grid lines being cut off
 
@@ -202,12 +205,11 @@ population_chart +
   )
 ```
 
-In the chart image, the title gives a data insight and is presented in large bold text at the top. This is followed by smaller text giving a brief description of the data. In the bottom left of the image is a data citation as a caption.
+In the bar chart image, the title gives a data insight and is presented in large bold text at the top. This is followed by smaller text giving a brief description of the data. In the bottom left of the image is a data citation as a caption.
 
 The y-axis title should be horizontal, not vertical. The position can sometimes look odd, especially for longer titles. You can use the plot subtitle as a description of the y-axis and set the y-axis title to `NULL`.
 
 ```{r chart-titles-yaxis-1}
-#| fig.alt = "A bar chart with title, y-axis title and caption. The x-axis title has been removed."
 
 ggplot(pop_bar_data, aes(x = reorder(country, -pop), y = pop)) +
   geom_col(fill = af_colour_values["dark-blue"]) +
@@ -228,8 +230,9 @@ ggplot(pop_bar_data, aes(x = reorder(country, -pop), y = pop)) +
   )
 ```
 
+In this bar chart image, the y axis title, "Population (millions)", is to the left of the top of the y axis.
+
 ```{r chart-titles-y-axi-2}
-#| fig.alt = "A bar chart with title, subtitle and caption. The y axis title has been set using the subtitle."
 
 ggplot(pop_bar_data, aes(x = reorder(country, -pop), y = pop)) +
   geom_col(fill = af_colour_values["dark-blue"]) +
@@ -251,6 +254,7 @@ ggplot(pop_bar_data, aes(x = reorder(country, -pop), y = pop)) +
   )
 ```
 
+In this bar chart image, the y axis title, "Population (millions)", is above and to the right of the y axis.
 
 ### Wrapping text
 
@@ -277,7 +281,7 @@ plot +
   )
 ```
 
-In this chart image, the title text is being cut off with only part of the text appearing in the image.
+In this bar chart image, the title text is being cut off with only part of the text appearing in the image.
 
 There are two suggested ways to solve this issue; Insert `\n` within a string to force a line break; Use `stringr::str_wrap()` to set a maximum character width of the string. See examples of both of these methods as follows:
 
@@ -293,7 +297,7 @@ plot +
   )
 ```
 
-In this chart image, the y axis label and graph title text have been wrapped onto two lines so that all the text is visible.
+In this bar chart image, the y axis label and graph title text have been wrapped onto two lines so that all the text is visible.
 
 
 ### Adjusting theme elements
@@ -374,5 +378,5 @@ ann_data |>
   theme(plot.subtitle = element_markdown())
 ```
 
-In this chart image, the subtitle and label text have been set to correspond to the line colours as a demonstration. Please refer to Analysis Function guidance in considering the accessibility of custom formatting.
+In this line chart image, the word 'China' and 'United Kingdom' in the subtitle and label text have been set to correspond to their line colours. Please refer to Analysis Function guidance in considering the accessibility of custom formatting.
 

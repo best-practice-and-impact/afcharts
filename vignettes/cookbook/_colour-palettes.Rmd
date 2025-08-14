@@ -74,7 +74,7 @@ gapminder |>
 <<different-colour-palette-1>>
 ```
 
-This chart uses the afcharts theme with a single green line.
+This line chart uses the afcharts theme with a single green line.
 
 Alternatively, you may wish to use multiple custom colours:
 

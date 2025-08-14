@@ -391,4 +391,3 @@ plotly::ggplotly(p, tooltip = "text") |>
 
 This is an interactive bar chart using the afcharts theme, showing the populations of the five most populous countries in the Americas. The bars are dark blue. A tooltip appears when hovering over each bar with the cursor, which shows a matching dark blue box with the country and population displayed in white text.
 
-afcharts currently only works with `ggplot2` charts, however there are plans to develop the package further to support interactive Highcharts produced using the [`highcharter`](https://jkunst.com/highcharter/) package.
