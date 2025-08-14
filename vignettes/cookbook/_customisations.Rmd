@@ -132,7 +132,7 @@ stacked_bar_data |>
 <<using-scales>>
 ```
 
-This stacked bar uses the afcharts theme. The y axis is labelled from every 25 from 0 to 100 percent, with light grey grid lines and tick marks going horizontally from the y axis. 
+This stacked bar uses the afcharts theme. The y axis is labelled every 25 from 0 to 100 percent, with light grey grid lines and tick marks going horizontally from the y axis. 
 
 
 ### Avoiding axis/grid lines being cut off
@@ -185,7 +185,7 @@ gapminder |>
 <<add-a-line>>
 ```
 
-This line graph uses the afcharts theme. There is a solid dark blue line trending upwards, and a dashed teal line horizontal to 75 on the y-axis. There are also pale grey grid lines extending from regular intervals on the y axis.
+This line chart uses the afcharts theme. There is a solid dark blue line trending upwards, and a dashed teal line horizontal to 75 on the y-axis. There are also pale grey grid lines extending from regular intervals on the y axis.
 
 ### Embedding chart titles
 
@@ -297,7 +297,7 @@ plot +
   )
 ```
 
-In this bar chart image, the y axis label and graph title text have been wrapped onto two lines so that all the text is visible.
+In this bar chart image, the y axis label and chart title text have been wrapped onto two lines so that all the text is visible.
 
 
 ### Adjusting theme elements
