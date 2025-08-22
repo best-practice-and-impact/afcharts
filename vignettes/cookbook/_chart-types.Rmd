@@ -1,10 +1,6 @@
 ## Line charts
-
 ### Line chart with one line
-
-```{r line-charts-1}
-#| fig.alt = "A line chart using afcharts theme and dark blue colour."
-
+```{r line-charts-1, eval = FALSE}
 gapminder |>
   filter(country == "United Kingdom") |>
   ggplot(aes(x = year, y = lifeExp)) +
@@ -18,18 +14,21 @@ gapminder |>
   scale_x_continuous(breaks = seq(1952, 2007, 5)) +
   labs(
     x = "Year",
-    y = NULL,
-    title = "Living Longer",
-    subtitle = "Life Expectancy in the United Kingdom 1952-2007",
-    caption = "Source: Gapminder"
+    y = NULL
   )
 ```
 
+<div class="chart-title">Living Longer</div>
+<div class="chart-subtitle">Life Expectancy in the United Kingdom 1952-2007</div>
+```{r echo = FALSE}
+<<line-charts-1>>
+```
+
+This line chart uses the afcharts theme. There are pale grey grid lines extending from the y axis, and there is a thicker dark blue line representing the data.
+
 ### Line chart with multiple lines
 
-```{r line-charts-2, fig.height = 5}
-#| fig.alt = "A multiple line chart using afcharts theme and main colour palette."
-
+```{r line-charts-2, eval = FALSE}
 gapminder |>
   filter(country %in% c("United Kingdom", "China")) |>
   ggplot(aes(x = year, y = lifeExp, colour = country)) +
@@ -45,15 +44,19 @@ gapminder |>
   labs(
     x = "Year",
     y = NULL,
-    title = "Living Longer",
-    subtitle = "Life Expectancy in the United Kingdom and China 1952-2007",
-    caption = "Source: Gapminder",
     colour = NULL
   )
 ```
 
-An example with line labels and no legend can be found in the [Adding annotations](#adding-annotations) section.
+<div class="chart-title">Living Longer</div>
+<div class="chart-subtitle">Life Expectancy in the United Kingdom and China 1952-2007</div>
+```{r, fig.height = 5, echo = FALSE}
+<<line-charts-2>>
+```
 
+This line chart uses the afcharts theme and there are thin pale grey lines extending from the y axis. There are two thicker lines showing the life expectancy in the UK and China over time. The line colours are from the main Analysis Function palette - dark blue for China and orange for the UK, denoted by a legend at the bottom of the chart.
+
+Legends should be avoided unless absolutely necessary, as these usually rely on using colour to match labels to data. More information can be found in the Analysis Function [charts guidance](https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-charts/#section-11). It is best practice to label lines directly, and an example of this can be found in the [annotations](#annotations) section.
 
 ## Bar charts
 
@@ -63,9 +66,7 @@ pop_bar_data <- gapminder |>
   slice_max(order_by = pop, n = 5)
 ```
 
-```{r bar-chart-1}
-#| fig.alt = "A bar chart using afcharts theme and dark blue colour."
-
+```{r bar-charts-1, eval = FALSE}
 ggplot(pop_bar_data, aes(x = reorder(country, -pop), y = pop)) +
   geom_col(fill = af_colour_values["dark-blue"]) +
   theme_af() +
@@ -77,20 +78,20 @@ ggplot(pop_bar_data, aes(x = reorder(country, -pop), y = pop)) +
   labs(
     x = NULL,
     y = NULL,
-    title = stringr::str_wrap(
-      "The U.S.A. is the most populous country in the Americas",
-      40
-    ),
-    subtitle = "Population of countries in the Americas (millions), 2007",
-    caption = "Source: Gapminder"
   )
 ```
 
-A bar chart can sometimes look better with horizontal bars. This can also be a good option if your bar labels are long and difficult to display horizontally on the x axis. To produce a horizontal bar chart, swap the variables defined for x and y in `aes()` and make a few tweaks to `theme_af()`; draw grid lines for the x axis only by setting the `grid` argument, and draw an axis line for the y axis only by setting the `axis` argument.
+<div class="chart-title">The U.S.A. is the most populous country in the Americas</div>
+<div class="chart-subtitle">Population of countries in the Americas (millions), 2007</div>
+```{r, echo = FALSE}
+<<bar-charts-1>>
+```
 
-```{r bar-chart-2}
-#| fig.alt = "A horizontal bar chart using afcharts theme and dark blue colour."
+This bar chart uses the afcharts theme, and shows the populations of the five most populous countries in the Americas. Each bar is dark blue and labelled by country underneath. All text is black in a sans serif font. Pale grey grid lines extend out from the y axis.
 
+A bar chart can sometimes be easier to interpret with horizontal bars. This can also be a good option if your bar labels are long and difficult to display on the x axis. To produce a horizontal bar chart, swap the variables defined for x and y in `aes()` and make a few tweaks to `theme_af()`; draw grid lines for the x axis only by setting the `grid` argument, and draw an axis line for the y axis only by setting the `axis` argument.
+
+```{r bar-charts-2, eval = FALSE}
 ggplot(pop_bar_data, aes(x = pop, y = reorder(country, pop))) +
   geom_col(fill = af_colour_values["dark-blue"]) +
   theme_af(grid = "x", axis = "y") +
@@ -102,23 +103,23 @@ ggplot(pop_bar_data, aes(x = pop, y = reorder(country, pop))) +
   labs(
     x = NULL,
     y = NULL,
-    title = stringr::str_wrap(
-      "The U.S.A. is the most populous country in the Americas",
-      40
-    ),
-    subtitle = "Population of countries in the Americas (millions), 2007",
-    caption = "Source: Gapminder"
   )
 ```
 
+<div class="chart-title">The U.S.A. is the most populous country in the Americas</div>
+<div class="chart-subtitle">Population of countries in the Americas (millions), 2007</div>
+
+``` {r, echo = FALSE}
+<<bar-charts-2>>
+```
+
+This bar chart uses the afcharts theme and displays the populations of the five most populous countries in the Americas. The country names are displayed on the y axis, with the bars extending from left to right. Each bar is dark blue, and pale grey grid lines extend up from the x axis.
 
 ### Grouped bar chart
 
 To create a grouped bar chart, set `stat = "identity"` and `position = "dodge"` in the call to `geom_bar()`. Also assign a variable to `fill` within `aes()` to determine what variable is used to create bars within groups. The `legend` argument in `theme_af()` can be used to set the position of the legend.
 
-```{r grouped-bar-chart, fig.height = 5.5}
-#| fig.alt = "A grouped bar chart using afcharts theme and colours from main palette"
-
+```{r grouped-bar-chart, eval=FALSE}
 grouped_bar_data <-
   gapminder |>
   filter(
@@ -142,12 +143,18 @@ ggplot(
   labs(
     x = "Country",
     y = NULL,
-    fill = NULL,
-    title = "Living longer",
-    subtitle = "Difference in life expectancy, 1967-2007",
-    caption = "Source: Gapminder"
+    fill = NULL
   )
 ```
+
+<div class="chart-title">Living longer</div>
+<div class="chart-subtitle">Difference in life expectancy, 1967-2007</div>
+
+```{r, fig.height = 5.5, echo=FALSE}
+<<grouped-bar-chart>>
+```
+
+This grouped bar chart uses the afcharts theme. It shows the life expectancy in 1967 and 2007 for four countries, which are displayed on the x axis. For each country there are two bars. The bar colours are from the main Analysis Function palette - dark blue for 1967 and orange for 2007, denoted by a legend at the bottom of the chart.
 
 ### Stacked bar chart
 
@@ -155,9 +162,7 @@ To create a stacked bar chart, set `stat = "identity` and `position = "fill"` in
 
 Caution should be taken when producing stacked bar charts. They can quickly become difficult to interpret if plotting non part-to-whole data, and/or if plotting more than two categories per stack. First and last categories in the stack will always be easier to compare across bars than those in the middle. Think carefully about the story you are trying to tell with your chart.
 
-```{r stacked-bar-chart, fig.height = 5.5}
-#| fig.alt = "A stacked bar chart using afcharts theme and colours from main palette"
-
+```{r stacked-bar-chart, eval = FALSE}
 stacked_bar_data <-
   gapminder |>
   filter(year == 2007) |>
@@ -187,18 +192,20 @@ ggplot(
     x = NULL,
     y = NULL,
     fill = "Life Expectancy",
-    title = "How life expectancy varies across continents",
-    subtitle = "Percentage of countries by life expectancy band, 2007",
-    caption = "Source: Gapminder"
   )
 ```
 
+<div class="chart-title">How life expectancy varies across continents</div>
+<div class="chart-subtitle">Percentage of countries by life expectancy band, 2007</div>
+```{r, fig.height = 5.5, echo = FALSE}
+<<stacked-bar-chart>>
+```
+
+This stacked bar chart uses the afcharts theme and shows the proportions of countries with a life expectancy over and under 75 by continent. The continents are listed along the x axis, with the y axis labelled between 0% and 100% in breaks of 25%. The colours for the bar segments are from the main Analysis Function palette - dark blue for under 75 and orange for over 75, denoted by a legend at the bottom of the chart. There is whitespace between each bar.
 
 ## Histograms
 
-```{r histogram}
-#| fig.alt = "A histogram with afcharts theme and dark blue colour."
-
+```{r histogram, eval = FALSE}
 gapminder |>
   filter(year == 2007) |>
   ggplot(aes(x = lifeExp)) +
@@ -216,18 +223,19 @@ gapminder |>
   labs(
     x = NULL,
     y = "Number of \ncountries",
-    title = "How life expectancy varies",
-    subtitle = "Distribution of life expectancy, 2007",
-    caption = "Source: Gapminder"
   )
 ```
+<div class="chart-title">How life expectancy varies</div>
+<div class="chart-subtitle">Distribution of life expectancy, 2007</div>
+```{r, echo = FALSE}
+<<histogram>>
+```
 
+This histogram uses the afcharts theme, and shows the distribution of life expectancy by number of countries. There are pale grey grid lines extending out from the y axis. The bars are dark blue with white space between each.
 
 ## Scatterplots
 
-```{r scatterplot, fig.height = 5}
-#| fig.alt = "A scatterplot using afcharts theme and dark blue colour."
-
+```{r scatterplot, eval = FALSE}
 gapminder |>
   filter(year == 2007) |>
   ggplot(aes(x = gdpPercap, y = lifeExp)) +
@@ -237,21 +245,21 @@ gapminder |>
   labs(
     x = "GDP (US$, inflation-adjusted)",
     y = "Life\nExpectancy",
-    title = stringr::str_wrap(
-      "The relationship between GDP and Life Expectancy is complex",
-      40
-    ),
-    subtitle = "GDP and Life Expectancy for all countires, 2007",
-    caption = "Source: Gapminder"
   )
 ```
 
+<div class="chart-title">The relationship between GDP and Life Expectancy is complex</div>
+<div class="chart-subtitle">GDP and Life Expectancy for all countries, 2007</div>
+
+```{r, fig.height = 5, echo = FALSE}
+<<scatterplot>>
+```
+
+This scatterplot uses the afcharts theme, and shows life expectancy against GDP for all countries. Thin pale grey lines extend out from the x and y axis labels, forming a grid. The data points are plotted as dark blue circles. Both axes are labeled in black using a sans serif font.
 
 ## Small multiples
 
-```{r small-multiples, fig.height = 5.5}
-#| fig.alt = "A small multiples area chart using afcharts theme and main colour palette."
-
+```{r small-multiples, eval = FALSE}
 gapminder |>
   filter(continent != "Oceania") |>
   group_by(continent, year) |>
@@ -270,18 +278,21 @@ gapminder |>
   labs(
     x = NULL,
     y = NULL,
-    title = "Asia's rapid growth",
-    subtitle = "Population growth by continent, 1952-2007",
-    caption = "Source: Gapminder"
   )
 ```
 
+<div class="chart-title">Asia's rapid growth</div>
+<div class="chart-subtitle">Population growth by continent, 1952-2007</div>
+
+```{r, fig.height = 5.5, echo = FALSE}
+<<small-multiples>>
+```
+
+This chart uses the afcharts theme. It contains four subplots in a two by two grid showing how the populations of four continents have changed over time. Each subplot is labelled with the continent. The subplots have a common y axis, with no values on the x axis to facilitate for a simple comparison of the relative values. Each subplot is filled with a different colour from the Analysis Function categorical colour palette to be distinct from other subplots.
 
 ## Pie charts
 
-```{r pie-chart}
-#| fig.alt = "A pie chart using afcharts theme and main palette."
-
+```{r pie-chart, eval = FALSE}
 stacked_bar_data |>
   filter(continent == "Europe") |>
   ggplot(aes(x = "", y = n_countries, fill = lifeExpGrouped)) +
@@ -294,19 +305,20 @@ stacked_bar_data |>
     x = NULL,
     y = NULL,
     fill = NULL,
-    title = "How life expectancy varies in Europe",
-    subtitle = "Percentage of countries by life expectancy band, 2007",
-    caption = "Source: Gapminder"
   )
-
 ```
 
+<div class="chart-title">How life expectancy varies in Europe</div>
+<div class="chart-subtitle">Percentage of countries by life expectancy band, 2007</div>
+```{r, echo = FALSE}
+<<pie-chart>>
+```
+
+This pie chart uses the afcharts theme, showing the proportions of European countries with a life expectancy under and over 75. The segment colours are from the Analysis Function main palette, with the smaller under 75 segment in dark blue, and the larger over 75 segment in orange. This is indicated by a legend to the right of the pie chart. There is whitespace separating the segments from each other.
 
 ## Focus charts
 
-```{r focus-chart}
-#| fig.alt = "A bar chart with the bar for Brazil highlighted in dark blue and other bars in grey."
-
+```{r focus-chart, eval = FALSE}
 pop_bar_data |>
   ggplot(aes(x = reorder(country, -pop), y = pop, fill = country == "Brazil")) +
   geom_col() +
@@ -320,15 +332,17 @@ pop_bar_data |>
   labs(
     x = NULL,
     y = NULL,
-    title = stringr::str_wrap(
-      "Brazil has the second highest population in the Americas",
-      40
-    ),
-    subtitle = "Population of countries in the Americas (millions), 2007",
-    caption = "Source: Gapminder"
   )
 ```
 
+<div class="chart-title">Brazil has the second highest population in the Americas</div>
+<div class="chart-subtitle">Population of countries in the Americas (millions), 2007</div>
+
+``` {r, echo = FALSE}
+<<focus-chart>>
+```
+
+This bar chart uses the afcharts theme, and shows the populations of five countries of the Americas in descending order. The country names are given on the x axis, with all chart text in black in a sans serif font. Four of the bars on the chart are light grey, and the bar for Brazil is filled in dark blue to highlight it.
 
 ## Interactive charts
 
@@ -336,11 +350,9 @@ To make a `ggplot2` chart interactive, use `ggplotly()` from the `plotly` packag
 
 * afcharts uses the 'sans' font family, however `plotly` does not recognise this font. To work around this you should add a further call to `theme` to set the font family for text to `""`. 
 
-* Subtitles and captions are not supported in `ggplotly()`. As stated elsewhere in this guidance, titles and subtitles should ideally be included in the body of text surrounding a chart rather than embedded in the chart itself, and so this is hopefully not a big issue. This example therefore has no title, subtitle or caption.
+* Subtitles and captions are not supported in `ggplotly()`. As stated elsewhere in this guidance, titles and subtitles should ideally be included in the body of text surrounding a chart rather than embedded in the chart itself, and so this is hopefully not a big issue.
 
-```{r interactive-charts}
-#| fig.alt = "An interactive bar chart using afcharts theme and dark blue colour. A tooltip appears when hovering over each bar."
-
+```{r interactive-charts, eval = FALSE}
 p <-
   pop_bar_data |>
   # Format text for tooltips
@@ -361,7 +373,7 @@ p <-
   ) +
   labs(
     x = NULL,
-    y = "Population (millions)"
+    y = NULL
   )
 
 plotly::ggplotly(p, tooltip = "text") |>
@@ -370,5 +382,12 @@ plotly::ggplotly(p, tooltip = "text") |>
     displaylogo = FALSE
   )
 ```
+<div class="chart-title">The U.S.A. is the most populous country in the Americas</div>
+<div class="chart-subtitle">Population of countries in the Americas (millions), 2007</div>
 
-afcharts currently only works with `ggplot2` charts, however there are plans to develop the package further to support interactive Highcharts produced using the [`highcharter`](https://jkunst.com/highcharter/) package.
+```{r, echo = FALSE}
+<<interactive-charts>>
+```
+
+This is an interactive bar chart using the afcharts theme, showing the populations of the five most populous countries in the Americas. The bars are dark blue. A tooltip appears when hovering over each bar with the cursor, which shows a matching dark blue box with the country and population displayed in white text.
+

@@ -8,16 +8,13 @@ The [main palette](https://best-practice-and-impact.github.io/afcharts/articles/
 
 More information on the colours used in afcharts can be found at `vignette("colours")`.
 
-
 ### Using afcharts colour palettes
 
 The full list of available palettes can be found by running `afcharts::af_colour_palettes`.
 
 For example, to use the Analysis Function `main2` palette:
 
-```{r af-palette, fig.height = 5}
-#| fig.alt = "A multiple line chart using afcharts theme and AF main colour palette."
-
+```{r af-palette, eval = FALSE}
 gapminder |>
   filter(country %in% c("United Kingdom", "China")) |>
   ggplot(aes(x = year, y = lifeExp, colour = country)) +
@@ -33,13 +30,17 @@ gapminder |>
   labs(
     x = "Year",
     y = NULL,
-    title = "Living Longer",
-    subtitle = "Life Expectancy in the United Kingdom and China 1952-2007",
-    caption = "Source: Gapminder",
     colour = NULL
   )
 ```
 
+<div class="chart-title">Living Longer</div>
+<div class="chart-subtitle">Life Expectancy in the United Kingdom and China 1952-2007</div>
+```{r, fig.height = 5, echo = FALSE}
+<<af-palette>>
+```
+
+This line chart uses the afcharts theme and the Analysis Function main palette, with one line in dark blue and one in orange.
 
 ### Using your own colour palette
 
@@ -47,9 +48,7 @@ There may be instances where you'd like to use a colour palette that is not avai
 If so, this should be carefully considered to ensure it meets accessibility requirements. 
 The Government Analysis Function guidance outlines [appropriate steps for choosing your own accessible colour palette](https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-colours-in-charts/#section-9) and should be used.
 
-```{r different-colour-palette-1}
-#| fig.alt = "A line chart using afcharts theme and first colour from custom palette."
-
+```{r different-colour-palette-1, eval = FALSE}
 my_palette <- c("#0F820D", "#000000")
 
 gapminder |>
@@ -66,15 +65,20 @@ gapminder |>
   labs(
     x = "Year",
     y = NULL,
-    title = "Living Longer",
-    subtitle = "Life Expectancy in the United Kingdom 1952-2007",
-    caption = "Source: Gapminder"
   )
 ```
 
-```{r different-colour-palette-2, fig.height = 5.5}
-#| fig.alt = "A multiple line chart using afcharts theme and colours from custom palette."
+<div class="chart-title">Living Longer</div>
+<div class="chart-subtitle">Life Expectancy in the United Kingdom 1952-2007</div>
+```{r, echo = FALSE}
+<<different-colour-palette-1>>
+```
 
+This line chart uses the afcharts theme with a single green line.
+
+Alternatively, you may wish to use multiple custom colours:
+
+```{r different-colour-palette-2, eval = FALSE}
 gapminder |>
   filter(country %in% c("United Kingdom", "China")) |>
   ggplot(aes(x = year, y = lifeExp, colour = country)) +
@@ -90,12 +94,17 @@ gapminder |>
   labs(
     x = "Year",
     y = NULL,
-    title = "Living Longer",
-    subtitle = "Life Expectancy in the United Kingdom and China 1952-2007",
-    caption = "Source: Gapminder",
     colour = NULL
   )
 ```
+
+<div class="chart-title">Living Longer</div>
+<div class="chart-subtitle">Life Expectancy in the United Kingdom and China 1952-2007</div>
+```{r, fig.height = 5.5, echo = FALSE}
+<<different-colour-palette-2>>
+```
+
+This line chart uses the afcharts theme. One line is green and the other is black.
 
 
 #### Adding a new colour palette to afcharts
