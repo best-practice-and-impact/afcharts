@@ -1,7 +1,8 @@
 #' @title Continuous colour fill scales for Analysis Function plots
 #'
-#' @param palette Name of palette to use; e.g. "main", "sequential", "focus."
-#'   Default value is "sequential".
+#' @param palette Name of palette to use from `af_colour_palettes`; e.g.
+#'   `"categorical"`, `"sequential"`, `"focus"`. Default value is
+#'   `"sequential"`.
 #' @param palette_type Currently only the Analysis Function palettes are
 #'   supported. Defaults to "af".
 #' @param reverse Boolean value to indicate whether the palette should be

@@ -1,7 +1,7 @@
 #' @title Create `gt` table of colour palette
 #'
 #' @param pal Named vector of colour palette;
-#' e.g. `afcharts::af_colour_palettes[["main"]]`
+#' e.g. `afcharts::af_colour_palettes[["categorical"]]`
 #'
 #' @return An object of class `gt_tbl`.
 #'

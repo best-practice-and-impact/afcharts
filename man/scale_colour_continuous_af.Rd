@@ -14,8 +14,9 @@ scale_colour_continuous_af(
 )
 }
 \arguments{
-\item{palette}{Name of palette to use; e.g. "main", "sequential", "focus".
-Default value is "sequential".}
+\item{palette}{Name of palette to use from \code{af_colour_palettes}; e.g.
+\code{"categorical"}, \code{"sequential"}, \code{"focus"}. Default value is
+\code{"sequential"}.}
 
 \item{palette_type}{Currently only the Analysis Function palettes are
 supported. Defaults to "af".}

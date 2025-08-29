@@ -4,7 +4,7 @@ afcharts provides colour palettes as set out by the [Government Analysis Functio
 These palettes have been developed to meet the [Web Content Accessibility Guidelines 2.1 for graphical objects](https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html).
 
 
-The [main palette](https://best-practice-and-impact.github.io/afcharts/articles/colours.html#main-palette) is the default for discrete colour/fill functions, and the [sequential palette](https://best-practice-and-impact.github.io/afcharts/articles/colours.html#sequential-palette) for continuous colour/fill functions.
+The [categorical palette](https://best-practice-and-impact.github.io/afcharts/articles/colours.html#main-palette) is the default for discrete colour/fill functions, and the [sequential palette](https://best-practice-and-impact.github.io/afcharts/articles/colours.html#sequential-palette) for continuous colour/fill functions.
 
 More information on the colours used in afcharts can be found at `vignette("colours")`.
 
@@ -12,7 +12,7 @@ More information on the colours used in afcharts can be found at `vignette("colo
 
 The full list of available palettes can be found by running `afcharts::af_colour_palettes`.
 
-For example, to use the Analysis Function `main2` palette:
+For example, to use the Analysis Function `categorical2` palette:
 
 ```{r af-palette, eval = FALSE}
 gapminder |>
@@ -20,7 +20,7 @@ gapminder |>
   ggplot(aes(x = year, y = lifeExp, colour = country)) +
   geom_line(linewidth = 1) +
   theme_af(legend = "bottom") +
-  scale_colour_discrete_af("main2") +
+  scale_colour_discrete_af("categorical2") +
   scale_y_continuous(
     limits = c(0, 82),
     breaks = seq(0, 80, 20),
@@ -40,7 +40,7 @@ gapminder |>
 <<af-palette>>
 ```
 
-This line chart uses the afcharts theme and the Analysis Function main palette, with one line in dark blue and one in orange.
+This line chart uses the afcharts theme and the Analysis Function categorical2 palette, with one line in dark blue and one in orange.
 
 ### Using your own colour palette
 
