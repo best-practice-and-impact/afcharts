@@ -30,7 +30,7 @@ theme_af <- function(base_size = 14,
                      grid = c("y", "x", "xy", "none"),
                      axis = c("x", "y", "xy", "none"),
                      ticks = c("xy", "x", "y", "none"),
-                     legend = c("right", "left", "top", "bottom", "none")) {
+                     legend = c("right", "left", "top", "bottom", "none", "topleft")) {
 
   grid   <- match.arg(grid)
   axis   <- match.arg(axis)
@@ -158,9 +158,9 @@ theme_af <- function(base_size = 14,
     legend.text.align = NULL,
     legend.title = ggplot2::element_text(hjust = 0),
     legend.title.align = NULL,
-    legend.position = legend,
+    legend.position = ifelse(legend == "topleft", "top", legend),
     legend.direction = NULL,
-    legend.justification = "centre",
+    legend.justification = ifelse(legend == "topleft", c(0,0),"centre"),
     legend.box = NULL,
     legend.box.margin = ggplot2::margin(0, 0, 0, 0, "cm"),
     legend.box.background = ggplot2::element_blank(),
