@@ -10,7 +10,7 @@
 #'
 #' @noRd
 
-af_palette <- function(palette = "main",
+af_palette <- function(palette = "categorical",
                        reverse = FALSE,
                        colour_names = FALSE,
                        palette_type = c("af")) {
@@ -33,40 +33,35 @@ af_palette <- function(palette = "main",
   function(n) {
     n_available <- length(palette_list[[palette]])
 
-    # Use 'main2' if AF main palette used and only 2 colours required
+    # Use 'categorical2' if AF categorical palette used and only 2 colours
+    # required
     if (
       palette_type == "af" &&
         n == 2 &&
-        palette != "main2" &&
-        grepl("main", palette)
+        palette %in% c("categorical", "main")
     ) {
-      palette <- "main2"
-      cli::cli_inform(c(
-        "i" = "Using `main2` palette as only two colours are required."
-      ))
+      palette <- "categorical2"
     }
 
-    ext_palettes <- subset(
-      names(palette_list),
-      stringr::str_detect(names(palette_list), "^main([5-9]|-extended)")
-    )
 
     # Error if more colours requested than exist in palette
     if (n > n_available) {
-      cli::cli_abort(c(
-        "x" = glue::glue(
-          "There are not enough colours available in the `{palette}`",
-          "palette from `{palette_type}_colour_palettes`",
-          "({n_available} available)."
-        ),
-        "i" = glue::glue(
-          "Accessibility guidance recommends a limit of four",
-          "colours per chart. If more than four colours are",
-          "required, first consider chart redesign. If it is",
-          "essential to use more than four colours, the `{ext_palettes}`",
-          "palette{?s} can be used."
+      cli::cli_abort(
+        c(
+          "x" = glue::glue(
+            "There are not enough colours available in the `{palette}` ",
+            "palette from `{palette_type}_colour_palettes` ",
+            "({n_available} available)."
+          ),
+          "i" = glue::glue(
+            "Accessibility guidance recommends a limit of four ",
+            "colours per chart. If more than four colours are ",
+            "required, first consider chart redesign. ",
+            "The `categorical` colour palette allows a maximum of 6 colours ",
+            "per chart."
+          )
         )
-      ))
+      )
     }
 
     pal <- palette_list[[palette]][seq_len(n)]
