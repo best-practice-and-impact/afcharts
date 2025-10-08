@@ -35,7 +35,7 @@ gapminder |>
 ```
 
 <div class="chart-title">Living Longer</div>
-<div class="chart-subtitle">Life Expectancy in the United Kingdom and China 1952-2007</div>
+<div class="chart-subtitle">Life Expectancy in the United Kingdom and China 1952 to 2007</div>
 ```{r, fig.height = 5, echo = FALSE}
 <<af-palette>>
 ```
@@ -69,7 +69,7 @@ gapminder |>
 ```
 
 <div class="chart-title">Living Longer</div>
-<div class="chart-subtitle">Life Expectancy in the United Kingdom 1952-2007</div>
+<div class="chart-subtitle">Life Expectancy in the United Kingdom 1952 to 2007</div>
 ```{r, echo = FALSE}
 <<different-colour-palette-1>>
 ```
@@ -84,7 +84,7 @@ gapminder |>
   ggplot(aes(x = year, y = lifeExp, colour = country)) +
   geom_line(linewidth = 1) +
   theme_af(legend = "bottom") +
-  scale_colour_manual(values = my_palette) +
+  scale_colour_manual(values = rev(my_palette)) +
   scale_y_continuous(
     limits = c(0, 82),
     breaks = seq(0, 80, 20),
@@ -99,7 +99,7 @@ gapminder |>
 ```
 
 <div class="chart-title">Living Longer</div>
-<div class="chart-subtitle">Life Expectancy in the United Kingdom and China 1952-2007</div>
+<div class="chart-subtitle">Life Expectancy in the United Kingdom and China 1952 to 2007</div>
 ```{r, fig.height = 5.5, echo = FALSE}
 <<different-colour-palette-2>>
 ```

@@ -148,7 +148,7 @@ ggplot(
 ```
 
 <div class="chart-title">Living longer</div>
-<div class="chart-subtitle">Difference in life expectancy, 1967-2007</div>
+<div class="chart-subtitle">Difference in life expectancy, 1967 to 2007</div>
 
 ```{r, fig.height = 5.5, echo=FALSE}
 <<grouped-bar-chart>>
@@ -181,7 +181,7 @@ ggplot(
   aes(x = continent, y = n_countries, fill = lifeExpGrouped)
 ) +
   geom_bar(stat = "identity", position = "fill") +
-  theme_af(legend = "bottom") +
+  theme_af(legend = "right") +
   scale_y_continuous(
     labels = scales::percent,
     expand = expansion(mult = c(0, 0.1))
@@ -244,7 +244,7 @@ gapminder |>
   scale_x_continuous(labels = scales::label_comma()) +
   labs(
     x = "GDP (US$, inflation-adjusted)",
-    y = "Life\nExpectancy",
+    y = "Life\nExpectancy\n(years)",
   )
 ```
 
@@ -255,7 +255,9 @@ gapminder |>
 <<scatterplot>>
 ```
 
-This scatterplot uses the afcharts theme, and shows life expectancy against GDP for all countries. Thin pale grey lines extend out from the x and y axis labels, forming a grid. The data points are plotted as dark blue circles. Both axes are labeled in black using a sans serif font.
+This scatterplot uses the afcharts theme, and shows life expectancy against GDP for all countries. Thin pale grey lines extend out from the x and y axis labels, forming a grid. The data points are plotted as dark blue circles. Both axes are labeled in black using a sans serif font. 
+
+It is best practice to use commas to separate thousands. Use scales::label_comma() to add commas to axis labels.
 
 ## Small multiples
 
@@ -268,21 +270,24 @@ gapminder |>
   geom_area() +
   theme_af(axis = "none", ticks = "none", legend = "none") +
   scale_fill_discrete_af() +
-  facet_wrap(~ continent, ncol = 2) +
+  facet_wrap(~ continent, ncol = 2, scales = "free_x") +
+  scale_x_continuous(
+    breaks = c(1952, 2002),
+    labels = c("1952", "2007")
+  ) +
   scale_y_continuous(
     breaks = c(0, 2e9, 4e9),
     labels = c(0, "2bn", "4bn")
   ) +
   coord_cartesian(clip = "off") +
-  theme(axis.text.x = element_blank()) +
   labs(
     x = NULL,
-    y = NULL,
+    y = NULL
   )
 ```
 
 <div class="chart-title">Asia's rapid growth</div>
-<div class="chart-subtitle">Population growth by continent, 1952-2007</div>
+<div class="chart-subtitle">Population growth in billions by continent, 1952 to 2007</div>
 
 ```{r, fig.height = 5.5, echo = FALSE}
 <<small-multiples>>
@@ -352,6 +357,8 @@ To make a `ggplot2` chart interactive, use `ggplotly()` from the `plotly` packag
 
 * Subtitles and captions are not supported in `ggplotly()`. As stated elsewhere in this guidance, titles and subtitles should ideally be included in the body of text surrounding a chart rather than embedded in the chart itself, and so this is hopefully not a big issue.
 
+Please note, interactive charts may not meet all accessibility requirements and we advise you to test your charts with users.
+
 ```{r interactive-charts, eval = FALSE}
 p <-
   pop_bar_data |>
@@ -389,5 +396,5 @@ plotly::ggplotly(p, tooltip = "text") |>
 <<interactive-charts>>
 ```
 
-This is an interactive bar chart using the afcharts theme, showing the populations of the five most populous countries in the Americas. The bars are dark blue. A tooltip appears when hovering over each bar with the cursor, which shows a matching dark blue box with the country and population displayed in white text.
+This is an interactive bar chart using the afcharts theme, showing the populations of the five most populous countries in the Americas. The bars are dark blue. A tooltip appears when hovering over each bar with the cursor, which shows a matching dark blue box with the country and population displayed in white text. Click and drag on the chart using the cursor to zoom in on the selected area. Click the 'home' icon in the top right corner to reset the view.
 

@@ -25,7 +25,7 @@ ann_data |>
   ) +
   scale_x_continuous(
     limits = c(1952, 2017),
-    breaks = seq(1952, 2017, 5)
+    breaks = seq(1952, 2017, 10)
   ) +
   annotate(
     geom = "label",
@@ -51,7 +51,7 @@ ann_data |>
 ```
 
 <div class="chart-title">Living Longer</div>
-<div class="chart-subtitle">Life Expectancy in the United Kingdom and China 1952-2007</div>
+<div class="chart-subtitle">Life Expectancy in the United Kingdom and China 1952 to 2007</div>
 ```{r, echo = FALSE}
 <<annotations-1>>
 ```
@@ -87,7 +87,7 @@ ann_data |>
   ) +
   scale_x_continuous(
     limits = c(1952, 2017),
-    breaks = seq(1952, 2017, 5)
+    breaks = seq(1952, 2017, 10)
   ) +
   geom_label(
     data = ann_labs,
@@ -104,7 +104,7 @@ ann_data |>
 ```
 
 <div class="chart-title">Living Longer</div>
-<div class="chart-subtitle">Life Expectancy in the United Kingdom and China 1952-2007</div>
+<div class="chart-subtitle">Life Expectancy in the United Kingdom and China 1952 to 2007</div>
 
 ```{r, echo = FALSE}
 <<annotations-2>>
