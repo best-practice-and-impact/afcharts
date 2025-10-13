@@ -357,7 +357,7 @@ To make a `ggplot2` chart interactive, use `ggplotly()` from the `plotly` packag
 
 * Subtitles and captions are not supported in `ggplotly()`. As stated elsewhere in this guidance, titles and subtitles should ideally be included in the body of text surrounding a chart rather than embedded in the chart itself, and so this is hopefully not a big issue.
 
-Please note, interactive charts may not meet all accessibility requirements and we advise you to test your charts with users.
+Please note, interactive charts may not meet all accessibility requirements and we advise you to test any interactive charts with users to ensure they work correctly.
 
 ```{r interactive-charts, eval = FALSE}
 p <-

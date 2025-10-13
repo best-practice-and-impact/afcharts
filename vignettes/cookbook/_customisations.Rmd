@@ -356,7 +356,7 @@ ann_data |>
   ) +
   scale_x_continuous(
     limits = c(1952, 2017),
-    breaks = seq(1952, 2017, 5)
+    breaks = seq(1952, 2017, 10)
   ) +
   geom_label(
     data = ann_labs,
