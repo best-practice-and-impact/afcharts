@@ -1,20 +1,6 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-<div>
-
-<style>
-  .chart-subtitle {
-  font-size: 14pt;
- }
-&#10;  .chart-title {
-  font-size: 16pt;
-  font-weight: 700;
- }
-</style>
-
-</div>
-
 # afcharts <img src="man/figures/logo.svg" alt="afcharts logo" align="right" height="150"/>
 
 <!-- badges: start -->

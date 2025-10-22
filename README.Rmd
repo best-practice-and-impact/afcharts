@@ -5,18 +5,7 @@ editor_options:
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-<div>
-  <style>
-  .chart-subtitle {
-  font-size: 14pt;
- }
 
-  .chart-title {
-  font-size: 16pt;
-  font-weight: 700;
- }
-</style>
-</div>
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
