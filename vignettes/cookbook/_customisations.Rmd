@@ -373,7 +373,7 @@ ann_data |>
     y = NULL,
     title = "Living Longer",
     subtitle = "Life Expectancy in years in the
-    United Kingdom and China 1952-2007",
+    United Kingdom and China 1952 to 2007",
     caption = "Source: Gapminder"
   ) +
   theme(plot.subtitle = element_markdown())

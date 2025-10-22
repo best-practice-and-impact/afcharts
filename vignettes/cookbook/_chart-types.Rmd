@@ -19,7 +19,7 @@ gapminder |>
 ```
 
 <div class="chart-title">Living Longer</div>
-<div class="chart-subtitle">Life Expectancy in the United Kingdom 1952-2007</div>
+<div class="chart-subtitle">Life Expectancy in the United Kingdom 1952 to 2007</div>
 ```{r echo = FALSE}
 <<line-charts-1>>
 ```
@@ -49,7 +49,7 @@ gapminder |>
 ```
 
 <div class="chart-title">Living Longer</div>
-<div class="chart-subtitle">Life Expectancy in the United Kingdom and China 1952-2007</div>
+<div class="chart-subtitle">Life Expectancy in the United Kingdom and China 1952 to 2007</div>
 ```{r, fig.height = 5, echo = FALSE}
 <<line-charts-2>>
 ```
@@ -272,8 +272,9 @@ gapminder |>
   scale_fill_discrete_af() +
   facet_wrap(~ continent, ncol = 2, scales = "free_x") +
   scale_x_continuous(
-    breaks = c(1952, 2002),
-    labels = c("1952", "2007")
+    breaks = c(1952, 2007),
+    labels = c("1952", "2007"),
+    limits = c(1950, 2010)
   ) +
   scale_y_continuous(
     breaks = c(0, 2e9, 4e9),
