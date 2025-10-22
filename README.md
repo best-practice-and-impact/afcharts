@@ -1,5 +1,14 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
+<style>
+.chart-subtitle {
+  font-size: 14pt;
+}
+&#10;.chart-title {
+  font-size: 16pt;
+  font-weight: 700;
+}
+</style>
 
 # afcharts <img src="man/figures/logo.svg" alt="afcharts logo" align="right" height="150"/>
 
@@ -95,13 +104,26 @@ gapminder |>
   labs(
     x = NULL,
     y = NULL,
-    title = "The U.S.A. is the most populous country in\nthe Americas",
-    subtitle = "Population of countries in the Americas (millions), 2007",
     caption = "Source: Gapminder"
     )
 ```
 
-<img src="man/figures/README-ex1-1.svg" alt="A bar chart with grey background, white grid lines and dark grey bars."  />
+<div class="chart-title">
+
+The U.S.A. is the most populous country in the Americas
+
+</div>
+
+<div class="chart-subtitle">
+
+Population of countries in the Americas (millions), 2007
+
+</div>
+
+![](man/figures/README-unnamed-chunk-2-1.svg)<!-- -->
+
+The bar chart above has grey background, white grid lines and dark grey
+bars.
 
 #### Example 2: Bar chart of one colour using afcharts defaults
 
@@ -121,13 +143,26 @@ gapminder |>
   labs(
     x = NULL,
     y = NULL,
-    title = "The U.S.A. is the most populous country in\nthe Americas",
-    subtitle = "Population of countries in the Americas (millions), 2007",
     caption = "Source: Gapminder"
   )
 ```
 
-<img src="man/figures/README-ex2-1.svg" alt="A bar chart with white background, light grey horizontal grid lines, and dark blue bars."  />
+<div class="chart-title">
+
+The U.S.A. is the most populous country in the Americas
+
+</div>
+
+<div class="chart-subtitle">
+
+Population of countries in the Americas (millions), 2007
+
+</div>
+
+![](man/figures/README-unnamed-chunk-3-1.svg)<!-- -->
+
+The bar chart above has a white background, light grey horizontal grid
+lines, and dark blue bars.
 
 #### Example 3: Multiple colour line chart with afcharts formatting
 
@@ -143,28 +178,32 @@ gapminder |>
     limits = c(0, 82),
     expand = expansion(mult = c(0, 0.1))
   ) +
-  scale_x_continuous(breaks = seq(1952, 2007, 5)) +
+  scale_x_continuous(breaks = seq(1952, 2007, 10)) +
   labs(
     x = "Year",
     y = NULL,
-    title = "Living Longer",
-    subtitle = "Life Expectancy in the United Kingdom and China 1952-2007",
     caption = "Source: Gapminder",
     colour = NULL
   )
 ```
 
-<img src="man/figures/README-ex3-1.svg" alt="A line chart with white background,
-                 light grey horizontal grid lines, an orange line, and a dark blue
-                 line."  />
+<div class="chart-title">
 
-**Note on use of titles, subtitles and captions** <br> Titles, subtitles
-and captions have been embedded in these example charts for
-demonstration purposes. However, for accessibility reasons, it is
-usually preferable to provide titles in the body of the page rather than
-embedded within the image of the plot. More information is available in
-the [accessibility
-article](https://best-practice-and-impact.github.io/afcharts/articles/accessibility.html#other-accessibility-considerations).
+Living Longer
+
+</div>
+
+<div class="chart-subtitle">
+
+Life Expectancy in the United Kingdom and China 1952 to 2007
+
+</div>
+
+![](man/figures/README-unnamed-chunk-4-1.svg)<!-- -->
+
+The line chart above has a white background, light grey horizontal grid
+lines, an orange line representing the UK, and a dark blue line
+representing China.
 
 ## Acknowledgments
 
