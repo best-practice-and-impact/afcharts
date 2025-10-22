@@ -1,14 +1,19 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
+
+<div>
+
 <style>
-.chart-subtitle {
+  .chart-subtitle {
   font-size: 14pt;
-}
-&#10;.chart-title {
+ }
+&#10;  .chart-title {
   font-size: 16pt;
   font-weight: 700;
-}
+ }
 </style>
+
+</div>
 
 # afcharts <img src="man/figures/logo.svg" alt="afcharts logo" align="right" height="150"/>
 
@@ -108,13 +113,13 @@ gapminder |>
     )
 ```
 
-<div class="chart-title">
+<div style="font-size: 16pt;font-weight: 700;">
 
 The U.S.A. is the most populous country in the Americas
 
 </div>
 
-<div class="chart-subtitle">
+<div style="font-size: 14pt;">
 
 Population of countries in the Americas (millions), 2007
 
@@ -147,13 +152,13 @@ gapminder |>
   )
 ```
 
-<div class="chart-title">
+<div style="font-size: 16pt;font-weight: 700;">
 
 The U.S.A. is the most populous country in the Americas
 
 </div>
 
-<div class="chart-subtitle">
+<div style="font-size: 14pt;">
 
 Population of countries in the Americas (millions), 2007
 
@@ -187,13 +192,13 @@ gapminder |>
   )
 ```
 
-<div class="chart-title">
+<div style="font-size: 16pt;font-weight: 700;">
 
 Living Longer
 
 </div>
 
-<div class="chart-subtitle">
+<div style="font-size: 14pt;">
 
 Life Expectancy in the United Kingdom and China 1952 to 2007
 

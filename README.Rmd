@@ -5,18 +5,18 @@ editor_options:
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-
-<style>
-.chart-subtitle {
+<div>
+  <style>
+  .chart-subtitle {
   font-size: 14pt;
-}
+ }
 
-.chart-title {
+  .chart-title {
   font-size: 16pt;
   font-weight: 700;
-}
+ }
 </style>
-
+</div>
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
@@ -111,8 +111,8 @@ gapminder |>
     )
 ```
 
-<div class="chart-title">The U.S.A. is the most populous country in the Americas</div>
-<div class="chart-subtitle">Population of countries in the Americas (millions), 2007</div>
+<div style="font-size: 16pt;font-weight: 700;">The U.S.A. is the most populous country in the Americas</div>
+<div style="font-size: 14pt;">Population of countries in the Americas (millions), 2007</div>
 
 ```{r, echo = FALSE}
 <<ex1>>
@@ -143,8 +143,8 @@ gapminder |>
   )
 ```
 
-<div class="chart-title">The U.S.A. is the most populous country in the Americas</div>
-<div class="chart-subtitle">Population of countries in the Americas (millions), 2007</div>
+<div style= "font-size: 16pt;font-weight: 700;">The U.S.A. is the most populous country in the Americas</div>
+<div style="font-size: 14pt;">Population of countries in the Americas (millions), 2007</div>
 
 ```{r, echo = FALSE}
 <<ex2>>
@@ -175,8 +175,8 @@ gapminder |>
   )
 ```
 
-<div class="chart-title">Living Longer</div>
-<div class="chart-subtitle">Life Expectancy in the United Kingdom and China 1952 to 2007</div>
+<div style= "font-size: 16pt;font-weight: 700;">Living Longer</div>
+<div style="font-size: 14pt;">Life Expectancy in the United Kingdom and China 1952 to 2007</div>
 
 ```{r, echo = FALSE}
 <<ex3>>
