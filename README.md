@@ -171,7 +171,7 @@ gapminder |>
 ![](man/figures/README-unnamed-chunk-4-1.svg)<!-- -->
 
 The line chart above has a white background, light grey horizontal grid
-lines, an dark blue line representing the UK, and a orange line
+lines, a dark blue line representing the UK, and an orange line
 representing China.
 
 ## Acknowledgments
