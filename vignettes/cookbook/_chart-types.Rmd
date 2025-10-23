@@ -31,16 +31,21 @@ This line chart uses the afcharts theme. There are pale grey grid lines extendin
 ```{r line-charts-2, eval = FALSE}
 gapminder |>
   filter(country %in% c("United Kingdom", "China")) |>
-  ggplot(aes(x = year, y = lifeExp, colour = country)) +
+  ggplot(
+    aes(
+      x = year, y = lifeExp,
+      colour = factor(country, levels = c("United Kingdom", "China"))
+    )
+  ) +
   geom_line(linewidth = 1) +
-  theme_af(legend = "bottom") +
+  theme_af(legend = "right") +
   scale_colour_discrete_af() +
   scale_y_continuous(
     limits = c(0, 82),
     breaks = seq(0, 80, 20),
     expand = expansion(mult = c(0, 0.1))
   ) +
-  scale_x_continuous(breaks = seq(1952, 2007, 5)) +
+  scale_x_continuous(breaks = seq(1952, 2007, 10)) +
   labs(
     x = "Year",
     y = NULL,
@@ -54,7 +59,7 @@ gapminder |>
 <<line-charts-2>>
 ```
 
-This line chart uses the afcharts theme and there are thin pale grey lines extending from the y axis. There are two thicker lines showing the life expectancy in the UK and China over time. The line colours are from the main Analysis Function palette - dark blue for China and orange for the UK, denoted by a legend at the bottom of the chart.
+This line chart uses the afcharts theme and there are thin pale grey lines extending from the y axis. There are two thicker lines showing the life expectancy in the UK and China over time. The line colours are from the main Analysis Function palette - dark blue for UK and orange for the China, denoted by a legend at the bottom of the chart.
 
 Legends should be avoided unless absolutely necessary, as these usually rely on using colour to match labels to data. More information can be found in the Analysis Function [charts guidance](https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-charts/#section-11). It is best practice to label lines directly, and an example of this can be found in the [annotations](#annotations) section.
 

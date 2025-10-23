@@ -99,17 +99,8 @@ gapminder |>
     )
 ```
 
-<div style="font-size: 16pt;font-weight: 700;">
-
-The U.S.A. is the most populous country in the Americas
-
-</div>
-
-<div style="font-size: 14pt;">
-
+**The U.S.A. is the most populous country in the Americas**<br/>
 Population of countries in the Americas (millions), 2007
-
-</div>
 
 ![](man/figures/README-unnamed-chunk-2-1.svg)<!-- -->
 
@@ -138,17 +129,8 @@ gapminder |>
   )
 ```
 
-<div style="font-size: 16pt;font-weight: 700;">
-
-The U.S.A. is the most populous country in the Americas
-
-</div>
-
-<div style="font-size: 14pt;">
-
+**The U.S.A. is the most populous country in the Americas**<br/>
 Population of countries in the Americas (millions), 2007
-
-</div>
 
 ![](man/figures/README-unnamed-chunk-3-1.svg)<!-- -->
 
@@ -162,7 +144,12 @@ afcharts::use_afcharts()
 
 gapminder |>
   filter(country %in% c("United Kingdom", "China")) |>
-  ggplot(aes(x = year, y = lifeExp, colour = country)) +
+  ggplot(
+    aes(
+      x = year, y = lifeExp,
+      colour = factor(country, levels = c("United Kingdom", "China"))
+    )
+  ) +
   geom_line(linewidth = 1) +
   scale_y_continuous(
     breaks = seq(0, 80, 20),
@@ -178,22 +165,13 @@ gapminder |>
   )
 ```
 
-<div style="font-size: 16pt;font-weight: 700;">
-
-Living Longer
-
-</div>
-
-<div style="font-size: 14pt;">
-
-Life Expectancy in the United Kingdom and China 1952 to 2007
-
-</div>
+**Living Longer**<br/> Life Expectancy in the United Kingdom and China
+1952 to 2007
 
 ![](man/figures/README-unnamed-chunk-4-1.svg)<!-- -->
 
 The line chart above has a white background, light grey horizontal grid
-lines, an orange line representing the UK, and a dark blue line
+lines, an dark blue line representing the UK, and a orange line
 representing China.
 
 ## Acknowledgments

@@ -100,10 +100,10 @@ gapminder |>
     )
 ```
 
-<div style="font-size: 16pt;font-weight: 700;">The U.S.A. is the most populous country in the Americas</div>
-<div style="font-size: 14pt;">Population of countries in the Americas (millions), 2007</div>
+**The U.S.A. is the most populous country in the Americas**<br/>
+Population of countries in the Americas (millions), 2007  
 
-```{r, echo = FALSE}
+```{r, fig.width=7, fig.hight=5, echo = FALSE}
 <<ex1>>
 ```
 
@@ -112,7 +112,7 @@ The bar chart above has grey background, white grid lines and dark grey bars.
 
 #### Example 2: Bar chart of one colour using afcharts defaults
 
-```{r ex2, eval = FALSE}
+```{r ex2, fig.width=7, fig.hight=5, eval = FALSE}
 afcharts::use_afcharts()
 
 gapminder |> 
@@ -132,8 +132,8 @@ gapminder |>
   )
 ```
 
-<div style= "font-size: 16pt;font-weight: 700;">The U.S.A. is the most populous country in the Americas</div>
-<div style="font-size: 14pt;">Population of countries in the Americas (millions), 2007</div>
+**The U.S.A. is the most populous country in the Americas**<br/>
+Population of countries in the Americas (millions), 2007  
 
 ```{r, echo = FALSE}
 <<ex2>>
@@ -143,12 +143,17 @@ The bar chart above has a white background, light grey horizontal grid lines, an
 
 #### Example 3: Multiple colour line chart with afcharts formatting
 
-```{r ex3, eval = FALSE}
+```{r ex3, fig.width=7, fig.hight=5, eval = FALSE}
 afcharts::use_afcharts()
 
 gapminder |>
   filter(country %in% c("United Kingdom", "China")) |>
-  ggplot(aes(x = year, y = lifeExp, colour = country)) +
+  ggplot(
+    aes(
+      x = year, y = lifeExp,
+      colour = factor(country, levels = c("United Kingdom", "China"))
+    )
+  ) +
   geom_line(linewidth = 1) +
   scale_y_continuous(
     breaks = seq(0, 80, 20),
@@ -164,14 +169,14 @@ gapminder |>
   )
 ```
 
-<div style= "font-size: 16pt;font-weight: 700;">Living Longer</div>
-<div style="font-size: 14pt;">Life Expectancy in the United Kingdom and China 1952 to 2007</div>
+**Living Longer**<br/>
+Life Expectancy in the United Kingdom and China 1952 to 2007  
 
 ```{r, echo = FALSE}
 <<ex3>>
 ```
 
-The line chart above has a white background, light grey horizontal grid lines, an orange line representing the UK, and a dark blue line representing China.
+The line chart above has a white background, light grey horizontal grid lines, an dark blue  line representing the UK, and a orange line representing China.
 
 ## Acknowledgments
 
