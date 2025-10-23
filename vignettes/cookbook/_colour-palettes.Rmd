@@ -17,7 +17,7 @@ For example, to use the Analysis Function `main2` palette:
 ```{r af-palette, eval = FALSE}
 gapminder |>
   filter(country %in% c("United Kingdom", "China")) |>
-  ggplot( 
+  ggplot(
     aes(
       x = year, y = lifeExp,
       colour = factor(country, levels = c("United Kingdom", "China"))
