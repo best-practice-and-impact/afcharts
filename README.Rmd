@@ -103,7 +103,7 @@ gapminder |>
 **The U.S.A. is the most populous country in the Americas**<br/>
 Population of countries in the Americas (millions), 2007  
 
-```{r, fig.width=7, fig.hight=5, echo = FALSE}
+```{r, fig.width=10, echo = FALSE}
 <<ex1>>
 ```
 
@@ -112,7 +112,7 @@ The bar chart above has grey background, white grid lines and dark grey bars.
 
 #### Example 2: Bar chart of one colour using afcharts defaults
 
-```{r ex2, fig.width=7, fig.hight=5, eval = FALSE}
+```{r ex2, eval = FALSE}
 afcharts::use_afcharts()
 
 gapminder |> 
@@ -135,7 +135,7 @@ gapminder |>
 **The U.S.A. is the most populous country in the Americas**<br/>
 Population of countries in the Americas (millions), 2007  
 
-```{r, echo = FALSE}
+```{r, fig.width=10, echo = FALSE}
 <<ex2>>
 ```
 
@@ -143,7 +143,7 @@ The bar chart above has a white background, light grey horizontal grid lines, an
 
 #### Example 3: Multiple colour line chart with afcharts formatting
 
-```{r ex3, fig.width=7, fig.hight=5, eval = FALSE}
+```{r ex3, eval = FALSE}
 afcharts::use_afcharts()
 
 gapminder |>
@@ -172,7 +172,7 @@ gapminder |>
 **Living Longer**<br/>
 Life Expectancy in the United Kingdom and China 1952 to 2007  
 
-```{r, echo = FALSE}
+```{r,  fig.width=10, echo = FALSE}
 <<ex3>>
 ```
 
