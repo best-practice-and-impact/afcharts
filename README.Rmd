@@ -176,7 +176,7 @@ Life Expectancy in the United Kingdom and China 1952 to 2007
 <<ex3>>
 ```
 
-The line chart above has a white background, light grey horizontal grid lines, an dark blue  line representing the UK, and a orange line representing China.
+The line chart above has a white background, light grey horizontal grid lines, a dark blue  line representing the UK, and an orange line representing China.
 
 ## Acknowledgments
 
