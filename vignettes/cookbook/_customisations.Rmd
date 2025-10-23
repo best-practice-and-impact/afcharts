@@ -337,7 +337,7 @@ This can be readily achieved with `ggtext::element_markdown()`.
 ```{r html-formatting}
 ann_data <- gapminder |>
   filter(country %in% c("United Kingdom", "China")) |>
-   mutate(country = factor(country, levels = c("United Kingdom", "China")))
+  mutate(country = factor(country, levels = c("United Kingdom", "China")))
 
 ann_labs <- ann_data |>
   group_by(country) |>
