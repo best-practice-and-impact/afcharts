@@ -132,11 +132,11 @@
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
 <span>    x <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>    y <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>    title <span class="op">=</span> <span class="st">"The U.S.A. is the most populous country in\nthe Americas"</span>,</span>
-<span>    subtitle <span class="op">=</span> <span class="st">"Population of countries in the Americas (millions), 2007"</span>,</span>
 <span>    caption <span class="op">=</span> <span class="st">"Source: Gapminder"</span></span>
 <span>    <span class="op">)</span></span></code></pre></div>
-<p><img src="reference/figures/README-ex1-1.svg" alt="A bar chart with grey background, white grid lines and dark grey bars."></p>
+<p><strong>The U.S.A. is the most populous country in the Americas</strong><br> Population of countries in the Americas (millions), 2007</p>
+<p><img src="reference/figures/README-unnamed-chunk-2-1.svg"><!-- --></p>
+<p>The bar chart above has grey background, white grid lines and dark grey bars.</p>
 </div>
 <div class="section level4">
 <h4 id="example-2-bar-chart-of-one-colour-using-afcharts-defaults">Example 2: Bar chart of one colour using afcharts defaults<a class="anchor" aria-label="anchor" href="#example-2-bar-chart-of-one-colour-using-afcharts-defaults"></a>
@@ -157,11 +157,11 @@
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
 <span>    x <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>    y <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>    title <span class="op">=</span> <span class="st">"The U.S.A. is the most populous country in\nthe Americas"</span>,</span>
-<span>    subtitle <span class="op">=</span> <span class="st">"Population of countries in the Americas (millions), 2007"</span>,</span>
 <span>    caption <span class="op">=</span> <span class="st">"Source: Gapminder"</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="reference/figures/README-ex2-1.svg" alt="A bar chart with white background, light grey horizontal grid lines, and dark blue bars."></p>
+<p><strong>The U.S.A. is the most populous country in the Americas</strong><br> Population of countries in the Americas (millions), 2007</p>
+<p><img src="reference/figures/README-unnamed-chunk-3-1.svg"><!-- --></p>
+<p>The bar chart above has a white background, light grey horizontal grid lines, and dark blue bars.</p>
 </div>
 <div class="section level4">
 <h4 id="example-3-multiple-colour-line-chart-with-afcharts-formatting">Example 3: Multiple colour line chart with afcharts formatting<a class="anchor" aria-label="anchor" href="#example-3-multiple-colour-line-chart-with-afcharts-formatting"></a>
@@ -171,26 +171,28 @@
 <span></span>
 <span><span class="va">gapminder</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">country</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"United Kingdom"</span>, <span class="st">"China"</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">year</span>, y <span class="op">=</span> <span class="va">lifeExp</span>, colour <span class="op">=</span> <span class="va">country</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span></span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span></span>
+<span>      x <span class="op">=</span> <span class="va">year</span>, y <span class="op">=</span> <span class="va">lifeExp</span>,</span>
+<span>      colour <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">country</span>, levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"United Kingdom"</span>, <span class="st">"China"</span><span class="op">)</span><span class="op">)</span></span>
+<span>    <span class="op">)</span></span>
+<span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html" class="external-link">geom_line</a></span><span class="op">(</span>linewidth <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">scale_y_continuous</a></span><span class="op">(</span></span>
 <span>    breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">80</span>, <span class="fl">20</span><span class="op">)</span>,</span>
 <span>    limits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">82</span><span class="op">)</span>,</span>
 <span>    expand <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/expansion.html" class="external-link">expansion</a></span><span class="op">(</span>mult <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0.1</span><span class="op">)</span><span class="op">)</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">scale_x_continuous</a></span><span class="op">(</span>breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">1952</span>, <span class="fl">2007</span>, <span class="fl">5</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">scale_x_continuous</a></span><span class="op">(</span>breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">1952</span>, <span class="fl">2007</span>, <span class="fl">10</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
 <span>    x <span class="op">=</span> <span class="st">"Year"</span>,</span>
 <span>    y <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>    title <span class="op">=</span> <span class="st">"Living Longer"</span>,</span>
-<span>    subtitle <span class="op">=</span> <span class="st">"Life Expectancy in the United Kingdom and China 1952-2007"</span>,</span>
 <span>    caption <span class="op">=</span> <span class="st">"Source: Gapminder"</span>,</span>
 <span>    colour <span class="op">=</span> <span class="cn">NULL</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="reference/figures/README-ex3-1.svg" alt="A line chart with white background,
-                 light grey horizontal grid lines, an orange line, and a dark blue
-                 line."></p>
-<p><strong>Note on use of titles, subtitles and captions</strong> <br> Titles, subtitles and captions have been embedded in these example charts for demonstration purposes. However, for accessibility reasons, it is usually preferable to provide titles in the body of the page rather than embedded within the image of the plot. More information is available in the <a href="https://best-practice-and-impact.github.io/afcharts/articles/accessibility.html#other-accessibility-considerations">accessibility article</a>.</p>
+<p><strong>Living Longer</strong><br> Life Expectancy in the United Kingdom and China 1952 to 2007</p>
+<p><img src="reference/figures/README-unnamed-chunk-4-1.svg"><!-- --></p>
+<p>The line chart above has a white background, light grey horizontal grid lines, a dark blue line representing the UK, and an orange line representing China.</p>
 </div>
 </div>
 </div>
