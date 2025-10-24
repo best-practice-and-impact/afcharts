@@ -113,7 +113,7 @@ Formatting axis labels or legend labels is easily handled using the `scales` pac
 stacked_bar_data |>
   ggplot(aes(x = continent, y = n_countries, fill = lifeExpGrouped)) +
   geom_bar(stat = "identity", position = "fill") +
-  theme_af(legend = "bottom") +
+  theme_af(legend = "right") +
   scale_y_continuous(
     expand = expansion(mult = c(0, 0.1)),
     labels = scales::percent
@@ -162,7 +162,7 @@ gapminder |>
   geom_line(linewidth = 1, colour = af_colour_values[1]) +
   geom_hline(
     yintercept = 75,
-    colour = af_colour_values[2],
+    colour = "#7F7F7F",
     linewidth = 1,
     linetype = "dashed"
   ) +
@@ -180,7 +180,7 @@ gapminder |>
   )
 ```
 <div class="chart-title">Living Longer</div>
-<div class="chart-subtitle">Life Expectancy in the United Kingdom 1952-2007</div>
+<div class="chart-subtitle">Life Expectancy in the United Kingdom 1952 to 2007</div>
 ```{r, echo=FALSE}
 <<add-a-line>>
 ```
@@ -230,7 +230,7 @@ ggplot(pop_bar_data, aes(x = reorder(country, -pop), y = pop)) +
   )
 ```
 
-In this bar chart image, the y axis title, "Population (millions)", is to the left of the top of the y axis.
+In this bar chart image, the y-axis title, "Population (millions)", is to the left of the top of the y-axis.
 
 ```{r chart-titles-y-axi-2}
 
@@ -254,7 +254,7 @@ ggplot(pop_bar_data, aes(x = reorder(country, -pop), y = pop)) +
   )
 ```
 
-In this bar chart image, the y axis title, "Population (millions)", is above and to the right of the y axis.
+In this bar chart image, the y-axis title, "Population (millions)", is above and to the right of the y-axis.
 
 ### Wrapping text
 
@@ -297,7 +297,7 @@ plot +
   )
 ```
 
-In this bar chart image, the y axis label and chart title text have been wrapped onto two lines so that all the text is visible.
+In this bar chart image, the y-axis label and chart title text have been wrapped onto two lines so that all the text is visible.
 
 
 ### Adjusting theme elements
@@ -336,7 +336,8 @@ This can be readily achieved with `ggtext::element_markdown()`.
 
 ```{r html-formatting}
 ann_data <- gapminder |>
-  filter(country %in% c("United Kingdom", "China"))
+  filter(country %in% c("United Kingdom", "China")) |>
+  mutate(country = factor(country, levels = c("United Kingdom", "China")))
 
 ann_labs <- ann_data |>
   group_by(country) |>
@@ -356,27 +357,29 @@ ann_data |>
   ) +
   scale_x_continuous(
     limits = c(1952, 2017),
-    breaks = seq(1952, 2017, 5)
+    breaks = seq(1952, 2017, 10)
   ) +
   geom_label(
     data = ann_labs,
     aes(x = year, y = lifeExp, label = country),
+    size = 4.5,
     hjust = 0,
     vjust = 0.5,
     nudge_x = 0.5,
-    label.size = NA
+    linewidth = NA
   ) +
+  coord_cartesian(clip = "off") +
   labs(
     x = "Year",
     y = NULL,
     title = "Living Longer",
     subtitle = "Life Expectancy in years in the
-    <span style='color:darkorange;'>United Kingdom</span> and
-    <span style='color:navy;'>China</span> 1952-2007",
+    <span style='color:#12436D;'>United Kingdom</span> and
+    <span style='color:#F46A25;'>China</span> 1952 to 2007",
     caption = "Source: Gapminder"
   ) +
   theme(plot.subtitle = element_markdown())
 ```
 
-In this line chart image, the word 'China' and 'United Kingdom' in the subtitle and label text have been set to correspond to their line colours. Please refer to Analysis Function guidance in considering the accessibility of custom formatting.
+In this line chart image, the word 'China' and 'United Kingdom' in the subtitle and label text have been set to correspond to their line colours. Please refer to [Analysis Function guidance](https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-charts/) in considering the accessibility of custom formatting, such as when using colours.
 
