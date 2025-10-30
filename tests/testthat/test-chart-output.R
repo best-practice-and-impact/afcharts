@@ -142,5 +142,3 @@ test_that("use_afcharts works", {
   expect_match_plot("use_afcharts_4", plot4)
 
 })
-
-
