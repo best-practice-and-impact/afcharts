@@ -28,11 +28,12 @@
 #' @export
 
 
-use_afcharts <- function(default_colour = afcharts::af_colour_values["dark-blue"],
+use_afcharts <- function(default_colour =
+                           afcharts::af_colour_values["dark-blue"],
                          ...,
                          reset = FALSE) {
 
-  if(!rlang::is_bool(reset)) {
+  if (!rlang::is_bool(reset)) {
     cli::cli_abort("{.arg reset} must be {.code TRUE} or {.code FALSE}")
   }
 
@@ -166,7 +167,7 @@ use_afcharts <- function(default_colour = afcharts::af_colour_values["dark-blue"
       # Reset theme
       old_theme <- getOption("afcharts.old.theme")
 
-      if(!is.null(old_theme)) {
+      if (!is.null(old_theme)) {
         ggplot2::theme_set(old_theme)
         cli::cli_alert_info("Reverting theme.")
         options("afcharts.old.theme" = NULL)
@@ -183,14 +184,15 @@ use_afcharts <- function(default_colour = afcharts::af_colour_values["dark-blue"
 
       # Reset geoms
 
-      old.geoms <- getOption("afcharts.old.geoms")
+      old_geoms <- getOption("afcharts.old.geoms")
 
-      if(!is.null(old.geoms)) {
+      if (!is.null(old_geoms)) {
         purrr::walk2(
-          names(old.geoms), old.geoms,
-          \(geom, default) ggplot2::update_geom_defaults(
-            geom, default
-          )
+          names(old_geoms), old_geoms,
+          \(geom, default) {
+            ggplot2::update_geom_defaults(geom, default)
+          }
+
         )
         cli::cli_alert_info("Reverting geom aesthetics.")
         options("afcharts.old.geoms" = NULL)
