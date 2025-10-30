@@ -77,16 +77,68 @@ test_that("scale_colour_continuous_af works", {
 })
 
 
-# Test commented out until there is an way to turn off use_afcharts
+# Test use_afcharts
 
-# test_that("use_afcharts works", {
-#
-#   use_afcharts()
-#
-#   d <- subset(mpg, manufacturer == "ford")
-#
-#   plot <- ggplot2::ggplot(d, ggplot2::aes(x = model, fill = class, colour = class)) +
-#     ggplot2::geom_bar()
-#
-#   expect_match_plot("use_afcharts", plot)
-# })
+test_that("use_afcharts works", {
+
+  # Set default theme, geom and colour scale
+
+  # Set theme
+
+  old_theme <- ggplot2::theme_set(ggplot2::theme_dark())
+
+  withr::defer(ggplot2::theme_set(old_theme))
+
+
+  # Set geom
+
+  old_geom <- ggplot2::update_geom_defaults(
+    geom = "bar",
+    new = list(fill = "red")
+  )
+
+  withr::defer(
+    ggplot2::update_geom_defaults(
+      geom = "bar",
+      new = old_geom
+    )
+  )
+
+
+  # Set scale
+
+  old_options <- options(ggplot2.discrete.fill = ggplot2::scale_fill_viridis_d)
+  withr::defer(options(old_options))
+
+
+  # Turn on use_afcharts - should ignore the above defaults
+
+  use_afcharts()
+
+  d <- subset(ggplot2::mpg, manufacturer == "ford")
+
+  plot1 <- ggplot2::ggplot(d, ggplot2::aes(x = model, fill = class)) +
+    ggplot2::geom_bar()
+
+  plot2 <- ggplot2::ggplot(d, ggplot2::aes(x = model)) +
+    ggplot2::geom_bar()
+
+  expect_match_plot("use_afcharts_1", plot1)
+  expect_match_plot("use_afcharts_2", plot2)
+
+
+  # Turn use_afcharts off and check default plot settings revert to what they
+  # were prior to using use_afcharts
+
+  use_afcharts(reset = TRUE)
+
+  plot3 <- ggplot2::ggplot(d, ggplot2::aes(x = model, fill = class)) +
+    ggplot2::geom_bar()
+
+  plot4 <- ggplot2::ggplot(d, ggplot2::aes(x = model)) +
+    ggplot2::geom_bar()
+
+  expect_match_plot("use_afcharts_3", plot3)
+  expect_match_plot("use_afcharts_4", plot4)
+
+})
