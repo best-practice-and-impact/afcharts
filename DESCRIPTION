@@ -28,7 +28,8 @@ Imports:
     scales,
     cli,
     rlang,
-    dplyr
+    dplyr,
+    purrr
 Suggests: 
     ggtext,
     knitr,
@@ -36,7 +37,6 @@ Suggests:
     tibble,
     tidyr,
     glue,
-    purrr,
     stringr,
     testthat (>= 2.1.0),
     plotly,
@@ -45,6 +45,7 @@ Suggests:
     ragg (>= 1.2.6),
     gapminder,
     diffviewer,
-    vdiffr
+    vdiffr,
+    withr
 VignetteBuilder: knitr
 Roxygen: list(markdown = TRUE)
