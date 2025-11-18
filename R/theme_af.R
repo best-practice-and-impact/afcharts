@@ -5,11 +5,14 @@
 #' @param base_size base font size, given in pts.
 #' @param base_line_size base size for line elements.
 #' @param base_rect_size base size for rect elements.
-#' @param grid,axis,ticks,text,title 'x', 'y', 'xy' or 'none' to determine for which axes
+#' @param grid,axis,ticks 'x', 'y', 'xy' or 'none' to determine for which axes
 #'   the attribute should be drawn. Grid defaults to 'y', axis to 'x', and ticks
-#'   to 'xy'. Text defaults to 'xy', as does title
+#'   to 'xy'.
 #' @param legend 'right', 'left', 'top', 'bottom', or 'none' to determine the
 #'   position of the legend. Defaults to 'right'.
+#'
+#' @param text,title  'x', 'y', 'xy' or 'none' to determine whether text and/or titles should be displayed.
+#'   Text defaults to 'xy', as does title
 #'
 #' @returns ggplot2 plot theme
 #'
