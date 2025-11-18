@@ -5,9 +5,9 @@
 #' @param base_size base font size, given in pts.
 #' @param base_line_size base size for line elements.
 #' @param base_rect_size base size for rect elements.
-#' @param grid,axis,ticks 'x', 'y', 'xy' or 'none' to determine for which axes
+#' @param grid,axis,ticks,text,title 'x', 'y', 'xy' or 'none' to determine for which axes
 #'   the attribute should be drawn. Grid defaults to 'y', axis to 'x', and ticks
-#'   to 'xy'.
+#'   to 'xy'. Text defaults to 'xy', as does title
 #' @param legend 'right', 'left', 'top', 'bottom', or 'none' to determine the
 #'   position of the legend. Defaults to 'right'.
 #'
@@ -30,12 +30,16 @@ theme_af <- function(base_size = 14,
                      grid = c("y", "x", "xy", "none"),
                      axis = c("x", "y", "xy", "none"),
                      ticks = c("xy", "x", "y", "none"),
-                     legend = c("right", "left", "top", "bottom", "none")) {
+                     legend = c("right", "left", "top", "bottom", "none"),
+                     text = c("xy", "x", "y", "none"),
+                     title = c("xy", "x", "y", "none")) {
 
   grid   <- match.arg(grid)
   axis   <- match.arg(axis)
   ticks  <- match.arg(ticks)
   legend <- match.arg(legend)
+  text <- match.arg(text)
+  title <- match.arg(title)
 
   # Set colours
   light_grey <- "#d9d9d9"
@@ -69,6 +73,18 @@ theme_af <- function(base_size = 14,
   no_ticks   <- ggplot2::element_blank()
   ticks_x    <- if (ticks %in% c("x", "xy")) axis_ticks else no_ticks
   ticks_y    <- if (ticks %in% c("y", "xy")) axis_ticks else no_ticks
+
+  # Set axis text dependent on text arg
+  axis_text <- ggplot2::element_text()
+  no_text <- ggplot2::element_blank()
+  text_x <- if (text %in% c("x", "xy")) axis_text else no_text
+  text_y <- if (text %in% c("y", "xy")) axis_text else no_text
+
+  # Set axis titles dependent on title arg
+  axis_title <- ggplot2::element_text()
+  no_title <- ggplot2::element_blank()
+  title_x <- if (title %in% c("x", "xy")) axis_title else no_title
+  title_y <- if (title %in% c("y", "xy")) axis_title else no_title
 
   ggplot2::theme(
 
@@ -107,46 +123,15 @@ theme_af <- function(base_size = 14,
     axis.line.x = axis_x,
     axis.line.y = axis_y,
     axis.text = NULL,
-    axis.text.x = ggplot2::element_text(
-      margin = ggplot2::margin(t = 0.8 * half_line / 2),
-      vjust = 1
-    ),
-    axis.text.x.top = ggplot2::element_text(
-      margin = ggplot2::margin(b = 0.8 * half_line / 2),
-      vjust = 0
-    ),
-    axis.text.y = ggplot2::element_text(
-      margin = ggplot2::margin(r = 0.8 * half_line / 2),
-      hjust = 1
-    ),
-    axis.text.y.right = ggplot2::element_text(
-      margin = ggplot2::margin(l = 0.8 * half_line / 2),
-      hjust = 0
-    ),
+    axis.text.x = text_x,
+    axis.text.y = text_y,
     axis.ticks = NULL,
     axis.ticks.x = ticks_x,
     axis.ticks.y = ticks_y,
     axis.ticks.length = ggplot2::unit(half_line / 2, "pt"),
-    axis.title.x = ggplot2::element_text(
-      margin = ggplot2::margin(t = half_line / 2),
-      vjust = 1
-    ),
-    axis.title.x.top = ggplot2::element_text(
-      margin = ggplot2::margin(b = half_line / 2),
-      vjust = 0
-    ),
-    axis.title.y = ggplot2::element_text(
-      angle = 0,
-      margin = ggplot2::margin(r = half_line / 2),
-      vjust = 1,
-      hjust = 0.5
-    ),
-    axis.title.y.right = ggplot2::element_text(
-      angle = 0,
-      margin = ggplot2::margin(l = half_line / 2),
-      vjust = 1,
-      hjust = 0.5
-    ),
+    axis.title.x = title_x,
+    axis.title.y = title_y,
+
 
     # Legend
     legend.background = ggplot2::element_rect(colour = NA),
