@@ -32,6 +32,33 @@ theme_af <- function(base_size = 14,
                      ticks = c("xy", "x", "y", "none"),
                      legend = c("right", "left", "top", "bottom", "none")) {
 
+  missing_grid <- missing(grid)
+  missing_axis <- missing(axis)
+  missing_ticks <- missing(ticks)
+
+
+  if (isTRUE(getOption("afcharts.use_afcharts"))) {
+    current_theme <- ggplot2::get_theme()
+  } else {
+    current_theme = NULL
+  }
+
+  if(missing(base_size) && !is.null(current_theme$text$size)) {
+      base_size <- current_theme$text$size
+  }
+
+  if(missing(base_line_size) && !is.null(current_theme$line$linewidth)) {
+      base_line_size <- current_theme$line$linewidth
+  }
+
+  if(missing(base_rect_size) && !is.null(current_theme$rect$linewidth)) {
+      base_rect_size <- current_theme$rect$linewidth
+  }
+
+  if(missing(legend) && !is.null(current_theme$legend.position)) {
+      legend <- current_theme$legend.position
+  }
+
   grid   <- match.arg(grid)
   axis   <- match.arg(axis)
   ticks  <- match.arg(ticks)
@@ -69,6 +96,21 @@ theme_af <- function(base_size = 14,
   no_ticks   <- ggplot2::element_blank()
   ticks_x    <- if (ticks %in% c("x", "xy")) axis_ticks else no_ticks
   ticks_y    <- if (ticks %in% c("y", "xy")) axis_ticks else no_ticks
+
+  if(isTRUE(missing_grid) && !is.null(c(current_theme$panel.grid.major.x, current_theme$panel.grid.major.y))) {
+    grid_x <- current_theme$panel.grid.major.x
+    grid_y <- current_theme$panel.grid.major.y
+  }
+
+  if(isTRUE(missing_axis) && !is.null(c(current_theme$axis.line.x, current_theme$axis.line.y))) {
+    axis_x <- current_theme$axis.line.x
+    axis_y <- current_theme$axis.line.y
+  }
+
+  if(isTRUE(missing_ticks) && !is.null(c(current_theme$axis.ticks.x, current_theme$axis.ticks.y))) {
+    ticks_x <- current_theme$axis.ticks.x
+    ticks_y <- current_theme$axis.ticks.y
+  }
 
   ggplot2::theme(
 
