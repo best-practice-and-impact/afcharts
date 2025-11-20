@@ -94,20 +94,16 @@ ggplot(pop_bar_data, aes(x = reorder(country, -pop), y = pop)) +
 
 This bar chart uses the afcharts theme, and shows the populations of the five most populous countries in the Americas. Each bar is dark blue and labelled by country underneath. All text is black in a sans serif font. Pale grey grid lines extend out from the y axis.
 
-A bar chart can sometimes be easier to interpret with horizontal bars. This can also be a good option if your bar labels are long and difficult to display on the x axis. To produce a horizontal bar chart, swap the variables defined for x and y in `aes()` and make a few tweaks to `theme_af()`; draw grid lines for the x axis only by setting the `grid` argument, and draw an axis line for the y axis only by setting the `axis` argument.
+A bar chart can sometimes be easier to interpret with horizontal bars. This can also be a good option if your bar labels are long and difficult to display on the x axis. To produce a horizontal bar chart, swap the variables defined for x and y in `aes()` and make a few tweaks to `theme_af()`; draw grid lines for the x axis only by setting the `grid` argument, and draw an axis line for the y axis only by setting the `axis` argument. We can also hide the x and y axis titles by setting the `axis_title` argument. This replaces the need to use the `labs` function, with x and y set to NULL.
 
 ```{r bar-charts-2, eval = FALSE}
 ggplot(pop_bar_data, aes(x = pop, y = reorder(country, pop))) +
   geom_col(fill = af_colour_values["dark-blue"]) +
-  theme_af(grid = "x", axis = "y") +
+  theme_af(grid = "x", axis = "y", axis_title = "none") +
   scale_x_continuous(
     limits = c(0, 350E6),
     labels = scales::label_number(scale = 1E-6),
     expand = expansion(mult = c(0, 0.1))
-  ) +
-  labs(
-    x = NULL,
-    y = NULL,
   )
 ```
 
