@@ -6,6 +6,12 @@
 
 - Added `af_dark_blue`, `af_orange` and `af_grey` to give easier access to the hex codes of these colours.
 
+- Added arguments `axis_text` and `axis_title` to function `theme_af` to set 
+whether to show axis titles and labels.
+
+- Added argument `legend_title` to function `theme_af` to set whether to show 
+legend titles.
+
 # afcharts 0.4.1
 
 -   Fixed bug which prevented some functions from working if called directly without attaching the package.
