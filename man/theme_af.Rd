@@ -32,9 +32,9 @@ to 'xy'.}
 position of the legend. Defaults to 'right'.}
 
 \item{axis_text, axis_title}{'x', 'y', 'xy' or 'none' to determine whether axis text and/or axis titles should be displayed.
-Text defaults to 'xy', as does title. Note that axis text refers to the 'labels' under the tick marks themselves}
+Text defaults to 'xy', as does title. Note that axis text refers to the 'labels' under the tick marks.}
 
-\item{legend_title}{Set to 'none' to suppress legend title}
+\item{legend_title}{Set to 'none' to suppress legend titles.}
 }
 \value{
 ggplot2 plot theme

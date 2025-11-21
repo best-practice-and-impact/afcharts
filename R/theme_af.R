@@ -12,9 +12,9 @@
 #'   position of the legend. Defaults to 'right'.
 #'
 #' @param axis_text,axis_title  'x', 'y', 'xy' or 'none' to determine whether axis text and/or axis titles should be displayed.
-#'   Text defaults to 'xy', as does title. Note that axis text refers to the 'labels' under the tick marks themselves
+#'   Text defaults to 'xy', as does title. Note that axis text refers to the 'labels' under the tick marks.
 #'
-#' @param legend_title Set to 'none' to suppress legend title
+#' @param legend_title Set to 'none' to suppress legend titles.
 #'
 #' @returns ggplot2 plot theme
 #'
@@ -83,39 +83,77 @@ theme_af <- function(base_size = 14,
 
 
   # Set axis x text dependent on text arg, and define placement
-  axis_text_x <- ggplot2::element_text(margin = ggplot2::margin(t = 0.8 * half_line / 2), vjust = 1)
-  axis_text_x_top <- ggplot2::element_text(margin = ggplot2::margin(b = 0.8 * half_line / 2), vjust = 0)
+  axis_text_x <- ggplot2::element_text(
+    margin = ggplot2::margin(t = 0.8 * half_line / 2),
+    vjust = 1
+  )
+  axis_text_x_top <- ggplot2::element_text(
+    margin = ggplot2::margin(b = 0.8 * half_line / 2),
+    vjust = 0
+  )
   no_axis_text_x <- ggplot2::element_blank()
-  axis_text_for_x <- if (axis_text %in% c("x", "xy")) axis_text_x else no_axis_text_x
-  axis_text_for_x_top <- if (axis_text %in% c("x", "xy")) axis_text_x_top else no_axis_text_x
+  axis_text_for_x <-
+    if (axis_text %in% c("x", "xy")) axis_text_x else no_axis_text_x
+  axis_text_for_x_top <-
+    if (axis_text %in% c("x", "xy")) axis_text_x_top else no_axis_text_x
+
 
   # Set axis y text dependent on text arg, and define placement
-  axis_text_y <- ggplot2::element_text(margin = ggplot2::margin(r = 0.8 * half_line / 2), hjust = 1)
-  axis_text_y_right <- ggplot2::element_text(margin = ggplot2::margin(l = 0.8 * half_line / 2), hjust = 0)
+  axis_text_y <- ggplot2::element_text(
+    margin = ggplot2::margin(r = 0.8 * half_line / 2),
+    hjust = 1
+  )
+  axis_text_y_right <- ggplot2::element_text(
+    margin = ggplot2::margin(l = 0.8 * half_line / 2),
+    hjust = 0
+  )
   no_axis_text_y <- ggplot2::element_blank()
-  axis_text_for_y <- if (axis_text %in% c("y", "xy")) axis_text_y else no_axis_text_y
-  axis_text_for_y_right <- if (axis_text %in% c("y", "xy")) axis_text_y_right else no_axis_text_y
+  axis_text_for_y <-
+    if (axis_text %in% c("y", "xy")) axis_text_y else no_axis_text_y
+  axis_text_for_y_right <-
+    if (axis_text %in% c("y", "xy")) axis_text_y_right else no_axis_text_y
 
 
   # Set axis x title dependent on title arg, and define placement
-  axis_title_x <- ggplot2::element_text(margin = ggplot2::margin(t = half_line / 2), vjust = 1)
-  axis_title_x_top <- ggplot2::element_text(margin = ggplot2::margin(b = half_line / 2), vjust = 0)
+  axis_title_x <- ggplot2::element_text(
+    margin = ggplot2::margin(t = half_line / 2),
+    vjust = 1
+  )
+  axis_title_x_top <- ggplot2::element_text(
+    margin = ggplot2::margin(b = half_line / 2),
+    vjust = 0
+  )
   no_axis_title_x <- ggplot2::element_blank()
-  axis_title_for_x <- if (axis_title %in% c("x", "xy")) axis_title_x else no_axis_title_x
-  axis_title_for_x_top <- if (axis_title %in% c("x", "xy")) axis_title_x_top else no_axis_title_x
+  axis_title_for_x <-
+    if (axis_title %in% c("x", "xy")) axis_title_x else no_axis_title_x
+  axis_title_for_x_top <-
+    if (axis_title %in% c("x", "xy")) axis_title_x_top else no_axis_title_x
 
 
   # Set axis y title dependent on title arg, and define placement
-  axis_title_y <- ggplot2::element_text(angle = 0, margin = ggplot2::margin(r = half_line / 2), vjust = 1, hjust = 0.5)
-  axis_title_y_right <- ggplot2::element_text(angle = 0, margin = ggplot2::margin(l = half_line / 2), vjust = 1, hjust = 0.5)
+  axis_title_y <- ggplot2::element_text(
+    angle = 0,
+    margin = ggplot2::margin(r = half_line / 2),
+    vjust = 1,
+    hjust = 0.5
+  )
+  axis_title_y_right <- ggplot2::element_text(
+    angle = 0,
+    margin = ggplot2::margin(l = half_line / 2),
+    vjust = 1,
+    hjust = 0.5
+  )
   no_axis_title_y <- ggplot2::element_blank()
-  axis_title_for_y <- if (axis_title %in% c("x", "xy")) axis_title_y else no_axis_title_y
-  axis_title_for_y_right <- if (axis_title %in% c("x", "xy")) axis_title_y_right else no_axis_title_y
+  axis_title_for_y <-
+    if (axis_title %in% c("y", "xy")) axis_title_y else no_axis_title_y
+  axis_title_for_y_right <-
+    if (axis_title %in% c("y", "xy")) axis_title_y_right else no_axis_title_y
+
 
   # Set whether legend title displays or not, dependent on legend_title arg
   leg_title <- ggplot2::element_text(hjust = 0)
   no_leg_title <- ggplot2::element_blank()
-  title_for_legend <- if (legend_title == 'show') leg_title else no_leg_title
+  title_for_legend <- if (legend_title == "show") leg_title else no_leg_title
 
 
   ggplot2::theme(
