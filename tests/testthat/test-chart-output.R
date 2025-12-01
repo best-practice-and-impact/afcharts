@@ -142,3 +142,14 @@ test_that("use_afcharts works", {
   expect_match_plot("use_afcharts_4", plot4)
 
 })
+
+test_that("theme_af inherits args from use_af", {
+
+  use_afcharts(base_size = 20)
+  plot <- ggplot2::ggplot(ggplot2::mpg, ggplot2::aes(x = class)) +
+    ggplot2::geom_bar() +
+    theme_af()
+
+  expect_match_plot("theme_af_inherit", plot)
+  use_afcharts(reset = TRUE)
+})

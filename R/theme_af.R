@@ -32,6 +32,8 @@ theme_af <- function(base_size = 14,
                      ticks = c("xy", "x", "y", "none"),
                      legend = c("right", "left", "top", "bottom", "none")) {
 
+  # identify if arg is missing before evaluation, otherwise arg will default to
+  # first option
   missing_grid <- missing(grid)
   missing_axis <- missing(axis)
   missing_ticks <- missing(ticks)
