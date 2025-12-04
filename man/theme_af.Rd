@@ -11,7 +11,10 @@ theme_af(
   grid = c("y", "x", "xy", "none"),
   axis = c("x", "y", "xy", "none"),
   ticks = c("xy", "x", "y", "none"),
-  legend = c("right", "left", "top", "bottom", "none")
+  legend = c("right", "left", "top", "bottom", "none"),
+  axis_text = c("xy", "x", "y", "none"),
+  axis_title = c("xy", "x", "y", "none"),
+  legend_title = c("show", "none")
 )
 }
 \arguments{
@@ -27,6 +30,11 @@ to 'xy'.}
 
 \item{legend}{'right', 'left', 'top', 'bottom', or 'none' to determine the
 position of the legend. Defaults to 'right'.}
+
+\item{axis_text, axis_title}{'x', 'y', 'xy' or 'none' to determine whether axis text and/or axis titles should be displayed.
+Text defaults to 'xy', as does title. Note that axis text refers to the 'labels' under the tick marks.}
+
+\item{legend_title}{Set to 'none' to suppress legend titles.}
 }
 \value{
 ggplot2 plot theme

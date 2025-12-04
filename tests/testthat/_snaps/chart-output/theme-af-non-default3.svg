@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' class='svglite' data-engine-version='2.0' width='720.00pt' height='576.00pt' viewBox='0 0 720.00 576.00'>
+<defs>
+  <style type='text/css'><![CDATA[
+    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+  ]]></style>
+</defs>
+<rect width='100%' height='100%' style='stroke: none; fill: #FFFFFF;'/>
+<defs>
+  <clipPath id='cpMC4wMHw3MjAuMDB8MC4wMHw1NzYuMDA='>
+    <rect x='0.00' y='0.00' width='720.00' height='576.00' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpMC4wMHw3MjAuMDB8MC4wMHw1NzYuMDA=)'>
+<rect x='0.00' y='0.00' width='720.00' height='576.00' style='stroke-width: 1.24; stroke: #FFFFFF; fill: #FFFFFF;' />
+</g>
+<defs>
+  <clipPath id='cpMzIuNzF8NTg2Ljg2fDQwLjk5fDU1My4wMA=='>
+    <rect x='32.71' y='40.99' width='554.15' height='512.01' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpMzIuNzF8NTg2Ljg2fDQwLjk5fDU1My4wMA==)'>
+<rect x='52.50' y='374.57' width='118.75' height='155.15' style='stroke-width: 1.07; stroke: #619CFF; stroke-linecap: butt; stroke-linejoin: miter; fill: #619CFF;' />
+<rect x='184.44' y='219.42' width='118.75' height='310.31' style='stroke-width: 1.07; stroke: #619CFF; stroke-linecap: butt; stroke-linejoin: miter; fill: #619CFF;' />
+<rect x='316.39' y='167.70' width='118.75' height='362.03' style='stroke-width: 1.07; stroke: #F8766D; stroke-linecap: butt; stroke-linejoin: miter; fill: #F8766D;' />
+<rect x='448.33' y='64.26' width='118.75' height='465.46' style='stroke-width: 1.07; stroke: #00BA38; stroke-linecap: butt; stroke-linejoin: miter; fill: #00BA38;' />
+</g>
+<g clip-path='url(#cpMC4wMHw3MjAuMDB8MC4wMHw1NzYuMDA=)'>
+<text x='26.44' y='534.54' text-anchor='end' style='font-size: 14.00px; font-family: sans;' textLength='19.46px' lengthAdjust='spacingAndGlyphs'>0.0</text>
+<text x='26.44' y='405.25' text-anchor='end' style='font-size: 14.00px; font-family: sans;' textLength='19.46px' lengthAdjust='spacingAndGlyphs'>2.5</text>
+<text x='26.44' y='275.95' text-anchor='end' style='font-size: 14.00px; font-family: sans;' textLength='19.46px' lengthAdjust='spacingAndGlyphs'>5.0</text>
+<text x='26.44' y='146.66' text-anchor='end' style='font-size: 14.00px; font-family: sans;' textLength='19.46px' lengthAdjust='spacingAndGlyphs'>7.5</text>
+<polyline points='29.23,529.72 32.71,529.72 ' style='stroke-width: 1.24; stroke: #D9D9D9; stroke-linecap: butt;' />
+<polyline points='29.23,400.43 32.71,400.43 ' style='stroke-width: 1.24; stroke: #D9D9D9; stroke-linecap: butt;' />
+<polyline points='29.23,271.13 32.71,271.13 ' style='stroke-width: 1.24; stroke: #D9D9D9; stroke-linecap: butt;' />
+<polyline points='29.23,141.84 32.71,141.84 ' style='stroke-width: 1.24; stroke: #D9D9D9; stroke-linecap: butt;' />
+<polyline points='32.71,553.00 586.86,553.00 ' style='stroke-width: 1.24; stroke: #D9D9D9; stroke-linecap: butt;' />
+<text x='309.79' y='566.12' text-anchor='middle' style='font-size: 14.00px; font-family: sans;' textLength='38.14px' lengthAdjust='spacingAndGlyphs'>model</text>
+<rect x='600.81' y='255.09' width='112.21' height='83.81' style='stroke-width: 1.24; stroke: none; fill: #FFFFFF;' />
+<text x='607.79' y='273.15' style='font-size: 14.00px; font-family: sans;' textLength='31.91px' lengthAdjust='spacingAndGlyphs'>class</text>
+<rect x='608.49' y='280.79' width='15.86' height='15.86' style='stroke-width: 1.07; stroke: #F8766D; stroke-linecap: butt; stroke-linejoin: miter; fill: #F8766D;' />
+<rect x='608.49' y='298.07' width='15.86' height='15.86' style='stroke-width: 1.07; stroke: #00BA38; stroke-linecap: butt; stroke-linejoin: miter; fill: #00BA38;' />
+<rect x='608.49' y='315.35' width='15.86' height='15.86' style='stroke-width: 1.07; stroke: #619CFF; stroke-linecap: butt; stroke-linejoin: miter; fill: #619CFF;' />
+<text x='630.54' y='293.54' style='font-size: 14.00px; font-family: sans;' textLength='40.48px' lengthAdjust='spacingAndGlyphs'>pickup</text>
+<text x='630.54' y='310.82' style='font-size: 14.00px; font-family: sans;' textLength='75.51px' lengthAdjust='spacingAndGlyphs'>subcompact</text>
+<text x='630.54' y='328.10' style='font-size: 14.00px; font-family: sans;' textLength='21.80px' lengthAdjust='spacingAndGlyphs'>suv</text>
+<text x='32.71' y='22.39' style='font-size: 22.40px; font-family: sans;' textLength='235.42px' lengthAdjust='spacingAndGlyphs'>theme_af_non_default3</text>
+</g>
+</svg>

@@ -27,6 +27,54 @@ test_that("theme_af works with non default options", {
     )
 
   expect_match_plot("theme_af_non_default", plot)
+
+
+  plot2 <- ggplot2::ggplot(
+    d,
+    ggplot2::aes(x = model, fill = class, colour = class)
+  ) +
+    ggplot2::geom_bar() +
+    theme_af(
+      grid = "xy",
+      ticks = "none",
+      axis_title = "none",
+      axis_text = "none",
+      legend_title = "none"
+    )
+
+  expect_match_plot("theme_af_non_default2", plot2)
+
+
+  plot3 <- ggplot2::ggplot(
+    d,
+    ggplot2::aes(x = model, fill = class, colour = class)
+  ) +
+    ggplot2::geom_bar() +
+    theme_af(
+      grid = "none",
+      ticks = "y",
+      axis_title = "x",
+      axis_text = "y",
+      legend_title = "show"
+    )
+
+  expect_match_plot("theme_af_non_default3", plot3)
+
+  plot4 <- ggplot2::ggplot(
+    d,
+    ggplot2::aes(x = model, fill = class, colour = class)
+  ) +
+    ggplot2::geom_bar() +
+    theme_af(
+      grid = "x",
+      ticks = "xy",
+      axis_title = "y",
+      axis_text = "x",
+      legend_title = "none"
+    )
+
+  expect_match_plot("theme_af_non_default4", plot4)
+
 })
 
 
