@@ -86,7 +86,18 @@ test_that("scale_fill_discrete_af works", {
     ggplot2::geom_bar() +
     scale_fill_discrete_af()
 
-  expect_match_plot("scale_fill_discrete_af", plot)
+  expect_match_plot("scale_fill_discrete_af1", plot)
+
+  d2 <- data.frame(
+    age = c("<25", "25-44", "45-54", "55-64", "65 plus", NA),
+    score = c(20, 34, 44, 88, 90, 40)
+  )
+
+  plot2 <- ggplot2::ggplot(d2, ggplot2::aes(x = age, y = score, fill = age)) +
+    ggplot2::geom_col() +
+    scale_fill_discrete_af(palette = "sequential", na_colour = "red")
+
+  expect_match_plot("scale_fill_discrete_af2", plot2)
 })
 
 
@@ -105,8 +116,8 @@ test_that("scale_fill_continuous_af works", {
 
 test_that("scale_colour_discrete_af works", {
 
-  plot <- ggplot2::economics_long %>%
-    dplyr::filter(variable %in% c("psavert", "uempmed")) %>%
+  plot <- ggplot2::economics_long |>
+    dplyr::filter(variable %in% c("psavert", "uempmed")) |>
     ggplot2::ggplot(ggplot2::aes(x = date, y = value, colour = variable)) +
     ggplot2::geom_line(linewidth = 1) +
     scale_colour_discrete_af()

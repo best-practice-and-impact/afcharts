@@ -7,13 +7,18 @@
 #'   supported. Defaults to "af".
 #' @param reverse Boolean value to indicate whether the palette should be
 #'   reversed.
+#' @param na_colour Colour to set for missing values.
 #' @param ... Additional arguments passed to scale type.
 #'
 #' @returns ggplot2 discrete colour scale
 #'
-#' @details If only two colours are required and the palette is set to
-#'   `"categorical"` then the `"categorical2"` palette will be used instead, without
-#'   warning.
+#' @details If the palette is set to "categorical" or "sequential" and fewer
+#'   than the maximum number of colours are required then the colours will be
+#'   used in the correct order following the analysis function guidance.
+#'
+#'   E.g. If only two colours are required and the palette is set to
+#'   `"categorical"` then the `"categorical2"` palette will be used instead,
+#'   without warning.
 #'
 #' @examples
 #' library(ggplot2)
@@ -30,12 +35,15 @@
 scale_colour_discrete_af <- function(palette = "categorical",
                                      palette_type = c("af"),
                                      reverse = FALSE,
+                                     na_colour = af_pale_grey,
                                      ...) {
 
   palette_type <- match.arg(palette_type)
 
-  ggplot2::discrete_scale("colour",
+  ggplot2::discrete_scale(
+    "colour",
     palette = af_palette(palette, reverse, palette_type = palette_type),
+    na.value = na_colour,
     ...
   )
 }

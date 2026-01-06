@@ -40,7 +40,23 @@ af_palette <- function(palette = "categorical",
         n == 2 &&
         palette %in% c("categorical", "main")
     ) {
+
       palette <- "categorical2"
+
+    } else if (
+      palette_type == "af" &&
+        n %in% c(1, 2, 3, 4) &&
+        palette == "sequential"
+    ) {
+
+      palette <- switch(
+        n,
+        "sequential1",
+        "sequential2",
+        "sequential3",
+        "sequential4"
+      )
+
     }
 
 

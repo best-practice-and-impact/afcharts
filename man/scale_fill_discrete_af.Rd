@@ -8,6 +8,7 @@ scale_fill_discrete_af(
   palette = "categorical",
   palette_type = c("af"),
   reverse = FALSE,
+  na_colour = af_pale_grey,
   ...
 )
 }
@@ -22,6 +23,8 @@ supported. Defaults to "af".}
 \item{reverse}{Boolean value to indicate whether the palette should be
 reversed.}
 
+\item{na_colour}{Colour to set for missing values.}
+
 \item{...}{Additional arguments passed to scale type.}
 }
 \value{
@@ -31,9 +34,13 @@ ggplot2 discrete fill scale
 Discrete colour fill scales for Analysis Function plots
 }
 \details{
-If only two colours are required and the palette is set to
-\code{"categorical"} then the \code{"categorical2"} palette will be used instead, without
-warning.
+If the palette is set to "categorical" or "sequential" and fewer
+than the maximum number of colours are required then the colours will be
+used in the correct order following the analysis function guidance.
+
+E.g. If only two colours are required and the palette is set to
+\code{"categorical"} then the \code{"categorical2"} palette will be used instead,
+without warning.
 }
 \examples{
 library(ggplot2)
@@ -44,4 +51,16 @@ ggplot(d, aes(x = class, fill = class)) +
  geom_bar() +
  scale_fill_discrete_af()
 
+
+# The Analysis Function guidance recommends using a dark blue outline on
+# barcharts with a sequential colour palette
+
+d2 <- data.frame(
+  age = c("<25", "25-44", "45-54", "55-64", "65 plus"),
+  score = c(20, 34, 44, 88, 90)
+)
+
+ggplot(d2, aes(x = age, y = score, fill = age)) +
+  geom_col(colour = af_dark_blue) +
+  scale_fill_discrete_af(palette = "sequential")
 }
