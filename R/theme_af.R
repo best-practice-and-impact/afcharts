@@ -32,21 +32,21 @@
 theme_af <- function(base_size = 14,
                      base_line_size = base_size / 24,
                      base_rect_size = base_size / 24,
-                     grid = c("y", "x", "xy", "none"),
-                     axis = c("x", "y", "xy", "none"),
-                     ticks = c("xy", "x", "y", "none"),
-                     legend = c("right", "left", "top", "bottom", "none"),
-                     axis_text = c("xy", "x", "y", "none"),
-                     axis_title = c("xy", "x", "y", "none"),
-                     legend_title = c("show", "none")) {
+                     grid = getOption("afcharts.grid", "y"),
+                     axis = getOption("afcharts.axis", "x"),
+                     ticks = getOption("afcharts.ticks", "xy"),
+                     legend = getOption("afcharts.legend.position", "right"),
+                     axis_text = getOption("afcharts.axis_text", "xy"),
+                     axis_title = getOption("afcharts.axis_title", "xy"),
+                     legend_title = getOption("afcharts.axis_title", "show")) {
 
-  grid   <- match.arg(grid)
-  axis   <- match.arg(axis)
-  ticks  <- match.arg(ticks)
-  legend <- match.arg(legend)
-  axis_text <- match.arg(axis_text)
-  axis_title <- match.arg(axis_title)
-  legend_title <- match.arg(legend_title)
+  grid   <- match.arg(grid, c("y", "x", "xy", "none"))
+  axis   <- match.arg(axis, c("x", "y", "xy", "none"))
+  ticks  <- match.arg(ticks, c("xy", "x", "y", "none"))
+  legend <- match.arg(legend, c("right", "left", "top", "bottom", "none"))
+  axis_text <- match.arg(axis_text, c("xy", "x", "y", "none"))
+  axis_title <- match.arg(axis_title, c("xy", "x", "y", "none"))
+  legend_title <- match.arg(legend_title, c("show", "none"))
 
   # Set colours
   light_grey <- "#d9d9d9"
