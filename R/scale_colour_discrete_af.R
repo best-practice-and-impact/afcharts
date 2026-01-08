@@ -7,6 +7,7 @@
 #'   supported. Defaults to "af".
 #' @param reverse Boolean value to indicate whether the palette should be
 #'   reversed.
+#' @param na.value Colour to set for missing values.
 #' @param ... Additional arguments passed to scale type.
 #'
 #' @returns ggplot2 discrete colour scale
@@ -30,12 +31,15 @@
 scale_colour_discrete_af <- function(palette = "categorical",
                                      palette_type = c("af"),
                                      reverse = FALSE,
+                                     na.value = "grey50",
                                      ...) {
 
   palette_type <- match.arg(palette_type)
 
-  ggplot2::discrete_scale("colour",
+  ggplot2::discrete_scale(
+    aesthetics = "colour",
     palette = af_palette(palette, reverse, palette_type = palette_type),
+    na.value = na.value,
     ...
   )
 }
