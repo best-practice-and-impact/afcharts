@@ -203,17 +203,13 @@ test_that("theme_af() inherits arguments from use_afcharts() including defaults"
                ticks = "none",
                legend = "left")
 
-  got <- theme_af()
-  expect_equal(got$base_size, 20)
-  expect_equal(got$base_line_size, 20/24)
-  expect_equal(got$base_line_size, 10)
-  expect_equal(got$grid, "x")
-  expect_equal(got$axis, "xy")
-  expect_equal(got$ticks, "none")
-  expect_equal(got$legend.position, "left")
-  expect_equal(got$axis_text, "xy")
-  expect_equal(got$axis_title, "xy")
-  expect_equal(got$legend_title, "show")
+  d <- subset(ggplot2::mpg, manufacturer == "ford")
+
+  plot5 <- ggplot2::ggplot(d, ggplot2::aes(x = model, fill = class)) +
+    ggplot2::geom_bar() +
+    theme_af()
+
+  expect_match_plot("use_afcharts_5", plot5)
 
   use_afcharts(reset = TRUE)
 })
