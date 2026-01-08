@@ -39,6 +39,15 @@ use_afcharts <- function(default_colour =
 
   if (isFALSE(reset)) {
 
+    dots <- list(...)
+
+    # Set options for all theme_af arguments provided in ...
+
+    theme_args <- names(formals(theme_af))
+    for (arg in intersect(names(dots), theme_args)) {
+      options(setNames(list(dots[[arg]]), paste0("afcharts.", arg)))
+    }
+
     # Use afcharts theme ----
 
     old_theme <- ggplot2::theme_set(theme_af(...))
@@ -196,6 +205,11 @@ use_afcharts <- function(default_colour =
         )
         cli::cli_alert_info("Reverting geom aesthetics.")
         options("afcharts.old.geoms" = NULL)
+      }
+
+      theme_args <- names(formals(theme_af))
+      for (arg in theme_args) {
+        options(setNames(list(NULL), paste0("afcharts.", arg)))
       }
 
       # Turn off use_afcharts

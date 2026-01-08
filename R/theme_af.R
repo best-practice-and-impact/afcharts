@@ -29,16 +29,19 @@
 #' @export
 
 
-theme_af <- function(base_size = 14,
-                     base_line_size = base_size / 24,
-                     base_rect_size = base_size / 24,
+theme_af <- function(base_size = getOption("afcharts.base_size", 14),
+                     base_line_size = NULL,
+                     base_rect_size = NULL,
                      grid = getOption("afcharts.grid", "y"),
                      axis = getOption("afcharts.axis", "x"),
                      ticks = getOption("afcharts.ticks", "xy"),
-                     legend = getOption("afcharts.legend.position", "right"),
+                     legend = getOption("afcharts.legend", "right"),
                      axis_text = getOption("afcharts.axis_text", "xy"),
                      axis_title = getOption("afcharts.axis_title", "xy"),
                      legend_title = getOption("afcharts.axis_title", "show")) {
+
+  if (is.null(base_line_size)) base_line_size <- getOption("afcharts.base_line_size", base_size / 24)
+  if (is.null(base_rect_size)) base_rect_size <- getOption("afcharts.base_rect_size", base_size / 24)
 
   grid   <- match.arg(grid, c("y", "x", "xy", "none"))
   axis   <- match.arg(axis, c("x", "y", "xy", "none"))

@@ -190,3 +190,30 @@ test_that("use_afcharts works", {
   expect_match_plot("use_afcharts_4", plot4)
 
 })
+
+# Test theme_af()
+
+test_that("theme_af() inherits arguments from use_afcharts() including defaults", {
+
+  use_afcharts(reset = TRUE)
+  use_afcharts(base_size = 20,
+               base_rect_size = 10,
+               grid = "x",
+               axis = "xy",
+               ticks = "none",
+               legend = "left")
+
+  got <- theme_af()
+  expect_equal(got$base_size, 20)
+  expect_equal(got$base_line_size, 20/24)
+  expect_equal(got$base_line_size, 10)
+  expect_equal(got$grid, "x")
+  expect_equal(got$axis, "xy")
+  expect_equal(got$ticks, "none")
+  expect_equal(got$legend.position, "left")
+  expect_equal(got$axis_text, "xy")
+  expect_equal(got$axis_title, "xy")
+  expect_equal(got$legend_title, "show")
+
+  use_afcharts(reset = TRUE)
+})
