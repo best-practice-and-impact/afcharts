@@ -80,48 +80,116 @@ test_that("theme_af works with non default options", {
 
 test_that("scale_fill_discrete_af works", {
 
+  # Default arguments
   d <- subset(ggplot2::mpg, manufacturer == "ford")
 
-  plot <- ggplot2::ggplot(d, ggplot2::aes(x = class, fill = class)) +
+  plot1 <- ggplot2::ggplot(d, ggplot2::aes(x = class, fill = class)) +
     ggplot2::geom_bar() +
     scale_fill_discrete_af()
 
-  expect_match_plot("scale_fill_discrete_af", plot)
+  expect_match_plot("scale_fill_discrete_af1", plot1)
+
+
+  # Custom arguments
+  d2 <- d
+  d2$class[d2$class == "suv"] <- NA
+
+  plot2 <- ggplot2::ggplot(d2, ggplot2::aes(x = class, fill = class)) +
+    ggplot2::geom_bar() +
+    scale_fill_discrete_af(palette = "sequential", na.value = "orange")
+
+  expect_match_plot("scale_fill_discrete_af2", plot2)
+
 })
 
 
 test_that("scale_fill_continuous_af works", {
 
-  plot <- ggplot2::ggplot(
+  #Default arguments
+  plot1 <- ggplot2::ggplot(
     ggplot2::faithfuld,
     ggplot2::aes(x = waiting, y = eruptions, fill = density)
   ) +
     ggplot2::geom_raster() +
     scale_fill_continuous_af()
 
-  expect_match_plot("scale_fill_continuous_af", plot)
+  expect_match_plot("scale_fill_continuous_af1", plot1)
+
+  # Custom arguments
+  faithfuld2 <- ggplot2::faithfuld
+  faithfuld2$density[1:100] <- NA
+
+  plot2 <- ggplot2::ggplot(
+    faithfuld2,
+    ggplot2::aes(x = waiting, y = eruptions, fill = density)
+  ) +
+    ggplot2::geom_raster() +
+    scale_fill_continuous_af(
+      palette = "categorical",
+      na.value = "red",
+      guide = "coloursteps"
+    )
+
+  expect_match_plot("scale_fill_continuous_af2", plot2)
+
 })
 
 
 test_that("scale_colour_discrete_af works", {
 
-  plot <- ggplot2::economics_long %>%
-    dplyr::filter(variable %in% c("psavert", "uempmed")) %>%
+  # Default arguments
+  plot1 <- ggplot2::economics_long |>
+    dplyr::filter(variable %in% c("psavert", "uempmed")) |>
     ggplot2::ggplot(ggplot2::aes(x = date, y = value, colour = variable)) +
     ggplot2::geom_line(linewidth = 1) +
     scale_colour_discrete_af()
 
-  expect_match_plot("scale_colour_discrete_af", plot)
+  expect_match_plot("scale_colour_discrete_af1", plot1)
+
+  # Custom arguments
+  economics_long2 <- ggplot2::economics_long
+  economics_long2$variable[economics_long2$variable == "psavert"] <- NA
+
+  plot2 <- economics_long2 |>
+    dplyr::filter(variable %in% c(NA, "uempmed")) |>
+    ggplot2::ggplot(ggplot2::aes(x = date, y = value, colour = variable)) +
+    ggplot2::geom_line(linewidth = 1, na.rm = FALSE) +
+    scale_colour_discrete_af(palette = "sequential", na.value = "red")
+
+  expect_match_plot("scale_colour_discrete_af2", plot2)
+
 })
 
 
 test_that("scale_colour_continuous_af works", {
 
-  plot <- ggplot2::ggplot(mtcars, ggplot2::aes(x = mpg, y = wt, colour = cyl)) +
+  # Default arguments
+  plot1 <- ggplot2::ggplot(
+    mtcars,
+    ggplot2::aes(x = mpg, y = wt, colour = cyl)
+  ) +
     ggplot2::geom_point() +
     scale_colour_continuous_af()
 
-  expect_match_plot("scale_colour_continuous_af", plot)
+  expect_match_plot("scale_colour_continuous_af1", plot1)
+
+  # Custom arguments
+  mtcars2 <- mtcars
+  mtcars2$cyl[1:5] <- NA
+
+  plot2 <- ggplot2::ggplot(
+    mtcars2,
+    ggplot2::aes(x = mpg, y = wt, colour = cyl)
+  ) +
+    ggplot2::geom_point() +
+    scale_colour_continuous_af(
+      palette = "categorical",
+      na.value = "green",
+      guide = "coloursteps"
+    )
+
+  expect_match_plot("scale_colour_continuous_af2", plot2)
+
 })
 
 
@@ -164,30 +232,44 @@ test_that("use_afcharts works", {
   use_afcharts()
 
   d <- subset(ggplot2::mpg, manufacturer == "ford")
+  d2 <- d
+  d2$class[d2$class == "suv"] <- NA
 
+  # No scale function
   plot1 <- ggplot2::ggplot(d, ggplot2::aes(x = model, fill = class)) +
     ggplot2::geom_bar()
 
   plot2 <- ggplot2::ggplot(d, ggplot2::aes(x = model)) +
     ggplot2::geom_bar()
 
+  # Standard scale function
+  plot3 <- ggplot2::ggplot(d2, ggplot2::aes(x = model, fill = class)) +
+    ggplot2::geom_bar() +
+    ggplot2::scale_fill_discrete(na.value = "green")
+
+  # afcharts scale function
+  plot4 <- ggplot2::ggplot(d2, ggplot2::aes(x = model, fill = class)) +
+    ggplot2::geom_bar() +
+    scale_fill_discrete_af(na.value = "green")
+
   expect_match_plot("use_afcharts_1", plot1)
   expect_match_plot("use_afcharts_2", plot2)
-
+  expect_match_plot("use_afcharts_3", plot3)
+  expect_match_plot("use_afcharts_4", plot4)
 
   # Turn use_afcharts off and check default plot settings revert to what they
   # were prior to using use_afcharts
 
   use_afcharts(reset = TRUE)
 
-  plot3 <- ggplot2::ggplot(d, ggplot2::aes(x = model, fill = class)) +
+  plot5 <- ggplot2::ggplot(d, ggplot2::aes(x = model, fill = class)) +
     ggplot2::geom_bar()
 
-  plot4 <- ggplot2::ggplot(d, ggplot2::aes(x = model)) +
+  plot6 <- ggplot2::ggplot(d, ggplot2::aes(x = model)) +
     ggplot2::geom_bar()
 
-  expect_match_plot("use_afcharts_3", plot3)
-  expect_match_plot("use_afcharts_4", plot4)
+  expect_match_plot("use_afcharts_5", plot5)
+  expect_match_plot("use_afcharts_6", plot6)
 
 })
 

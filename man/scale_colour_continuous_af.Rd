@@ -8,7 +8,7 @@ scale_colour_continuous_af(
   palette = "sequential",
   palette_type = c("af"),
   reverse = FALSE,
-  na_colour = "grey50",
+  na.value = "grey50",
   guide = "colourbar",
   ...
 )
@@ -24,7 +24,7 @@ supported. Defaults to "af".}
 \item{reverse}{Boolean value to indicate whether the palette should be
 reversed.}
 
-\item{na_colour}{Colour to set for missing values.}
+\item{na.value}{Colour to set for missing values.}
 
 \item{guide}{A name or function used to create guide. Default is "colourbar".}
 
