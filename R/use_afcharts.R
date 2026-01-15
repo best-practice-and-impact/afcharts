@@ -43,10 +43,14 @@ use_afcharts <- function(default_colour =
 
     # Set options for all theme_af arguments provided in ...
 
-    theme_args <- names(formals(theme_af))
-    for (arg in intersect(names(dots), theme_args)) {
-      options(setNames(list(dots[[arg]]), paste0("afcharts.", arg)))
-    }
+    theme_args <- intersect(names(dots), names(formals(theme_af)))
+    options(
+      setNames(
+        dots[theme_args],
+        paste0("afcharts.", theme_args, recycle0 = TRUE)
+      )
+    )
+
 
     # Use afcharts theme ----
 
@@ -80,14 +84,6 @@ use_afcharts <- function(default_colour =
 
     # Get default base sizes used in theme
     default <- formals(theme_af)
-
-    # Update default values with those passed to use_afcharts
-    new_values <- c(...)
-    for (i in seq_along(new_values)) {
-      default <- replace(default,
-                         which(names(default) == names(new_values)[i]),
-                         new_values[i])
-    }
 
     # Evaluate base_size values for use in geom defaults
     base_size <- eval(default$base_size)
@@ -208,9 +204,12 @@ use_afcharts <- function(default_colour =
       }
 
       theme_args <- names(formals(theme_af))
-      for (arg in theme_args) {
-        options(setNames(list(NULL), paste0("afcharts.", arg)))
-      }
+      options(
+        setNames(
+          vector("list", length = length(theme_args)),
+          paste0("afcharts.", theme_args)
+        )
+      )
 
       # Turn off use_afcharts
       options("afcharts.use_afcharts" = NULL)

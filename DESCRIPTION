@@ -29,7 +29,8 @@ Imports:
     cli,
     rlang,
     dplyr,
-    purrr
+    purrr,
+    stats
 Suggests: 
     ggtext,
     knitr,
