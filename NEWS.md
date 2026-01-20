@@ -4,6 +4,8 @@
 
 - `use_afcharts` gains a `reset` argument to turn off analysis function styling of charts.
 
+- `theme_af` now uses theme options set by earlier calls of `use_afcharts` by default. #51
+
 - Set the `main` colour palettes to `categorical`. The Scale_*_discrete_af functions now use the 6 colour cateogrical palette by default, rather than the 4 colour.
 
 - Added `af_dark_blue`, `af_orange` and `af_grey` to give easier access to the hex codes of these colours.

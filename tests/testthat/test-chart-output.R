@@ -272,3 +272,37 @@ test_that("use_afcharts works", {
   expect_match_plot("use_afcharts_6", plot6)
 
 })
+
+test_that("theme_af() inherits arguments from use_afcharts()", {
+
+  use_afcharts(reset = TRUE)
+
+  use_afcharts(
+    base_size = 20,
+    base_line_size = 15,
+    base_rect_size = 10,
+    grid = "x",
+    axis = "xy",
+    ticks = "none",
+    legend = "left",
+    axis_text = "x",
+    axis_title = "y",
+    legend_title = "none"
+  )
+
+  d <- subset(ggplot2::mpg, manufacturer == "ford")
+
+  plot1 <- ggplot2::ggplot(d, ggplot2::aes(x = model, fill = class)) +
+    ggplot2::geom_bar() +
+    theme_af()
+
+  expect_match_plot("use_afcharts_theme_af1", plot1)
+
+  plot2 <- ggplot2::ggplot(d, ggplot2::aes(x = model, fill = class)) +
+    ggplot2::geom_bar() +
+    theme_af(base_size = 5, legend_title = "show")
+
+  expect_match_plot("use_afcharts_theme_af2", plot2)
+
+  use_afcharts(reset = TRUE)
+})
