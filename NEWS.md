@@ -1,6 +1,10 @@
 # afcharts (development version)
 
+- Renamed `na_colour` argument of `scale_colour_continuous_af` and `scale_fill_continuous_af` to `na.value`. This was necessary to enable `use_afcharts` to work with ggplot2 v4.0.1. Added `na.value` argument to `scale_colour_discrete_af` and `scale_fill_discrete_af`.
+
 - `use_afcharts` gains a `reset` argument to turn off analysis function styling of charts.
+
+- `theme_af` now uses theme options set by earlier calls of `use_afcharts` by default. #51
 
 - Set the `main` colour palettes to `categorical`. The Scale_*_discrete_af functions now use the 6 colour cateogrical palette by default, rather than the 4 colour.
 

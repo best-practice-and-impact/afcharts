@@ -8,7 +8,7 @@ scale_fill_discrete_af(
   palette = "categorical",
   palette_type = c("af"),
   reverse = FALSE,
-  na_colour = af_pale_grey,
+  na.value = af_pale_grey,
   ...
 )
 }
@@ -23,7 +23,7 @@ supported. Defaults to "af".}
 \item{reverse}{Boolean value to indicate whether the palette should be
 reversed.}
 
-\item{na_colour}{Colour to set for missing values.}
+\item{na.value}{Colour to set for missing values.}
 
 \item{...}{Additional arguments passed to scale type.}
 }

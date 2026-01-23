@@ -7,7 +7,7 @@
 #'   supported. Defaults to "af".
 #' @param reverse Boolean value to indicate whether the palette should be
 #'   reversed.
-#' @param na_colour Colour to set for missing values.
+#' @param na.value Colour to set for missing values.
 #' @param guide A name or function used to create guide. Default is "colourbar".
 #' @param ... Additional arguments passed to scale type.
 #'
@@ -25,7 +25,7 @@
 scale_fill_continuous_af <- function(palette = "sequential",
                                      palette_type = c("af"),
                                      reverse = FALSE,
-                                     na_colour = af_pale_grey,
+                                     na.value = af_pale_grey,
                                      guide = "colourbar",
                                      ...) {
 
@@ -49,8 +49,9 @@ scale_fill_continuous_af <- function(palette = "sequential",
   ggplot2::continuous_scale(
     aesthetics = "fill",
     palette    = scales::gradient_n_pal(colours, values = NULL, "Lab"),
-    na.value   = na_colour,
+    na.value   = na.value,
     guide      = guide,
     ...
   )
+
 }
