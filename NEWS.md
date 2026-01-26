@@ -1,5 +1,8 @@
 # afcharts (development version)
 
+- Updated the `sequential` colour palette to add two new shades (`darkest-blue` and `lightest-blue`).
+ This means that the `sequential` palette can now be used to represent five categories, such as deprivation quintiles.
+
 - Renamed `na_colour` argument of `scale_colour_continuous_af` and `scale_fill_continuous_af` to `na.value`. This was necessary to enable `use_afcharts` to work with ggplot2 v4.0.1. Added `na.value` argument to `scale_colour_discrete_af` and `scale_fill_discrete_af`.
 
 - `use_afcharts` gains a `reset` argument to turn off analysis function styling of charts.
