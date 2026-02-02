@@ -11,7 +11,7 @@ theme_af(
   grid = c("y", "x", "xy", "none"),
   axis = c("x", "y", "xy", "none"),
   ticks = c("xy", "x", "y", "none"),
-  legend = c("right", "left", "top", "bottom", "none")
+  legend = c("right", "left", "top", "bottom", "top-left", "top-right", "none")
 )
 }
 \arguments{
@@ -25,8 +25,8 @@ theme_af(
 the attribute should be drawn. Grid defaults to 'y', axis to 'x', and ticks
 to 'xy'.}
 
-\item{legend}{'right', 'left', 'top', 'bottom', or 'none' to determine the
-position of the legend. Defaults to 'right'.}
+\item{legend}{'right', 'left', 'top', 'bottom', 'top-left', 'top-right',
+or 'none' to determine the position of the legend. Defaults to 'right'.}
 }
 \value{
 ggplot2 plot theme

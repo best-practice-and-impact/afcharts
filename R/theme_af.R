@@ -8,8 +8,8 @@
 #' @param grid,axis,ticks 'x', 'y', 'xy' or 'none' to determine for which axes
 #'   the attribute should be drawn. Grid defaults to 'y', axis to 'x', and ticks
 #'   to 'xy'.
-#' @param legend 'right', 'left', 'top', 'bottom', or 'none' to determine the
-#'   position of the legend. Defaults to 'right'.
+#' @param legend 'right', 'left', 'top', 'bottom', 'top-left', 'top-right',
+#'   or 'none' to determine the position of the legend. Defaults to 'right'.
 #'
 #' @returns ggplot2 plot theme
 #'
@@ -30,12 +30,22 @@ theme_af <- function(base_size = 14,
                      grid = c("y", "x", "xy", "none"),
                      axis = c("x", "y", "xy", "none"),
                      ticks = c("xy", "x", "y", "none"),
-                     legend = c("right", "left", "top", "bottom", "none")) {
+                     legend = c("right", "left", "top", "bottom",
+                                "top-left", "top-right", "none")) {
 
   grid   <- match.arg(grid)
   axis   <- match.arg(axis)
   ticks  <- match.arg(ticks)
   legend <- match.arg(legend)
+
+  # Set legend position and justification based on legend arg
+  if (legend %in% c("top-left", "top-right")) {
+    legend_position <- "top"
+    legend_justification <- if (legend == "top-left") c(-0.2, 0) else c(1.2, 0)
+  } else {
+    legend_position <- legend
+    legend_justification <- "centre"
+  }
 
   # Set colours
   light_grey <- "#d9d9d9"
@@ -158,9 +168,9 @@ theme_af <- function(base_size = 14,
     legend.text.align = NULL,
     legend.title = ggplot2::element_text(hjust = 0),
     legend.title.align = NULL,
-    legend.position = legend,
+    legend.position = legend_position,
     legend.direction = NULL,
-    legend.justification = "centre",
+    legend.justification = legend_justification,
     legend.box = NULL,
     legend.box.margin = ggplot2::margin(0, 0, 0, 0, "cm"),
     legend.box.background = ggplot2::element_blank(),
