@@ -41,7 +41,7 @@ theme_af <- function(base_size = 14,
   # Set legend position and justification based on legend arg
   if (legend %in% c("top-left", "top-right")) {
     legend_position <- "top"
-    legend_justification <- if (legend == "top-left") c(-0.2, 0) else c(1.2, 0)
+    legend_justification <- if (legend == "top-left") c(-0.2, 0) else c(1, 0)
   } else {
     legend_position <- legend
     legend_justification <- "centre"
