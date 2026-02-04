@@ -5,13 +5,16 @@
 \title{Analysis Function theme for ggplot2 charts.}
 \usage{
 theme_af(
-  base_size = 14,
-  base_line_size = base_size/24,
-  base_rect_size = base_size/24,
-  grid = c("y", "x", "xy", "none"),
-  axis = c("x", "y", "xy", "none"),
-  ticks = c("xy", "x", "y", "none"),
-  legend = c("right", "left", "top", "bottom", "top-left", "top-right", "none")
+  base_size = getOption("afcharts.base_size", 14),
+  base_line_size = getOption("afcharts.base_line_size", base_size/24),
+  base_rect_size = getOption("afcharts.base_rect_size", base_size/24),
+  grid = getOption("afcharts.grid", "y"),
+  axis = getOption("afcharts.axis", "x"),
+  ticks = getOption("afcharts.ticks", "xy"),
+  legend = getOption("afcharts.legend", "right"),
+  axis_text = getOption("afcharts.axis_text", "xy"),
+  axis_title = getOption("afcharts.axis_title", "xy"),
+  legend_title = getOption("afcharts.legend_title", "show")
 )
 }
 \arguments{
@@ -27,6 +30,12 @@ to 'xy'.}
 
 \item{legend}{'right', 'left', 'top', 'bottom', 'top-left', 'top-right',
 or 'none' to determine the position of the legend. Defaults to 'right'.}
+
+\item{axis_text, axis_title}{'x', 'y', 'xy' or 'none' to determine whether axis text and/or axis titles should be displayed.
+Text defaults to 'xy', as does title. Note that axis text refers to the 'labels' under the tick marks.}
+
+\item{legend_title}{Set to 'none' to suppress legend titles. Defaults to
+'show'.}
 }
 \value{
 ggplot2 plot theme

@@ -4,13 +4,20 @@
 \alias{use_afcharts}
 \title{Use afcharts defaults.}
 \usage{
-use_afcharts(default_colour = afcharts::af_colour_values["dark-blue"], ...)
+use_afcharts(
+  default_colour = afcharts::af_colour_values["dark-blue"],
+  ...,
+  reset = FALSE
+)
 }
 \arguments{
 \item{default_colour}{Default colour/fill for geoms. Default value is 'blue'
 from \code{af_colour_values}.}
 
 \item{...}{Arguments passed to \code{theme_af()}.}
+
+\item{reset}{Logical. Turn off use_afcharts. This aims to reset the default
+chart setting to their status when \code{use_afcharts} was first called.}
 }
 \value{
 NULL. Function is used for side effects of setting ggplot2 plot

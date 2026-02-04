@@ -54,31 +54,23 @@ The following are a few key things to consider when using colour in data visuali
 The Government Analysis Function guidance also contains [suggested colour palettes](https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-colours-in-charts/#section-4). These are provided in afcharts. To use an Analysis Function palette, set `palette_type = "af"` when using any of the `scale_` [colour functions](https://best-practice-and-impact.github.io/afcharts/reference/index.html#colours).
 
 
-### Main palette
+### Categorical palette
 
-The `main` palette should be used with categorical data.
+The `categorical` palette should be used with categorical data.
 
 `r table_note`
 
 ```{r}
-afcharts:::colour_table(afcharts::af_colour_palettes$main)
+afcharts:::colour_table(afcharts::af_colour_palettes$categorical)
 ```
 
-The `main2` palette should be used if only two colours are required as the dark blue and orange colours have the best colour contrast with each other. 
-If only two colours are required and another palette from the `main` family is used, `main2` will be used instead.
+The `categorical2` palette should be used if only two colours are required as the dark blue and orange colours have the best colour contrast with each other. 
+If only two colours are required the `categorical` family is requested, `categorical2` will be used instead.
 
 `r table_note`
 
 ```{r}
-afcharts:::colour_table(afcharts::af_colour_palettes$main2)
-```
-
-The `main6` palette is available if an extended palette is required.
-
-`r table_note`
-
-```{r}
-afcharts:::colour_table(afcharts::af_colour_palettes$main6)
+afcharts:::colour_table(afcharts::af_colour_palettes$categorical2)
 ```
 
 
@@ -132,8 +124,8 @@ afcharts::af_colour_values
 # View names and hex codes for all colour palettes
 afcharts::af_colour_palettes
 
-# View names and hex codes for `main` colour palette
-afcharts::af_colour_palettes$main
+# View names and hex codes for `categorical` colour palette
+afcharts::af_colour_palettes$categorical
 ```
 
 Examples of how to apply these palettes to ggplot2 charts are available in both the [cookbook](https://best-practice-and-impact.github.io/afcharts/articles/cookbook.html) and the reference files for `scale_` [colour functions](https://best-practice-and-impact.github.io/afcharts/reference/index.html#colours).

@@ -15,6 +15,11 @@ af_colour_values <- c(
 )
 
 af_colour_palettes <- list(
+  `categorical` = af_colour_values[c(
+    "dark-blue", "turquoise", "dark-pink",
+    "orange", "dark-grey", "light-purple"
+  )],
+  `categorical2` = af_colour_values[c("dark-blue", "orange")],
   `main` = af_colour_values[c("dark-blue", "turquoise", "dark-pink", "orange")],
   `main2` = af_colour_values[c("dark-blue", "orange")],
   `main6` = af_colour_values[c(
@@ -25,7 +30,19 @@ af_colour_palettes <- list(
   `focus` = af_colour_values[c("dark-blue", "grey")]
 )
 
-usethis::use_data(af_colour_values, af_colour_palettes, overwrite = TRUE)
+# Quick access to individual colours
+af_dark_blue <- "#12436D"
+af_orange <- "#F46A25"
+af_grey <- "#BFBFBF"
+
+usethis::use_data(
+  af_colour_values,
+  af_colour_palettes,
+  af_dark_blue,
+  af_orange,
+  af_grey,
+  overwrite = TRUE
+)
 
 
 ### END OF SCRIPT ###
