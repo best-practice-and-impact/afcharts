@@ -8,7 +8,7 @@ scale_colour_discrete_af(
   palette = "categorical",
   palette_type = c("af"),
   reverse = FALSE,
-  na.value = af_pale_grey,
+  na.value = afcharts::af_pale_grey,
   ...
 )
 }

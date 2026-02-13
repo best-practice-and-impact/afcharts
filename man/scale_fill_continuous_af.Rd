@@ -8,7 +8,7 @@ scale_fill_continuous_af(
   palette = "sequential",
   palette_type = c("af"),
   reverse = FALSE,
-  na.value = af_pale_grey,
+  na.value = afcharts::af_pale_grey,
   guide = "colourbar",
   ...
 )
