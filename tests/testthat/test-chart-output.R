@@ -95,7 +95,10 @@ test_that("scale_fill_discrete_af works", {
   # Custom arguments
 
   d2 <- data.frame(
-    age = c("<25", "25-44", "45-54", "55-64", "65 plus", NA),
+    age = factor(
+      c("<25", "25-44", "45-54", "55-64", "65 plus", NA),
+      levels = c("<25", "25-44", "45-54", "55-64", "65 plus", NA)
+    ),
     score = c(20, 34, 44, 88, 90, 40)
   )
 
