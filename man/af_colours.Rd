@@ -6,8 +6,11 @@
 \alias{af_dark_blue}
 \alias{af_orange}
 \alias{af_grey}
+\alias{af_pale_grey}
 \title{Individual Analysis Function colours}
 \format{
+An object of class \code{character} of length 1.
+
 An object of class \code{character} of length 1.
 
 An object of class \code{character} of length 1.
@@ -23,6 +26,8 @@ af_dark_blue
 af_orange
 
 af_grey
+
+af_pale_grey
 }
 \description{
 Quick access to individual colours from the Analysis Function colour palettes.

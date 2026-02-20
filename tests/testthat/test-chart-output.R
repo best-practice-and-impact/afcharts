@@ -2,11 +2,12 @@
 
 test_that("theme_af works", {
 
-  plot <- ggplot2::ggplot(ggplot2::mpg, ggplot2::aes(x = class)) +
+  plot1 <- ggplot2::ggplot(ggplot2::mpg, ggplot2::aes(x = class)) +
     ggplot2::geom_bar() +
     theme_af()
 
-  expect_match_plot("theme_af", plot)
+  expect_match_plot("theme_af1", plot1)
+
 })
 
 
@@ -14,7 +15,7 @@ test_that("theme_af works with non default options", {
 
   d <- subset(ggplot2::mpg, manufacturer == "ford")
 
-  plot <- ggplot2::ggplot(
+  plot1 <- ggplot2::ggplot(
     d,
     ggplot2::aes(x = model, fill = class, colour = class)
   ) +
@@ -26,7 +27,7 @@ test_that("theme_af works with non default options", {
       legend = "bottom"
     )
 
-  expect_match_plot("theme_af_non_default", plot)
+  expect_match_plot("theme_af_non_default1", plot1)
 
 
   plot2 <- ggplot2::ggplot(
@@ -60,6 +61,7 @@ test_that("theme_af works with non default options", {
 
   expect_match_plot("theme_af_non_default3", plot3)
 
+
   plot4 <- ggplot2::ggplot(
     d,
     ggplot2::aes(x = model, fill = class, colour = class)
@@ -91,12 +93,18 @@ test_that("scale_fill_discrete_af works", {
 
 
   # Custom arguments
-  d2 <- d
-  d2$class[d2$class == "suv"] <- NA
 
-  plot2 <- ggplot2::ggplot(d2, ggplot2::aes(x = class, fill = class)) +
-    ggplot2::geom_bar() +
-    scale_fill_discrete_af(palette = "sequential", na.value = "orange")
+  d2 <- data.frame(
+    age = factor(
+      c("<25", "25-44", "45-54", "55-64", "65 plus", NA),
+      levels = c("<25", "25-44", "45-54", "55-64", "65 plus", NA)
+    ),
+    score = c(20, 34, 44, 88, 90, 40)
+  )
+
+  plot2 <- ggplot2::ggplot(d2, ggplot2::aes(x = age, y = score, fill = age)) +
+    ggplot2::geom_col() +
+    scale_fill_discrete_af(palette = "sequential", na.value = "red")
 
   expect_match_plot("scale_fill_discrete_af2", plot2)
 
@@ -114,6 +122,7 @@ test_that("scale_fill_continuous_af works", {
     scale_fill_continuous_af()
 
   expect_match_plot("scale_fill_continuous_af1", plot1)
+
 
   # Custom arguments
   faithfuld2 <- ggplot2::faithfuld
@@ -146,6 +155,7 @@ test_that("scale_colour_discrete_af works", {
 
   expect_match_plot("scale_colour_discrete_af1", plot1)
 
+
   # Custom arguments
   economics_long2 <- ggplot2::economics_long
   economics_long2$variable[economics_long2$variable == "psavert"] <- NA
@@ -172,6 +182,7 @@ test_that("scale_colour_continuous_af works", {
     scale_colour_continuous_af()
 
   expect_match_plot("scale_colour_continuous_af1", plot1)
+
 
   # Custom arguments
   mtcars2 <- mtcars
@@ -305,4 +316,5 @@ test_that("theme_af() inherits arguments from use_afcharts()", {
   expect_match_plot("use_afcharts_theme_af2", plot2)
 
   use_afcharts(reset = TRUE)
+
 })

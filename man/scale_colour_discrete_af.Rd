@@ -8,7 +8,7 @@ scale_colour_discrete_af(
   palette = "categorical",
   palette_type = c("af"),
   reverse = FALSE,
-  na.value = "grey50",
+  na.value = afcharts::af_pale_grey,
   ...
 )
 }
@@ -34,9 +34,13 @@ ggplot2 discrete colour scale
 Discrete colour scales for Analysis Function plots
 }
 \details{
-If only two colours are required and the palette is set to
-\code{"categorical"} then the \code{"categorical2"} palette will be used instead, without
-warning.
+If the palette is set to "categorical" or "sequential" and fewer
+than the maximum number of colours are required then the colours will be
+used in the correct order following the analysis function guidance.
+
+E.g. If only two colours are required and the palette is set to
+\code{"categorical"} then the \code{"categorical2"} palette will be used instead,
+without warning.
 }
 \examples{
 library(ggplot2)

@@ -25,7 +25,7 @@
 scale_colour_continuous_af <- function(palette = "sequential",
                                        palette_type = c("af"),
                                        reverse = FALSE,
-                                       na.value = "grey50",
+                                       na.value = afcharts::af_pale_grey,
                                        guide = "colourbar",
                                        ...) {
 
@@ -53,4 +53,5 @@ scale_colour_continuous_af <- function(palette = "sequential",
     guide      = guide,
     ...
   )
+
 }
