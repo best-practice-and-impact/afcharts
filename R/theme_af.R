@@ -9,7 +9,9 @@
 #'   the attribute should be drawn. Grid defaults to 'y', axis to 'x', and ticks
 #'   to 'xy'.
 #' @param legend 'right', 'left', 'top', 'bottom', 'top-left', 'top-right',
-#'   or 'none' to determine the position of the legend. Defaults to 'right'.
+#'   'left-top', 'left-middle', 'left-bottom', 'right-top', 'right-middle',
+#'   'right-bottom', or 'none' to determine the position of the legend.
+#'   Defaults to 'right'.
 #'
 #' @returns ggplot2 plot theme
 #'
@@ -31,7 +33,10 @@ theme_af <- function(base_size = 14,
                      axis = c("x", "y", "xy", "none"),
                      ticks = c("xy", "x", "y", "none"),
                      legend = c("right", "left", "top", "bottom",
-                                "top-left", "top-right", "none")) {
+                                "top-left", "top-right",
+                                "left-top", "left-middle", "left-bottom",
+                                "right-top", "right-middle", "right-bottom",
+                                "none")) {
 
   grid   <- match.arg(grid)
   axis   <- match.arg(axis)
@@ -42,6 +47,20 @@ theme_af <- function(base_size = 14,
   if (legend %in% c("top-left", "top-right")) {
     legend_position <- "top"
     legend_justification <- if (legend == "top-left") c(-0.2, 0) else c(1, 0)
+  } else if (legend %in% c("left-top", "left-middle", "left-bottom")) {
+    legend_position <- "left"
+    legend_justification <- switch(legend,
+      "left-top"    = c(0, 1),
+      "left-middle" = c(0, 0.5),
+      "left-bottom" = c(0, 0)
+    )
+  } else if (legend %in% c("right-top", "right-middle", "right-bottom")) {
+    legend_position <- "right"
+    legend_justification <- switch(legend,
+      "right-top"    = c(1, 1),
+      "right-middle" = c(1, 0.5),
+      "right-bottom" = c(1, 0)
+    )
   } else {
     legend_position <- legend
     legend_justification <- "centre"
