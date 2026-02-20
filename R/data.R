@@ -57,3 +57,6 @@
 
 #' @rdname af_colours
 "af_grey"
+
+#' @rdname af_colours
+"af_pale_grey"

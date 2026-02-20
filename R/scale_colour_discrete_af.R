@@ -12,9 +12,13 @@
 #'
 #' @returns ggplot2 discrete colour scale
 #'
-#' @details If only two colours are required and the palette is set to
-#'   `"categorical"` then the `"categorical2"` palette will be used instead, without
-#'   warning.
+#' @details If the palette is set to "categorical" or "sequential" and fewer
+#'   than the maximum number of colours are required then the colours will be
+#'   used in the correct order following the analysis function guidance.
+#'
+#'   E.g. If only two colours are required and the palette is set to
+#'   `"categorical"` then the `"categorical2"` palette will be used instead,
+#'   without warning.
 #'
 #' @examples
 #' library(ggplot2)
@@ -31,7 +35,7 @@
 scale_colour_discrete_af <- function(palette = "categorical",
                                      palette_type = c("af"),
                                      reverse = FALSE,
-                                     na.value = "grey50",
+                                     na.value = afcharts::af_pale_grey,
                                      ...) {
 
   palette_type <- match.arg(palette_type)
@@ -42,4 +46,5 @@ scale_colour_discrete_af <- function(palette = "categorical",
     na.value = na.value,
     ...
   )
+
 }

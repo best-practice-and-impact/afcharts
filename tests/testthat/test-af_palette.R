@@ -8,6 +8,10 @@ test_that("Correct value returned", {
     unname(af_colour_palettes$categorical[1:3])
   )
   expect_equal(
+    af_palette("categorical", palette_type = "af")(2),
+    unname(af_colour_palettes$categorical2)
+  )
+  expect_equal(
     af_palette("categorical2", colour_names = TRUE)(2),
     af_colour_palettes$categorical2
   )
@@ -20,7 +24,23 @@ test_that("Correct value returned", {
     af_colour_palettes$main6[1:5]
   )
   expect_equal(
+    af_palette("sequential", colour_names = TRUE)(1),
+    af_colour_palettes$sequential1
+  )
+  expect_equal(
+    af_palette("sequential", colour_names = TRUE)(2),
+    af_colour_palettes$sequential2
+  )
+  expect_equal(
     af_palette("sequential", colour_names = TRUE)(3),
+    af_colour_palettes$sequential3
+  )
+  expect_equal(
+    af_palette("sequential", colour_names = TRUE)(4),
+    af_colour_palettes$sequential4
+  )
+  expect_equal(
+    af_palette("sequential", colour_names = TRUE)(5),
     af_colour_palettes$sequential
   )
   expect_equal(
@@ -41,11 +61,4 @@ test_that("Error if too many colours requested", {
   expect_error(af_palette("sequential")(10))
   expect_error(af_palette("focus")(3))
   expect_error(af_palette("main", palette_type = "af")(5))
-})
-
-test_that("Use `categorical2` if two colours required.", {
-  expect_equal(
-    af_palette("categorical", palette_type = "af")(2),
-    unname(af_colour_palettes$categorical2)
-  )
 })
