@@ -13,6 +13,12 @@
 #'   'right-bottom', or 'none' to determine the position of the legend.
 #'   Defaults to 'right'.
 #'
+#' @param axis_text,axis_title  'x', 'y', 'xy' or 'none' to determine whether axis text and/or axis titles should be displayed.
+#'   Text defaults to 'xy', as does title. Note that axis text refers to the 'labels' under the tick marks.
+#'
+#' @param legend_title Set to 'none' to suppress legend titles. Defaults to
+#'   'show'.
+#'
 #' @returns ggplot2 plot theme
 #'
 #' @examples
@@ -25,23 +31,28 @@
 #'
 #' @export
 
+theme_af <- function(
+  base_size = getOption("afcharts.base_size", 14),
+  base_line_size = getOption("afcharts.base_line_size", base_size / 24),
+  base_rect_size = getOption("afcharts.base_rect_size", base_size / 24),
+  grid = getOption("afcharts.grid", "y"),
+  axis = getOption("afcharts.axis", "x"),
+  ticks = getOption("afcharts.ticks", "xy"),
+  legend = getOption("afcharts.legend", "right"),
+  axis_text = getOption("afcharts.axis_text", "xy"),
+  axis_title = getOption("afcharts.axis_title", "xy"),
+  legend_title = getOption("afcharts.legend_title", "show")
+) {
 
-theme_af <- function(base_size = 14,
-                     base_line_size = base_size / 24,
-                     base_rect_size = base_size / 24,
-                     grid = c("y", "x", "xy", "none"),
-                     axis = c("x", "y", "xy", "none"),
-                     ticks = c("xy", "x", "y", "none"),
-                     legend = c("right", "left", "top", "bottom",
-                                "top-left", "top-right",
-                                "left-top", "left-middle", "left-bottom",
-                                "right-top", "right-middle", "right-bottom",
-                                "none")) {
-
-  grid   <- match.arg(grid)
-  axis   <- match.arg(axis)
-  ticks  <- match.arg(ticks)
-  legend <- match.arg(legend)
+  grid   <- match.arg(grid, c("y", "x", "xy", "none"))
+  axis   <- match.arg(axis, c("x", "y", "xy", "none"))
+  ticks  <- match.arg(ticks, c("xy", "x", "y", "none"))
+  legend <- match.arg(legend, c("right", "left", "top", "bottom", "top-left",
+                                "top-right", "left-top", "left-middle", "left-bottom",
+                                "right-top", "right-middle", "right-bottom", "none"))
+  axis_text <- match.arg(axis_text, c("xy", "x", "y", "none"))
+  axis_title <- match.arg(axis_title, c("xy", "x", "y", "none"))
+  legend_title <- match.arg(legend_title, c("show", "none"))
 
   # Set legend position and justification based on legend arg
   if (legend %in% c("top-left", "top-right")) {
@@ -99,6 +110,81 @@ theme_af <- function(base_size = 14,
   ticks_x    <- if (ticks %in% c("x", "xy")) axis_ticks else no_ticks
   ticks_y    <- if (ticks %in% c("y", "xy")) axis_ticks else no_ticks
 
+
+  # Set axis x text dependent on text arg, and define placement
+  axis_text_x <- ggplot2::element_text(
+    margin = ggplot2::margin(t = 0.8 * half_line / 2),
+    vjust = 1
+  )
+  axis_text_x_top <- ggplot2::element_text(
+    margin = ggplot2::margin(b = 0.8 * half_line / 2),
+    vjust = 0
+  )
+  no_axis_text_x <- ggplot2::element_blank()
+  axis_text_for_x <-
+    if (axis_text %in% c("x", "xy")) axis_text_x else no_axis_text_x
+  axis_text_for_x_top <-
+    if (axis_text %in% c("x", "xy")) axis_text_x_top else no_axis_text_x
+
+
+  # Set axis y text dependent on text arg, and define placement
+  axis_text_y <- ggplot2::element_text(
+    margin = ggplot2::margin(r = 0.8 * half_line / 2),
+    hjust = 1
+  )
+  axis_text_y_right <- ggplot2::element_text(
+    margin = ggplot2::margin(l = 0.8 * half_line / 2),
+    hjust = 0
+  )
+  no_axis_text_y <- ggplot2::element_blank()
+  axis_text_for_y <-
+    if (axis_text %in% c("y", "xy")) axis_text_y else no_axis_text_y
+  axis_text_for_y_right <-
+    if (axis_text %in% c("y", "xy")) axis_text_y_right else no_axis_text_y
+
+
+  # Set axis x title dependent on title arg, and define placement
+  axis_title_x <- ggplot2::element_text(
+    margin = ggplot2::margin(t = half_line / 2),
+    vjust = 1
+  )
+  axis_title_x_top <- ggplot2::element_text(
+    margin = ggplot2::margin(b = half_line / 2),
+    vjust = 0
+  )
+  no_axis_title_x <- ggplot2::element_blank()
+  axis_title_for_x <-
+    if (axis_title %in% c("x", "xy")) axis_title_x else no_axis_title_x
+  axis_title_for_x_top <-
+    if (axis_title %in% c("x", "xy")) axis_title_x_top else no_axis_title_x
+
+
+  # Set axis y title dependent on title arg, and define placement
+  axis_title_y <- ggplot2::element_text(
+    angle = 0,
+    margin = ggplot2::margin(r = half_line / 2),
+    vjust = 1,
+    hjust = 0.5
+  )
+  axis_title_y_right <- ggplot2::element_text(
+    angle = 0,
+    margin = ggplot2::margin(l = half_line / 2),
+    vjust = 1,
+    hjust = 0.5
+  )
+  no_axis_title_y <- ggplot2::element_blank()
+  axis_title_for_y <-
+    if (axis_title %in% c("y", "xy")) axis_title_y else no_axis_title_y
+  axis_title_for_y_right <-
+    if (axis_title %in% c("y", "xy")) axis_title_y_right else no_axis_title_y
+
+
+  # Set whether legend title displays or not, dependent on legend_title arg
+  leg_title <- ggplot2::element_text(hjust = 0)
+  no_leg_title <- ggplot2::element_blank()
+  title_for_legend <- if (legend_title == "show") leg_title else no_leg_title
+
+
   ggplot2::theme(
 
     # Set parent characteristics
@@ -136,46 +222,19 @@ theme_af <- function(base_size = 14,
     axis.line.x = axis_x,
     axis.line.y = axis_y,
     axis.text = NULL,
-    axis.text.x = ggplot2::element_text(
-      margin = ggplot2::margin(t = 0.8 * half_line / 2),
-      vjust = 1
-    ),
-    axis.text.x.top = ggplot2::element_text(
-      margin = ggplot2::margin(b = 0.8 * half_line / 2),
-      vjust = 0
-    ),
-    axis.text.y = ggplot2::element_text(
-      margin = ggplot2::margin(r = 0.8 * half_line / 2),
-      hjust = 1
-    ),
-    axis.text.y.right = ggplot2::element_text(
-      margin = ggplot2::margin(l = 0.8 * half_line / 2),
-      hjust = 0
-    ),
+    axis.text.x = axis_text_for_x,
+    axis.text.x.top = axis_text_for_x_top,
+    axis.text.y = axis_text_for_y,
+    axis.text.y.right = axis_text_for_y_right,
     axis.ticks = NULL,
     axis.ticks.x = ticks_x,
     axis.ticks.y = ticks_y,
     axis.ticks.length = ggplot2::unit(half_line / 2, "pt"),
-    axis.title.x = ggplot2::element_text(
-      margin = ggplot2::margin(t = half_line / 2),
-      vjust = 1
-    ),
-    axis.title.x.top = ggplot2::element_text(
-      margin = ggplot2::margin(b = half_line / 2),
-      vjust = 0
-    ),
-    axis.title.y = ggplot2::element_text(
-      angle = 0,
-      margin = ggplot2::margin(r = half_line / 2),
-      vjust = 1,
-      hjust = 0.5
-    ),
-    axis.title.y.right = ggplot2::element_text(
-      angle = 0,
-      margin = ggplot2::margin(l = half_line / 2),
-      vjust = 1,
-      hjust = 0.5
-    ),
+    axis.title.x = axis_title_for_x,
+    axis.title.x.top = axis_title_for_x_top,
+    axis.title.y = axis_title_for_y,
+    axis.title.y.right = axis_title_for_y_right,
+
 
     # Legend
     legend.background = ggplot2::element_rect(colour = NA),
@@ -185,7 +244,7 @@ theme_af <- function(base_size = 14,
     legend.key.size = ggplot2::unit(1.2, "lines"), # CHECK
     legend.text = ggplot2::element_text(size = ggplot2::rel(1)),
     legend.text.align = NULL,
-    legend.title = ggplot2::element_text(hjust = 0),
+    legend.title = title_for_legend,
     legend.title.align = NULL,
     legend.position = legend_position,
     legend.direction = NULL,

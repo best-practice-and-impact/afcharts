@@ -5,21 +5,25 @@
 \title{Discrete colour scales for Analysis Function plots}
 \usage{
 scale_colour_discrete_af(
-  palette = "main",
+  palette = "categorical",
   palette_type = c("af"),
   reverse = FALSE,
+  na.value = "grey50",
   ...
 )
 }
 \arguments{
-\item{palette}{Name of palette to use; e.g. "main", "sequential", "focus."
-Default value is "main".}
+\item{palette}{Name of palette to use from \code{af_colour_palettes}; e.g.
+\code{"categorical"}, \code{"sequential"}, \code{"focus"}. Default value is
+\code{"categorical"}.}
 
 \item{palette_type}{Currently only the Analysis Function palettes are
 supported. Defaults to "af".}
 
 \item{reverse}{Boolean value to indicate whether the palette should be
 reversed.}
+
+\item{na.value}{Colour to set for missing values.}
 
 \item{...}{Additional arguments passed to scale type.}
 }
@@ -28,6 +32,11 @@ ggplot2 discrete colour scale
 }
 \description{
 Discrete colour scales for Analysis Function plots
+}
+\details{
+If only two colours are required and the palette is set to
+\code{"categorical"} then the \code{"categorical2"} palette will be used instead, without
+warning.
 }
 \examples{
 library(ggplot2)

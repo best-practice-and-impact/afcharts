@@ -1,12 +1,13 @@
 #' @title Continuous colour fill scales for Analysis Function plots
 #'
-#' @param palette Name of palette to use; e.g. "main", "sequential", "focus."
-#'   Default value is "sequential".
+#' @param palette Name of palette to use from `af_colour_palettes`; e.g.
+#'   `"categorical"`, `"sequential"`, `"focus"`. Default value is
+#'   `"sequential"`.
 #' @param palette_type Currently only the Analysis Function palettes are
 #'   supported. Defaults to "af".
 #' @param reverse Boolean value to indicate whether the palette should be
 #'   reversed.
-#' @param na_colour Colour to set for missing values.
+#' @param na.value Colour to set for missing values.
 #' @param guide A name or function used to create guide. Default is "colourbar".
 #' @param ... Additional arguments passed to scale type.
 #'
@@ -24,7 +25,7 @@
 scale_fill_continuous_af <- function(palette = "sequential",
                                      palette_type = c("af"),
                                      reverse = FALSE,
-                                     na_colour = "grey50",
+                                     na.value = "grey50",
                                      guide = "colourbar",
                                      ...) {
 
@@ -48,7 +49,7 @@ scale_fill_continuous_af <- function(palette = "sequential",
   ggplot2::continuous_scale(
     aesthetics = "fill",
     palette    = scales::gradient_n_pal(colours, values = NULL, "Lab"),
-    na.value   = na_colour,
+    na.value   = na.value,
     guide      = guide,
     ...
   )

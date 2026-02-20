@@ -14,6 +14,9 @@ A character list
 af_colour_palettes
 }
 \description{
-A list grouping colours into palettes.
+A list grouping colours into palettes. Note that the use of the
+\code{main}, \code{main2} and \code{main6} colour palettes is deprecated. Please use
+\code{categorical} and \code{categorical2} instead, which give access to the same
+colours.
 }
 \keyword{datasets}
