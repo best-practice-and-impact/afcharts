@@ -43,6 +43,7 @@ af_palette <- function(palette = "categorical",
 
       palette <- "categorical2"
 
+      # Use correct sequential palette based on number of colours required
     } else if (
       palette_type == "af" &&
         n %in% c(1, 2, 3, 4) &&
