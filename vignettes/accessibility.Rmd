@@ -75,7 +75,7 @@ Not all of these are repeated here, but we think the following are a good place 
 
 * If horizontal text is difficult to read (for example, if axis labels are overlapping), consider a different chart orientation or type.
 
-* If using a bar chart, the gap between bars should be narrower than the width of a single bar. The [R Graphics cookbook](https://r-graphics.org/recipe-bar-graph-adjust-width) describes how to do this.
+* If using a bar chart, the gap between bars should be narrower than the width of a single bar. The [R Graphics cookbook](https://r-graphics.org/RECIPE-BAR-GRAPH-ADJUST-WIDTH.html) describes how to do this.
 
 * Use commas as thousands separators in axis labels or text annotations.
 

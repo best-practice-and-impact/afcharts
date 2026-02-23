@@ -135,4 +135,4 @@ There may be cases where you'd like all charts to be in SVG format, but with dif
 
 * You may receive a warning message referring to `rsvg-convert` when knitting an R Markdown document containing SVG images to Microsoft Word. This can be safely ignored.
 
-* It is not possible to centre charts or images when knitting to Microsoft Word. A workaround for this is to [use a Word style template document](https://bookdown.org/yihui/rmarkdown-cookbook/word-template.html#word-template). 
+* It is not possible to centre charts or images when knitting to Microsoft Word. A workaround for this is to [use a Word style template document](https://yihui.org/rmarkdown-cookbook/word-template#word-template). 
