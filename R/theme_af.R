@@ -53,8 +53,7 @@ theme_af <- function(
       "right-top", "right-centre", "right-bottom",
       "left-top", "left-centre", "left-bottom",
       "top-left", "top-centre", "top-right",
-      "bottom-left", "bottom-centre", "bottom-right"
-    )
+      "bottom-left", "bottom-centre", "bottom-right")
   )
 
   axis_text <- match.arg(axis_text, c("xy", "x", "y", "none"))
