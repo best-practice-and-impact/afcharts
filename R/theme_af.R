@@ -8,10 +8,10 @@
 #' @param grid,axis,ticks 'x', 'y', 'xy' or 'none' to determine for which axes
 #'   the attribute should be drawn. Grid defaults to 'y', axis to 'x', and ticks
 #'   to 'xy'.
-#' @param legend 'right', 'left', 'top', 'bottom', 'top-left', 'top-right',
-#'   'left-top', 'left-middle', 'left-bottom', 'right-top', 'right-middle',
-#'   'right-bottom', or 'none' to determine the position of the legend.
-#'   Defaults to 'right'.
+#' @param legend 'right', 'left', 'top', 'bottom' or 'none' to determine the
+#'   position of the legend. This can also be followed by a justification along
+#'   that side (top, bottom, left, right or centre) e.g. 'top-left',
+#'   'left-bottom', 'right-centre'. Defaults to 'right'.
 #'
 #' @param axis_text,axis_title  'x', 'y', 'xy' or 'none' to determine whether axis text and/or axis titles should be displayed.
 #'   Text defaults to 'xy', as does title. Note that axis text refers to the 'labels' under the tick marks.
@@ -47,35 +47,29 @@ theme_af <- function(
   grid   <- match.arg(grid, c("y", "x", "xy", "none"))
   axis   <- match.arg(axis, c("x", "y", "xy", "none"))
   ticks  <- match.arg(ticks, c("xy", "x", "y", "none"))
-  legend <- match.arg(legend, c("right", "left", "top", "bottom", "top-left",
-                                "top-right", "left-top", "left-middle", "left-bottom",
-                                "right-top", "right-middle", "right-bottom", "none"))
+  legend <- match.arg(
+    legend,
+    c("right", "left", "top", "bottom", "none",
+      "right-top", "right-centre", "right-bottom",
+      "left-top", "left-centre", "left-bottom",
+      "top-left", "top-centre", "top-right",
+      "bottom-left", "bottom-centre", "bottom-right"
+    )
+  )
+
   axis_text <- match.arg(axis_text, c("xy", "x", "y", "none"))
   axis_title <- match.arg(axis_title, c("xy", "x", "y", "none"))
   legend_title <- match.arg(legend_title, c("show", "none"))
 
+
   # Set legend position and justification based on legend arg
-  if (legend %in% c("top-left", "top-right")) {
-    legend_position <- "top"
-    legend_justification <- if (legend == "top-left") c(-0.2, 0) else c(1, 0)
-  } else if (legend %in% c("left-top", "left-middle", "left-bottom")) {
-    legend_position <- "left"
-    legend_justification <- switch(legend,
-      "left-top"    = c(0, 1),
-      "left-middle" = c(0, 0.5),
-      "left-bottom" = c(0, 0)
-    )
-  } else if (legend %in% c("right-top", "right-middle", "right-bottom")) {
-    legend_position <- "right"
-    legend_justification <- switch(legend,
-      "right-top"    = c(1, 1),
-      "right-middle" = c(1, 0.5),
-      "right-bottom" = c(1, 0)
-    )
-  } else {
-    legend_position <- legend
+  legend_position <- stringr::str_extract(legend, "^[^-]*")
+  legend_justification <- stringr::str_extract(legend, "(?<=-).*$")
+
+  if (is.na(legend_justification)) {
     legend_justification <- "centre"
   }
+
 
   # Set colours
   light_grey <- "#d9d9d9"
