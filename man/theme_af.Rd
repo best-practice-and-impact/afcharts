@@ -28,8 +28,10 @@ theme_af(
 the attribute should be drawn. Grid defaults to 'y', axis to 'x', and ticks
 to 'xy'.}
 
-\item{legend}{'right', 'left', 'top', 'bottom', or 'none' to determine the
-position of the legend. Defaults to 'right'.}
+\item{legend}{'right', 'left', 'top', 'bottom' or 'none' to determine the
+position of the legend. This can also be followed by a justification along
+that side (top, bottom, left, right or centre) e.g. 'top-left',
+'left-bottom', 'right-centre'. Defaults to 'right'.}
 
 \item{axis_text, axis_title}{'x', 'y', 'xy' or 'none' to determine whether axis text and/or axis titles should be displayed.
 Text defaults to 'xy', as does title. Note that axis text refers to the 'labels' under the tick marks.}

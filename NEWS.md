@@ -19,6 +19,9 @@ whether to show axis titles and labels.
 - Added argument `legend_title` to function `theme_af` to set whether to show 
 legend titles.
 
+- The `legend` argument of `theme_af` now accepts a legend justification e.g. 'top-right', 'left-centre' #47
+
+
 # afcharts 0.4.1
 
 -   Fixed bug which prevented some functions from working if called directly without attaching the package.

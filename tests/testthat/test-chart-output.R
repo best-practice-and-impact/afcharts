@@ -77,6 +77,66 @@ test_that("theme_af works with non default options", {
 
   expect_match_plot("theme_af_non_default4", plot4)
 
+
+  plot5 <- ggplot2::ggplot(
+    d,
+    ggplot2::aes(x = model, fill = class, colour = class)
+  ) +
+    ggplot2::geom_bar() +
+    theme_af(
+      legend = "none"
+    )
+
+  expect_match_plot("theme_af_non_default5", plot5)
+
+
+  plot6 <- ggplot2::ggplot(
+    d,
+    ggplot2::aes(x = model, fill = class, colour = class)
+  ) +
+    ggplot2::geom_bar() +
+    theme_af(
+      legend = "top-left"
+    )
+
+  expect_match_plot("theme_af_non_default6", plot6)
+
+
+  plot7 <- ggplot2::ggplot(
+    d,
+    ggplot2::aes(x = model, fill = class, colour = class)
+  ) +
+    ggplot2::geom_bar() +
+    theme_af(
+      legend = "left-centre"
+    )
+
+  expect_match_plot("theme_af_non_default7", plot7)
+
+
+  plot8 <- ggplot2::ggplot(
+    d,
+    ggplot2::aes(x = model, fill = class, colour = class)
+  ) +
+    ggplot2::geom_bar() +
+    theme_af(
+      legend = "right-bottom"
+    )
+
+  expect_match_plot("theme_af_non_default8", plot8)
+
+
+  plot9 <- ggplot2::ggplot(
+    d,
+    ggplot2::aes(x = model, fill = class, colour = class)
+  ) +
+    ggplot2::geom_bar() +
+    theme_af(
+      legend = "bottom-centre"
+    )
+
+  expect_match_plot("theme_af_non_default9", plot9)
+
 })
 
 

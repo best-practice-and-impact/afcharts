@@ -8,8 +8,10 @@
 #' @param grid,axis,ticks 'x', 'y', 'xy' or 'none' to determine for which axes
 #'   the attribute should be drawn. Grid defaults to 'y', axis to 'x', and ticks
 #'   to 'xy'.
-#' @param legend 'right', 'left', 'top', 'bottom', or 'none' to determine the
-#'   position of the legend. Defaults to 'right'.
+#' @param legend 'right', 'left', 'top', 'bottom' or 'none' to determine the
+#'   position of the legend. This can also be followed by a justification along
+#'   that side (top, bottom, left, right or centre) e.g. 'top-left',
+#'   'left-bottom', 'right-centre'. Defaults to 'right'.
 #'
 #' @param axis_text,axis_title  'x', 'y', 'xy' or 'none' to determine whether axis text and/or axis titles should be displayed.
 #'   Text defaults to 'xy', as does title. Note that axis text refers to the 'labels' under the tick marks.
@@ -29,7 +31,6 @@
 #'
 #' @export
 
-
 theme_af <- function(
   base_size = getOption("afcharts.base_size", 14),
   base_line_size = getOption("afcharts.base_line_size", base_size / 24),
@@ -46,10 +47,28 @@ theme_af <- function(
   grid   <- match.arg(grid, c("y", "x", "xy", "none"))
   axis   <- match.arg(axis, c("x", "y", "xy", "none"))
   ticks  <- match.arg(ticks, c("xy", "x", "y", "none"))
-  legend <- match.arg(legend, c("right", "left", "top", "bottom", "none"))
+  legend <- match.arg(
+    legend,
+    c("right", "left", "top", "bottom", "none",
+      "right-top", "right-centre", "right-bottom",
+      "left-top", "left-centre", "left-bottom",
+      "top-left", "top-centre", "top-right",
+      "bottom-left", "bottom-centre", "bottom-right")
+  )
+
   axis_text <- match.arg(axis_text, c("xy", "x", "y", "none"))
   axis_title <- match.arg(axis_title, c("xy", "x", "y", "none"))
   legend_title <- match.arg(legend_title, c("show", "none"))
+
+
+  # Set legend position and justification based on legend arg
+  legend_position <- stringr::str_extract(legend, "^[^-]*")
+  legend_justification <- stringr::str_extract(legend, "(?<=-).*$")
+
+  if (is.na(legend_justification)) {
+    legend_justification <- "centre"
+  }
+
 
   # Set colours
   light_grey <- "#d9d9d9"
@@ -220,9 +239,9 @@ theme_af <- function(
     legend.text.align = NULL,
     legend.title = title_for_legend,
     legend.title.align = NULL,
-    legend.position = legend,
+    legend.position = legend_position,
     legend.direction = NULL,
-    legend.justification = "centre",
+    legend.justification = legend_justification,
     legend.box = NULL,
     legend.box.margin = ggplot2::margin(0, 0, 0, 0, "cm"),
     legend.box.background = ggplot2::element_blank(),
