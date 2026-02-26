@@ -1,0 +1,164 @@
+# Saving charts
+
+This article covers best practice guidance for saving charts as images.
+This may be as a standalone image file, or embedded in a document
+produced using R Markdown.
+
+This guidance follows recommendations in the [Government Analysis
+Function charts
+guidance](https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-charts/#section-4).
+
+In summary, the following good practice is recommended:
+
+- Save charts in SVG image format.
+
+- Size a chart to be roughly the same width as the content surrounding
+  it.
+
+- For landscape charts on an A4 page, 159 mm x 100 mm are good
+  dimensions.
+
+- Remember to include alt text when including charts in an R Markdown
+  document.
+
+## File format
+
+The best format to save images of charts is Scalable Vector Graphic
+(SVG) format. SVG files retain the same quality regardless of the size
+they are viewed at. This means SVG images are more accessible than other
+image formats such as JPG or PNG.
+
+You can find an [example of a chart image in an SVG, JPEG and PNG format
+on
+GOV.UK](https://www.gov.uk/government/publications/examples-of-visual-content-to-use-on-govuk/examples-of-visual-content-to-use-on-govuk#image-formats-for-charts).
+
+If you cannot use an SVG image, then a JPG or PNG image is acceptable.
+
+## Size and dimensions
+
+A chart should follow the flow of the content surrounding it. It should
+be roughly the same width as the text before and after the image.
+
+The dimensions of your chart will depend on where you plan to use it.
+For example, if you’re using a page-based document such as Microsoft
+Word, and would like to include a landscape image on an A4 portrait
+page, a width of 159 mm and height of 100 mm works well.
+
+When using JPG or PNG formats, we need to consider the DPI (dots per
+inch). DPI is a measure of the resolution of an image; the higher the
+DPI, the more crisp and good quality your image will be.
+
+## Examples
+
+### Standalone image file
+
+The [`ggsave()`](https://ggplot2.tidyverse.org/reference/ggsave.html)
+function from `ggplot2` can be used to save a standalone image file. To
+specify the SVG file format, simply ensure your file name ends with
+`.svg`. The following example uses the recommended dimensions from the
+previous section.
+
+``` r
+ggsave(filename = "example-plot.svg", plot = myplot,
+       width = 159, height = 100, units = "mm")
+```
+
+For a JPG or PNG image, also consider the DPI value. In `ggsave`, this
+can be supplied as a numerical value, or as a string input. For best
+quality, use “retina”.
+
+``` r
+ggsave(filename = "example-plot.png", plot = myplot,
+       width = 159, height = 100, units = "mm", dpi = "retina")
+```
+
+To save images at the correct size for publishing on GOVUK, afcharts
+provides the function `save_govuk`. This function can be used to save a
+SVG, JPG or PNG image.
+
+``` r
+save_govuk(filename = "example-plot.png", plot = myplot, device = "svg")
+```
+
+### R Markdown
+
+For charts in an R Markdown document, file format, dimensions and other
+settings can be set in the code chunk options.
+
+- **Format**: Set `dev = "svg"`, otherwise the default format of `png`
+  will be used.
+
+- **Dimensions**: Set `fig.height` and `fig.width`. For HTML outputs,
+  the default figure dimensions are often suitable, however when
+  knitting to Microsoft Word, the default dimensions often result in a
+  small image and so it is best to specify these in the R Markdown code
+  chunk. Note that R Markdown requires figure dimensions in inches. If
+  you’d rather use millimetres, use the `mm_to_inch` helper function
+  from afcharts.
+
+- **Alt Text**: For HTML outputs, use `fig.alt`, and for Microsoft Word
+  outputs, `fig.cap`. Note that by default, the value given to `fig.cap`
+  will be shown under the chart. If you’d rather turn this off, you can
+  control this in the R Markdown YAML header:
+
+  ``` yaml
+  output: 
+    word_document:
+     fig_caption: no
+  ```
+
+Set these options in a code chunk header:
+
+```` markdown
+```{r plot1, dev = "svg", fig.width = mm_to_inch(159), fig.height = mm_to_inch(100), fig.alt = "A description of plot1"}
+plot1
+```
+````
+
+It can sometimes make your code easier to read by specifying chunk
+options within the chunk:
+
+```` markdown
+```{r plot1}
+#| dev = "svg"
+#| fig.width = mm_to_inch(159)
+#| fig.height = mm_to_inch(100)
+#| fig.alt = "A description of plot1"
+
+plot1
+```
+````
+
+If you would like all of your images to be in the same format, it is
+usually easier to set options globally in the first code chunk of your
+document:
+
+```` markdown
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  dev = "svg",
+  fig.width = mm_to_inch(159), 
+  fig.height = mm_to_inch(100)
+)
+```
+````
+
+Note that afcharts must be loaded before setting global options,
+otherwise you will need to specify the package when calling
+`mm_to_inch`;
+e.g. [`afcharts::mm_to_inch()`](https://best-practice-and-impact.github.io/afcharts/reference/mm_to_inch.md).
+
+There may be cases where you’d like all charts to be in SVG format, but
+with different dimensions. In this case you can set `dev = "svg"` in the
+global options and `fig.width` and `fig.height` for each code chunk
+separately.
+
+#### Knitting to Microsoft Word
+
+- You may receive a warning message referring to `rsvg-convert` when
+  knitting an R Markdown document containing SVG images to Microsoft
+  Word. This can be safely ignored.
+
+- It is not possible to centre charts or images when knitting to
+  Microsoft Word. A workaround for this is to [use a Word style template
+  document](https://yihui.org/rmarkdown-cookbook/word-template#word-template).

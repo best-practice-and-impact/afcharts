@@ -27,7 +27,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">afcharts</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.4.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.5.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -62,15 +62,15 @@
 
 
 
-<link href="cookbook_files/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
-<script src="cookbook_files/htmlwidgets-1.6.4/htmlwidgets.js"></script><script src="cookbook_files/plotly-binding-4.11.0/plotly.js"></script><script src="cookbook_files/typedarray-0.1/typedarray.min.js"></script><link href="cookbook_files/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet">
-<script src="cookbook_files/crosstalk-1.2.2/js/crosstalk.min.js"></script><link href="cookbook_files/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet">
-<script src="cookbook_files/plotly-main-2.11.1/plotly-latest.min.js"></script><div class="row">
+<link href="cookbook_files/htmltools-fill-0.5.9/fill.css" rel="stylesheet">
+<script src="cookbook_files/htmlwidgets-1.6.4/htmlwidgets.js"></script><script src="cookbook_files/plotly-binding-4.12.0/plotly.js"></script><script src="cookbook_files/typedarray-0.1/typedarray.min.js"></script><link href="cookbook_files/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet">
+<script src="cookbook_files/crosstalk-1.2.2/js/crosstalk.min.js"></script><link href="cookbook_files/plotly-htmlwidgets-css-2.25.2/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="cookbook_files/plotly-main-2.25.2/plotly-latest.min.js"></script><div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.svg" class="logo" alt=""><h1>Cookbook</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/best-practice-and-impact/afcharts/blob/main/vignettes/cookbook.Rmd" class="external-link"><code>vignettes/cookbook.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/best-practice-and-impact/afcharts/blob/v0.5.1/vignettes/cookbook.Rmd" class="external-link"><code>vignettes/cookbook.Rmd</code></a></small>
       <div class="d-none name"><code>cookbook.Rmd</code></div>
     </div>
 
@@ -165,7 +165,7 @@ Living Longer
 <div class="chart-subtitle">
 Life Expectancy in the United Kingdom 1952 to 2007
 </div>
-<p><img src="cookbook_files/figure-html/unnamed-chunk-4-1.svg" width="700"></p>
+<p><img src="cookbook_files/figure-html/unnamed-chunk-4-1.svg" class="r-plt" alt="" width="700"></p>
 <p>This line chart uses the afcharts theme. There are pale grey grid
 lines extending from the y axis, and there is a thicker dark blue line
 representing the data.</p>
@@ -202,12 +202,12 @@ Living Longer
 <div class="chart-subtitle">
 Life Expectancy in the United Kingdom and China 1952 to 2007
 </div>
-<p><img src="cookbook_files/figure-html/unnamed-chunk-5-1.svg" width="700"></p>
+<p><img src="cookbook_files/figure-html/unnamed-chunk-5-1.svg" class="r-plt" alt="" width="700"></p>
 <p>This line chart uses the afcharts theme and there are thin pale grey
-lines extending from the y axis. There are two thicker lines showing the
+lines extending from the y-axis. There are two thicker lines showing the
 life expectancy in the UK and China over time. The line colours are from
-the main Analysis Function palette - dark blue for UK and orange for the
-China, denoted by a legend at the bottom of the chart.</p>
+the Analysis Function categorical2 palette - dark blue for the UK and
+orange for China, denoted by a legend at the bottom of the chart.</p>
 <p>Legends should be avoided unless absolutely necessary, as these
 usually rely on using colour to match labels to data. More information
 can be found in the Analysis Function <a href="https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-charts/#section-11" class="external-link">charts
@@ -241,7 +241,7 @@ The U.S.A. is the most populous country in the Americas
 <div class="chart-subtitle">
 Population of countries in the Americas (millions), 2007
 </div>
-<p><img src="cookbook_files/figure-html/unnamed-chunk-6-1.svg" width="700"></p>
+<p><img src="cookbook_files/figure-html/unnamed-chunk-6-1.svg" class="r-plt" alt="" width="700"></p>
 <p>This bar chart uses the afcharts theme, and shows the populations of
 the five most populous countries in the Americas. Each bar is dark blue
 and labelled by country underneath. All text is black in a sans serif
@@ -252,19 +252,18 @@ difficult to display on the x axis. To produce a horizontal bar chart,
 swap the variables defined for x and y in <code><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes()</a></code> and make a
 few tweaks to <code><a href="../reference/theme_af.html">theme_af()</a></code>; draw grid lines for the x axis
 only by setting the <code>grid</code> argument, and draw an axis line
-for the y axis only by setting the <code>axis</code> argument.</p>
+for the y axis only by setting the <code>axis</code> argument. We can
+also hide the x and y axis titles by setting the <code>axis_title</code>
+argument. This replaces the need to use the <code>labs</code> function,
+with x and y set to NULL.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">pop_bar_data</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">pop</span>, y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/reorder.factor.html" class="external-link">reorder</a></span><span class="op">(</span><span class="va">country</span>, <span class="va">pop</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html" class="external-link">geom_col</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">af_colour_values</span><span class="op">[</span><span class="st">"dark-blue"</span><span class="op">]</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="../reference/theme_af.html">theme_af</a></span><span class="op">(</span>grid <span class="op">=</span> <span class="st">"x"</span>, axis <span class="op">=</span> <span class="st">"y"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="../reference/theme_af.html">theme_af</a></span><span class="op">(</span>grid <span class="op">=</span> <span class="st">"x"</span>, axis <span class="op">=</span> <span class="st">"y"</span>, axis_title <span class="op">=</span> <span class="st">"none"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">scale_x_continuous</a></span><span class="op">(</span></span>
 <span>    limits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">350E6</span><span class="op">)</span>,</span>
 <span>    labels <span class="op">=</span> <span class="fu">scales</span><span class="fu">::</span><span class="fu"><a href="https://scales.r-lib.org/reference/label_number.html" class="external-link">label_number</a></span><span class="op">(</span>scale <span class="op">=</span> <span class="fl">1E-6</span><span class="op">)</span>,</span>
 <span>    expand <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/expansion.html" class="external-link">expansion</a></span><span class="op">(</span>mult <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0.1</span><span class="op">)</span><span class="op">)</span></span>
-<span>  <span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
-<span>    x <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>    y <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  <span class="op">)</span></span></code></pre></div>
 <div class="chart-title">
 The U.S.A. is the most populous country in the Americas
@@ -272,7 +271,7 @@ The U.S.A. is the most populous country in the Americas
 <div class="chart-subtitle">
 Population of countries in the Americas (millions), 2007
 </div>
-<p><img src="cookbook_files/figure-html/unnamed-chunk-7-1.svg" width="700"></p>
+<p><img src="cookbook_files/figure-html/unnamed-chunk-7-1.svg" class="r-plt" alt="" width="700"></p>
 <p>This bar chart uses the afcharts theme and displays the populations
 of the five most populous countries in the Americas. The country names
 are displayed on the y axis, with the bars extending from left to right.
@@ -319,12 +318,12 @@ Living longer
 <div class="chart-subtitle">
 Difference in life expectancy, 1967 to 2007
 </div>
-<p><img src="cookbook_files/figure-html/unnamed-chunk-8-1.svg" width="700"></p>
+<p><img src="cookbook_files/figure-html/unnamed-chunk-8-1.svg" class="r-plt" alt="" width="700"></p>
 <p>This grouped bar chart uses the afcharts theme. It shows the life
 expectancy in 1967 and 2007 for four countries, which are displayed on
 the x axis. For each country there are two bars. The bar colours are
-from the main Analysis Function palette - dark blue for 1967 and orange
-for 2007, denoted by a legend at the bottom of the chart.</p>
+from the Analysis Function categorical2 palette - dark blue for 1967 and
+orange for 2007, denoted by a legend at the bottom of the chart.</p>
 </div>
 <div class="section level3">
 <h3 id="stacked-bar-chart">Stacked bar chart<a class="anchor" aria-label="anchor" href="#stacked-bar-chart"></a>
@@ -377,14 +376,14 @@ How life expectancy varies across continents
 <div class="chart-subtitle">
 Percentage of countries by life expectancy band, 2007
 </div>
-<p><img src="cookbook_files/figure-html/unnamed-chunk-9-1.svg" width="700"></p>
+<p><img src="cookbook_files/figure-html/unnamed-chunk-9-1.svg" class="r-plt" alt="" width="700"></p>
 <p>This stacked bar chart uses the afcharts theme and shows the
 proportions of countries with a life expectancy over and under 75 by
 continent. The continents are listed along the x axis, with the y axis
 labelled between 0% and 100% in breaks of 25%. The colours for the bar
-segments are from the main Analysis Function palette - dark blue for
-under 75 and orange for over 75, denoted by a legend at the bottom of
-the chart. There is whitespace between each bar.</p>
+segments are from the Analysis Function categorical2 palette - dark blue
+for under 75 and orange for over 75, denoted by a legend at the bottom
+of the chart. There is whitespace between each bar.</p>
 </div>
 </div>
 <div class="section level2">
@@ -415,7 +414,7 @@ How life expectancy varies
 <div class="chart-subtitle">
 Distribution of life expectancy, 2007
 </div>
-<p><img src="cookbook_files/figure-html/unnamed-chunk-10-1.svg" width="700"></p>
+<p><img src="cookbook_files/figure-html/unnamed-chunk-10-1.svg" class="r-plt" alt="" width="700"></p>
 <p>This histogram uses the afcharts theme, and shows the distribution of
 life expectancy by number of countries. There are pale grey grid lines
 extending out from the y axis. The bars are dark blue with white space
@@ -441,7 +440,7 @@ The relationship between GDP and Life Expectancy is complex
 <div class="chart-subtitle">
 GDP and Life Expectancy for all countries, 2007
 </div>
-<p><img src="cookbook_files/figure-html/unnamed-chunk-11-1.svg" width="700"></p>
+<p><img src="cookbook_files/figure-html/unnamed-chunk-11-1.svg" class="r-plt" alt="" width="700"></p>
 <p>This scatterplot uses the afcharts theme, and shows life expectancy
 against GDP for all countries. Thin pale grey lines extend out from the
 x and y axis labels, forming a grid. The data points are plotted as dark
@@ -483,7 +482,7 @@ Asia’s rapid growth
 <div class="chart-subtitle">
 Population growth in billions by continent, 1952 to 2007
 </div>
-<p><img src="cookbook_files/figure-html/unnamed-chunk-12-1.svg" width="700"></p>
+<p><img src="cookbook_files/figure-html/unnamed-chunk-12-1.svg" class="r-plt" alt="" width="700"></p>
 <p>This chart uses the afcharts theme. It contains four subplots in a
 two by two grid showing how the populations of four continents have
 changed over time. Each subplot is labelled with the continent. The
@@ -515,13 +514,13 @@ How life expectancy varies in Europe
 <div class="chart-subtitle">
 Percentage of countries by life expectancy band, 2007
 </div>
-<p><img src="cookbook_files/figure-html/unnamed-chunk-13-1.svg" width="700"></p>
+<p><img src="cookbook_files/figure-html/unnamed-chunk-13-1.svg" class="r-plt" alt="" width="700"></p>
 <p>This pie chart uses the afcharts theme, showing the proportions of
 European countries with a life expectancy under and over 75. The segment
-colours are from the Analysis Function main palette, with the smaller
-under 75 segment in dark blue, and the larger over 75 segment in orange.
-This is indicated by a legend to the right of the pie chart. There is
-whitespace separating the segments from each other.</p>
+colours are from the Analysis Function categorical2 palette, with the
+smaller under 75 segment in dark blue, and the larger over 75 segment in
+orange. This is indicated by a legend to the right of the pie chart.
+There is whitespace separating the segments from each other.</p>
 </div>
 <div class="section level2">
 <h2 id="focus-charts">Focus charts<a class="anchor" aria-label="anchor" href="#focus-charts"></a>
@@ -547,7 +546,7 @@ Brazil has the second highest population in the Americas
 <div class="chart-subtitle">
 Population of countries in the Americas (millions), 2007
 </div>
-<p><img src="cookbook_files/figure-html/unnamed-chunk-14-1.svg" width="700"></p>
+<p><img src="cookbook_files/figure-html/unnamed-chunk-14-1.svg" class="r-plt" alt="" width="700"></p>
 <p>This bar chart uses the afcharts theme, and shows the populations of
 five countries of the Americas in descending order. The country names
 are given on the x axis, with all chart text in black in a sans serif
@@ -611,7 +610,7 @@ The U.S.A. is the most populous country in the Americas
 Population of countries in the Americas (millions), 2007
 </div>
 <div class="plotly html-widget html-fill-item" id="htmlwidget-ac96cb3ee4656e2e9ec3" style="width:700px;height:432.632880098888px;"></div>
-<script type="application/json" data-for="htmlwidget-ac96cb3ee4656e2e9ec3">{"x":{"data":[{"orientation":"v","width":[0.89999999999999991,0.90000000000000013,0.90000000000000036,0.90000000000000036,0.90000000000000036],"base":[0,0,0,0,0],"x":[1,2,3,4,5],"y":[301139947,190010647,108700891,44227550,40301927],"text":["Country: United States<br />Population (millions): 301.1","Country: Brazil<br />Population (millions): 190","Country: Mexico<br />Population (millions): 108.7","Country: Colombia<br />Population (millions): 44.2","Country: Argentina<br />Population (millions): 40.3"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(18,67,109,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":25.298464092984645,"r":9.2984640929846432,"b":32.54462432544625,"l":41.843088418430895},"paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":18.596928185969286},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,5.5999999999999996],"tickmode":"array","ticktext":["United States","Brazil","Mexico","Colombia","Argentina"],"tickvals":[1,2,3,4,5],"categoryorder":"array","categoryarray":["United States","Brazil","Mexico","Colombia","Argentina"],"nticks":null,"ticks":"outside","tickcolor":"rgba(217,217,217,1)","ticklen":4.6492320464923216,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":18.596928185969286},"tickangle":-0,"showline":true,"linecolor":"rgba(217,217,217,1)","linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":18.596928185969286}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0,385000000],"tickmode":"array","ticktext":["0","100","200","300"],"tickvals":[0,99999999.999999985,199999999.99999997,300000000],"categoryorder":"array","categoryarray":["0","100","200","300"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":4.6492320464923216,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":18.596928185969286},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(217,217,217,1)","gridwidth":0,"zeroline":false,"anchor":"x","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":18.596928185969286}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","layer":"below","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":18.596928185969286}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"modeBarButtons":[["resetViews"]],"displaylogo":false},"source":"A","attrs":{"22ff29d1e3b9":{"x":{},"y":{},"text":{},"type":"bar"}},"cur_data":"22ff29d1e3b9","visdat":{"22ff29d1e3b9":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script><p>This is an interactive bar chart using the afcharts theme, showing
+<script type="application/json" data-for="htmlwidget-ac96cb3ee4656e2e9ec3">{"x":{"data":[{"orientation":"v","width":[0.89999999999999991,0.90000000000000013,0.90000000000000036,0.90000000000000036,0.90000000000000036],"base":[0,0,0,0,0],"x":[1,2,3,4,5],"y":[301139947,190010647,108700891,44227550,40301927],"text":["Country: United States<br />Population (millions): 301.1","Country: Brazil<br />Population (millions): 190","Country: Mexico<br />Population (millions): 108.7","Country: Colombia<br />Population (millions): 44.2","Country: Argentina<br />Population (millions): 40.3"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(18,67,109,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":25.298464092984645,"r":9.2984640929846432,"b":32.54462432544625,"l":41.843088418430895},"paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":18.596928185969286},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,5.5999999999999996],"tickmode":"array","ticktext":["United States","Brazil","Mexico","Colombia","Argentina"],"tickvals":[1,2,3,4,5],"categoryorder":"array","categoryarray":["United States","Brazil","Mexico","Colombia","Argentina"],"nticks":null,"ticks":"outside","tickcolor":"rgba(217,217,217,1)","ticklen":4.6492320464923216,"tickwidth":0.77487200774872023,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":18.596928185969286},"tickangle":-0,"showline":true,"linecolor":"rgba(217,217,217,1)","linewidth":0.77487200774872023,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":18.596928185969286}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0,385000000],"tickmode":"array","ticktext":["0","100","200","300"],"tickvals":[0,99999999.999999985,199999999.99999997,300000000],"categoryorder":"array","categoryarray":["0","100","200","300"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":4.6492320464923216,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":18.596928185969286},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(217,217,217,1)","gridwidth":0.77487200774872023,"zeroline":false,"anchor":"x","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":18.596928185969286}},"hoverformat":".2f"},"shapes":[],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":2.204724409448819,"font":{"color":"rgba(0,0,0,1)","family":"","size":18.596928185969286}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"modeBarButtons":[["resetViews"]],"displaylogo":false},"source":"A","attrs":{"1eb03c62691":{"x":{},"y":{},"text":{},"type":"bar"}},"cur_data":"1eb03c62691","visdat":{"1eb03c62691":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script><p>This is an interactive bar chart using the afcharts theme, showing
 the populations of the five most populous countries in the Americas. The
 bars are dark blue. A tooltip appears when hovering over each bar with
 the cursor, which shows a matching dark blue box with the country and
@@ -679,7 +678,7 @@ Living Longer
 <div class="chart-subtitle">
 Life Expectancy in the United Kingdom and China 1952 to 2007
 </div>
-<p><img src="cookbook_files/figure-html/unnamed-chunk-43-1.svg" width="700"></p>
+<p><img src="cookbook_files/figure-html/unnamed-chunk-43-1.svg" class="r-plt" alt="" width="700"></p>
 <p>The line chart uses the afcharts theme, and has one blue and one
 orange line. These are each labelled with a sans serif font in black at
 the end of the line.</p>
@@ -742,7 +741,7 @@ Living Longer
 <div class="chart-subtitle">
 Life Expectancy in the United Kingdom and China 1952 to 2007
 </div>
-<p><img src="cookbook_files/figure-html/unnamed-chunk-44-1.svg" width="700"></p>
+<p><img src="cookbook_files/figure-html/unnamed-chunk-44-1.svg" class="r-plt" alt="" width="700"></p>
 <p>The line chart uses the afcharts theme and appears highly similar to
 the previous plot. It has one blue and one orange line with each
 labelled with a sans serif font in black at the end of the line.</p>
@@ -773,7 +772,7 @@ The U.S.A. is the most populous country in the Americas
 <div class="chart-subtitle">
 Population of countries in the Americas (millions), 2007
 </div>
-<p><img src="cookbook_files/figure-html/unnamed-chunk-45-1.svg" width="700"></p>
+<p><img src="cookbook_files/figure-html/unnamed-chunk-45-1.svg" class="r-plt" alt="" width="700"></p>
 <p>This bar chart uses the afcharts theme. All the bars are dark blue
 and have white text labels at the top of each bar showing the y axis
 value.</p>
@@ -814,7 +813,7 @@ The U.S.A. is the most populous country in the Americas
 <div class="chart-subtitle">
 Population of countries in the Americas (millions), 2007
 </div>
-<p><img src="cookbook_files/figure-html/unnamed-chunk-55-1.svg" width="700"></p>
+<p><img src="cookbook_files/figure-html/unnamed-chunk-55-1.svg" class="r-plt" alt="" width="700"></p>
 <p>This bar chart uses the afcharts theme and shows the population of
 five countries. The country names are given on the y axis, with the bars
 extending from left to right, sorted by values decreasing from the top
@@ -837,7 +836,7 @@ The U.S.A. is the most populous country in the Americas
 <div class="chart-subtitle">
 Population of countries in the Americas (millions), 2007
 </div>
-<p><img src="cookbook_files/figure-html/unnamed-chunk-56-1.svg" width="700"></p>
+<p><img src="cookbook_files/figure-html/unnamed-chunk-56-1.svg" class="r-plt" alt="" width="700"></p>
 <p>This horizontal bar chart uses the afcharts theme. It shows the
 populations of five countries, with country names given on the y axis.
 All the bars are in dark blue and against the y axis. The x axis values
@@ -871,7 +870,7 @@ The U.S.A. is the most populous country in the Americas
 <div class="chart-subtitle">
 Population of countries in the Americas (millions), 2007
 </div>
-<p><img src="cookbook_files/figure-html/unnamed-chunk-57-1.svg" width="700"></p>
+<p><img src="cookbook_files/figure-html/unnamed-chunk-57-1.svg" class="r-plt" alt="" width="700"></p>
 <p>This horizonal bar chart uses the afcharts theme and shows the
 populations of five countries. The country names are given on the y
 axis, and all the bars are in blue. The x axis is labeled every 100 from
@@ -905,7 +904,7 @@ The U.S.A. is the most populous country in the Americas
 <div class="chart-subtitle">
 Population of countries in the Americas (millions), 2007
 </div>
-<p><img src="cookbook_files/figure-html/unnamed-chunk-58-1.svg" width="700"></p>
+<p><img src="cookbook_files/figure-html/unnamed-chunk-58-1.svg" class="r-plt" alt="" width="700"></p>
 <p>This horizonal bar chart uses the afcharts theme and shows the
 populations of five countries. The country names are given on the y
 axis, and all the bars are in blue. The x axis is labeled every 50 from
@@ -940,7 +939,7 @@ How life expectancy varies across continents
 <div class="chart-subtitle">
 Percentage of countries by life expectancy band, 2007
 </div>
-<p><img src="cookbook_files/figure-html/unnamed-chunk-59-1.svg" width="700"></p>
+<p><img src="cookbook_files/figure-html/unnamed-chunk-59-1.svg" class="r-plt" alt="" width="700"></p>
 <p>This stacked bar uses the afcharts theme. The y axis is labelled
 every 25 from 0 to 100 percent, with light grey grid lines and tick
 marks going horizontally from the y axis.</p>
@@ -962,7 +961,7 @@ How life expectancy varies across continents
 <div class="chart-subtitle">
 Percentage of countries by life expectancy band, 2007
 </div>
-<p><img src="cookbook_files/figure-html/unnamed-chunk-60-1.svg" width="700"></p>
+<p><img src="cookbook_files/figure-html/unnamed-chunk-60-1.svg" class="r-plt" alt="" width="700"></p>
 <p>This is a stacked bar chart with the afcharts theme, where the top
 gridline is the same width as the adjoining tick mark and other grid
 lines.</p>
@@ -1002,7 +1001,7 @@ Living Longer
 <div class="chart-subtitle">
 Life Expectancy in the United Kingdom 1952 to 2007
 </div>
-<p><img src="cookbook_files/figure-html/unnamed-chunk-61-1.svg" width="700"></p>
+<p><img src="cookbook_files/figure-html/unnamed-chunk-61-1.svg" class="r-plt" alt="" width="700"></p>
 <p>This line chart uses the afcharts theme. There is a solid dark blue
 line trending upwards, and a dashed teal line horizontal to 75 on the
 y-axis. There are also pale grey grid lines extending from regular
@@ -1028,7 +1027,7 @@ with <code><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="ex
 <span>    subtitle <span class="op">=</span> <span class="st">"Population of countries of the Americas (millions), 2007"</span>,</span>
 <span>    caption <span class="op">=</span> <span class="st">"Source: Gapminder"</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="cookbook_files/figure-html/chart-titles-1.svg" width="700"></p>
+<p><img src="cookbook_files/figure-html/chart-titles-1.svg" class="r-plt" alt="" width="700"></p>
 <p>In the bar chart image, the title gives a data insight and is
 presented in large bold text at the top. This is followed by smaller
 text giving a brief description of the data. In the bottom left of the
@@ -1056,7 +1055,7 @@ subtitle as a description of the y-axis and set the y-axis title to
 <span>    <span class="op">)</span>,</span>
 <span>    caption <span class="op">=</span> <span class="st">"Source: Gapminder"</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="cookbook_files/figure-html/chart-titles-yaxis-1-1.svg" width="700"></p>
+<p><img src="cookbook_files/figure-html/chart-titles-yaxis-1-1.svg" class="r-plt" alt="" width="700"></p>
 <p>In this bar chart image, the y-axis title, “Population (millions)”,
 is to the left of the top of the y-axis.</p>
 <div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
@@ -1079,7 +1078,7 @@ is to the left of the top of the y-axis.</p>
 <span>    subtitle <span class="op">=</span> <span class="st">"Population (millions)"</span>,</span>
 <span>    caption <span class="op">=</span> <span class="st">"Source: Gapminder"</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="cookbook_files/figure-html/chart-titles-y-axi-2-1.svg" width="700"></p>
+<p><img src="cookbook_files/figure-html/chart-titles-y-axi-2-1.svg" class="r-plt" alt="" width="700"></p>
 <p>In this bar chart image, the y-axis title, “Population (millions)”,
 is above and to the right of the y-axis.</p>
 </div>
@@ -1107,7 +1106,7 @@ the chart.</p>
 <span>    title <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="st">"The U.S.A. is the most populous country in "</span>,</span>
 <span>                  <span class="st">"the Americas"</span><span class="op">)</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="cookbook_files/figure-html/text-wrap-1-1.svg" width="700"></p>
+<p><img src="cookbook_files/figure-html/text-wrap-1-1.svg" class="r-plt" alt="" width="700"></p>
 <p>In this bar chart image, the title text is being cut off with only
 part of the text appearing in the image.</p>
 <p>There are two suggested ways to solve this issue; Insert
@@ -1124,7 +1123,7 @@ string. See examples of both of these methods as follows:</p>
 <span>      width <span class="op">=</span> <span class="fl">40</span></span>
 <span>    <span class="op">)</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="cookbook_files/figure-html/text-wrap-2-1.svg" width="700"></p>
+<p><img src="cookbook_files/figure-html/text-wrap-2-1.svg" class="r-plt" alt="" width="700"></p>
 <p>In this bar chart image, the y-axis label and chart title text have
 been wrapped onto two lines so that all the text is visible.</p>
 </div>
@@ -1159,7 +1158,7 @@ The U.S.A. is the most populous country in the Americas
 <div class="chart-subtitle">
 Population of countries in the Americas (millions), 2007
 </div>
-<p><img src="cookbook_files/figure-html/unnamed-chunk-62-1.svg" width="700"></p>
+<p><img src="cookbook_files/figure-html/unnamed-chunk-62-1.svg" class="r-plt" alt="" width="700"></p>
 <p>This bar chart uses the afcharts theme. The bars are dark blue, with
 axis lines and ticks coloured black as opposed to the default
 <code>theme_af</code> grey.</p>
@@ -1211,7 +1210,7 @@ your charts. This can be readily achieved with
 <span>    caption <span class="op">=</span> <span class="st">"Source: Gapminder"</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span>plot.subtitle <span class="op">=</span> <span class="fu"><a href="https://wilkelab.org/ggtext/reference/element_markdown.html" class="external-link">element_markdown</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<p><img src="cookbook_files/figure-html/html-formatting-1.svg" width="700"></p>
+<p><img src="cookbook_files/figure-html/html-formatting-1.svg" class="r-plt" alt="" width="700"></p>
 <p>In this line chart image, the word ‘China’ and ‘United Kingdom’ in
 the subtitle and label text have been set to correspond to their line
 colours. Please refer to <a href="https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-charts/" class="external-link">Analysis
@@ -1226,7 +1225,7 @@ formatting, such as when using colours.</p>
 Analysis Function suggested colour palettes</a>. These palettes have
 been developed to meet the <a href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html" class="external-link">Web
 Content Accessibility Guidelines 2.1 for graphical objects</a>.</p>
-<p>The <a href="https://best-practice-and-impact.github.io/afcharts/articles/colours.html#main-palette">main
+<p>The <a href="https://best-practice-and-impact.github.io/afcharts/articles/colours.html#main-palette">categorical
 palette</a> is the default for discrete colour/fill functions, and the
 <a href="https://best-practice-and-impact.github.io/afcharts/articles/colours.html#sequential-palette">sequential
 palette</a> for continuous colour/fill functions.</p>
@@ -1237,7 +1236,7 @@ palette</a> for continuous colour/fill functions.</p>
 </h3>
 <p>The full list of available palettes can be found by running
 <code><a href="../reference/af_colour_palettes.html">afcharts::af_colour_palettes</a></code>.</p>
-<p>For example, to use the Analysis Function <code>main2</code>
+<p>For example, to use the Analysis Function <code>categorical2</code>
 palette:</p>
 <div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">gapminder</span> <span class="op">|&gt;</span></span>
@@ -1250,7 +1249,7 @@ palette:</p>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html" class="external-link">geom_line</a></span><span class="op">(</span>linewidth <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/theme_af.html">theme_af</a></span><span class="op">(</span>legend <span class="op">=</span> <span class="st">"right"</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="../reference/scale_colour_discrete_af.html">scale_colour_discrete_af</a></span><span class="op">(</span><span class="st">"main2"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="../reference/scale_colour_discrete_af.html">scale_colour_discrete_af</a></span><span class="op">(</span><span class="st">"categorical2"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">scale_y_continuous</a></span><span class="op">(</span></span>
 <span>    limits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">82</span><span class="op">)</span>,</span>
 <span>    breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">80</span>, <span class="fl">20</span><span class="op">)</span>,</span>
@@ -1268,9 +1267,9 @@ Living Longer
 <div class="chart-subtitle">
 Life Expectancy in the United Kingdom and China 1952 to 2007
 </div>
-<p><img src="cookbook_files/figure-html/unnamed-chunk-87-1.svg" width="700"></p>
+<p><img src="cookbook_files/figure-html/unnamed-chunk-87-1.svg" class="r-plt" alt="" width="700"></p>
 <p>This line chart uses the afcharts theme and the Analysis Function
-main palette, with one line in dark blue and one in orange.</p>
+categorical2 palette, with one line in dark blue and one in orange.</p>
 </div>
 <div class="section level3">
 <h3 id="using-your-own-colour-palette">Using your own colour palette<a class="anchor" aria-label="anchor" href="#using-your-own-colour-palette"></a>
@@ -1305,7 +1304,7 @@ Living Longer
 <div class="chart-subtitle">
 Life Expectancy in the United Kingdom 1952 to 2007
 </div>
-<p><img src="cookbook_files/figure-html/unnamed-chunk-88-1.svg" width="700"></p>
+<p><img src="cookbook_files/figure-html/unnamed-chunk-88-1.svg" class="r-plt" alt="" width="700"></p>
 <p>This line chart uses the afcharts theme with a single green line.</p>
 <p>Alternatively, you may wish to use multiple custom colours:</p>
 <div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
@@ -1337,7 +1336,7 @@ Living Longer
 <div class="chart-subtitle">
 Life Expectancy in the United Kingdom and China 1952 to 2007
 </div>
-<p><img src="cookbook_files/figure-html/unnamed-chunk-89-1.svg" width="700"></p>
+<p><img src="cookbook_files/figure-html/unnamed-chunk-89-1.svg" class="r-plt" alt="" width="700"></p>
 <p>This line chart uses the afcharts theme. One line is green and the
 other is black.</p>
 <div class="section level4">
@@ -1370,7 +1369,7 @@ Journalism cookbook for R graphics</a> and their <a href="https://github.com/bbc
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
 </div>
 
     </footer>

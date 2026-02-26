@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">afcharts</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.4.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.5.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,9 +35,21 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.svg" class="logo" alt=""><h1>Changelog</h1>
-      <small>Source: <a href="https://github.com/best-practice-and-impact/afcharts/blob/main/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
+      <small>Source: <a href="https://github.com/best-practice-and-impact/afcharts/blob/v0.5.1/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.5.1" id="afcharts-051">afcharts 0.5.1<a class="anchor" aria-label="anchor" href="#afcharts-051"></a></h2><p class="text-muted">CRAN release: 2026-02-26</p>
+<ul><li><p>Updated the <code>sequential</code> colour palette to add two new shades (<code>darkest-blue</code> and <code>lightest-blue</code>). This means that the <code>sequential</code> palette can now be used to represent five categories, such as deprivation quintiles.</p></li>
+<li><p>Renamed <code>na_colour</code> argument of <code>scale_colour_continuous_af</code> and <code>scale_fill_continuous_af</code> to <code>na.value</code>. This was necessary to enable <code>use_afcharts</code> to work with ggplot2 v4.0.1. Added <code>na.value</code> argument to <code>scale_colour_discrete_af</code> and <code>scale_fill_discrete_af</code>.</p></li>
+<li><p><code>use_afcharts</code> gains a <code>reset</code> argument to turn off analysis function styling of charts.</p></li>
+<li><p><code>theme_af</code> now uses theme options set by earlier calls of <code>use_afcharts</code> by default. <a href="https://github.com/best-practice-and-impact/afcharts/issues/51" class="external-link">#51</a></p></li>
+<li><p>Set the <code>main</code> colour palettes to <code>categorical</code>. The Scale_*_discrete_af functions now use the 6 colour cateogrical palette by default, rather than the 4 colour.</p></li>
+<li><p>Added <code>af_dark_blue</code>, <code>af_orange</code> and <code>af_grey</code> to give easier access to the hex codes of these colours.</p></li>
+<li><p>Added arguments <code>axis_text</code> and <code>axis_title</code> to function <code>theme_af</code> to set whether to show axis titles and labels.</p></li>
+<li><p>Added argument <code>legend_title</code> to function <code>theme_af</code> to set whether to show legend titles.</p></li>
+<li><p>The <code>legend</code> argument of <code>theme_af</code> now accepts a legend justification e.g. ‘top-right’, ‘left-centre’ <a href="https://github.com/best-practice-and-impact/afcharts/issues/47" class="external-link">#47</a></p></li>
+</ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.4.1" id="afcharts-041">afcharts 0.4.1<a class="anchor" aria-label="anchor" href="#afcharts-041"></a></h2><p class="text-muted">CRAN release: 2025-01-13</p>
 <ul><li><p>Fixed bug which prevented some functions from working if called directly without attaching the package.</p></li>
@@ -57,7 +69,7 @@
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
 </div>
 
     </footer></div>

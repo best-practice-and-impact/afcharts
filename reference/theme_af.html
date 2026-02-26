@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">afcharts</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.4.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.5.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,7 +35,7 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.svg" class="logo" alt=""><h1>Analysis Function theme for ggplot2 charts.</h1>
-      <small class="dont-index">Source: <a href="https://github.com/best-practice-and-impact/afcharts/blob/main/R/theme_af.R" class="external-link"><code>R/theme_af.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/best-practice-and-impact/afcharts/blob/v0.5.1/R/theme_af.R" class="external-link"><code>R/theme_af.R</code></a></small>
       <div class="d-none name"><code>theme_af.Rd</code></div>
     </div>
 
@@ -46,13 +46,16 @@
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">theme_af</span><span class="op">(</span></span>
-<span>  base_size <span class="op">=</span> <span class="fl">14</span>,</span>
-<span>  base_line_size <span class="op">=</span> <span class="va">base_size</span><span class="op">/</span><span class="fl">24</span>,</span>
-<span>  base_rect_size <span class="op">=</span> <span class="va">base_size</span><span class="op">/</span><span class="fl">24</span>,</span>
-<span>  grid <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"y"</span>, <span class="st">"x"</span>, <span class="st">"xy"</span>, <span class="st">"none"</span><span class="op">)</span>,</span>
-<span>  axis <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"x"</span>, <span class="st">"y"</span>, <span class="st">"xy"</span>, <span class="st">"none"</span><span class="op">)</span>,</span>
-<span>  ticks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"xy"</span>, <span class="st">"x"</span>, <span class="st">"y"</span>, <span class="st">"none"</span><span class="op">)</span>,</span>
-<span>  legend <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"right"</span>, <span class="st">"left"</span>, <span class="st">"top"</span>, <span class="st">"bottom"</span>, <span class="st">"none"</span><span class="op">)</span></span>
+<span>  base_size <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">getOption</a></span><span class="op">(</span><span class="st">"afcharts.base_size"</span>, <span class="fl">14</span><span class="op">)</span>,</span>
+<span>  base_line_size <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">getOption</a></span><span class="op">(</span><span class="st">"afcharts.base_line_size"</span>, <span class="va">base_size</span><span class="op">/</span><span class="fl">24</span><span class="op">)</span>,</span>
+<span>  base_rect_size <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">getOption</a></span><span class="op">(</span><span class="st">"afcharts.base_rect_size"</span>, <span class="va">base_size</span><span class="op">/</span><span class="fl">24</span><span class="op">)</span>,</span>
+<span>  grid <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">getOption</a></span><span class="op">(</span><span class="st">"afcharts.grid"</span>, <span class="st">"y"</span><span class="op">)</span>,</span>
+<span>  axis <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">getOption</a></span><span class="op">(</span><span class="st">"afcharts.axis"</span>, <span class="st">"x"</span><span class="op">)</span>,</span>
+<span>  ticks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">getOption</a></span><span class="op">(</span><span class="st">"afcharts.ticks"</span>, <span class="st">"xy"</span><span class="op">)</span>,</span>
+<span>  legend <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">getOption</a></span><span class="op">(</span><span class="st">"afcharts.legend"</span>, <span class="st">"right"</span><span class="op">)</span>,</span>
+<span>  axis_text <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">getOption</a></span><span class="op">(</span><span class="st">"afcharts.axis_text"</span>, <span class="st">"xy"</span><span class="op">)</span>,</span>
+<span>  axis_title <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">getOption</a></span><span class="op">(</span><span class="st">"afcharts.axis_title"</span>, <span class="st">"xy"</span><span class="op">)</span>,</span>
+<span>  legend_title <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">getOption</a></span><span class="op">(</span><span class="st">"afcharts.legend_title"</span>, <span class="st">"show"</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -79,8 +82,20 @@ to 'xy'.</p></dd>
 
 
 <dt id="arg-legend">legend<a class="anchor" aria-label="anchor" href="#arg-legend"></a></dt>
-<dd><p>'right', 'left', 'top', 'bottom', or 'none' to determine the
-position of the legend. Defaults to 'right'.</p></dd>
+<dd><p>'right', 'left', 'top', 'bottom' or 'none' to determine the
+position of the legend. This can also be followed by a justification along
+that side (top, bottom, left, right or centre) e.g. 'top-left',
+'left-bottom', 'right-centre'. Defaults to 'right'.</p></dd>
+
+
+<dt id="arg-axis-text-axis-title">axis_text, axis_title<a class="anchor" aria-label="anchor" href="#arg-axis-text-axis-title"></a></dt>
+<dd><p>'x', 'y', 'xy' or 'none' to determine whether axis text and/or axis titles should be displayed.
+Text defaults to 'xy', as does title. Note that axis text refers to the 'labels' under the tick marks.</p></dd>
+
+
+<dt id="arg-legend-title">legend_title<a class="anchor" aria-label="anchor" href="#arg-legend-title"></a></dt>
+<dd><p>Set to 'none' to suppress legend titles. Defaults to
+'show'.</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -110,7 +125,7 @@ position of the legend. Defaults to 'right'.</p></dd>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
 </div>
 
     </footer></div>

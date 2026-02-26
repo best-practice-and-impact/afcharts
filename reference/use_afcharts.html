@@ -9,7 +9,7 @@ for ggplot2 charts."><meta property="og:image" content="https://best-practice-an
 
     <a class="navbar-brand me-2" href="../index.html">afcharts</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.4.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.5.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,7 +37,7 @@ for ggplot2 charts."><meta property="og:image" content="https://best-practice-an
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.svg" class="logo" alt=""><h1>Use afcharts defaults.</h1>
-      <small class="dont-index">Source: <a href="https://github.com/best-practice-and-impact/afcharts/blob/main/R/use_afcharts.R" class="external-link"><code>R/use_afcharts.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/best-practice-and-impact/afcharts/blob/v0.5.1/R/use_afcharts.R" class="external-link"><code>R/use_afcharts.R</code></a></small>
       <div class="d-none name"><code>use_afcharts.Rd</code></div>
     </div>
 
@@ -48,7 +48,11 @@ for ggplot2 charts.</p>
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">use_afcharts</span><span class="op">(</span>default_colour <span class="op">=</span> <span class="fu">afcharts</span><span class="fu">::</span><span class="va"><a href="af_colour_values.html">af_colour_values</a></span><span class="op">[</span><span class="st">"dark-blue"</span><span class="op">]</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">use_afcharts</span><span class="op">(</span></span>
+<span>  default_colour <span class="op">=</span> <span class="fu">afcharts</span><span class="fu">::</span><span class="va"><a href="af_colour_values.html">af_colour_values</a></span><span class="op">[</span><span class="st">"dark-blue"</span><span class="op">]</span>,</span>
+<span>  <span class="va">...</span>,</span>
+<span>  reset <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -62,6 +66,11 @@ from <code>af_colour_values</code>.</p></dd>
 
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
 <dd><p>Arguments passed to <code><a href="theme_af.html">theme_af()</a></code>.</p></dd>
+
+
+<dt id="arg-reset">reset<a class="anchor" aria-label="anchor" href="#arg-reset"></a></dt>
+<dd><p>Logical. Turn off use_afcharts. This aims to reset the default
+chart setting to their status when <code>use_afcharts</code> was first called.</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -83,7 +92,7 @@ theme, colour palette and geom aesthetic defaults.</p>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">use_afcharts</span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Default ggplot2 theme set to `theme_af`.</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Default colours set.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Default colour palettes set.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Default geom aesthetics set.</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">d</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">model</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html" class="external-link">geom_bar</a></span><span class="op">(</span><span class="op">)</span></span></span>
@@ -102,7 +111,7 @@ theme, colour palette and geom aesthetic defaults.</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
 </div>
 
     </footer></div>

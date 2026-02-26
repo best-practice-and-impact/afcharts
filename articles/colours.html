@@ -27,7 +27,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">afcharts</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.4.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.5.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -68,7 +68,7 @@
       <img src="../logo.svg" class="logo" alt=""><h1>Colours</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/best-practice-and-impact/afcharts/blob/main/vignettes/colours.Rmd" class="external-link"><code>vignettes/colours.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/best-practice-and-impact/afcharts/blob/v0.5.1/vignettes/colours.Rmd" class="external-link"><code>vignettes/colours.Rmd</code></a></small>
       <div class="d-none name"><code>colours.Rmd</code></div>
     </div>
 
@@ -110,9 +110,9 @@ Function palette, set <code>palette_type = "af"</code> when using any of
 the <code>scale_</code> <a href="https://best-practice-and-impact.github.io/afcharts/reference/index.html#colours">colour
 functions</a>.</p>
 <div class="section level3">
-<h3 id="main-palette">Main palette<a class="anchor" aria-label="anchor" href="#main-palette"></a>
+<h3 id="categorical-palette">Categorical palette<a class="anchor" aria-label="anchor" href="#categorical-palette"></a>
 </h3>
-<p>The <code>main</code> palette should be used with categorical
+<p>The <code>categorical</code> palette should be used with categorical
 data.</p>
 <p>Note: the cells in the ‘Example of colour’ column may appear blank to
 screen reader software. They contain a colour fill, but no data.</p>
@@ -597,13 +597,23 @@ screen reader software. They contain a colour fill, but no data.</p>
 <td headers="value" class="gt_row gt_left">#F46A25</td>
 <td headers="example" class="gt_row gt_left" style="background-color: #F46A25; color: #FFFFFF;"></td>
 </tr>
+<tr>
+<td headers="name" class="gt_row gt_left">dark-grey</td>
+<td headers="value" class="gt_row gt_left">#3D3D3D</td>
+<td headers="example" class="gt_row gt_left" style="background-color: #3D3D3D; color: #FFFFFF;"></td>
+</tr>
+<tr>
+<td headers="name" class="gt_row gt_left">light-purple</td>
+<td headers="value" class="gt_row gt_left">#A285D1</td>
+<td headers="example" class="gt_row gt_left" style="background-color: #A285D1; color: #FFFFFF;"></td>
+</tr>
 </tbody>
 </table>
 </div>
-<p>The <code>main2</code> palette should be used if only two colours are
-required as the dark blue and orange colours have the best colour
-contrast with each other. If only two colours are required and another
-palette from the <code>main</code> family is used, <code>main2</code>
+<p>The <code>categorical2</code> palette should be used if only two
+colours are required as the dark blue and orange colours have the best
+colour contrast with each other. If only two colours are required the
+<code>categorical</code> family is requested, <code>categorical2</code>
 will be used instead.</p>
 <p>Note: the cells in the ‘Example of colour’ column may appear blank to
 screen reader software. They contain a colour fill, but no data.</p>
@@ -1081,8 +1091,12 @@ screen reader software. They contain a colour fill, but no data.</p>
 </tbody>
 </table>
 </div>
-<p>The <code>main6</code> palette is available if an extended palette is
-required.</p>
+</div>
+<div class="section level3">
+<h3 id="sequential-palette">Sequential palette<a class="anchor" aria-label="anchor" href="#sequential-palette"></a>
+</h3>
+<p>The <code>sequential</code> colour palette should be used for data
+where the order has some meaning.</p>
 <p>Note: the cells in the ‘Example of colour’ column may appear blank to
 screen reader software. They contain a colour fill, but no data.</p>
 <div id="ulbfdpbcyv" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
@@ -1547,44 +1561,43 @@ screen reader software. They contain a colour fill, but no data.</p>
     </tr></thead>
 <tbody class="gt_table_body">
 <tr>
+<td headers="name" class="gt_row gt_left">darkest-blue</td>
+<td headers="value" class="gt_row gt_left">#092135</td>
+<td headers="example" class="gt_row gt_left" style="background-color: #092135; color: #FFFFFF;"></td>
+</tr>
+<tr>
 <td headers="name" class="gt_row gt_left">dark-blue</td>
 <td headers="value" class="gt_row gt_left">#12436D</td>
 <td headers="example" class="gt_row gt_left" style="background-color: #12436D; color: #FFFFFF;"></td>
 </tr>
 <tr>
-<td headers="name" class="gt_row gt_left">turquoise</td>
-<td headers="value" class="gt_row gt_left">#28A197</td>
-<td headers="example" class="gt_row gt_left" style="background-color: #28A197; color: #FFFFFF;"></td>
+<td headers="name" class="gt_row gt_left">mid-blue</td>
+<td headers="value" class="gt_row gt_left">#2073BC</td>
+<td headers="example" class="gt_row gt_left" style="background-color: #2073BC; color: #FFFFFF;"></td>
 </tr>
 <tr>
-<td headers="name" class="gt_row gt_left">dark-pink</td>
-<td headers="value" class="gt_row gt_left">#801650</td>
-<td headers="example" class="gt_row gt_left" style="background-color: #801650; color: #FFFFFF;"></td>
+<td headers="name" class="gt_row gt_left">light-blue</td>
+<td headers="value" class="gt_row gt_left">#6BACE6</td>
+<td headers="example" class="gt_row gt_left" style="background-color: #6BACE6; color: #000000;"></td>
 </tr>
 <tr>
-<td headers="name" class="gt_row gt_left">orange</td>
-<td headers="value" class="gt_row gt_left">#F46A25</td>
-<td headers="example" class="gt_row gt_left" style="background-color: #F46A25; color: #FFFFFF;"></td>
-</tr>
-<tr>
-<td headers="name" class="gt_row gt_left">dark-grey</td>
-<td headers="value" class="gt_row gt_left">#3D3D3D</td>
-<td headers="example" class="gt_row gt_left" style="background-color: #3D3D3D; color: #FFFFFF;"></td>
-</tr>
-<tr>
-<td headers="name" class="gt_row gt_left">light-purple</td>
-<td headers="value" class="gt_row gt_left">#A285D1</td>
-<td headers="example" class="gt_row gt_left" style="background-color: #A285D1; color: #FFFFFF;"></td>
+<td headers="name" class="gt_row gt_left">lightest-blue</td>
+<td headers="value" class="gt_row gt_left">#ADD1F1</td>
+<td headers="example" class="gt_row gt_left" style="background-color: #ADD1F1; color: #000000;"></td>
 </tr>
 </tbody>
 </table>
 </div>
+<p>As this palette is restricted to tints of one colour, there are
+issues with colour contrast. Follow the <a href="https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-colours-in-charts/#section-6" class="external-link">advice
+for using the sequential palette</a> in the Government Analysis Function
+colour guidance when using this palette.</p>
 </div>
 <div class="section level3">
-<h3 id="sequential-palette">Sequential palette<a class="anchor" aria-label="anchor" href="#sequential-palette"></a>
+<h3 id="focus-palette">Focus palette<a class="anchor" aria-label="anchor" href="#focus-palette"></a>
 </h3>
-<p>The <code>sequential</code> colour palette should be used for data
-where the order has some meaning.</p>
+<p>The <code>focus</code> palette should be used to highlight specific
+elements of a plot.</p>
 <p>Note: the cells in the ‘Example of colour’ column may appear blank to
 screen reader software. They contain a colour fill, but no data.</p>
 <div id="kgufivjubq" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
@@ -2054,497 +2067,6 @@ screen reader software. They contain a colour fill, but no data.</p>
 <td headers="example" class="gt_row gt_left" style="background-color: #12436D; color: #FFFFFF;"></td>
 </tr>
 <tr>
-<td headers="name" class="gt_row gt_left">mid-blue</td>
-<td headers="value" class="gt_row gt_left">#2073BC</td>
-<td headers="example" class="gt_row gt_left" style="background-color: #2073BC; color: #FFFFFF;"></td>
-</tr>
-<tr>
-<td headers="name" class="gt_row gt_left">light-blue</td>
-<td headers="value" class="gt_row gt_left">#6BACE6</td>
-<td headers="example" class="gt_row gt_left" style="background-color: #6BACE6; color: #000000;"></td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>As this palette is restricted to tints of one colour, there are
-issues with colour contrast. Follow the <a href="https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-colours-in-charts/#section-6" class="external-link">advice
-for using the sequential palette</a> in the Government Analysis Function
-colour guidance when using this palette.</p>
-</div>
-<div class="section level3">
-<h3 id="focus-palette">Focus palette<a class="anchor" aria-label="anchor" href="#focus-palette"></a>
-</h3>
-<p>The <code>focus</code> palette should be used to highlight specific
-elements of a plot.</p>
-<p>Note: the cells in the ‘Example of colour’ column may appear blank to
-screen reader software. They contain a colour fill, but no data.</p>
-<div id="txvafbsnay" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#txvafbsnay table {
-  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-#txvafbsnay thead, #txvafbsnay tbody, #txvafbsnay tfoot, #txvafbsnay tr, #txvafbsnay td, #txvafbsnay th {
-  border-style: none;
-}
-
-#txvafbsnay p {
-  margin: 0;
-  padding: 0;
-}
-
-#txvafbsnay .gt_table {
-  display: table;
-  border-collapse: collapse;
-  line-height: normal;
-  margin-left: auto;
-  margin-right: auto;
-  color: #333333;
-  font-size: 16px;
-  font-weight: normal;
-  font-style: normal;
-  background-color: #FFFFFF;
-  width: auto;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #A8A8A8;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #A8A8A8;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-}
-
-#txvafbsnay .gt_caption {
-  padding-top: 4px;
-  padding-bottom: 4px;
-}
-
-#txvafbsnay .gt_title {
-  color: #333333;
-  font-size: 125%;
-  font-weight: initial;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-color: #FFFFFF;
-  border-bottom-width: 0;
-}
-
-#txvafbsnay .gt_subtitle {
-  color: #333333;
-  font-size: 85%;
-  font-weight: initial;
-  padding-top: 3px;
-  padding-bottom: 5px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-color: #FFFFFF;
-  border-top-width: 0;
-}
-
-#txvafbsnay .gt_heading {
-  background-color: #FFFFFF;
-  text-align: center;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#txvafbsnay .gt_bottom_border {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#txvafbsnay .gt_col_headings {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#txvafbsnay .gt_col_heading {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 6px;
-  padding-left: 5px;
-  padding-right: 5px;
-  overflow-x: hidden;
-}
-
-#txvafbsnay .gt_column_spanner_outer {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-left: 4px;
-  padding-right: 4px;
-}
-
-#txvafbsnay .gt_column_spanner_outer:first-child {
-  padding-left: 0;
-}
-
-#txvafbsnay .gt_column_spanner_outer:last-child {
-  padding-right: 0;
-}
-
-#txvafbsnay .gt_column_spanner {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  overflow-x: hidden;
-  display: inline-block;
-  width: 100%;
-}
-
-#txvafbsnay .gt_spanner_row {
-  border-bottom-style: hidden;
-}
-
-#txvafbsnay .gt_group_heading {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  text-align: left;
-}
-
-#txvafbsnay .gt_empty_group_heading {
-  padding: 0.5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: middle;
-}
-
-#txvafbsnay .gt_from_md > :first-child {
-  margin-top: 0;
-}
-
-#txvafbsnay .gt_from_md > :last-child {
-  margin-bottom: 0;
-}
-
-#txvafbsnay .gt_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  margin: 10px;
-  border-top-style: solid;
-  border-top-width: 1px;
-  border-top-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  overflow-x: hidden;
-}
-
-#txvafbsnay .gt_stub {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#txvafbsnay .gt_stub_row_group {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-  vertical-align: top;
-}
-
-#txvafbsnay .gt_row_group_first td {
-  border-top-width: 2px;
-}
-
-#txvafbsnay .gt_row_group_first th {
-  border-top-width: 2px;
-}
-
-#txvafbsnay .gt_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#txvafbsnay .gt_first_summary_row {
-  border-top-style: solid;
-  border-top-color: #D3D3D3;
-}
-
-#txvafbsnay .gt_first_summary_row.thick {
-  border-top-width: 2px;
-}
-
-#txvafbsnay .gt_last_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#txvafbsnay .gt_grand_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#txvafbsnay .gt_first_grand_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-style: double;
-  border-top-width: 6px;
-  border-top-color: #D3D3D3;
-}
-
-#txvafbsnay .gt_last_grand_summary_row_top {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: double;
-  border-bottom-width: 6px;
-  border-bottom-color: #D3D3D3;
-}
-
-#txvafbsnay .gt_striped {
-  background-color: rgba(128, 128, 128, 0.05);
-}
-
-#txvafbsnay .gt_table_body {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#txvafbsnay .gt_footnotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#txvafbsnay .gt_footnote {
-  margin: 0px;
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#txvafbsnay .gt_sourcenotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#txvafbsnay .gt_sourcenote {
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#txvafbsnay .gt_left {
-  text-align: left;
-}
-
-#txvafbsnay .gt_center {
-  text-align: center;
-}
-
-#txvafbsnay .gt_right {
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-
-#txvafbsnay .gt_font_normal {
-  font-weight: normal;
-}
-
-#txvafbsnay .gt_font_bold {
-  font-weight: bold;
-}
-
-#txvafbsnay .gt_font_italic {
-  font-style: italic;
-}
-
-#txvafbsnay .gt_super {
-  font-size: 65%;
-}
-
-#txvafbsnay .gt_footnote_marks {
-  font-size: 75%;
-  vertical-align: 0.4em;
-  position: initial;
-}
-
-#txvafbsnay .gt_asterisk {
-  font-size: 100%;
-  vertical-align: 0;
-}
-
-#txvafbsnay .gt_indent_1 {
-  text-indent: 5px;
-}
-
-#txvafbsnay .gt_indent_2 {
-  text-indent: 10px;
-}
-
-#txvafbsnay .gt_indent_3 {
-  text-indent: 15px;
-}
-
-#txvafbsnay .gt_indent_4 {
-  text-indent: 20px;
-}
-
-#txvafbsnay .gt_indent_5 {
-  text-indent: 25px;
-}
-
-#txvafbsnay .katex-display {
-  display: inline-flex !important;
-  margin-bottom: 0.75em !important;
-}
-
-#txvafbsnay div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
-  height: 0px !important;
-}
-</style>
-<table class="table gt_table" style="table-layout:fixed;width:0px;" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
-<colgroup>
-<col style="width:110px;">
-<col style="width:100px;">
-<col style="width:150px;">
-</colgroup>
-<thead><tr class="gt_col_headings">
-<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="name">Colour name</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="value">Hex code</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="example">Example of colour</th>
-    </tr></thead>
-<tbody class="gt_table_body">
-<tr>
-<td headers="name" class="gt_row gt_left">dark-blue</td>
-<td headers="value" class="gt_row gt_left">#12436D</td>
-<td headers="example" class="gt_row gt_left" style="background-color: #12436D; color: #FFFFFF;"></td>
-</tr>
-<tr>
 <td headers="name" class="gt_row gt_left">grey</td>
 <td headers="value" class="gt_row gt_left">#BFBFBF</td>
 <td headers="example" class="gt_row gt_left" style="background-color: #BFBFBF; color: #000000;"></td>
@@ -2588,8 +2110,8 @@ by running the following code:</p>
 <span><span class="co"># View names and hex codes for all colour palettes</span></span>
 <span><span class="fu">afcharts</span><span class="fu">::</span><span class="va"><a href="../reference/af_colour_palettes.html">af_colour_palettes</a></span></span>
 <span></span>
-<span><span class="co"># View names and hex codes for `main` colour palette</span></span>
-<span><span class="fu">afcharts</span><span class="fu">::</span><span class="va"><a href="../reference/af_colour_palettes.html">af_colour_palettes</a></span><span class="op">$</span><span class="va">main</span></span></code></pre></div>
+<span><span class="co"># View names and hex codes for `categorical` colour palette</span></span>
+<span><span class="fu">afcharts</span><span class="fu">::</span><span class="va"><a href="../reference/af_colour_palettes.html">af_colour_palettes</a></span><span class="op">$</span><span class="va">categorical</span></span></code></pre></div>
 <p>Examples of how to apply these palettes to ggplot2 charts are
 available in both the <a href="https://best-practice-and-impact.github.io/afcharts/articles/cookbook.html">cookbook</a>
 and the reference files for <code>scale_</code> <a href="https://best-practice-and-impact.github.io/afcharts/reference/index.html#colours">colour
@@ -2606,7 +2128,7 @@ functions</a>.</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
 </div>
 
     </footer>

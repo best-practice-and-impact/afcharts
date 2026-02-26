@@ -1,0 +1,108 @@
+# Accessibility
+
+Accessibility legislation means that all content published on public
+sector websites, including charts, must meet the level A and AA success
+criterion in the [Web Content Accessibility Guidelines
+2.1](https://www.w3.org/TR/WCAG21/).
+
+## Resources
+
+The [Government Analysis
+Function](https://analysisfunction.civilservice.gov.uk/) has published a
+variety of resources for producing accessible data visualisations:
+
+- [Charts
+  Checklist](https://analysisfunction.civilservice.gov.uk/policy-store/charts-a-checklist/)
+- [Charts
+  Guidance](https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-charts/)
+- [Colours
+  Guidance](https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-colours-in-charts/)
+- [Data Visualisation
+  e-Learning](https://analysisfunction.civilservice.gov.uk/support/communicating-analysis/introduction-to-data-visualisation-e-learning/)
+  (in particular the [Accessibility and
+  Colour](https://analysisfunction.civilservice.gov.uk/support/communicating-analysis/introduction-to-data-visualisation-e-learning/data-visualisation-e-learning-module-3-accessibility-and-colour-palettes/)
+  module)
+
+afcharts has been developed following advice in the above guidance,
+however, using afcharts does not guarantee accessibility. afcharts
+should therefore be used in conjunction with this guidance.
+
+## Accessibility of charts using afcharts
+
+By applying `theme_af` to ggplot2 plots, the following best practice is
+followed:
+
+- Plot background is white.
+
+- Axis lines and ticks are light grey (#595959). By default, only the x
+  axis is shown but these can be controlled using the `axis` and `ticks`
+  arguments.
+
+- Grid lines are light grey (#595959) and kept to a minimum; by default
+  only major y axis lines are shown, but this can be controlled using
+  the `grid` argument.
+
+- Text is black, uses a Sans Serif font and is size 12 by default. Text
+  size can be controlled using the `base_size` argument.
+
+- All text is horizontal.
+
+- Line thickness is relative to font size.
+
+afcharts provides colour palettes as set out by the [Government Analysis
+Function Colour
+Guidance](https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-colours-in-charts/).
+These palettes have been developed to meet the [Web Content
+Accessibility Guidelines 2.1 for graphical
+objects](https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html)
+and can be applied to charts by using one of the four colour/fill
+functions:
+
+- [`scale_colour_discrete_af()`](https://best-practice-and-impact.github.io/afcharts/reference/scale_colour_discrete_af.md)
+- [`scale_fill_discrete_af()`](https://best-practice-and-impact.github.io/afcharts/reference/scale_fill_discrete_af.md)
+- [`scale_colour_continuous_af()`](https://best-practice-and-impact.github.io/afcharts/reference/scale_colour_continuous_af.md)
+- [`scale_fill_continuous_af()`](https://best-practice-and-impact.github.io/afcharts/reference/scale_fill_continuous_af.md)
+
+More information on afcharts colours can be found at
+[`vignette("colours")`](https://best-practice-and-impact.github.io/afcharts/articles/colours.md).
+
+## Other accessibility considerations
+
+Using afcharts does not guarantee accessibility. The Government Analysis
+Function [chart
+guidance](https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-charts/)
+contains detailed information on other considerations that should be
+made. Not all of these are repeated here, but we think the following are
+a good place to start:
+
+- Consider what type of chart is best to convey your message. Keep it as
+  simple as possible.
+
+- Plot titles should be provided in the body of the page, not embedded
+  within the image of the plot. This does pose the risk of the plot
+  image being re-shared without the title and losing context, however it
+  is usually preferable to [prioritise
+  accessibility](https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-charts/#section-6).
+
+- All plots must have alt text (this may be in the code behind an image
+  of the plot, but could also be a table of data or a text description
+  of the message the chart is presenting).
+
+- Take great care if using a [stacked bar
+  chart](https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-charts/#section-10).
+  Keep the number of categories to a minimum, and carefully consider the
+  order of categories and bars.
+
+- If horizontal text is difficult to read (for example, if axis labels
+  are overlapping), consider a different chart orientation or type.
+
+- If using a bar chart, the gap between bars should be narrower than the
+  width of a single bar. The [R Graphics
+  cookbook](https://r-graphics.org/RECIPE-BAR-GRAPH-ADJUST-WIDTH.html)
+  describes how to do this.
+
+- Use commas as thousands separators in axis labels or text annotations.
+
+- [Ask for
+  feedback](https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-charts/#section-15)
+  from colleagues and users.

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="525" height="324" viewBox="0 0 525 324">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="525pt" height="324pt" viewBox="0 0 525 324">
 <defs>
 <g>
 <g id="glyph-0-0">
@@ -95,7 +95,7 @@
 <g clip-path="url(#clip-4)">
 <path fill="none" stroke-width="1.244808" stroke-linecap="butt" stroke-linejoin="round" stroke="rgb(85.098039%, 85.098039%, 85.098039%)" stroke-opacity="1" stroke-miterlimit="10" d="M 29.25 37.539062 L 518.027344 37.539062 "/>
 </g>
-<path fill="none" stroke-width="2.133957" stroke-linecap="butt" stroke-linejoin="round" stroke="rgb(7.058824%, 26.27451%, 42.745098%)" stroke-opacity="1" stroke-miterlimit="10" d="M 51.46875 69.960938 L 91.863281 66.246094 L 132.257812 65.226562 L 172.652344 63.429688 L 213.046875 61.480469 L 253.441406 59.234375 L 293.835938 55.398438 L 334.230469 52.5 L 374.625 48.265625 L 415.019531 45.875 L 455.414062 42.121094 L 495.808594 39.261719 "/>
+<path fill="none" stroke-width="2.133957" stroke-linecap="butt" stroke-linejoin="round" stroke="rgb(3.529412%, 12.941176%, 20.784314%)" stroke-opacity="1" stroke-miterlimit="10" d="M 51.46875 69.960938 L 91.863281 66.246094 L 132.257812 65.226562 L 172.652344 63.429688 L 213.046875 61.480469 L 253.441406 59.234375 L 293.835938 55.398438 L 334.230469 52.5 L 374.625 48.265625 L 415.019531 45.875 L 455.414062 42.121094 L 495.808594 39.261719 "/>
 <g clip-path="url(#clip-5)">
 <path fill="none" stroke-width="2.133957" stroke-linecap="butt" stroke-linejoin="round" stroke="rgb(49.803922%, 49.803922%, 49.803922%)" stroke-opacity="1" stroke-dasharray="8.535827 8.535827" stroke-miterlimit="10" d="M 29.25 52.519531 L 518.027344 52.519531 "/>
 </g>
