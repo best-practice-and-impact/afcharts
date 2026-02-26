@@ -21,7 +21,7 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/best-practice-and-impact/afcharts/blob/v0.5.1/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/best-practice-and-impact/afcharts/blob/main/DESCRIPTION)
 
 Hannah A (2026). *afcharts: Produce Charts Following UK Government
 Analysis Function Guidance*. R package version 0.5.1,
