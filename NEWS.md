@@ -1,4 +1,4 @@
-# afcharts 0.5.0
+# afcharts 0.5.1
 
 - Updated the `sequential` colour palette to add two new shades (`darkest-blue` and `lightest-blue`).
  This means that the `sequential` palette can now be used to represent five categories, such as deprivation quintiles.
