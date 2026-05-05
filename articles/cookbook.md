@@ -43,6 +43,7 @@ The following packages are required to produce the example charts in
 this cookbook:
 
 ``` r
+
 library(afcharts)
 library(ggplot2)
 library(dplyr)
@@ -58,6 +59,7 @@ library(gapminder)
 ### Line chart with one line
 
 ``` r
+
 gapminder |>
   filter(country == "United Kingdom") |>
   ggplot(aes(x = year, y = lifeExp)) +
@@ -88,6 +90,7 @@ representing the data.
 ### Line chart with multiple lines
 
 ``` r
+
 gapminder |>
   filter(country %in% c("United Kingdom", "China")) |>
   ggplot(
@@ -134,12 +137,14 @@ be found in the [annotations](#annotations) section.
 ## Bar charts
 
 ``` r
+
 pop_bar_data <- gapminder |>
   filter(year == 2007 & continent == "Americas") |>
   slice_max(order_by = pop, n = 5)
 ```
 
 ``` r
+
 ggplot(pop_bar_data, aes(x = reorder(country, -pop), y = pop)) +
   geom_col(fill = af_colour_values["dark-blue"]) +
   theme_af() +
@@ -179,6 +184,7 @@ argument. This replaces the need to use the `labs` function, with x and
 y set to NULL.
 
 ``` r
+
 ggplot(pop_bar_data, aes(x = pop, y = reorder(country, pop))) +
   geom_col(fill = af_colour_values["dark-blue"]) +
   theme_af(grid = "x", axis = "y", axis_title = "none") +
@@ -214,6 +220,7 @@ argument in
 can be used to set the position of the legend.
 
 ``` r
+
 grouped_bar_data <-
   gapminder |>
   filter(
@@ -269,6 +276,7 @@ bars than those in the middle. Think carefully about the story you are
 trying to tell with your chart.
 
 ``` r
+
 stacked_bar_data <-
   gapminder |>
   filter(year == 2007) |>
@@ -318,6 +326,7 @@ There is whitespace between each bar.
 ## Histograms
 
 ``` r
+
 gapminder |>
   filter(year == 2007) |>
   ggplot(aes(x = lifeExp)) +
@@ -352,6 +361,7 @@ between each.
 ## Scatterplots
 
 ``` r
+
 gapminder |>
   filter(year == 2007) |>
   ggplot(aes(x = gdpPercap, y = lifeExp)) +
@@ -381,6 +391,7 @@ scales::label_comma() to add commas to axis labels.
 ## Small multiples
 
 ``` r
+
 gapminder |>
   filter(continent != "Oceania") |>
   group_by(continent, year) |>
@@ -423,6 +434,7 @@ to be distinct from other subplots.
 ## Pie charts
 
 ``` r
+
 stacked_bar_data |>
   filter(continent == "Europe") |>
   ggplot(aes(x = "", y = n_countries, fill = lifeExpGrouped)) +
@@ -454,6 +466,7 @@ There is whitespace separating the segments from each other.
 ## Focus charts
 
 ``` r
+
 pop_bar_data |>
   ggplot(aes(x = reorder(country, -pop), y = pop, fill = country == "Brazil")) +
   geom_col() +
@@ -502,6 +515,7 @@ requirements and we advise you to test any interactive charts with users
 to ensure they work correctly.
 
 ``` r
+
 p <-
   pop_bar_data |>
   # Format text for tooltips
@@ -558,12 +572,14 @@ used for the labels, as this ensures sufficient contrast against the
 white background.
 
 ``` r
+
 ann_data <- gapminder |>
   filter(country %in% c("United Kingdom", "China")) |>
   mutate(country = factor(country, levels = c("United Kingdom", "China")))
 ```
 
 ``` r
+
 ann_data |>
   ggplot(aes(x = year, y = lifeExp)) +
   geom_line(
@@ -643,6 +659,7 @@ but as discussed,
 only able to deal with fixed values.
 
 ``` r
+
 ann_labs <- ann_data |>
   group_by(country) |>
   mutate(min_year = min(year)) |>
@@ -696,6 +713,7 @@ that
 is used here as a background is not required.
 
 ``` r
+
 ggplot(pop_bar_data, aes(x = reorder(country, -pop), y = pop)) +
   geom_col(fill = af_colour_values["dark-blue"]) +
   geom_text(
@@ -752,6 +770,7 @@ up. To sort in descending order, you would change this to
 `reorder(country, desc(pop))`.
 
 ``` r
+
 population_chart <- pop_bar_data |>
   ggplot(aes(x = pop, y = reorder(country, pop))) +
   geom_col(fill = af_colour_values["dark-blue"]) +
@@ -784,6 +803,7 @@ By default, a bar chart will have a gap between the bottom of the bars
 and the axis. This can be removed as follows:
 
 ``` r
+
 last_plot() +
   scale_x_continuous(expand = expansion(mult = c(0, 0.1)))
 ```
@@ -812,6 +832,7 @@ recoding the variable in the data before creating a chart.
 Limits, breaks and labels can be defined with custom values.
 
 ``` r
+
 last_plot() +
   scale_x_continuous(
     breaks = seq(0, 400E6, 100E6),
@@ -845,6 +866,7 @@ based on the range of the calculated breaks ensures the highest gridline
 value is above the maximum value of the data.
 
 ``` r
+
 
 breaks_pretty <- pretty(pop_bar_data$pop)
 limits_pretty <- range(breaks_pretty)
@@ -881,6 +903,7 @@ percentages, however `scales` can also handle currency and thousands
 separators.
 
 ``` r
+
 stacked_bar_data |>
   ggplot(aes(x = continent, y = n_countries, fill = lifeExpGrouped)) +
   geom_bar(stat = "identity", position = "fill") +
@@ -917,6 +940,7 @@ centred at 100%, the top half of the line is ‘cut off’. This can be
 corrected as follows:
 
 ``` r
+
 last_plot() + coord_cartesian(clip = "off")
 ```
 
@@ -939,6 +963,7 @@ or
 This can be useful to highlight a threshold or average level.
 
 ``` r
+
 gapminder |>
   filter(country == "United Kingdom") |>
   ggplot(aes(x = year, y = lifeExp)) +
@@ -983,6 +1008,7 @@ with [`labs()`](https://ggplot2.tidyverse.org/reference/labs.html) if
 required. A title can be removed using `NULL`.
 
 ``` r
+
 population_chart +
   labs(
     x = NULL,
@@ -1010,6 +1036,7 @@ subtitle as a description of the y-axis and set the y-axis title to
 
 ``` r
 
+
 ggplot(pop_bar_data, aes(x = reorder(country, -pop), y = pop)) +
   geom_col(fill = af_colour_values["dark-blue"]) +
   theme_af() +
@@ -1035,6 +1062,7 @@ In this bar chart image, the y-axis title, “Population (millions)”, is
 to the left of the top of the y-axis.
 
 ``` r
+
 
 ggplot(pop_bar_data, aes(x = reorder(country, -pop), y = pop)) +
   geom_col(fill = af_colour_values["dark-blue"]) +
@@ -1067,6 +1095,7 @@ If text is too long, it may be cut off or distort the dimensions of the
 chart.
 
 ``` r
+
 plot <-
   ggplot(pop_bar_data, aes(x = reorder(country, -pop), y = pop)) +
   geom_col(fill = af_colour_values["dark-blue"]) +
@@ -1099,6 +1128,7 @@ to set a maximum character width of the string. See examples of both of
 these methods as follows:
 
 ``` r
+
 plot +
   labs(
     y = "Population\nin millions",
@@ -1127,6 +1157,7 @@ otherwise
 may overwrite the specifications you’ve made.
 
 ``` r
+
 ggplot(pop_bar_data, aes(x = reorder(country, -pop), y = pop)) +
   geom_col(fill = af_colour_values["dark-blue"]) +
   theme_af(axis = "xy") +
@@ -1160,6 +1191,7 @@ charts. This can be readily achieved with
 [`ggtext::element_markdown()`](https://wilkelab.org/ggtext/reference/element_markdown.html).
 
 ``` r
+
 ann_data <- gapminder |>
   filter(country %in% c("United Kingdom", "China")) |>
   mutate(country = factor(country, levels = c("United Kingdom", "China")))
@@ -1241,6 +1273,7 @@ The full list of available palettes can be found by running
 For example, to use the Analysis Function `categorical2` palette:
 
 ``` r
+
 gapminder |>
   filter(country %in% c("United Kingdom", "China")) |>
   ggplot(
@@ -1285,6 +1318,7 @@ palette](https://analysisfunction.civilservice.gov.uk/policy-store/data-visualis
 and should be used.
 
 ``` r
+
 my_palette <- c("#0F820D", "#000000")
 
 gapminder |>
@@ -1315,6 +1349,7 @@ This line chart uses the afcharts theme with a single green line.
 Alternatively, you may wish to use multiple custom colours:
 
 ``` r
+
 gapminder |>
   filter(country %in% c("United Kingdom", "China")) |>
   ggplot(

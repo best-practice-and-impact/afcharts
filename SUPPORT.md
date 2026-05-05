@@ -11,6 +11,7 @@ Thanks for using afcharts!
   the RStudio console. For example:
 
   ``` r
+
   ?theme_af()
   ```
 

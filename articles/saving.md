@@ -59,6 +59,7 @@ specify the SVG file format, simply ensure your file name ends with
 previous section.
 
 ``` r
+
 ggsave(filename = "example-plot.svg", plot = myplot,
        width = 159, height = 100, units = "mm")
 ```
@@ -68,6 +69,7 @@ can be supplied as a numerical value, or as a string input. For best
 quality, use “retina”.
 
 ``` r
+
 ggsave(filename = "example-plot.png", plot = myplot,
        width = 159, height = 100, units = "mm", dpi = "retina")
 ```
@@ -77,6 +79,7 @@ provides the function `save_govuk`. This function can be used to save a
 SVG, JPG or PNG image.
 
 ``` r
+
 save_govuk(filename = "example-plot.png", plot = myplot, device = "svg")
 ```
 

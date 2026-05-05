@@ -138,6 +138,7 @@ Names and hex codes for available colours and palettes can be viewed by
 running the following code:
 
 ``` r
+
 # View names and hex codes for all colours
 afcharts::af_colour_values
 

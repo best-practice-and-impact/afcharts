@@ -23,6 +23,7 @@ contains lots of examples.
 Install the latest release version of afcharts directly from CRAN:
 
 ``` r
+
 install.packages("afcharts")
 ```
 
@@ -31,6 +32,7 @@ install.packages("afcharts")
 afcharts can be installed directly from GitHub.
 
 ``` r
+
 remotes::install_github(
   "best-practice-and-impact/afcharts",
   upgrade = "never",
@@ -45,6 +47,7 @@ Once installed, afcharts can be loaded using the
 [`library()`](https://rdrr.io/r/base/library.html) function:
 
 ``` r
+
 library(afcharts)
 ```
 
@@ -54,6 +57,7 @@ page of the package website. Alternatively, type `?function_name` into
 the RStudio console. For example:
 
 ``` r
+
 ?theme_af()
 ```
 
@@ -69,6 +73,7 @@ afcharts colour palettes and use
 #### Example 1: Bar chart with one colour using ggplot2 defaults
 
 ``` r
+
 library(ggplot2)
 library(dplyr)
 library(gapminder)
@@ -103,6 +108,7 @@ bars.
 #### Example 2: Bar chart of one colour using afcharts defaults
 
 ``` r
+
 afcharts::use_afcharts()
 
 gapminder |> 
@@ -133,6 +139,7 @@ lines, and dark blue bars.
 #### Example 3: Multiple colour line chart with afcharts formatting
 
 ``` r
+
 afcharts::use_afcharts()
 
 gapminder |>
@@ -166,6 +173,12 @@ Life Expectancy in the United Kingdom and China 1952 to 2007
 The line chart above has a white background, light grey horizontal grid
 lines, a dark blue line representing the UK, and an orange line
 representing China.
+
+## Related projects
+
+The GSS Presentation Champions Network have also created a [python
+version of
+afcharts](https://github.com/best-practice-and-impact/afcharts-py).
 
 ## Acknowledgments
 
