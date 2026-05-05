@@ -174,6 +174,12 @@ The line chart above has a white background, light grey horizontal grid
 lines, a dark blue line representing the UK, and an orange line
 representing China.
 
+## Related projects
+
+The GSS Presentation Champions Network have also created a [python
+version of
+afcharts](https://github.com/best-practice-and-impact/afcharts-py).
+
 ## Acknowledgments
 
 The afcharts package is based on the
