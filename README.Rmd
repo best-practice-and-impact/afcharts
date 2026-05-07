@@ -26,7 +26,7 @@ knitr::opts_chunk$set(
 [![R-CMD-check](https://github.com/best-practice-and-impact/afcharts/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/best-practice-and-impact/afcharts/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
-afcharts is an R package for creating accessible plots by the Government Analysis Function. Currently, functions are available for styling ggplot2 plots.
+afcharts is an R package for creating accessible plots by the Government Analysis Function. Currently, functions are available for styling [ggplot2](https://ggplot2.tidyverse.org/) plots.
 
 The package has been developed using the [Government Analysis Function Data Visualisation guidance](https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-charts/). afcharts should be used in conjunction with these guidance documents.
 
@@ -115,7 +115,7 @@ The bar chart above has grey background, white grid lines and dark grey bars.
 ```{r ex2, eval = FALSE}
 afcharts::use_afcharts()
 
-gapminder |> 
+gapminder |>
   filter(year == 2007 & continent == "Americas") |>
   slice_max(order_by = pop, n = 5) |>
   ggplot(aes(x = reorder(country, -pop), y = pop)) +
@@ -123,8 +123,9 @@ gapminder |>
   scale_y_continuous(
     labels = scales::label_number(scale = 1E-6),
     limits = c(0, 350E6),
-    expand = c(0, 0),expansion(mult = c(0, 0.1))
+    expand = expansion(mult = c(0, 0.1))
   ) +
+  scale_fill_discrete_af("focus", reverse = TRUE) +
   labs(
     x = NULL,
     y = NULL,

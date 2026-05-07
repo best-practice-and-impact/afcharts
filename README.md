@@ -12,7 +12,7 @@ status](https://www.r-pkg.org/badges/version/afcharts)](https://CRAN.R-project.o
 
 afcharts is an R package for creating accessible plots by the Government
 Analysis Function. Currently, functions are available for styling
-ggplot2 plots.
+[ggplot2](https://ggplot2.tidyverse.org/) plots.
 
 The package has been developed using the [Government Analysis Function
 Data Visualisation
@@ -81,11 +81,11 @@ library(dplyr)
 library(gapminder)
 library(afcharts)
 
-gapminder |> 
+gapminder |>
   filter(year == 2007 & continent == "Americas") |>
   slice_max(order_by = pop, n = 5) |>
-  ggplot() +
-  geom_col(aes(x = reorder(country, -pop), y = pop)) +
+  ggplot(aes(x = reorder(country, -pop), y = pop)) +
+  geom_col(fill = af_colour_values["dark-blue"]) +
   scale_y_continuous(
     labels = scales::label_number(scale = 1E-6),
     limits = c(0, 350E6),
@@ -96,7 +96,7 @@ gapminder |>
     x = NULL,
     y = NULL,
     caption = "Source: Gapminder"
-    )
+  )
 ```
 
 **The U.S.A. is the most populous country in the Americas**<br/>
