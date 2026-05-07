@@ -141,6 +141,6 @@ ggplot(pop_bar_data, aes(x = reorder(country, -pop), y = pop)) +
 <<annotations-3>>
 ```
 
-This bar chart uses the afcharts theme. All the bars are dark blue and have white text labels at the top of each bar showing the y axis value.
+This bar chart uses the afcharts theme. All the bars are dark blue and have white text labels at the top of each bar showing the y-axis value.
 
 **Note**: The `annotate()` function should be used to add annotations with manually defined positioning co-ordinates, whereas `geom_label()` and `geom_text()` should be used when using co-ordinates defined in a data frame. Although the reverse may work, text can appear blurry.
