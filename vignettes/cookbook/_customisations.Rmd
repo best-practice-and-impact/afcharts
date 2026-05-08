@@ -166,7 +166,7 @@ gapminder |>
     linewidth = 1,
     linetype = "dashed"
   ) +
-  annotate(geom = "text", x = 2007, y = 70, label = "Age 70") +
+  annotate(geom = "text", x = 2007, y = 72, label = "Age 75") +
   theme_af() +
   scale_y_continuous(
     limits = c(0, 82),
@@ -185,7 +185,7 @@ gapminder |>
 <<add-a-line>>
 ```
 
-This line chart uses the afcharts theme. There is a solid dark blue line trending upwards, and a dashed teal line horizontal to 75 on the y-axis. There are also pale grey gridlines extending from regular intervals on the y-axis.
+This line chart uses the afcharts theme. There is a solid dark blue line trending upwards, and a dashed grey line horizontal to 75 on the y-axis. There are also pale grey gridlines extending from regular intervals on the y-axis.
 
 ### Embedding chart titles
 
@@ -375,7 +375,7 @@ ann_data |>
     title = "Living Longer",
     subtitle = "Life Expectancy in years in the
     <span style='color:#12436D;'>United Kingdom</span> and
-    <span style='color:#F46A25;'>China</span> 1952 to 2007",
+    <span style='color:#CA4B0C;'>China</span> 1952 to 2007",
     caption = "Source: Gapminder"
   ) +
   theme(plot.subtitle = element_markdown())
