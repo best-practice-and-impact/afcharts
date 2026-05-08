@@ -81,11 +81,11 @@ library(dplyr)
 library(gapminder)
 library(afcharts)
 
-gapminder |>
+gapminder |> 
   filter(year == 2007 & continent == "Americas") |>
   slice_max(order_by = pop, n = 5) |>
-  ggplot(aes(x = reorder(country, -pop), y = pop)) +
-  geom_col(fill = af_colour_values["dark-blue"]) +
+  ggplot() +
+  geom_col(aes(x = reorder(country, -pop), y = pop)) +
   scale_y_continuous(
     labels = scales::label_number(scale = 1E-6),
     limits = c(0, 350E6),
@@ -96,7 +96,7 @@ gapminder |>
     x = NULL,
     y = NULL,
     caption = "Source: Gapminder"
-  )
+    )
 ```
 
 **The U.S.A. is the most populous country in the Americas**<br/>
@@ -112,7 +112,7 @@ bars.
 ``` r
 afcharts::use_afcharts()
 
-gapminder |> 
+gapminder |>
   filter(year == 2007 & continent == "Americas") |>
   slice_max(order_by = pop, n = 5) |>
   ggplot(aes(x = reorder(country, -pop), y = pop)) +
@@ -120,8 +120,9 @@ gapminder |>
   scale_y_continuous(
     labels = scales::label_number(scale = 1E-6),
     limits = c(0, 350E6),
-    expand = c(0, 0),expansion(mult = c(0, 0.1))
+    expand = expansion(mult = c(0, 0.1))
   ) +
+  scale_fill_discrete_af("focus", reverse = TRUE) +
   labs(
     x = NULL,
     y = NULL,
