@@ -102,6 +102,16 @@ The light grey colour in this palette does not have sufficient colour contrast a
 Follow the [advice for using the focus palette](https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-colours-in-charts/#section-7) in the Government Analysis Function colour guidance when using this palette.
 
 
+## Departmental colour palettes
+
+afcharts does not support departmental colour palettes. The reasons for this decision are as follows:
+
+- The afcharts team does not have the resources to individually QA colour palettes to ensure they meet the accessibility guidelines set out by the Government Analysis Function.
+- It is difficult to create a colour palette that meets the accessibility guidelines and also looks substantially different to the existing palettes offered by afcharts.
+- We believe it is unproductive for departments to create their own colour palettes, as this would likely result in duplicate work.
+- Publications hosted on [GOV.UK](https://www.gov.uk/) have minimal departmental branding, so unique colour palettes are unecessary.
+- Maintaining a departmental colour palette is challenging because it requires the afcharts team to be in regular contact with the appropriate business area of said department, and it relies on the assumption that proper handover of contacts will always happen when people move roles in and out of that business area.\
+- There are too many departments to realistically be able to maintain colour palettes for.
 
 ## Using your own colour palette
 
