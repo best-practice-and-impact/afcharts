@@ -74,7 +74,7 @@ Help files for each function in the package can be found on the [References](htt
 
 The easiest way to use afcharts is by adding `use_afcharts()` to the beginning of your R script, Rmarkdown document or Shiny app code. This function will set a number of defaults to ggplot2 geoms, use afcharts colour palettes and use `theme_af()`.
 
-#### Example 1: Bar chart with one colour using ggplot2 defaults
+#### Example 1: Bar chart using ggplot2 defaults
 
 ```{r ex1, eval = FALSE}
 library(ggplot2)
@@ -92,7 +92,6 @@ gapminder |>
     limits = c(0, 350E6),
     expand = expansion(mult = c(0, 0.1))
   ) +
-  scale_fill_discrete_af("focus", reverse = TRUE) +
   labs(
     x = NULL,
     y = NULL,
@@ -107,10 +106,10 @@ Population of countries in the Americas (millions), 2007
 <<ex1>>
 ```
 
-The bar chart above has grey background, white grid lines and dark grey bars.
+The bar chart above has grey background, white gridlines and dark grey bars.
 
 
-#### Example 2: Bar chart of one colour using afcharts defaults
+#### Example 2: Bar chart using afcharts defaults
 
 ```{r ex2, eval = FALSE}
 afcharts::use_afcharts()
@@ -125,7 +124,6 @@ gapminder |>
     limits = c(0, 350E6),
     expand = expansion(mult = c(0, 0.1))
   ) +
-  scale_fill_discrete_af("focus", reverse = TRUE) +
   labs(
     x = NULL,
     y = NULL,
@@ -140,7 +138,7 @@ Population of countries in the Americas (millions), 2007
 <<ex2>>
 ```
 
-The bar chart above has a white background, light grey horizontal grid lines, and dark blue bars.
+The bar chart above has a white background, light grey horizontal gridlines, and dark blue bars.
 
 #### Example 3: Multiple colour line chart with afcharts formatting
 
@@ -177,7 +175,15 @@ Life Expectancy in the United Kingdom and China 1952 to 2007
 <<ex3>>
 ```
 
-The line chart above has a white background, light grey horizontal grid lines, a dark blue  line representing the UK, and an orange line representing China.
+The line chart above has a white background, light grey horizontal gridlines, a dark blue  line representing the UK, and an orange line representing China.
+
+
+### Switch off afcharts styling of charts
+You can turn off afcharts styling of charts using the reset argument of `use_afcharts`.
+
+```{r}
+afcharts::use_afcharts(reset = TRUE)
+```
 
 ## Related projects
 

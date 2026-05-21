@@ -39,9 +39,9 @@ By applying `theme_af` to ggplot2 plots, the following best practice is followed
 
 * Plot background is white.
 
-* Axis lines and ticks are light grey (#595959). By default, only the x axis is shown but these can be controlled using the `axis` and `ticks` arguments.
+* Axis lines and ticks are light grey (#595959). By default, only the x-axis is shown but these can be controlled using the `axis` and `ticks` arguments.
 
-* Grid lines are light grey (#595959) and kept to a minimum; by default only major y axis lines are shown, but this can be controlled using the `grid` argument.
+* Gridlines are light grey (#595959) and kept to a minimum; by default only major y-axis lines are shown, but this can be controlled using the `grid` argument.
 
 * Text is black, uses a Sans Serif font and is size 12 by default. Text size can be controlled using the `base_size` argument.
 

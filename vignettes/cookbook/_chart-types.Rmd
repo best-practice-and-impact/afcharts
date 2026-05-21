@@ -38,7 +38,7 @@ gapminder |>
     )
   ) +
   geom_line(linewidth = 1) +
-  theme_af(legend = "bottom") +
+  theme_af(legend = "right") +
   scale_colour_discrete_af() +
   scale_y_continuous(
     limits = c(0, 82),
@@ -59,9 +59,9 @@ gapminder |>
 <<line-charts-2>>
 ```
 
-This line chart uses the afcharts theme and there are thin pale grey lines extending from the y-axis. There are two thicker lines showing the life expectancy in the UK and China over time. The line colours are from the Analysis Function categorical2 palette - dark blue for the UK and orange for China, denoted by a legend at the bottom of the chart.
+This line chart uses the afcharts theme and there are thin pale grey lines extending from the y-axis. There are two thicker lines showing the life expectancy in the UK and China over time. The line colours are from the Analysis Function categorical2 palette - dark blue for the UK and orange for China, denoted by a legend to the right of the chart.
 
-*Note*: Legends should be avoided unless absolutely necessary, as these usually rely on using colour to match labels to data. More information can be found in the Analysis Function [charts guidance](https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-charts/#section-11). It is best practice to label lines directly, and an example of this can be found in the [annotations](#annotations) section.
+**Note**: Legends should be avoided unless absolutely necessary, as these usually rely on using colour to match labels to data. More information can be found in the Analysis Function [charts guidance](https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-charts/#section-11). It is best practice to label lines directly, and an example of this can be found in the [annotations](#annotations) section.
 
 ## Bar charts
 
@@ -155,7 +155,7 @@ ggplot(
 <<grouped-bar-chart>>
 ```
 
-This grouped bar chart uses the afcharts theme. It shows the life expectancy in 1967 and 2007 for four countries, which are displayed on the x-axis. For each country there are two bars. The bar colours are from the Analysis Function categorical2 palette - dark blue for 1967 and orange for 2007, denoted by a legend at the bottom of the chart (where the colours in the legend are in the same order and orientation as in the bar chart).
+This grouped bar chart uses the afcharts theme. It shows the life expectancy in 1967 and 2007 for four countries, which are displayed on the x-axis. For each country there are two bars. The bar colours are from the Analysis Function categorical2 palette, dark blue for 1967 and orange for 2007, denoted by a legend at the bottom of the chart. The colours in the legend are in the same order and orientation as in the bar chart.
 
 ### Stacked bar chart
 

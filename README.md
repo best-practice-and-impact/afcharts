@@ -73,7 +73,7 @@ beginning of your R script, Rmarkdown document or Shiny app code. This
 function will set a number of defaults to ggplot2 geoms, use afcharts
 colour palettes and use `theme_af()`.
 
-#### Example 1: Bar chart with one colour using ggplot2 defaults
+#### Example 1: Bar chart using ggplot2 defaults
 
 ``` r
 library(ggplot2)
@@ -91,7 +91,6 @@ gapminder |>
     limits = c(0, 350E6),
     expand = expansion(mult = c(0, 0.1))
   ) +
-  scale_fill_discrete_af("focus", reverse = TRUE) +
   labs(
     x = NULL,
     y = NULL,
@@ -104,10 +103,10 @@ Population of countries in the Americas (millions), 2007
 
 ![](man/figures/README-unnamed-chunk-2-1.svg)<!-- -->
 
-The bar chart above has grey background, white grid lines and dark grey
+The bar chart above has grey background, white gridlines and dark grey
 bars.
 
-#### Example 2: Bar chart of one colour using afcharts defaults
+#### Example 2: Bar chart using afcharts defaults
 
 ``` r
 afcharts::use_afcharts()
@@ -122,7 +121,6 @@ gapminder |>
     limits = c(0, 350E6),
     expand = expansion(mult = c(0, 0.1))
   ) +
-  scale_fill_discrete_af("focus", reverse = TRUE) +
   labs(
     x = NULL,
     y = NULL,
@@ -135,8 +133,8 @@ Population of countries in the Americas (millions), 2007
 
 ![](man/figures/README-unnamed-chunk-3-1.svg)<!-- -->
 
-The bar chart above has a white background, light grey horizontal grid
-lines, and dark blue bars.
+The bar chart above has a white background, light grey horizontal
+gridlines, and dark blue bars.
 
 #### Example 3: Multiple colour line chart with afcharts formatting
 
@@ -171,9 +169,18 @@ gapminder |>
 
 ![](man/figures/README-unnamed-chunk-4-1.svg)<!-- -->
 
-The line chart above has a white background, light grey horizontal grid
-lines, a dark blue line representing the UK, and an orange line
+The line chart above has a white background, light grey horizontal
+gridlines, a dark blue line representing the UK, and an orange line
 representing China.
+
+### Switch off afcharts styling of charts
+
+You can turn off afcharts styling of charts using the reset argument of
+`use_afcharts`.
+
+``` r
+afcharts::use_afcharts(reset = TRUE)
+```
 
 ## Related projects
 
