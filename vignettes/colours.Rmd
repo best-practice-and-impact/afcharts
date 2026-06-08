@@ -73,6 +73,15 @@ If only two colours are required the `categorical` family is requested, `categor
 afcharts:::colour_table(afcharts::af_colour_palettes$categorical2)
 ```
 
+The afcharts categorical colour palette supports chart designs with up to 6 categorial values. Colours are selected to represent categorical values in a pre-determined default order.
+
+- For 2 categorical values, dark-blue is selected as the primary colour and orange as the secondary colour.
+- For 3 categorical values, dark-blue is selected as the primary colour, followed by turqouise as the secondary colour and dark-pink as the tertiary colour.
+- For 4 categorical values, the colours are given in the order dark-blue, turqouise, dark-pink, and orange.
+- For 5 categorical values, the colours are given in the order dark-blue, turqouise, dark-pink, orange, and dark-grey.
+- Finally, for 6 categorical values, the colours are given in the order dark-blue, turqouise, dark-pink, orange, dark-grey, and light-purple.
+
+It is recommended that charts contain no more than 4 different categorical values, and no more than 6 are supported by afcharts.
 
 ### Sequential palette
 
@@ -137,17 +146,3 @@ afcharts::af_colour_palettes$categorical
 ```
 
 Examples of how to apply these palettes to ggplot2 charts are available in both the [cookbook](https://best-practice-and-impact.github.io/afcharts/articles/cookbook.html) and the reference files for `scale_` [colour functions](https://best-practice-and-impact.github.io/afcharts/reference/index.html#colours).
-
-
-## Categorical palette ordering
-
-The afcharts categorical colour palette supports chart designs with up to 6 categorial values. Colours are selected to represent categorical values in a pre-determined default order.
-
-- For 2 categorical values, dark blue ("#12436D") is selected as the primary colour and orange ("#F46A25") as the secondary colour.
-- For 3 categorical values, dark blue is selected as the primary colour, followed by turqouise ("#28A197") as the secondary colour and dark pink ("#801650") as the tertiary colour.
-- For 4 categorical values, the colours are given in the order dark blue, turqouise, dark pink, and orange.
-- For 5 categorical values, the colours are given in the order dark blue, turqouise, dark pink, orange, and dark grey (#3D3D3D").
-- Finally, for 6 categorical values, the colours are given in the order dark blue, turqouise, dark pink, orange, dark grey, and light purple ("#A285D1").
-
-It is recommened that charts contain no more than 4 different categorical values, and no more than 6 are supported by afcharts.
-
