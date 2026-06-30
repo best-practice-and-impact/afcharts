@@ -407,7 +407,7 @@ lad_data <- read_rds("geospatial_data.rds")
 breaks <- c(0, 25, 30, 35, 40, 50) * 1000
 
 lad_data$discrete_pay <- cut(
-  read_in_merged$median_ann_pay,
+  lad_data$median_ann_pay,
   breaks = breaks,
   dig.lab = 5
 )
