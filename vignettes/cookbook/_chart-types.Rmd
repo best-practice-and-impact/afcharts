@@ -400,3 +400,46 @@ plotly::ggplotly(p, tooltip = "text") |>
 
 This is an interactive bar chart using the afcharts theme, showing the populations of the five most populous countries in the Americas. The bars are dark blue. A tooltip appears when hovering over each bar with the cursor, which shows a matching dark blue box with the country and population displayed in white text. Click and drag on the chart using the cursor to zoom in on the selected area. Click the 'home' icon in the top right corner to reset the view.
 
+## Choropleth charts
+```{r choropleth-charts, eval = FALSE}
+lad_data <- read_rds("geospatial_data.rds")
+
+breaks <- c(0, 25, 30, 35, 40, 50) * 1000
+
+lad_data$discrete_pay <- cut(
+  read_in_merged$median_ann_pay,
+  breaks = breaks,
+  dig.lab = 5
+)
+
+
+lad_data %>% 
+  ggplot() +
+  geom_sf(aes(fill = discrete_pay), colour = "grey50") +
+  coord_sf(
+    xlim = c(-8.5, 2.5), 
+    ylim = c(50, 59.5), 
+    expand = FALSE
+  ) +
+  theme_af(grid = "none", axis = "none", ticks = "none") +
+  theme(
+    axis.text = element_blank(),
+    legend.position = "right"
+  ) +
+  scale_fill_discrete_af(
+    palette = "sequential",
+    reverse = TRUE,
+    name = "Median Gross Annual Pay (£)",
+    guide = guide_legend(
+      direction = "vertical",
+      label.position = "right",
+      title.position = "top"
+    )
+  )
+```
+<div class="chart-title">Gross Annual Pay by Local Authority</div>
+<div class="chart-subtitle">Median Gross Annual Pay by UK Local Authority (£), 2024</div>
+
+```{r, echo = FALSE}
+<<choropleth-charts>>
+```

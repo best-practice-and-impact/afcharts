@@ -54,6 +54,8 @@ library(ggplot2)
 library(dplyr)
 library(ggtext)
 library(scales)
+library(sf)
+library(readr)
 
 # Use gapminder data for cookbook charts
 library(gapminder)
