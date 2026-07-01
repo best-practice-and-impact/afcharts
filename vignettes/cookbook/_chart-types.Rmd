@@ -406,13 +406,13 @@ This is an interactive bar chart using the afcharts theme, showing the populatio
 lad_data <- read_rds("geospatial_data.rds")
 
 # Filter Northern Ireland missing data and discretise pay data
-lad_data <- lad_data %>%
-  filter(!str_detect(LAD24CD, "N")) %>%
+lad_data <- lad_data |>
+  filter(!str_detect(LAD24CD, "N")) |>
   mutate(
     discrete_pay = cut_interval(
-      median_ann_pay, 
-      n=5,
-      right=FALSE,
+      median_ann_pay,
+      n = 5,
+      right = FALSE,
       labels = c(
         "[23.9k to 28.7k)",
         "[28.7k to 33.4k)",
@@ -424,12 +424,12 @@ lad_data <- lad_data %>%
   )
 
 # Create map for England, Scotland, Wales, excluding Shetland Islands
-base_map <- lad_data %>% 
+base_map <- lad_data |>
   ggplot() +
   geom_sf(aes(fill = discrete_pay), colour = "grey50") +
   coord_sf(
-    xlim = c(-7.9, 1.9), 
-    ylim = c(49.8, 59.4), 
+    xlim = c(-7.9, 1.9),
+    ylim = c(49.8, 59.4),
     expand = FALSE
   ) +
   theme_af(grid = "none", axis = "none", ticks = "none") +
@@ -452,19 +452,19 @@ base_map <- lad_data %>%
 # Create inset for the Shetland Islands
 shetland <- base_map +
   coord_sf(
-    xlim = c(-2.25, -0.6), 
-    ylim = c(59.45, 60.9), 
+    xlim = c(-2.25, -0.6),
+    ylim = c(59.45, 60.9),
     expand = FALSE
   ) +
-  theme(legend.position="none") +
+  theme(legend.position = "none") +
   panel_border(color = "black", size = 0.5)
 
 # Combine base map with inset
 full_map <- ggdraw() +
   draw_plot(base_map) +
   draw_plot(
-    shetland, 
-    width = 0.3, 
+    shetland,
+    width = 0.3,
     height = 0.3,
     x = 0.35,
     y = 0.7
