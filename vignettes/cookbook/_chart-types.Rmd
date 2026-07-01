@@ -405,18 +405,23 @@ This is an interactive bar chart using the afcharts theme, showing the populatio
 # Read in a geospatial dataset of pay data combined with local authority boundaries
 lad_data <- read_rds("geospatial_data.rds")
 
-# Filter Northern Ireland because of no data
+# Filter Northern Ireland missing data and discretise pay data
 lad_data <- lad_data %>%
-  filter(!str_detect(LAD24CD, "N"))
-
-# Discretise pay data into bins
-breaks <- c(0, 25, 30, 35, 40, 50) * 1000
-
-lad_data$discrete_pay <- cut(
-  lad_data$median_ann_pay,
-  breaks = breaks,
-  dig.lab = 5
-)
+  filter(!str_detect(LAD24CD, "N")) %>%
+  mutate(
+    discrete_pay = cut_interval(
+      median_ann_pay, 
+      n=5,
+      right=FALSE,
+      labels = c(
+        "[23.9k to 28.7k)",
+        "[28.7k to 33.4k)",
+        "[33.4k to 38.1k)",
+        "[38.1k to 42.9k)",
+        "[42.9k to 47.6k]"
+      )
+    )
+  )
 
 # Create map for England, Scotland, Wales, excluding Shetland Islands
 base_map <- lad_data %>% 
