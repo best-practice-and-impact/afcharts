@@ -402,8 +402,14 @@ This is an interactive bar chart using the afcharts theme, showing the populatio
 
 ## Choropleth charts
 ```{r choropleth-charts, eval = FALSE}
+# Read in a geospatial dataset of pay data combined with local authority boundaries
 lad_data <- read_rds("geospatial_data.rds")
 
+# Filter Northern Ireland because of no data
+lad_data <- lad_data %>%
+  filter(!str_detect(LAD24CD, "N"))
+
+# Discretise pay data into bins
 breaks <- c(0, 25, 30, 35, 40, 50) * 1000
 
 lad_data$discrete_pay <- cut(
@@ -412,33 +418,57 @@ lad_data$discrete_pay <- cut(
   dig.lab = 5
 )
 
-
-lad_data %>% 
+# Create map for England, Scotland, Wales, excluding Shetland Islands
+base_map <- lad_data %>% 
   ggplot() +
   geom_sf(aes(fill = discrete_pay), colour = "grey50") +
   coord_sf(
-    xlim = c(-8.5, 2.5), 
-    ylim = c(50, 59.5), 
+    xlim = c(-7.9, 1.9), 
+    ylim = c(49.8, 59.4), 
     expand = FALSE
   ) +
   theme_af(grid = "none", axis = "none", ticks = "none") +
   theme(
     axis.text = element_blank(),
-    legend.position = "right"
+    legend.position = "right",
+    legend.title = element_blank(),
+    legend.key.spacing.y = unit(0.2, "cm")
   ) +
   scale_fill_discrete_af(
     palette = "sequential",
     reverse = TRUE,
-    name = "Median Gross Annual Pay (£)",
     guide = guide_legend(
       direction = "vertical",
       label.position = "right",
       title.position = "top"
     )
   )
+
+# Create inset for the Shetland Islands
+shetland <- base_map +
+  coord_sf(
+    xlim = c(-2.25, -0.6), 
+    ylim = c(59.45, 60.9), 
+    expand = FALSE
+  ) +
+  theme(legend.position="none") +
+  panel_border(color = "black", size = 0.5)
+
+# Combine base map with inset
+full_map <- ggdraw() +
+  draw_plot(base_map) +
+  draw_plot(
+    shetland, 
+    width = 0.3, 
+    height = 0.3,
+    x = 0.35,
+    y = 0.7
+  )
+
+full_map
 ```
 <div class="chart-title">Gross Annual Pay by Local Authority</div>
-<div class="chart-subtitle">Median Gross Annual Pay by UK Local Authority (£), 2024</div>
+<div class="chart-subtitle">Median Gross Annual Pay in England, Scotland and Wales by Local Authority (£), 2024</div>
 
 ```{r, echo = FALSE}
 <<choropleth-charts>>

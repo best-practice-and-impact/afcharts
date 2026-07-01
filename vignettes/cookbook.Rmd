@@ -50,11 +50,13 @@ The following packages are required to produce the example charts in this cookbo
 
 ```{r load-packages}
 library(afcharts)
-library(ggplot2)
+library(cowplot)
 library(dplyr)
+library(ggplot2)
 library(ggtext)
 library(scales)
 library(sf)
+library(stringr)
 library(readr)
 
 # Use gapminder data for cookbook charts
