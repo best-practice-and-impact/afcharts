@@ -106,7 +106,7 @@ Population of countries in the Americas (millions), 2007
 The bar chart above has grey background, white gridlines and dark grey
 bars.
 
-#### Example 2: Bar chart using afcharts defaults
+#### Example 2: Bar chart using Analysis Function styling
 
 ``` r
 afcharts::use_afcharts()
@@ -136,7 +136,7 @@ Population of countries in the Americas (millions), 2007
 The bar chart above has a white background, light grey horizontal
 gridlines, and dark blue bars.
 
-#### Example 3: Multiple colour line chart with afcharts formatting
+#### Example 3: Multiple colour line chart using Analysis Function styling
 
 ``` r
 afcharts::use_afcharts()
@@ -173,7 +173,7 @@ The line chart above has a white background, light grey horizontal
 gridlines, a dark blue line representing the UK, and an orange line
 representing China.
 
-### Switch off afcharts styling of charts
+### Switch off Analysis Function styling of charts
 
 You can turn off afcharts styling of charts using the reset argument of
 `use_afcharts`.

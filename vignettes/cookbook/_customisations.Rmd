@@ -135,9 +135,9 @@ stacked_bar_data |>
 This stacked bar uses the afcharts theme. The y-axis is labelled every 25 from 0 to 100 percent, with light grey gridlines and tick marks going horizontally from the y-axis. 
 
 
-### Avoiding axis/gridlines being cut off
+### Avoiding axis or gridlines being cut off
 
-Axis lines and gridlines can sometimes appear 'cut off' if they are drawn at the limits of the chart range. In the previous plot, the top grid line is slightly narrower than the adjacent tick mark on the y-axis. This is because the y-axis limit is 100%. As the grid line is centred at 100%, the top half of the line is 'cut off'. This can be corrected as follows:
+Axis lines and gridlines can sometimes appear 'cut off' if they are drawn at the limits of the chart range. In the previous plot, the top gridline is slightly narrower than the adjacent tick mark on the y-axis. This is because the y-axis limit is 100%. As the gridline is centred at 100%, the top half of the line is 'cut off'. This can be corrected as follows:
 
 ```{r clip, eval = FALSE}
 last_plot() + coord_cartesian(clip = "off")
