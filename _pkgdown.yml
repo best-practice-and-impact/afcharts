@@ -43,7 +43,7 @@ authors:
 
 navbar:
   structure:
-    left:  [cookbook, reference, articles, news]
+    left:  [cookbook, reference, articles, news, contributing]
     right: [search, github]
   components:
     cookbook:
@@ -58,6 +58,9 @@ navbar:
         href: articles/colours.html
       - text: Saving charts
         href: articles/saving.html
+    contributing:
+      text: Contributing
+      href: CONTRIBUTING.html
 
 reference:
 

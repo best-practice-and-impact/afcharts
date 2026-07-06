@@ -24,7 +24,7 @@ gapminder |>
 <<line-charts-1>>
 ```
 
-This line chart uses the afcharts theme. There are pale grey grid lines extending from the y axis, and there is a thicker dark blue line representing the data.
+This line chart uses the afcharts theme. There are pale grey gridlines extending from the y-axis, and there is a thicker dark blue line representing the data.
 
 ### Line chart with multiple lines
 
@@ -59,9 +59,9 @@ gapminder |>
 <<line-charts-2>>
 ```
 
-This line chart uses the afcharts theme and there are thin pale grey lines extending from the y-axis. There are two thicker lines showing the life expectancy in the UK and China over time. The line colours are from the Analysis Function categorical2 palette - dark blue for the UK and orange for China, denoted by a legend at the bottom of the chart.
+This line chart uses the afcharts theme and there are thin pale grey lines extending from the y-axis. There are two thicker lines showing the life expectancy in the UK and China over time. The line colours are from the Analysis Function categorical2 palette, dark blue for the UK and orange for China, denoted by a legend to the right of the chart.
 
-Legends should be avoided unless absolutely necessary, as these usually rely on using colour to match labels to data. More information can be found in the Analysis Function [charts guidance](https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-charts/#section-11). It is best practice to label lines directly, and an example of this can be found in the [annotations](#annotations) section.
+**Note**: Legends should be avoided unless absolutely necessary, as these usually rely on using colour to match labels to data. More information can be found in the Analysis Function [charts guidance](https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-charts/#section-11). It is best practice to label lines directly, and an example of this can be found in the [annotations](#annotations) section.
 
 ## Bar charts
 
@@ -92,9 +92,9 @@ ggplot(pop_bar_data, aes(x = reorder(country, -pop), y = pop)) +
 <<bar-charts-1>>
 ```
 
-This bar chart uses the afcharts theme, and shows the populations of the five most populous countries in the Americas. Each bar is dark blue and labelled by country underneath. All text is black in a sans serif font. Pale grey grid lines extend out from the y axis.
+This bar chart uses the afcharts theme, and shows the populations of the five most populous countries in the Americas. Each bar is dark blue and labelled by country underneath. All text is black in a sans serif font. Pale grey gridlines extend out from the y-axis.
 
-A bar chart can sometimes be easier to interpret with horizontal bars. This can also be a good option if your bar labels are long and difficult to display on the x axis. To produce a horizontal bar chart, swap the variables defined for x and y in `aes()` and make a few tweaks to `theme_af()`; draw grid lines for the x axis only by setting the `grid` argument, and draw an axis line for the y axis only by setting the `axis` argument. We can also hide the x and y axis titles by setting the `axis_title` argument. This replaces the need to use the `labs` function, with x and y set to NULL.
+A bar chart can sometimes be easier to interpret with horizontal bars. This can also be a good option if your bar labels are long and difficult to display on the x-axis. To produce a horizontal bar chart, first swap the variables defined for x and y in `aes()`. Then, make a few tweaks to `theme_af()` by drawing gridlines for the x-axis only by setting the `grid` argument, and drawing an axis line for the y-axis only by setting the `axis` argument. We can also hide the x and y-axis titles by setting the `axis_title` argument. This replaces the need to use the `labs` function, with x and y set to NULL.
 
 ```{r bar-charts-2, eval = FALSE}
 ggplot(pop_bar_data, aes(x = pop, y = reorder(country, pop))) +
@@ -114,7 +114,7 @@ ggplot(pop_bar_data, aes(x = pop, y = reorder(country, pop))) +
 <<bar-charts-2>>
 ```
 
-This bar chart uses the afcharts theme and displays the populations of the five most populous countries in the Americas. The country names are displayed on the y axis, with the bars extending from left to right. Each bar is dark blue, and pale grey grid lines extend up from the x axis.
+This bar chart uses the afcharts theme and displays the populations of the five most populous countries in the Americas. The country names are displayed on the y-axis, with the bars extending from left to right. Each bar is dark blue, and pale grey gridlines extend up from the x-axis.
 
 ### Grouped bar chart
 
@@ -155,13 +155,13 @@ ggplot(
 <<grouped-bar-chart>>
 ```
 
-This grouped bar chart uses the afcharts theme. It shows the life expectancy in 1967 and 2007 for four countries, which are displayed on the x axis. For each country there are two bars. The bar colours are from the Analysis Function categorical2 palette - dark blue for 1967 and orange for 2007, denoted by a legend at the bottom of the chart.
+This grouped bar chart uses the afcharts theme. It shows the life expectancy in 1967 and 2007 for four countries, which are displayed on the x-axis. For each country there are two bars. The bar colours are from the Analysis Function categorical2 palette, dark blue for 1967 and orange for 2007, denoted by a legend at the bottom of the chart. The colours in the legend are in the same order and orientation as in the bar chart.
 
 ### Stacked bar chart
 
 To create a stacked bar chart, set `stat = "identity` and `position = "fill"` in the call to `geom_bar()` and assign a variable to `fill` as before. This will plot your data as part-to-whole. To plot counts, set `position = "identity"`.
 
-Caution should be taken when producing stacked bar charts. They can quickly become difficult to interpret if plotting non part-to-whole data, and/or if plotting more than two categories per stack. First and last categories in the stack will always be easier to compare across bars than those in the middle. Think carefully about the story you are trying to tell with your chart.
+Caution should be taken when producing stacked bar charts. They can quickly become difficult to interpret if plotting non part-to-whole data, or if plotting more than two categories per stack. First and last categories in the stack will always be easier to compare across bars than those in the middle. Think carefully about the story you are trying to tell with your chart.
 
 ```{r stacked-bar-chart, eval = FALSE}
 stacked_bar_data <-
@@ -202,7 +202,7 @@ ggplot(
 <<stacked-bar-chart>>
 ```
 
-This stacked bar chart uses the afcharts theme and shows the proportions of countries with a life expectancy over and under 75 by continent. The continents are listed along the x axis, with the y axis labelled between 0% and 100% in breaks of 25%. The colours for the bar segments are from the Analysis Function categorical2 palette - dark blue for under 75 and orange for over 75, denoted by a legend at the bottom of the chart. There is whitespace between each bar.
+This stacked bar chart uses the afcharts theme and shows the proportions of countries with a life expectancy over and under 75 by continent. The continents are listed along the x-axis, with the y-axis labelled between 0% and 100% in breaks of 25%. The colours for the bar segments are from the Analysis Function categorical2 palette, dark blue for under 75 and orange for over 75, denoted by a legend at the bottom of the chart. There is whitespace between each bar.
 
 ## Histograms
 
@@ -232,7 +232,7 @@ gapminder |>
 <<histogram>>
 ```
 
-This histogram uses the afcharts theme, and shows the distribution of life expectancy by number of countries. There are pale grey grid lines extending out from the y axis. The bars are dark blue with white space between each.
+This histogram uses the afcharts theme, and shows the distribution of life expectancy by number of countries. There are pale grey gridlines extending out from the y-axis. The bars are dark blue with white space between each.
 
 ## Scatterplots
 
@@ -256,7 +256,7 @@ gapminder |>
 <<scatterplot>>
 ```
 
-This scatterplot uses the afcharts theme, and shows life expectancy against GDP for all countries. Thin pale grey lines extend out from the x and y axis labels, forming a grid. The data points are plotted as dark blue circles. Both axes are labeled in black using a sans serif font. 
+This scatterplot uses the afcharts theme, and shows life expectancy against GDP for all countries. Thin pale grey lines extend out from the x and y-axis labels, forming a grid. The data points are plotted as dark blue circles. Both axes are labeled in black using a sans serif font. 
 
 It is best practice to use commas to separate thousands. Use scales::label_comma() to add commas to axis labels.
 
@@ -295,7 +295,7 @@ gapminder |>
 <<small-multiples>>
 ```
 
-This chart uses the afcharts theme. It contains four subplots in a two by two grid showing how the populations of four continents have changed over time. Each subplot is labelled with the continent. The subplots have a common y axis, with no values on the x axis to facilitate for a simple comparison of the relative values. Each subplot is filled with a different colour from the Analysis Function categorical colour palette to be distinct from other subplots.
+This chart uses the afcharts theme. It contains four subplots in a two by two grid showing how the populations of four continents have changed over time. Each subplot is labelled with the continent. The subplots have a common y-axis, with no values on the x-axis to facilitate for a simple comparison of the relative values. Each subplot is filled with a different colour from the Analysis Function categorical colour palette to be distinct from other subplots.
 
 ## Pie charts
 
@@ -321,7 +321,7 @@ stacked_bar_data |>
 <<pie-chart>>
 ```
 
-This pie chart uses the afcharts theme, showing the proportions of European countries with a life expectancy under and over 75. The segment colours are from the Analysis Function categorical2 palette, with the smaller under 75 segment in dark blue, and the larger over 75 segment in orange. This is indicated by a legend to the right of the pie chart. There is whitespace separating the segments from each other.
+This pie chart uses the afcharts theme, showing the proportions of European countries with a life expectancy under and over 75 years. The segment colours are from the Analysis Function categorical2 palette, with the smaller 'Under 75' segment in dark blue, and the larger '75+' segment in orange. This is indicated by a legend to the right of the pie chart. There is whitespace separating the segments from each other.
 
 ## Focus charts
 
@@ -349,7 +349,7 @@ pop_bar_data |>
 <<focus-chart>>
 ```
 
-This bar chart uses the afcharts theme, and shows the populations of five countries of the Americas in descending order. The country names are given on the x axis, with all chart text in black in a sans serif font. Four of the bars on the chart are light grey, and the bar for Brazil is filled in dark blue to highlight it.
+This bar chart uses the afcharts theme, and shows the populations of five countries of the Americas in descending order. The country names are given on the x-axis, with all chart text in black in a sans serif font. Four of the bars on the chart are light grey, and the bar for Brazil is filled in dark blue to highlight it.
 
 ## Interactive charts
 
@@ -359,7 +359,7 @@ To make a `ggplot2` chart interactive, use `ggplotly()` from the `plotly` packag
 
 * Subtitles and captions are not supported in `ggplotly()`. As stated elsewhere in this guidance, titles and subtitles should ideally be included in the body of text surrounding a chart rather than embedded in the chart itself, and so this is hopefully not a big issue.
 
-Please note, interactive charts may not meet all accessibility requirements and we advise you to test any interactive charts with users to ensure they work correctly.
+**Note**: Interactive charts may not meet all accessibility requirements. We advise you to test any interactive charts with keyboard and screen reader users, to ensure they work correctly.
 
 ```{r interactive-charts, eval = FALSE}
 p <-

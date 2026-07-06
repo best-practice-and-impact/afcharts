@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-Accessibility legislation means that all content published on public sector websites, including charts, must meet the level A and AA success criterion in the [Web Content Accessibility Guidelines 2.1](https://www.w3.org/TR/WCAG21/). 
+Accessibility legislation means that all content published on public sector websites, including charts, must meet the level A and AA success criterion in the [Web Content Accessibility Guidelines 2.2](https://www.w3.org/TR/WCAG22/). 
 
 
 ## Resources
@@ -39,9 +39,9 @@ By applying `theme_af` to ggplot2 plots, the following best practice is followed
 
 * Plot background is white.
 
-* Axis lines and ticks are light grey (#595959). By default, only the x axis is shown but these can be controlled using the `axis` and `ticks` arguments.
+* Axis lines and ticks are light grey (#595959). By default, only the x-axis is shown but these can be controlled using the `axis` and `ticks` arguments.
 
-* Grid lines are light grey (#595959) and kept to a minimum; by default only major y axis lines are shown, but this can be controlled using the `grid` argument.
+* Gridlines are light grey (#595959) and kept to a minimum; by default only major y-axis lines are shown, but this can be controlled using the `grid` argument.
 
 * Text is black, uses a Sans Serif font and is size 12 by default. Text size can be controlled using the `base_size` argument.
 
@@ -50,7 +50,7 @@ By applying `theme_af` to ggplot2 plots, the following best practice is followed
 * Line thickness is relative to font size.
 
 afcharts provides colour palettes as set out by the [Government Analysis Function Colour Guidance](https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-colours-in-charts/). 
-These palettes have been developed to meet the [Web Content Accessibility Guidelines 2.1 for graphical objects](https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html) and can be applied to charts by using one of the four colour/fill functions:
+These palettes have been developed to meet the [Web Content Accessibility Guidelines 2.2 for graphical objects](https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html) and can be applied to charts by using one of the four colour/fill functions:
 
 * `scale_colour_discrete_af()`
 * `scale_fill_discrete_af()`

@@ -12,7 +12,7 @@ status](https://www.r-pkg.org/badges/version/afcharts)](https://CRAN.R-project.o
 
 afcharts is an R package for creating accessible plots by the Government
 Analysis Function. Currently, functions are available for styling
-ggplot2 plots.
+[ggplot2](https://ggplot2.tidyverse.org/) plots.
 
 The package has been developed using the [Government Analysis Function
 Data Visualisation
@@ -73,7 +73,7 @@ beginning of your R script, Rmarkdown document or Shiny app code. This
 function will set a number of defaults to ggplot2 geoms, use afcharts
 colour palettes and use `theme_af()`.
 
-#### Example 1: Bar chart with one colour using ggplot2 defaults
+#### Example 1: Bar chart using ggplot2 defaults
 
 ``` r
 library(ggplot2)
@@ -91,7 +91,6 @@ gapminder |>
     limits = c(0, 350E6),
     expand = expansion(mult = c(0, 0.1))
   ) +
-  scale_fill_discrete_af("focus", reverse = TRUE) +
   labs(
     x = NULL,
     y = NULL,
@@ -104,15 +103,15 @@ Population of countries in the Americas (millions), 2007
 
 ![](man/figures/README-unnamed-chunk-2-1.svg)<!-- -->
 
-The bar chart above has grey background, white grid lines and dark grey
+The bar chart above has grey background, white gridlines and dark grey
 bars.
 
-#### Example 2: Bar chart of one colour using afcharts defaults
+#### Example 2: Bar chart using Analysis Function styling
 
 ``` r
 afcharts::use_afcharts()
 
-gapminder |> 
+gapminder |>
   filter(year == 2007 & continent == "Americas") |>
   slice_max(order_by = pop, n = 5) |>
   ggplot(aes(x = reorder(country, -pop), y = pop)) +
@@ -120,7 +119,7 @@ gapminder |>
   scale_y_continuous(
     labels = scales::label_number(scale = 1E-6),
     limits = c(0, 350E6),
-    expand = c(0, 0),expansion(mult = c(0, 0.1))
+    expand = expansion(mult = c(0, 0.1))
   ) +
   labs(
     x = NULL,
@@ -134,10 +133,10 @@ Population of countries in the Americas (millions), 2007
 
 ![](man/figures/README-unnamed-chunk-3-1.svg)<!-- -->
 
-The bar chart above has a white background, light grey horizontal grid
-lines, and dark blue bars.
+The bar chart above has a white background, light grey horizontal
+gridlines, and dark blue bars.
 
-#### Example 3: Multiple colour line chart with afcharts formatting
+#### Example 3: Multiple colour line chart using Analysis Function styling
 
 ``` r
 afcharts::use_afcharts()
@@ -170,9 +169,18 @@ gapminder |>
 
 ![](man/figures/README-unnamed-chunk-4-1.svg)<!-- -->
 
-The line chart above has a white background, light grey horizontal grid
-lines, a dark blue line representing the UK, and an orange line
+The line chart above has a white background, light grey horizontal
+gridlines, a dark blue line representing the UK, and an orange line
 representing China.
+
+### Switch off Analysis Function styling of charts
+
+You can turn off afcharts styling of charts using the reset argument of
+`use_afcharts`.
+
+``` r
+afcharts::use_afcharts(reset = TRUE)
+```
 
 ## Related projects
 

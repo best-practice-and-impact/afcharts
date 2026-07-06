@@ -1,10 +1,10 @@
 ## Using different colour palettes
 
 afcharts provides colour palettes as set out by the [Government Analysis Function suggested colour palettes](https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-colours-in-charts/#section-4). 
-These palettes have been developed to meet the [Web Content Accessibility Guidelines 2.1 for graphical objects](https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html).
+These palettes have been developed to meet the [Web Content Accessibility Guidelines 2.2 for graphical objects](https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html).
 
 
-The [categorical palette](https://best-practice-and-impact.github.io/afcharts/articles/colours.html#main-palette) is the default for discrete colour/fill functions, and the [sequential palette](https://best-practice-and-impact.github.io/afcharts/articles/colours.html#sequential-palette) for continuous colour/fill functions.
+The [categorical palette](https://best-practice-and-impact.github.io/afcharts/articles/colours.html#main-palette) is the default for discrete colour or fill functions, and the [sequential palette](https://best-practice-and-impact.github.io/afcharts/articles/colours.html#sequential-palette) for continuous colour or fill functions.
 
 More information on the colours used in afcharts can be found at `vignette("colours")`.
 
