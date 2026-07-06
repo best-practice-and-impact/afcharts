@@ -63,7 +63,7 @@ The `categorical` palette should be used with categorical data. The colours in t
 afcharts:::colour_table(afcharts::af_colour_palettes$categorical)
 ```
 
-The afcharts categorical colour palette supports chart designs with up to 6 categorial values. Colours should be used in the order as shown above. The exception is when only two colours are required. In this scenario, dark blue and orange should be used instead, as these have the greatest colour contrast with each other. The afcharts discrete `scale_` functions will automatically use the correct colours based on the number you need.
+The afcharts categorical colour palette supports chart designs with up to 6 categorial values. Colours should be used in the order as shown above. The exception is when only two colours are required. In this scenario, dark blue and orange should be used instead, as these have a greater colour contrast with each other than dark blue and turquoise. The afcharts discrete `scale_` functions will automatically use the correct colours based on the number you need.
 
 `r table_note`
 
