@@ -43,8 +43,12 @@ E.g. If only two colours are required and the palette is set to
 without warning.
 }
 \examples{
+library(afcharts)
 library(ggplot2)
 library(dplyr)
+
+use_afcharts()
+set_theme(theme_af(base_size = 12))
 
 economics_long \%>\%
   filter(variable \%in\% c("psavert", "uempmed")) \%>\%
@@ -52,4 +56,5 @@ economics_long \%>\%
   geom_line(linewidth = 1) +
   scale_colour_discrete_af()
 
+use_afcharts(reset = TRUE)
 }

@@ -14,12 +14,17 @@
 #' @returns ggplot2 continuous fill scale
 #'
 #' @examples
+#' library(afcharts)
 #' library(ggplot2)
+#' 
+#' use_afcharts()
+#' set_theme(theme_af(base_size = 12))
 #'
 #' ggplot(faithfuld, aes(x = waiting, y = eruptions, fill = density)) +
 #'   geom_raster() +
 #'   scale_fill_continuous_af()
 #'
+#' use_afcharts(reset=TRUE) 
 #' @export
 
 scale_fill_continuous_af <- function(palette = "sequential",

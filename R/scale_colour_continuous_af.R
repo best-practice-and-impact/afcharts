@@ -14,12 +14,17 @@
 #' @returns ggplot2 continuous colour scale
 #'
 #' @examples
+#' library(afcharts)
 #' library(ggplot2)
+#' 
+#' use_afcharts()
+#' set_theme(theme_af(base_size = 12))
 #'
 #' ggplot(mtcars, aes(x = mpg, y = wt, colour = cyl)) +
 #'   geom_point() +
 #'   scale_colour_continuous_af()
 #'
+#' use_afcharts(reset = TRUE)
 #' @export
 
 scale_colour_continuous_af <- function(palette = "sequential",

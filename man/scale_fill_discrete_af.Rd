@@ -45,6 +45,9 @@ without warning.
 \examples{
 library(ggplot2)
 
+use_afcharts()
+set_theme(theme_af(base_size = 12))
+
 d <- subset(mpg, manufacturer == "ford")
 
 ggplot(d, aes(x = class, fill = class)) +
@@ -55,12 +58,18 @@ ggplot(d, aes(x = class, fill = class)) +
 # The Analysis Function guidance recommends using a dark blue outline on
 # barcharts with a sequential colour palette
 
+
 d2 <- data.frame(
-  age = c("<25", "25-44", "45-54", "55-64", "65 plus"),
+  age = factor(
+            c("<25", "25-44", "45-54", "55-64", "65 plus"), 
+            levels = c("<25", "25-44", "45-54", "55-64", "65 plus")
+        ),
   score = c(20, 34, 44, 88, 90)
 )
 
 ggplot(d2, aes(x = age, y = score, fill = age)) +
   geom_col(colour = af_dark_blue) +
   scale_fill_discrete_af(palette = "sequential")
+
+use_afcharts(reset = TRUE)
 }
