@@ -47,6 +47,9 @@ Suggests:
     gapminder,
     diffviewer,
     vdiffr,
-    withr
+    withr,
+    cowplot,
+    readr,
+    sf
 VignetteBuilder: knitr
 Roxygen: list(markdown = TRUE)
