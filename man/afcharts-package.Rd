@@ -6,6 +6,8 @@
 \alias{afcharts-package}
 \title{afcharts: Produce Charts Following UK Government Analysis Function Guidance}
 \description{
+\if{html}{\figure{logo.svg}{options: style='float: right' alt='logo' width='120'}}
+
 Colour palettes and a 'ggplot2' theme to follow the UK Government Analysis Function best practice guidance for producing data visualisations, available at \url{https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-charts/}. Includes continuous and discrete colour and fill scales, as well as a 'ggplot2' theme.
 }
 \seealso{
