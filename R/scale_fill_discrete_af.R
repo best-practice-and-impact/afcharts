@@ -21,6 +21,7 @@
 #'   without warning.
 #'
 #' @examples
+#' library(afcharts)
 #' library(ggplot2)
 #'
 #' use_afcharts()
