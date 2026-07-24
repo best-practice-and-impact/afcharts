@@ -13,23 +13,19 @@
 #'   theme, colour palette and geom aesthetic defaults.
 #'
 #' @examples
-#' library(afcharts)
 #' library(ggplot2)
+#'
+#' use_afcharts(reset = TRUE)
 #' 
-#' set_theme(theme_grey(base_size = 12))
-#'
 #' d <- subset(mpg, manufacturer == "ford")
-#'
-#' ggplot(d, aes(x = model)) + geom_bar()
-#' ggplot(d, aes(x = model, fill = class)) + geom_bar()
-#'
-#' use_afcharts()
-#' set_theme(theme_af(base_size = 12))
 #'
 #' ggplot(d, aes(x = model)) + geom_bar()
 #' ggplot(d, aes(x = model, fill = class, colour = class)) + geom_bar()
 #'
-#' use_afcharts(reset = TRUE)
+#' use_afcharts(base_size = 12)
+#'
+#' ggplot(d, aes(x = model)) + geom_bar()
+#' ggplot(d, aes(x = model, fill = class, colour = class)) + geom_bar()
 #' @export
 
 

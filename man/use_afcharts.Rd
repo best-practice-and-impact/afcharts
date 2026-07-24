@@ -28,21 +28,17 @@ Set afcharts theme, colour palette and geom aesthetic defaults
 for ggplot2 charts.
 }
 \examples{
-library(afcharts)
 library(ggplot2)
 
-set_theme(theme_grey(base_size = 12))
+use_afcharts(reset = TRUE)
 
 d <- subset(mpg, manufacturer == "ford")
 
 ggplot(d, aes(x = model)) + geom_bar()
-ggplot(d, aes(x = model, fill = class)) + geom_bar()
+ggplot(d, aes(x = model, fill = class, colour = class)) + geom_bar()
 
-use_afcharts()
-set_theme(theme_af(base_size = 12))
+use_afcharts(base_size = 12)
 
 ggplot(d, aes(x = model)) + geom_bar()
 ggplot(d, aes(x = model, fill = class, colour = class)) + geom_bar()
-
-use_afcharts(reset = TRUE)
 }

@@ -22,19 +22,13 @@
 #' @returns ggplot2 plot theme
 #'
 #' @examples
-#' library(afcharts)
 #' library(ggplot2)
-#'
-#' set_theme(theme_grey(base_size = 12))
 #' 
 #' p <- ggplot(mpg, aes(x = class)) + geom_bar()
 #'
 #' p
 #' 
-#' set_theme(theme_af(base_size = 12))
-#' 
-#' p + theme_af()
-#'
+#' p + theme_af(base_size = 12)
 #' @export
 
 theme_af <- function(

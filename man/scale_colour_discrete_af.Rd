@@ -43,18 +43,14 @@ E.g. If only two colours are required and the palette is set to
 without warning.
 }
 \examples{
-library(afcharts)
 library(ggplot2)
 library(dplyr)
 
-use_afcharts()
-set_theme(theme_af(base_size = 12))
+\dontshow{set_theme()}
 
 economics_long \%>\%
   filter(variable \%in\% c("psavert", "uempmed")) \%>\%
   ggplot(aes(x = date, y = value, colour = variable)) +
   geom_line(linewidth = 1) +
   scale_colour_discrete_af()
-
-use_afcharts(reset = TRUE)
 }

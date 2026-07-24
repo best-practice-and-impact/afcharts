@@ -45,8 +45,7 @@ without warning.
 \examples{
 library(ggplot2)
 
-use_afcharts()
-set_theme(theme_af(base_size = 12))
+\dontshow{set_theme()}
 
 d <- subset(mpg, manufacturer == "ford")
 
@@ -70,6 +69,4 @@ d2 <- data.frame(
 ggplot(d2, aes(x = age, y = score, fill = age)) +
   geom_col(colour = af_dark_blue) +
   scale_fill_discrete_af(palette = "sequential")
-
-use_afcharts(reset = TRUE)
 }
