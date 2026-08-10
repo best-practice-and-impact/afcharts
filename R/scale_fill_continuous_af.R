@@ -15,8 +15,6 @@
 #'
 #' @examples
 #' library(ggplot2)
-#' 
-#' \dontshow{set_theme()}
 #'
 #' ggplot(faithfuld, aes(x = waiting, y = eruptions, fill = density)) +
 #'   geom_raster() +

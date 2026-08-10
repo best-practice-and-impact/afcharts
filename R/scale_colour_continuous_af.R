@@ -15,8 +15,6 @@
 #'
 #' @examples
 #' library(ggplot2)
-#' 
-#' \dontshow{set_theme()}
 #'
 #' ggplot(mtcars, aes(x = mpg, y = wt, colour = cyl)) +
 #'   geom_point() +

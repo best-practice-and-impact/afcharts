@@ -39,8 +39,6 @@ Continuous colour scales for Analysis Function plots
 \examples{
 library(ggplot2)
 
-\dontshow{set_theme()}
-
 ggplot(mtcars, aes(x = mpg, y = wt, colour = cyl)) +
   geom_point() +
   scale_colour_continuous_af()

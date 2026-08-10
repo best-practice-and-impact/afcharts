@@ -22,9 +22,7 @@
 #'
 #' @examples
 #' library(ggplot2)
-#' 
-#' \dontshow{set_theme()}
-#' 
+#'
 #' d <- subset(mpg, manufacturer == "ford")
 #'
 #' ggplot(d, aes(x = class, fill = class)) +
@@ -35,10 +33,10 @@
 #' # The Analysis Function guidance recommends using a dark blue outline on
 #' # barcharts with a sequential colour palette
 #'
-#' 
+#'
 #' d2 <- data.frame(
 #'   age = factor(
-#'             c("<25", "25-44", "45-54", "55-64", "65 plus"), 
+#'             c("<25", "25-44", "45-54", "55-64", "65 plus"),
 #'             levels = c("<25", "25-44", "45-54", "55-64", "65 plus")
 #'         ),
 #'   score = c(20, 34, 44, 88, 90)

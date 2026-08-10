@@ -46,8 +46,6 @@ without warning.
 library(ggplot2)
 library(dplyr)
 
-\dontshow{set_theme()}
-
 economics_long \%>\%
   filter(variable \%in\% c("psavert", "uempmed")) \%>\%
   ggplot(aes(x = date, y = value, colour = variable)) +

@@ -45,8 +45,6 @@ without warning.
 \examples{
 library(ggplot2)
 
-\dontshow{set_theme()}
-
 d <- subset(mpg, manufacturer == "ford")
 
 ggplot(d, aes(x = class, fill = class)) +
@@ -60,7 +58,7 @@ ggplot(d, aes(x = class, fill = class)) +
 
 d2 <- data.frame(
   age = factor(
-            c("<25", "25-44", "45-54", "55-64", "65 plus"), 
+            c("<25", "25-44", "45-54", "55-64", "65 plus"),
             levels = c("<25", "25-44", "45-54", "55-64", "65 plus")
         ),
   score = c(20, 34, 44, 88, 90)
