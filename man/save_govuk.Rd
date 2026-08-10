@@ -64,4 +64,7 @@ bar_chart <- ggplot(grouped_bar_data,
  save_govuk(file, bar_chart, device = "svg")
  unlink(file)
 
+ # Turn off afcharts styling
+ use_afcharts(reset = TRUE)
+
 }

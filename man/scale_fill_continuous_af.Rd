@@ -42,5 +42,4 @@ library(ggplot2)
 ggplot(faithfuld, aes(x = waiting, y = eruptions, fill = density)) +
   geom_raster() +
   scale_fill_continuous_af()
-
 }

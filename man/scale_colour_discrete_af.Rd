@@ -51,5 +51,4 @@ economics_long \%>\%
   ggplot(aes(x = date, y = value, colour = variable)) +
   geom_line(linewidth = 1) +
   scale_colour_discrete_af()
-
 }

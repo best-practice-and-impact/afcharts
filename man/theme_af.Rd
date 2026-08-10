@@ -51,6 +51,6 @@ library(ggplot2)
 p <- ggplot(mpg, aes(x = class)) + geom_bar()
 
 p
-p + theme_af()
 
+p + theme_af(base_size = 12)
 }
