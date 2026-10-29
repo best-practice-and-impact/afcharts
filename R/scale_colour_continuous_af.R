@@ -19,7 +19,6 @@
 #' ggplot(mtcars, aes(x = mpg, y = wt, colour = cyl)) +
 #'   geom_point() +
 #'   scale_colour_continuous_af()
-#'
 #' @export
 
 scale_colour_continuous_af <- function(palette = "sequential",

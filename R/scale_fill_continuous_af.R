@@ -19,7 +19,6 @@
 #' ggplot(faithfuld, aes(x = waiting, y = eruptions, fill = density)) +
 #'   geom_raster() +
 #'   scale_fill_continuous_af()
-#'
 #' @export
 
 scale_fill_continuous_af <- function(palette = "sequential",

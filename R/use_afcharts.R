@@ -20,10 +20,16 @@
 #' ggplot(d, aes(x = model)) + geom_bar()
 #' ggplot(d, aes(x = model, fill = class)) + geom_bar()
 #'
-#' use_afcharts()
+#' use_afcharts(base_size = 12)
 #'
 #' ggplot(d, aes(x = model)) + geom_bar()
-#' ggplot(d, aes(x = model, fill = class, colour = class)) + geom_bar()
+#' ggplot(d, aes(x = model, fill = class)) + geom_bar()
+#'
+#' # Turn off afcharts styling
+#' use_afcharts(reset = TRUE)
+#'
+#' ggplot(d, aes(x = model)) + geom_bar()
+#' ggplot(d, aes(x = model, fill = class)) + geom_bar()
 #'
 #' @export
 
